@@ -10,12 +10,7 @@
  */
 
 /* Adjust margin/height */
-html body.admin-menu {
-  margin-top: 29px !important;
-}
-html body.admin-menu-with-shortcuts {
-  margin-top: 65px !important;
-}
+
 /* Displace the core Toolbar, if concurrently output. */
 body div#toolbar.toolbar {
   top: 30px;
