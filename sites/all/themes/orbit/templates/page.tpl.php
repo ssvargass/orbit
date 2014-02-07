@@ -62,10 +62,11 @@
  * @see template_process()
  */?>
 <div id="page-wrapper">
-
-  <nav id="nav_region">
-    <?php print render($page['nav']); ?>
-  </nav>
+  <?php if($page['nav']): ?>
+    <nav id="nav_region">
+      <?php print render($page['nav']); ?>
+    </nav>
+  <?php endif; ?>
 
   <header id="header"> 
     <?php print render($page['header']); ?>   
@@ -78,14 +79,16 @@
       <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 			<?php print render($page['content']); ?>
     </div>
-    <div class="pst_content_region">
-      <div id="p_content">
-        <?php print render($page['p_content']); ?>
+    <?php if($page['p_content'] || $page['footer']): ?>
+      <div class="pst_content_region">
+        <div id="p_content">
+          <?php print render($page['p_content']); ?>
+        </div>
+        <footer id="footer">
+          <?php print render($page['footer']); ?>
+        </footer>
       </div>
-      <footer id="footer">
-        <?php print render($page['footer']); ?>
-      </footer>
-    </div>
+    <?php endif; ?>
   </section> 
 
 </div>
