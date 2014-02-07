@@ -33,7 +33,7 @@ a, a:link {
 }
 
 /* line 43, ../sass/style.scss */
-.clearfix:after {
+.clearfix:after, header:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -43,13 +43,13 @@ a, a:link {
 }
 
 /* line 44, ../sass/style.scss */
-* html .clearfix {
+* html .clearfix, * html header {
   zoom: 1;
 }
 
 /* IE6 */
 /* line 45, ../sass/style.scss */
-*:first-child + html .clearfix {
+*:first-child + html .clearfix, *:first-child + html header {
   zoom: 1;
 }
 
@@ -66,27 +66,83 @@ a, a:link {
 
 /*==end==*/
 /*artefactos*/
-/* line 55, ../sass/style.scss */
-.not-logged-in:after {
-  content: " ";
-  position: absolute;
+/* line 59, ../sass/style.scss */
+#block-user-login {
+  width: 50%;
+  margin: auto;
+}
+/* line 62, ../sass/style.scss */
+#block-user-login .webform-component-select {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1em;
+  padding-right: 1em;
+  border-right: 1px solid #DDD;
+}
+/* line 69, ../sass/style.scss */
+#block-user-login .webform-component-radios {
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 72, ../sass/style.scss */
+#block-user-login .webform-component-radios .form-type-radio {
+  float: left;
+  margin-right: 1em;
+}
+/* line 77, ../sass/style.scss */
+#block-user-login .form-select {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #DDD;
+  padding-right: 4em;
+  background: url(../images/btn-select.png) right center no-repeat;
+  color: #666666;
+  min-width: 15em;
+}
+/* line 89, ../sass/style.scss */
+#block-user-login textarea,
+#block-user-login .form-email,
+#block-user-login .form-number,
+#block-user-login input[type="text"],
+#block-user-login input[type="password"] {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #DDD;
+  margin: 0.5em 0;
+  padding: 0.5em 1em;
+  width: 100%;
+}
+/* line 96, ../sass/style.scss */
+#block-user-login .form-submit {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background: blue;
+  color: white;
+  border: 1px solid #DDD;
+  padding: 0.5em 1em;
+  margin: auto;
+  display: inherit;
+  text-shadow: none;
+}
+/* line 105, ../sass/style.scss */
+#block-user-login .form-submit:hover {
+  background: red;
 }
 
 /*==end==*/
 /*no-log*/
-/* line 64, ../sass/style.scss */
-.not-logged-in {
-  background: transparent url(../images/logo-orbit.png) top center no-repeat;
-  border-top: 6em solid #333333;
-  position: relative;
-}
-/* line 68, ../sass/style.scss */
-.not-logged-in:after {
-  background: transparent url(../images/logo-la-sante.png) center center no-repeat;
-  height: 45px;
-  width: 250px;
-  top: -5em;
-  left: 0;
+/* line 117, ../sass/style.scss */
+.not-logged-in #first-time,
+.not-logged-in #t-logo {
+  display: none;
 }
 
 /*==end==*/
+/* line 126, ../sass/style.scss */
+header {
+  background: #333333;
+  padding: 1em;
+}

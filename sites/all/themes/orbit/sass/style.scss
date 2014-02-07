@@ -56,23 +56,75 @@ a, a:link { text-decoration: none;}
 	content: " ";
 	position: absolute;
 }
+%form {
+	width: 50%;
+	margin: auto;
+	.webform-component-select {
+		display: inline-block;
+		vertical-align: top;
+		margin-right: 1em;
+		padding-right: 1em;
+		border-right: 1px solid #DDD;
+	}
+	.webform-component-radios {
+		display: inline-block;
+		vertical-align: top;
+		.form-type-radio {
+			float: left;
+			margin-right: 1em;
+		}
+	}
+	.form-select {
+		@include border-radius(5px);
+		border: 1px solid #DDD;
+		padding-right: 4em;
+		background: url(../images/btn-select.png) right center no-repeat;
+		color: #666666;
+		min-width: 15em;
+	}
+	textarea,
+	.form-email,
+	.form-number,
+	input[type="text"],
+	input[type="password"] {
+		@include border-radius(5px);
+		border: 1px solid #DDD;
+		margin: 0.5em 0;
+		padding: 0.5em 1em;
+		width: 100%;
+	}
+	.form-submit {
+		@include border-radius(0);
+		background: blue;
+		color: white;
+		border: 1px solid #DDD;
+		padding: 0.5em 1em;
+		margin: auto;
+		display: inherit;
+		text-shadow: none;
+		&:hover {
+			background: red;
+		}
+	}
+}
 
 /*==end==*/
 
 /*no-log*/
 
 .not-logged-in {
-	background:transparent url(../images/logo-orbit.png) top center no-repeat;
-	border-top: 6em solid $orbit-gray-dark;
-	position: relative;
-	&:after {
-		@extend %after-before;
-		background:transparent url(../images/logo-la-sante.png) center center no-repeat;
-		height: 45px;
-		width: 250px;
-		top: -5em;
-		left: 0;
-	}
+	#first-time,
+	#t-logo { display: none;}
+}
+
+#block-user-login {
+	@extend %form;
 }
 
 /*==end==*/
+
+header {
+	@extend .clearfix;
+	background: $orbit-gray-dark;
+	padding: 1em;
+}
