@@ -63,11 +63,11 @@
  */?>
 <div id="page-wrapper">
 
-  <div id="nav_region">
+  <nav id="nav_region">
     <?php print render($page['top']); ?>
-  </div>
+  </nav>
 
-  <div id="header"> 
+  <header id="header"> 
     <?php print render($page['header']); ?>   
     <div id="t-logo">
       <?php if ($logo): ?>
@@ -76,9 +76,9 @@
         </a>
       <?php endif ?>
     </div>
-  </div>  
+  </header>  
   
-  <div id="content-wrapper">
+  <section id="content-wrapper">
     <div id="content">
       <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
       <?php if ($messages): ?><h1 class="title" id="page-title"><?php print $messages; ?></h1><?php endif; ?>
@@ -89,9 +89,10 @@
       <div id="p_content">
         <?php print render($page['p_content']); ?>
       </div>
-      <div id="footer">
+      <footer id="footer">
         <?php print render($page['footer']); ?>
-      </div>
+      </footer>
     </div>
-  </div>  
+  </section> 
+
 </div>
