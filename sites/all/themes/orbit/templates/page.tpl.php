@@ -62,15 +62,16 @@
  * @see template_process()
  */?>
 <div id="page-wrapper">
+  
+  <header id="header"> 
+    <?php print render($page['header']); ?>   
+  </header> 
+
   <?php if($page['nav']): ?>
     <nav id="nav_region">
       <?php print render($page['nav']); ?>
     </nav>
   <?php endif; ?>
-
-  <header id="header"> 
-    <?php print render($page['header']); ?>   
-  </header>  
   
   <section id="content-wrapper">
     <div id="content">
