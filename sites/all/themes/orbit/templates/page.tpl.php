@@ -64,18 +64,11 @@
 <div id="page-wrapper">
 
   <nav id="nav_region">
-    <?php print render($page['top']); ?>
+    <?php print render($page['nav']); ?>
   </nav>
 
   <header id="header"> 
     <?php print render($page['header']); ?>   
-    <div id="t-logo">
-      <?php if ($logo): ?>
-        <a href="<?php print $base_path ?>" title="<?php print t('Home') ?>">
-          <img src="<?php print $logo ?>" alt="<?php print t('Home') ?>" />
-        </a>
-      <?php endif ?>
-    </div>
   </header>  
   
   <section id="content-wrapper">

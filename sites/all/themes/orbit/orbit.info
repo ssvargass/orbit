@@ -5,7 +5,6 @@ version = VERSION
 core = 7.x
 stylesheets[all][] = css/style.css
 scripts[] = js/script.js
-scripts[] = js/customSelect.jquery.js
 
 regions[header] = Header
 regions[nav] = Navegacion
