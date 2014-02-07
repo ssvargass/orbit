@@ -1,0 +1,20 @@
+name = Orbit
+description = Tema creado para el sitio web de Orbit
+package = Core
+version = VERSION
+core = 7.x
+stylesheets[all][] = css/style.css
+scripts[] = js/script.js
+scripts[] = js/customSelect.jquery.js
+
+regions[header] = Header
+regions[nav] = Navegacion
+regions[content] = Content
+regions[p_content] = Post Content
+regions[footer] = Footer
+
+
+; Information added by drupal.org packaging script on 2012-05-02
+version = "7.26"
+project = "drupal"
+datestamp = "1335997555"
