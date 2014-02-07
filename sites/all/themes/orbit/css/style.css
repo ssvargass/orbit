@@ -1,3 +1,92 @@
-/* Welcome to Compass. Use this file to define print styles.
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/print.css" media="print" rel="stylesheet" type="text/css" /> */
+/**/
+/*=======colors=======*/
+/*=======end=======*/
+/*=======Border radius=======*/
+/*=======end=======*/
+/*generico*/
+/* line 22, ../sass/style.scss */
+body {
+  font-family: arial, helvetica, sans-serif;
+  font-size: 12px;
+  color: #666666;
+  margin: 0;
+}
+
+/* line 31, ../sass/style.scss */
+ul {
+  margin: 0;
+}
+/* line 33, ../sass/style.scss */
+ul li {
+  padding: 0;
+  list-style: none;
+}
+
+/* line 39, ../sass/style.scss */
+p {
+  margin-bottom: 0.5em;
+}
+
+/* line 41, ../sass/style.scss */
+a, a:link {
+  text-decoration: none;
+}
+
+/* line 43, ../sass/style.scss */
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+
+/* line 44, ../sass/style.scss */
+* html .clearfix {
+  zoom: 1;
+}
+
+/* IE6 */
+/* line 45, ../sass/style.scss */
+*:first-child + html .clearfix {
+  zoom: 1;
+}
+
+/* IE7 */
+/* line 47, ../sass/style.scss */
+.clear {
+  clear: both;
+}
+
+/* line 49, ../sass/style.scss */
+.ajax-progress {
+  position: absolute;
+}
+
+/*==end==*/
+/*artefactos*/
+/* line 55, ../sass/style.scss */
+.not-logged-in:after {
+  content: " ";
+  position: absolute;
+}
+
+/*==end==*/
+/*no-log*/
+/* line 64, ../sass/style.scss */
+.not-logged-in {
+  background: transparent url(../images/logo-orbit.png) top center no-repeat;
+  border-top: 6em solid #333333;
+  position: relative;
+}
+/* line 68, ../sass/style.scss */
+.not-logged-in:after {
+  background: transparent url(../images/logo-la-sante.png) center center no-repeat;
+  height: 45px;
+  width: 250px;
+  top: -5em;
+  left: 0;
+}
+
+/*==end==*/
