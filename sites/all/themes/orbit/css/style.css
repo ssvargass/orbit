@@ -160,8 +160,78 @@ nav {
 nav h2 {
   display: none;
 }
+/* line 140, ../sass/style.scss */
+nav .menu {
+  text-align: center;
+}
+/* line 142, ../sass/style.scss */
+nav .menu li {
+  position: relative;
+  width: 45px;
+  height: 45px;
+  margin: 0.5em auto;
+  list-style: none;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+/* line 152, ../sass/style.scss */
+nav .menu li a, nav .menu li a:link {
+  color: white;
+  position: absolute;
+  background: #333;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 1em;
+  top: 2px;
+  left: 120%;
+  display: none;
+}
+/* line 163, ../sass/style.scss */
+nav .menu li:hover a {
+  display: block;
+}
+/* line 165, ../sass/style.scss */
+nav .menu li:first-child {
+  background-image: url(../images/btn-ico-directorio.png);
+}
+/* line 167, ../sass/style.scss */
+nav .menu li:first-child:hover {
+  background-image: url(../images/btn-ico-directorio-h.png);
+}
+/* line 169, ../sass/style.scss */
+nav .menu li:nth-child(2) {
+  background-image: url(../images/btn-ico-menu.png);
+}
+/* line 171, ../sass/style.scss */
+nav .menu li:nth-child(2):hover {
+  background-image: url(../images/btn-ico-menu-h.png);
+}
+/* line 173, ../sass/style.scss */
+nav .menu li:nth-child(3) {
+  background-image: url(../images/btn-ico-planeador.png);
+}
+/* line 175, ../sass/style.scss */
+nav .menu li:nth-child(3):hover {
+  background-image: url(../images/btn-ico-planeador-h.png);
+}
+/* line 177, ../sass/style.scss */
+nav .menu li:nth-child(4) {
+  background-image: url(../images/btn-ico-salas.png);
+}
+/* line 179, ../sass/style.scss */
+nav .menu li:nth-child(4):hover {
+  background-image: url(../images/btn-ico-salas-h.png);
+}
+/* line 181, ../sass/style.scss */
+nav .menu li:last-child {
+  background-image: url(../images/btn-ico-docs.png);
+}
+/* line 183, ../sass/style.scss */
+nav .menu li:last-child:hover {
+  background-image: url(../images/btn-ico-docs-h.png);
+}
 
-/* line 141, ../sass/style.scss */
+/* line 187, ../sass/style.scss */
 #content-wrapper {
   float: right;
   width: 94%;

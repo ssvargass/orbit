@@ -137,6 +137,52 @@ nav {
 	width: 6%;
 	height: 100%;
 	h2 { display: none;}
+	.menu {
+		text-align: center;
+		li {
+			position: relative;
+			width: 45px;
+			height: 45px;
+			margin: 0.5em auto;
+			list-style: none;
+			background: {
+				repeat: no-repeat;
+				position: center center;
+			};
+			a, a:link {
+				color: white;
+				position: absolute;
+				background: #333;
+				height: 45px;
+				line-height: 45px;
+				padding: 0 1em;
+				top: 2px;
+				left: 120%;
+				display: none;
+			}
+			&:hover a { display: block}
+		}
+		li:first-child {
+			background-image: url(../images/btn-ico-directorio.png);
+			&:hover { background-image: url(../images/btn-ico-directorio-h.png);}
+		}
+		li:nth-child(2) {
+			background-image: url(../images/btn-ico-menu.png);
+			&:hover { background-image: url(../images/btn-ico-menu-h.png);}
+		}
+		li:nth-child(3) {
+			background-image: url(../images/btn-ico-planeador.png);
+			&:hover { background-image: url(../images/btn-ico-planeador-h.png);}
+		}
+		li:nth-child(4) {
+			background-image: url(../images/btn-ico-salas.png);
+			&:hover { background-image: url(../images/btn-ico-salas-h.png);}
+		}
+		li:last-child {
+			background-image: url(../images/btn-ico-docs.png);
+			&:hover { background-image: url(../images/btn-ico-docs-h.png);}
+		}
+	}
 }
 #content-wrapper {
 	float: right;
