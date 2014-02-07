@@ -15,25 +15,27 @@ body {
 /* line 31, ../sass/style.scss */
 ul {
   margin: 0;
+  padding: 0;
 }
-/* line 33, ../sass/style.scss */
+/* line 34, ../sass/style.scss */
 ul li {
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* line 39, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 p {
   margin-bottom: 0.5em;
 }
 
-/* line 41, ../sass/style.scss */
+/* line 43, ../sass/style.scss */
 a, a:link {
   text-decoration: none;
 }
 
-/* line 43, ../sass/style.scss */
-.clearfix:after, header:after {
+/* line 45, ../sass/style.scss */
+.clearfix:after, #page-wrapper:after, header:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -42,36 +44,36 @@ a, a:link {
   height: 0;
 }
 
-/* line 44, ../sass/style.scss */
-* html .clearfix, * html header {
+/* line 46, ../sass/style.scss */
+* html .clearfix, * html #page-wrapper, * html header {
   zoom: 1;
 }
 
 /* IE6 */
-/* line 45, ../sass/style.scss */
-*:first-child + html .clearfix, *:first-child + html header {
+/* line 47, ../sass/style.scss */
+*:first-child + html .clearfix, *:first-child + html #page-wrapper, *:first-child + html header {
   zoom: 1;
 }
 
 /* IE7 */
-/* line 47, ../sass/style.scss */
+/* line 49, ../sass/style.scss */
 .clear {
   clear: both;
 }
 
-/* line 49, ../sass/style.scss */
+/* line 51, ../sass/style.scss */
 .ajax-progress {
   position: absolute;
 }
 
 /*==end==*/
 /*artefactos*/
-/* line 59, ../sass/style.scss */
+/* line 62, ../sass/style.scss */
 #block-user-login {
   width: 50%;
   margin: auto;
 }
-/* line 62, ../sass/style.scss */
+/* line 65, ../sass/style.scss */
 #block-user-login .webform-component-select {
   display: inline-block;
   vertical-align: top;
@@ -79,17 +81,17 @@ a, a:link {
   padding-right: 1em;
   border-right: 1px solid #DDD;
 }
-/* line 69, ../sass/style.scss */
+/* line 72, ../sass/style.scss */
 #block-user-login .webform-component-radios {
   display: inline-block;
   vertical-align: top;
 }
-/* line 72, ../sass/style.scss */
+/* line 75, ../sass/style.scss */
 #block-user-login .webform-component-radios .form-type-radio {
   float: left;
   margin-right: 1em;
 }
-/* line 77, ../sass/style.scss */
+/* line 80, ../sass/style.scss */
 #block-user-login .form-select {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -100,7 +102,7 @@ a, a:link {
   color: #666666;
   min-width: 15em;
 }
-/* line 89, ../sass/style.scss */
+/* line 92, ../sass/style.scss */
 #block-user-login textarea,
 #block-user-login .form-email,
 #block-user-login .form-number,
@@ -114,7 +116,7 @@ a, a:link {
   padding: 0.5em 1em;
   width: 100%;
 }
-/* line 96, ../sass/style.scss */
+/* line 99, ../sass/style.scss */
 #block-user-login .form-submit {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -127,22 +129,40 @@ a, a:link {
   display: inherit;
   text-shadow: none;
 }
-/* line 105, ../sass/style.scss */
+/* line 108, ../sass/style.scss */
 #block-user-login .form-submit:hover {
   background: red;
 }
 
 /*==end==*/
 /*no-log*/
-/* line 117, ../sass/style.scss */
+/* line 120, ../sass/style.scss */
 .not-logged-in #first-time,
 .not-logged-in #t-logo {
   display: none;
 }
 
 /*==end==*/
-/* line 126, ../sass/style.scss */
+/* line 129, ../sass/style.scss */
 header {
   background: #333333;
   padding: 1em;
+}
+
+/* line 134, ../sass/style.scss */
+nav {
+  background: #333333;
+  float: left;
+  width: 6%;
+  height: 100%;
+}
+/* line 139, ../sass/style.scss */
+nav h2 {
+  display: none;
+}
+
+/* line 141, ../sass/style.scss */
+#content-wrapper {
+  float: right;
+  width: 94%;
 }

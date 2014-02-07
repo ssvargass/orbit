@@ -30,7 +30,9 @@ body {
 
 ul {
 	margin: 0;
+	padding: 0;
 	li {
+		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -48,6 +50,7 @@ a, a:link { text-decoration: none;}
 
 .ajax-progress { position: absolute;}
 
+#page-wrapper { @extend .clearfix;}
 /*==end==*/
 
 /*artefactos*/
@@ -127,4 +130,15 @@ header {
 	@extend .clearfix;
 	background: $orbit-gray-dark;
 	padding: 1em;
+}
+nav {
+	background: $orbit-gray-dark;
+	float: left;
+	width: 6%;
+	height: 100%;
+	h2 { display: none;}
+}
+#content-wrapper {
+	float: right;
+	width: 94%;
 }
