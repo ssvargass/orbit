@@ -1,4 +1,4 @@
-/**/
+/*Sitio desarrollado por Cristian Hernandez / TFDC*/
 
 @import "compass/css3";
 @import "compass/css3/box-sizing";
@@ -10,6 +10,7 @@
 /*=======colors=======*/
 $orbit-gray-dark: 			#333333;
 $orbit-gray: 				#666666;
+$orbit-yellow: 				#F9BD14;
 
 /*=======end=======*/
 
@@ -50,7 +51,11 @@ a, a:link { text-decoration: none;}
 
 .ajax-progress { position: absolute;}
 
-#page-wrapper { @extend .clearfix;}
+html, 
+body, 
+#page-wrapper { 
+	height: 100%;
+}
 /*==end==*/
 
 /*artefactos*/
