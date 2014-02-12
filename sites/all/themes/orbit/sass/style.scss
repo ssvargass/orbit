@@ -6,11 +6,19 @@
 @import "compass";
 @import "compass/css3/border-radius";
 @import "compass/utilities";
+@import url(../fonts/font.css);
 
 /*=======colors=======*/
-$orbit-gray-dark: 			#333333;
 $orbit-gray: 				#666666;
+$orbit-gray-dark: 			#333333;
+$orbit-gray-light: 			#DDDDDD;
 $orbit-yellow: 				#F9BD14;
+$orbit-yellow-dark: 		#826400;
+$orbit-red: 				#E41E25;
+$orbit-red-dark: 			#8A181B;
+$orbit-green: 				#83C341;
+$orbit-green-dark: 			#09743B;
+
 
 /*=======end=======*/
 
@@ -21,10 +29,8 @@ $orbit-yellow: 				#F9BD14;
 
 /*generico*/
 body {
-	font: {
-		family: arial, helvetica, sans-serif;
-		size: 12px;
-	}
+	font-size: 12px;
+	font-family: 'futuraM';
 	color: $orbit-gray;
 	margin: 0;
 }
