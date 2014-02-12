@@ -78,7 +78,7 @@
       <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
       <?php if ($messages): ?><h1 class="title" id="page-title"><?php print $messages; ?></h1><?php endif; ?>
       <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-			<?php print render($page['content']); ?>
+      <?php print render($page['content']); ?>
     </div>
     <?php if($page['p_content'] || $page['footer']): ?>
       <div class="pst_content_region">

@@ -1,0 +1,50 @@
+<?php
+
+/**
+ * Implements hook_block_info()
+ */
+function ob_wall_block_info() {
+  $blocks = array(
+    'ob_create_post' => array(
+      'info' => t('Wall'),
+    ),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view()
+ */
+function ob_wall_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'ob_create_post':
+      $block['content'] = drupal_get_form('og_wall_form');
+    break;
+  }
+  return $block;
+}
+
+function og_wall_form($form, &$form_state){
+  $form['image'] = array(
+    '#title' => t('Imagen'),
+    '#type' => 'managed_file',
+    '#upload_location' => 'public://wall/',
+     '#upload_validators' => array('file_validate_extensions' => array('png jpg gif')),
+  );
+
+  $form['text'] = array(
+    '#title' => t('Publicación'),
+    '#type' => 'textarea',
+  );
+
+  $form['archivo'] = array(
+    '#title' => t('Archivo'),
+    '#type' => 'managed_file',
+    '#upload_location' => 'public://wall/',
+     '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx')),
+  );
+
+
+  return $form;
+}
