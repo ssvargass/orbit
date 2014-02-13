@@ -30,7 +30,7 @@ function og_wall_form($form, &$form_state){
     '#title' => t('Imagen'),
     '#type' => 'managed_file',
     '#upload_location' => 'public://wall/',
-     '#upload_validators' => array('file_validate_extensions' => array('png jpg gif')),
+     '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
   );
 
   $form['text'] = array(
@@ -45,6 +45,41 @@ function og_wall_form($form, &$form_state){
      '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx')),
   );
 
+  $form['enviar'] =  array(
+    '#type' => 'submit',
+    '#value' => t('Publicate')
+  );
 
   return $form;
+}
+
+
+function og_wall_form_submit($form, &$form_state){
+  $counter = variable_get('ob_wall_counter', 1);
+  $counter ++;
+  global $user;
+  $node = new stdClass();
+  $node->type = 'ob_wall';
+  $node->title = 'public_' . $counter;
+  $node->language = LANGUAGE_NONE;
+  $node->uid = $user->uid;
+  $node->name = $user->name;
+  node_object_prepare($node);
+
+  $file = $form['image']['#file'];
+  $file->status = 1;
+  file_save($file);
+  $node->field_imagen['und'][0] = (array) $file;
+
+  $node->body['und'][0]['value'] = trim($form['text']['#value']);
+  $node->format = 'plain_text';
+
+  $archivo = $form['archivo']['#file'];
+  $archivo->status = 1;
+  $archivo->display = 1;
+  file_save($archivo);
+  $node->field_archivo['und'][0] = (array) $archivo;
+  node_save($node);
+  variable_set('ob_wall_counter', $counter);
+  drupal_set_message(t('Se ha generado la publicación'));
 }
