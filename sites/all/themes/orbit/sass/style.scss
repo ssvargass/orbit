@@ -1,4 +1,4 @@
-/**/
+/*Sitio desarrollado por Cristian Hernandez / TFDC*/
 
 @import "compass/css3";
 @import "compass/css3/box-sizing";
@@ -6,10 +6,19 @@
 @import "compass";
 @import "compass/css3/border-radius";
 @import "compass/utilities";
+@import url(../fonts/font.css);
 
 /*=======colors=======*/
-$orbit-gray-dark: 			#333333;
 $orbit-gray: 				#666666;
+$orbit-gray-dark: 			#333333;
+$orbit-gray-light: 			#DDDDDD;
+$orbit-yellow: 				#F9BD14;
+$orbit-yellow-dark: 		#826400;
+$orbit-red: 				#E41E25;
+$orbit-red-dark: 			#8A181B;
+$orbit-green: 				#83C341;
+$orbit-green-dark: 			#09743B;
+
 
 /*=======end=======*/
 
@@ -20,10 +29,8 @@ $orbit-gray: 				#666666;
 
 /*generico*/
 body {
-	font: {
-		family: arial, helvetica, sans-serif;
-		size: 12px;
-	}
+	font-size: 12px;
+	font-family: 'futuraM';
 	color: $orbit-gray;
 	margin: 0;
 }
@@ -50,7 +57,11 @@ a, a:link { text-decoration: none;}
 
 .ajax-progress { position: absolute;}
 
-#page-wrapper { @extend .clearfix;}
+html, 
+body, 
+#page-wrapper { 
+	height: 100%;
+}
 /*==end==*/
 
 /*artefactos*/

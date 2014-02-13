@@ -1,41 +1,42 @@
-/**/
+@import url(../fonts/font.css);
+/*Sitio desarrollado por Cristian Hernandez / TFDC*/
 /*=======colors=======*/
 /*=======end=======*/
 /*=======Border radius=======*/
 /*=======end=======*/
 /*generico*/
-/* line 22, ../sass/style.scss */
+/* line 31, ../sass/style.scss */
 body {
-  font-family: arial, helvetica, sans-serif;
   font-size: 12px;
+  font-family: 'futuraM';
   color: #666666;
   margin: 0;
 }
 
-/* line 31, ../sass/style.scss */
+/* line 38, ../sass/style.scss */
 ul {
   margin: 0;
   padding: 0;
 }
-/* line 34, ../sass/style.scss */
+/* line 41, ../sass/style.scss */
 ul li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* line 41, ../sass/style.scss */
+/* line 48, ../sass/style.scss */
 p {
   margin-bottom: 0.5em;
 }
 
-/* line 43, ../sass/style.scss */
+/* line 50, ../sass/style.scss */
 a, a:link {
   text-decoration: none;
 }
 
-/* line 45, ../sass/style.scss */
-.clearfix:after, #page-wrapper:after, header:after {
+/* line 52, ../sass/style.scss */
+.clearfix:after, header:after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -44,36 +45,43 @@ a, a:link {
   height: 0;
 }
 
-/* line 46, ../sass/style.scss */
-* html .clearfix, * html #page-wrapper, * html header {
+/* line 53, ../sass/style.scss */
+* html .clearfix, * html header {
   zoom: 1;
 }
 
 /* IE6 */
-/* line 47, ../sass/style.scss */
-*:first-child + html .clearfix, *:first-child + html #page-wrapper, *:first-child + html header {
+/* line 54, ../sass/style.scss */
+*:first-child + html .clearfix, *:first-child + html header {
   zoom: 1;
 }
 
 /* IE7 */
-/* line 49, ../sass/style.scss */
+/* line 56, ../sass/style.scss */
 .clear {
   clear: both;
 }
 
-/* line 51, ../sass/style.scss */
+/* line 58, ../sass/style.scss */
 .ajax-progress {
   position: absolute;
 }
 
+/* line 62, ../sass/style.scss */
+html,
+body,
+#page-wrapper {
+  height: 100%;
+}
+
 /*==end==*/
 /*artefactos*/
-/* line 62, ../sass/style.scss */
+/* line 73, ../sass/style.scss */
 #block-user-login {
   width: 50%;
   margin: auto;
 }
-/* line 65, ../sass/style.scss */
+/* line 76, ../sass/style.scss */
 #block-user-login .webform-component-select {
   display: inline-block;
   vertical-align: top;
@@ -81,17 +89,17 @@ a, a:link {
   padding-right: 1em;
   border-right: 1px solid #DDD;
 }
-/* line 72, ../sass/style.scss */
+/* line 83, ../sass/style.scss */
 #block-user-login .webform-component-radios {
   display: inline-block;
   vertical-align: top;
 }
-/* line 75, ../sass/style.scss */
+/* line 86, ../sass/style.scss */
 #block-user-login .webform-component-radios .form-type-radio {
   float: left;
   margin-right: 1em;
 }
-/* line 80, ../sass/style.scss */
+/* line 91, ../sass/style.scss */
 #block-user-login .form-select {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -102,7 +110,7 @@ a, a:link {
   color: #666666;
   min-width: 15em;
 }
-/* line 92, ../sass/style.scss */
+/* line 103, ../sass/style.scss */
 #block-user-login textarea,
 #block-user-login .form-email,
 #block-user-login .form-number,
@@ -116,7 +124,7 @@ a, a:link {
   padding: 0.5em 1em;
   width: 100%;
 }
-/* line 99, ../sass/style.scss */
+/* line 110, ../sass/style.scss */
 #block-user-login .form-submit {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -129,42 +137,42 @@ a, a:link {
   display: inherit;
   text-shadow: none;
 }
-/* line 108, ../sass/style.scss */
+/* line 119, ../sass/style.scss */
 #block-user-login .form-submit:hover {
   background: red;
 }
 
 /*==end==*/
 /*no-log*/
-/* line 120, ../sass/style.scss */
+/* line 131, ../sass/style.scss */
 .not-logged-in #first-time,
 .not-logged-in #t-logo {
   display: none;
 }
 
 /*==end==*/
-/* line 129, ../sass/style.scss */
+/* line 140, ../sass/style.scss */
 header {
   background: #333333;
   padding: 1em;
 }
 
-/* line 134, ../sass/style.scss */
+/* line 145, ../sass/style.scss */
 nav {
   background: #333333;
   float: left;
   width: 6%;
   height: 100%;
 }
-/* line 139, ../sass/style.scss */
+/* line 150, ../sass/style.scss */
 nav h2 {
   display: none;
 }
-/* line 140, ../sass/style.scss */
+/* line 151, ../sass/style.scss */
 nav .menu {
   text-align: center;
 }
-/* line 142, ../sass/style.scss */
+/* line 153, ../sass/style.scss */
 nav .menu li {
   position: relative;
   width: 45px;
@@ -174,7 +182,7 @@ nav .menu li {
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 152, ../sass/style.scss */
+/* line 163, ../sass/style.scss */
 nav .menu li a, nav .menu li a:link {
   color: white;
   position: absolute;
@@ -186,52 +194,52 @@ nav .menu li a, nav .menu li a:link {
   left: 120%;
   display: none;
 }
-/* line 163, ../sass/style.scss */
+/* line 174, ../sass/style.scss */
 nav .menu li:hover a {
   display: block;
 }
-/* line 165, ../sass/style.scss */
+/* line 176, ../sass/style.scss */
 nav .menu li:first-child {
   background-image: url(../images/btn-ico-directorio.png);
 }
-/* line 167, ../sass/style.scss */
+/* line 178, ../sass/style.scss */
 nav .menu li:first-child:hover {
   background-image: url(../images/btn-ico-directorio-h.png);
 }
-/* line 169, ../sass/style.scss */
+/* line 180, ../sass/style.scss */
 nav .menu li:nth-child(2) {
   background-image: url(../images/btn-ico-menu.png);
 }
-/* line 171, ../sass/style.scss */
+/* line 182, ../sass/style.scss */
 nav .menu li:nth-child(2):hover {
   background-image: url(../images/btn-ico-menu-h.png);
 }
-/* line 173, ../sass/style.scss */
+/* line 184, ../sass/style.scss */
 nav .menu li:nth-child(3) {
   background-image: url(../images/btn-ico-planeador.png);
 }
-/* line 175, ../sass/style.scss */
+/* line 186, ../sass/style.scss */
 nav .menu li:nth-child(3):hover {
   background-image: url(../images/btn-ico-planeador-h.png);
 }
-/* line 177, ../sass/style.scss */
+/* line 188, ../sass/style.scss */
 nav .menu li:nth-child(4) {
   background-image: url(../images/btn-ico-salas.png);
 }
-/* line 179, ../sass/style.scss */
+/* line 190, ../sass/style.scss */
 nav .menu li:nth-child(4):hover {
   background-image: url(../images/btn-ico-salas-h.png);
 }
-/* line 181, ../sass/style.scss */
+/* line 192, ../sass/style.scss */
 nav .menu li:last-child {
   background-image: url(../images/btn-ico-docs.png);
 }
-/* line 183, ../sass/style.scss */
+/* line 194, ../sass/style.scss */
 nav .menu li:last-child:hover {
   background-image: url(../images/btn-ico-docs-h.png);
 }
 
-/* line 187, ../sass/style.scss */
+/* line 198, ../sass/style.scss */
 #content-wrapper {
   float: right;
   width: 94%;
