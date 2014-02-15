@@ -65,7 +65,7 @@ function og_wall_form($form, &$form_state){
 function og_wall_form_submit($form, &$form_state){
   $counter = variable_get('ob_wall_counter', 1);
   $counter ++;
-  global $user;
+ global $user;
   $node = new stdClass();
   $node->type = 'ob_wall';
   $node->title = 'public_' . $counter;
@@ -73,7 +73,8 @@ function og_wall_form_submit($form, &$form_state){
   $node->uid = $user->uid;
   $node->name = $user->name;
   node_object_prepare($node);
-
+  dpm($form_state);
+/*
   $file = $form['image']['#file'];
   $file->status = 1;
   file_save($file);
@@ -86,9 +87,19 @@ function og_wall_form_submit($form, &$form_state){
   $archivo->status = 1;
   $archivo->display = 1;
   file_save($archivo);
-  $node->field_archivo['und'][0] = (array) $archivo;
-  node_save($node);
-  variable_set('ob_wall_counter', $counter);
+  $node->field_archivo['und'][0] = (array) $archivo;*/
+  $permissions = array();
+  if ($form_state['values']['permissions'] == 'friend_group') {
+  } else {
+    $permissions[] = $form_state['values']['permissions'];
+  }
+
+  foreach ($permissions as $key => $value) {
+    $node->field_permissions['und'][$key] = $value;
+  }
+  # code...
+  //node_save($node);
+  //variable_set('ob_wall_counter', $counter);
   drupal_set_message(t('Se ha generado la publicación'));
 }
 
