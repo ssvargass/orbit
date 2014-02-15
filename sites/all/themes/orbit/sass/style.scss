@@ -12,6 +12,7 @@
 @include font-face("florenceRegular", font-files("/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf", "/sites/all/themes/orbit/fonts/florence-regular-webfont.eot"));
 
 /*=======colors=======*/
+
 $orbit-gray: 				#666666;
 $orbit-gray-dark: 			#333333;
 $orbit-gray-light: 			#DDDDDD;
@@ -62,17 +63,42 @@ a, a:link { text-decoration: none;}
 
 .ajax-progress { position: absolute;}
 
+.grippie { display: none;}
+
 textarea,
 .form-email,
 .form-number,
 input[type="text"],
 input[type="password"] {
 	@include border-radius(0);
+	font-family: "futuraM";
 	border: 1px solid #DDD;
 	margin: 0.5em 0;
 	padding: 0.5em 1em;
 	width: 100%;
 }
+
+input[type="file"] {
+	 position: relative;
+	 width: 3.5em;
+	 height: 2em;
+	 cursor: pointer;
+	&:after {
+		@extend %after-before;
+		background: url(../images/ico-upload.png) center center no-repeat $orbit-yellow;
+		border: 0.3em solid $orbit-yellow-dark;
+		border-top: none;
+		border-left: none;
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+	}
+	&:hover { 
+		&:after { background-color: $orbit-yellow-dark;}
+	}	
+}
+
 
 /*==end==*/
 
@@ -174,17 +200,40 @@ input[type="password"] {
 	}
 }
 
+%muro-contenedores {
+	@include box-sizing(border-box);
+	display: block;
+	border: 1px solid $orbit-gray-light;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	position: absolute;
+	padding: 1em;
+	margin: 0;
+	top: 0;
+	width: 100%;
+	background: white;
+	height: 6em;
+	label {
+		position: absolute;
+		top: -2em;
+		width: 34%;
+		background: $orbit-blue;
+		color: white;
+		height: 2em;
+		line-height: 2em;
+		&:hover {
+			background: $orbit-yellow;
+			color: $orbit-blue;
+		}
+	}
+	.form-submit {
+		@extend %btn-yellow;
+		float: right;
+	}
+}
 
 /*==end==*/
-
-.form-submit {
-	@extend %btn-yellow;
-	float: right;
-}
-.form-file {
-	@extend %btn-blue;
-	text-indent: -5000px;
-}
 
 /*no-log*/
 
@@ -274,13 +323,68 @@ nav {
 		float: left;
 		width: 70%;
 		padding: 1em;
+		border-right: 1px solid $orbit-gray-light;
 	}
 }
 
 /*muro*/
 .block-ob-wall {
 	form {
-		#edit-image-ajax-wrapper:first-child { display: none;}
+		
+	}
+}
+#og-wall-form {
+	border: 1px solid $orbit-gray-light;
+	width: 70%;
+	float: right;
+	text-align: center;
+	position: relative;
+	padding-top: 6em;
+	#edit-image-ajax-wrapper {
+		@extend %muro-contenedores;
+		z-index: 2;
+		label { left: 0;}
+		.form-type-managed-file {
+			@extend .clearfix;
+		}
+	}
+	.form-type-textarea {
+		@extend %muro-contenedores;
+		z-index: 3;
+		label {	left: 33%;}
+		textarea {	
+			border-color: $orbit-gray-light;
+			border-left: none;
+			border-right: none;
+			border-bottom: none;
+			height: 4em;
+			padding: 0;}
+	}
+	#edit-archivo-ajax-wrapper {
+		@extend %muro-contenedores;
+		z-index: 1;
+		label {	left: 66%;}
+	}
+	.form-type-managed-file { 
+		text-align: center;
+		.form-submit {
+			display: inline-block;
+			vertical-align: middle;
+			float: none !important;
+		}
+	}
+	input[type="file"] {
+		display: inline-block;
+		vertical-align: middle;
+		margin-right: 1em;
+		position: relative;
+		top: -2px;
+		height: 2.2em;
+	}
+	#edit-enviar {
+		@extend %btn-yellow;
+		float: right;
+		margin: 1em;
 	}
 }
 /*==end==*/
