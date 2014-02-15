@@ -6,7 +6,10 @@
 @import "compass";
 @import "compass/css3/border-radius";
 @import "compass/utilities";
-@import url(../fonts/font.css);
+@import "compass/css3/transform";
+@include font-face("futuraM", font-files("/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot"));
+@include font-face("futuraB", font-files("/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot"));
+@include font-face("florenceRegular", font-files("/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf", "/sites/all/themes/orbit/fonts/florence-regular-webfont.eot"));
 
 /*=======colors=======*/
 $orbit-gray: 				#666666;
@@ -18,6 +21,8 @@ $orbit-red: 				#E41E25;
 $orbit-red-dark: 			#8A181B;
 $orbit-green: 				#83C341;
 $orbit-green-dark: 			#09743B;
+$orbit-blue: 				#0071BC;
+$orbit-blue-dark: 			#1F3264;
 
 
 /*=======end=======*/
@@ -30,7 +35,7 @@ $orbit-green-dark: 			#09743B;
 /*generico*/
 body {
 	font-size: 12px;
-	font-family: 'futuraM';
+	font-family: "futuraM";
 	color: $orbit-gray;
 	margin: 0;
 }
@@ -57,11 +62,18 @@ a, a:link { text-decoration: none;}
 
 .ajax-progress { position: absolute;}
 
-html, 
-body, 
-#page-wrapper { 
-	height: 100%;
+textarea,
+.form-email,
+.form-number,
+input[type="text"],
+input[type="password"] {
+	@include border-radius(0);
+	border: 1px solid #DDD;
+	margin: 0.5em 0;
+	padding: 0.5em 1em;
+	width: 100%;
 }
+
 /*==end==*/
 
 /*artefactos*/
@@ -96,33 +108,83 @@ body,
 		color: #666666;
 		min-width: 15em;
 	}
-	textarea,
-	.form-email,
-	.form-number,
-	input[type="text"],
-	input[type="password"] {
-		@include border-radius(5px);
-		border: 1px solid #DDD;
-		margin: 0.5em 0;
-		padding: 0.5em 1em;
-		width: 100%;
-	}
-	.form-submit {
-		@include border-radius(0);
-		background: blue;
-		color: white;
-		border: 1px solid #DDD;
-		padding: 0.5em 1em;
-		margin: auto;
-		display: inherit;
-		text-shadow: none;
-		&:hover {
-			background: red;
-		}
+}
+
+%b-a {
+	content: " ";
+	position: absolute;
+}
+
+%submit {
+	@include border-radius(0);
+	font-family: "futuraM";
+	border: none;
+	background: $orbit-gray;
+	color: white;
+	padding: 0.5em 1em;
+	position: relative;
+	border: 0.3em solid $orbit-gray-dark;
+	border-top: none;
+	border-left: none;
+	cursor: pointer;
+	&:hover {
+		background-color: $orbit-gray-dark;
 	}
 }
 
+%btn-yellow {
+	@extend %submit;
+	color: $orbit-gray-dark;
+	background-color: $orbit-yellow;
+	border-color: $orbit-yellow-dark;
+	&:hover {
+		color: white;
+		background-color: $orbit-yellow-dark;
+
+	}
+}
+%btn-green {
+	@extend %submit;
+	background-color: $orbit-green;
+	border-color: $orbit-green-dark;
+	&:hover {
+		color: white;
+		background-color: $orbit-green-dark;
+
+	}
+}
+%btn-blue {
+	@extend %submit;
+	background-color: $orbit-blue;
+	border-color: $orbit-blue-dark;
+	&:hover {
+		color: white;
+		background-color: $orbit-blue-dark;
+
+	}
+}
+%btn-red {
+	@extend %submit;
+	background-color: $orbit-red;
+	border-color: $orbit-red-dark;
+	&:hover {
+		color: white;
+		background-color: $orbit-red-dark;
+
+	}
+}
+
+
 /*==end==*/
+
+.form-submit {
+	@extend %btn-yellow;
+	float: right;
+}
+.form-file {
+	@extend %btn-blue;
+	text-indent: -5000px;
+}
 
 /*no-log*/
 
@@ -140,13 +202,21 @@ body,
 header {
 	@extend .clearfix;
 	background: $orbit-gray-dark;
-	padding: 1em;
+	position: fixed;
+	width: 100%;
+	height: 5em;
+	line-height: 5em;
+	z-index: 10;
 }
 nav {
 	background: $orbit-gray-dark;
-	float: left;
+	position: fixed;
+	top: 0;
+	left: 0;
 	width: 6%;
 	height: 100%;
+	padding-top: 6em;
+	z-index: 10;
 	h2 { display: none;}
 	.menu {
 		text-align: center;
@@ -198,4 +268,19 @@ nav {
 #content-wrapper {
 	float: right;
 	width: 94%;
+	margin-top: 7em;
+	#content  {
+		@include box-sizing(border-box);
+		float: left;
+		width: 70%;
+		padding: 1em;
+	}
 }
+
+/*muro*/
+.block-ob-wall {
+	form {
+		#edit-image-ajax-wrapper:first-child { display: none;}
+	}
+}
+/*==end==*/
