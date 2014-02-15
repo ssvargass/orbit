@@ -264,8 +264,8 @@ nav {
 	left: 0;
 	width: 6%;
 	height: 100%;
-	padding-top: 6em;
-	z-index: 10;
+	padding-top: 7em;
+	z-index: 9;
 	h2 { display: none;}
 	.menu {
 		text-align: center;
@@ -275,24 +275,48 @@ nav {
 			height: 45px;
 			margin: 0.5em auto;
 			list-style: none;
-			background: {
-				repeat: no-repeat;
-				position: center center;
-			};
+			text-align: left;
 			a, a:link {
+				@include box-sizing(border-box);
 				color: white;
 				position: absolute;
-				background: #333;
-				height: 45px;
-				line-height: 45px;
-				padding: 0 1em;
-				top: 2px;
-				left: 120%;
-				display: none;
+				background: {
+					color: transparent;
+					position: left center;
+					repeat: no-repeat;
+				}
+				top: 0;
+				left: 0;
+				display: block;
+				text-transform: uppercase;
+				text-indent: -5000px;
+				padding: 1em;
+				width: 100%;
+				&:hover {
+					padding: 1em 1em 1em 7em;
+					background-color: $orbit-gray-dark;
+					min-width: 500%;
+					text-indent: 0;
+				}
 			}
-			&:hover a { display: block}
+			.s_directory {
+				background-image: url(../images/btn-ico-directorio.png);
+				&:hover { background-image: url(../images/btn-ico-directorio-h.png);}
+			}
+			.s_plane {
+				background-image: url(../images/btn-ico-planeador.png);
+				&:hover { background-image: url(../images/btn-ico-planeador-h.png);}
+			}
+			.s_room {
+				background-image: url(../images/btn-ico-salas.png);
+				&:hover { background-image: url(../images/btn-ico-salas-h.png);}
+			}
+			.s_casino {
+				background-image: url(../images/btn-ico-menu.png);
+				&:hover { background-image: url(../images/btn-ico-menu-h.png);}
+			}
 		}
-		li:first-child {
+		/*li:first-child {
 			background-image: url(../images/btn-ico-directorio.png);
 			&:hover { background-image: url(../images/btn-ico-directorio-h.png);}
 		}
@@ -311,7 +335,7 @@ nav {
 		li:last-child {
 			background-image: url(../images/btn-ico-docs.png);
 			&:hover { background-image: url(../images/btn-ico-docs-h.png);}
-		}
+		}*/
 	}
 }
 #content-wrapper {

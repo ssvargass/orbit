@@ -266,8 +266,8 @@ nav {
   left: 0;
   width: 6%;
   height: 100%;
-  padding-top: 6em;
-  z-index: 10;
+  padding-top: 7em;
+  z-index: 9;
 }
 /* line 269, ../sass/style.scss */
 nav h2 {
@@ -276,6 +276,26 @@ nav h2 {
 /* line 270, ../sass/style.scss */
 nav .menu {
   text-align: center;
+  /*li:first-child {
+  	background-image: url(../images/btn-ico-directorio.png);
+  	&:hover { background-image: url(../images/btn-ico-directorio-h.png);}
+  }
+  li:nth-child(2) {
+  	background-image: url(../images/btn-ico-menu.png);
+  	&:hover { background-image: url(../images/btn-ico-menu-h.png);}
+  }
+  li:nth-child(3) {
+  	background-image: url(../images/btn-ico-planeador.png);
+  	&:hover { background-image: url(../images/btn-ico-planeador-h.png);}
+  }
+  li:nth-child(4) {
+  	background-image: url(../images/btn-ico-salas.png);
+  	&:hover { background-image: url(../images/btn-ico-salas-h.png);}
+  }
+  li:last-child {
+  	background-image: url(../images/btn-ico-docs.png);
+  	&:hover { background-image: url(../images/btn-ico-docs-h.png);}
+  }*/
 }
 /* line 272, ../sass/style.scss */
 nav .menu li {
@@ -284,73 +304,73 @@ nav .menu li {
   height: 45px;
   margin: 0.5em auto;
   list-style: none;
-  background-repeat: no-repeat;
-  background-position: center center;
+  text-align: left;
 }
-/* line 282, ../sass/style.scss */
+/* line 279, ../sass/style.scss */
 nav .menu li a, nav .menu li a:link {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   color: white;
   position: absolute;
-  background: #333;
-  height: 45px;
-  line-height: 45px;
-  padding: 0 1em;
-  top: 2px;
-  left: 120%;
-  display: none;
-}
-/* line 293, ../sass/style.scss */
-nav .menu li:hover a {
+  background-color: transparent;
+  background-position: left center;
+  background-repeat: no-repeat;
+  top: 0;
+  left: 0;
   display: block;
+  text-transform: uppercase;
+  text-indent: -5000px;
+  padding: 1em;
+  width: 100%;
 }
 /* line 295, ../sass/style.scss */
-nav .menu li:first-child {
+nav .menu li a:hover, nav .menu li a:link:hover {
+  padding: 1em 1em 1em 7em;
+  background-color: #333333;
+  min-width: 500%;
+  text-indent: 0;
+}
+/* line 302, ../sass/style.scss */
+nav .menu li .s_directory {
   background-image: url(../images/btn-ico-directorio.png);
 }
-/* line 297, ../sass/style.scss */
-nav .menu li:first-child:hover {
+/* line 304, ../sass/style.scss */
+nav .menu li .s_directory:hover {
   background-image: url(../images/btn-ico-directorio-h.png);
 }
-/* line 299, ../sass/style.scss */
-nav .menu li:nth-child(2) {
-  background-image: url(../images/btn-ico-menu.png);
-}
-/* line 301, ../sass/style.scss */
-nav .menu li:nth-child(2):hover {
-  background-image: url(../images/btn-ico-menu-h.png);
-}
-/* line 303, ../sass/style.scss */
-nav .menu li:nth-child(3) {
+/* line 306, ../sass/style.scss */
+nav .menu li .s_plane {
   background-image: url(../images/btn-ico-planeador.png);
 }
-/* line 305, ../sass/style.scss */
-nav .menu li:nth-child(3):hover {
+/* line 308, ../sass/style.scss */
+nav .menu li .s_plane:hover {
   background-image: url(../images/btn-ico-planeador-h.png);
 }
-/* line 307, ../sass/style.scss */
-nav .menu li:nth-child(4) {
+/* line 310, ../sass/style.scss */
+nav .menu li .s_room {
   background-image: url(../images/btn-ico-salas.png);
 }
-/* line 309, ../sass/style.scss */
-nav .menu li:nth-child(4):hover {
+/* line 312, ../sass/style.scss */
+nav .menu li .s_room:hover {
   background-image: url(../images/btn-ico-salas-h.png);
 }
-/* line 311, ../sass/style.scss */
-nav .menu li:last-child {
-  background-image: url(../images/btn-ico-docs.png);
+/* line 314, ../sass/style.scss */
+nav .menu li .s_casino {
+  background-image: url(../images/btn-ico-menu.png);
 }
-/* line 313, ../sass/style.scss */
-nav .menu li:last-child:hover {
-  background-image: url(../images/btn-ico-docs-h.png);
+/* line 316, ../sass/style.scss */
+nav .menu li .s_casino:hover {
+  background-image: url(../images/btn-ico-menu-h.png);
 }
 
-/* line 317, ../sass/style.scss */
+/* line 341, ../sass/style.scss */
 #content-wrapper {
   float: right;
   width: 94%;
   margin-top: 7em;
 }
-/* line 321, ../sass/style.scss */
+/* line 345, ../sass/style.scss */
 #content-wrapper #content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -362,7 +382,7 @@ nav .menu li:last-child:hover {
 }
 
 /*muro*/
-/* line 336, ../sass/style.scss */
+/* line 360, ../sass/style.scss */
 #og-wall-form {
   border: 1px solid #dddddd;
   width: 70%;
@@ -371,23 +391,23 @@ nav .menu li:last-child:hover {
   position: relative;
   padding-top: 6em;
 }
-/* line 343, ../sass/style.scss */
+/* line 367, ../sass/style.scss */
 #og-wall-form #edit-image-ajax-wrapper {
   z-index: 2;
 }
-/* line 346, ../sass/style.scss */
+/* line 370, ../sass/style.scss */
 #og-wall-form #edit-image-ajax-wrapper label {
   left: 0;
 }
-/* line 351, ../sass/style.scss */
+/* line 375, ../sass/style.scss */
 #og-wall-form .form-type-textarea {
   z-index: 3;
 }
-/* line 354, ../sass/style.scss */
+/* line 378, ../sass/style.scss */
 #og-wall-form .form-type-textarea label {
   left: 33%;
 }
-/* line 355, ../sass/style.scss */
+/* line 379, ../sass/style.scss */
 #og-wall-form .form-type-textarea textarea {
   border-color: #dddddd;
   border-left: none;
@@ -396,25 +416,25 @@ nav .menu li:last-child:hover {
   height: 4em;
   padding: 0;
 }
-/* line 363, ../sass/style.scss */
+/* line 387, ../sass/style.scss */
 #og-wall-form #edit-archivo-ajax-wrapper {
   z-index: 1;
 }
-/* line 366, ../sass/style.scss */
+/* line 390, ../sass/style.scss */
 #og-wall-form #edit-archivo-ajax-wrapper label {
   left: 66%;
 }
-/* line 368, ../sass/style.scss */
+/* line 392, ../sass/style.scss */
 #og-wall-form .form-type-managed-file {
   text-align: center;
 }
-/* line 370, ../sass/style.scss */
+/* line 394, ../sass/style.scss */
 #og-wall-form .form-type-managed-file .form-submit {
   display: inline-block;
   vertical-align: middle;
   float: none !important;
 }
-/* line 376, ../sass/style.scss */
+/* line 400, ../sass/style.scss */
 #og-wall-form input[type="file"] {
   display: inline-block;
   vertical-align: middle;
@@ -423,7 +443,7 @@ nav .menu li:last-child:hover {
   top: -2px;
   height: 2.2em;
 }
-/* line 384, ../sass/style.scss */
+/* line 408, ../sass/style.scss */
 #og-wall-form #edit-enviar {
   float: right;
   margin: 1em;
