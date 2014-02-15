@@ -45,6 +45,14 @@ function og_wall_form($form, &$form_state){
      '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx')),
   );
 
+  $options = ob_wall_get_dept('departamento');
+  
+  $form['permissions'] = array(
+    '#type' => 'select',
+       '#title' => '',
+       '#options' => $options,
+  );
+
   $form['enviar'] =  array(
     '#type' => 'submit',
     '#value' => t('Publicate')
@@ -82,4 +90,19 @@ function og_wall_form_submit($form, &$form_state){
   node_save($node);
   variable_set('ob_wall_counter', $counter);
   drupal_set_message(t('Se ha generado la publicación'));
+}
+
+function ob_wall_get_dept($machine_name){
+  $v = taxonomy_vocabulary_machine_name_load($machine_name);
+  $terms = taxonomy_get_tree($v->vid);
+  
+  $options = array(
+    'public' => t('Publico'),
+    'friend_group' => t('Grupo de amigos'),
+    'specific' => t('Personal'),
+  );
+  foreach ($terms as $term => $value) {
+    $options['term_' . $value->tid] = $value->name;
+  }
+  return ($options);
 }
