@@ -73,21 +73,26 @@ function og_wall_form_submit($form, &$form_state){
   $node->uid = $user->uid;
   $node->name = $user->name;
   node_object_prepare($node);
-  dpm($form_state);
-/*
-  $file = $form['image']['#file'];
-  $file->status = 1;
-  file_save($file);
-  $node->field_imagen['und'][0] = (array) $file;
+  
+  if($form_state['values']['image'] != 0){
+    $file = $form['image']['#file'];
+    $file->status = 1;
+    file_save($file);
+    $node->field_imagen['und'][0] = (array) $file;
+  }
+  
 
   $node->body['und'][0]['value'] = trim($form['text']['#value']);
   $node->format = 'plain_text';
 
-  $archivo = $form['archivo']['#file'];
-  $archivo->status = 1;
-  $archivo->display = 1;
-  file_save($archivo);
-  $node->field_archivo['und'][0] = (array) $archivo;*/
+  if($form_state['values']['archivo'] != 0){
+    $archivo = $form['archivo']['#file'];
+    $archivo->status = 1;
+    $archivo->display = 1;
+    file_save($archivo);
+    $node->field_archivo['und'][0] = (array) $archivo;
+  }
+
   $permissions = array();
   if ($form_state['values']['permissions'] == 'friend_group') {
   } else {
@@ -95,11 +100,11 @@ function og_wall_form_submit($form, &$form_state){
   }
 
   foreach ($permissions as $key => $value) {
-    $node->field_permissions['und'][$key] = $value;
+    $node->field_permissions['und'][$key]['value'] = $value;
   }
   # code...
-  //node_save($node);
-  //variable_set('ob_wall_counter', $counter);
+  node_save($node);
+  variable_set('ob_wall_counter', $counter);
   drupal_set_message(t('Se ha generado la publicación'));
 }
 
