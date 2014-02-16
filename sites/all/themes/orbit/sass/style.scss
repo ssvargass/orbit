@@ -134,6 +134,9 @@ input[type="file"] {
 		color: #666666;
 		min-width: 15em;
 	}
+	.form-submit {
+		@extend %btn-yellow;
+	}
 }
 
 %b-a {
@@ -218,13 +221,13 @@ input[type="file"] {
 		position: absolute;
 		top: -2em;
 		width: 34%;
-		background: $orbit-blue;
+		background: $orbit-blue-dark;
 		color: white;
 		height: 2em;
 		line-height: 2em;
 		&:hover {
 			background: $orbit-yellow;
-			color: $orbit-blue;
+			color: $orbit-blue-dark;
 		}
 	}
 	.form-submit {
@@ -297,6 +300,7 @@ nav {
 					background-color: $orbit-gray-dark;
 					min-width: 500%;
 					text-indent: 0;
+					color: $orbit-yellow;
 				}
 			}
 			.s_directory {
@@ -316,32 +320,12 @@ nav {
 				&:hover { background-image: url(../images/btn-ico-menu-h.png);}
 			}
 		}
-		/*li:first-child {
-			background-image: url(../images/btn-ico-directorio.png);
-			&:hover { background-image: url(../images/btn-ico-directorio-h.png);}
-		}
-		li:nth-child(2) {
-			background-image: url(../images/btn-ico-menu.png);
-			&:hover { background-image: url(../images/btn-ico-menu-h.png);}
-		}
-		li:nth-child(3) {
-			background-image: url(../images/btn-ico-planeador.png);
-			&:hover { background-image: url(../images/btn-ico-planeador-h.png);}
-		}
-		li:nth-child(4) {
-			background-image: url(../images/btn-ico-salas.png);
-			&:hover { background-image: url(../images/btn-ico-salas-h.png);}
-		}
-		li:last-child {
-			background-image: url(../images/btn-ico-docs.png);
-			&:hover { background-image: url(../images/btn-ico-docs-h.png);}
-		}*/
 	}
 }
 #content-wrapper {
 	float: right;
 	width: 94%;
-	margin-top: 7em;
+	margin-top: 5em;
 	#content  {
 		@include box-sizing(border-box);
 		float: left;
@@ -352,11 +336,7 @@ nav {
 }
 
 /*muro*/
-.block-ob-wall {
-	form {
-		
-	}
-}
+
 #og-wall-form {
 	border: 1px solid $orbit-gray-light;
 	width: 70%;
@@ -364,6 +344,7 @@ nav {
 	text-align: center;
 	position: relative;
 	padding-top: 6em;
+	margin-top: 3em;
 	#edit-image-ajax-wrapper {
 		@extend %muro-contenedores;
 		z-index: 2;
@@ -405,10 +386,268 @@ nav {
 		top: -2px;
 		height: 2.2em;
 	}
+	.form-type-select {
+		margin: 1em 0 1em 1em;
+		padding-right: 1em;
+		float: left;
+		border-right: 1px solid;
+		select {
+			width: 6em;
+			border: none;
+			font-family: "futuraM";
+			font-weight: normal;
+			option {
+				background: $orbit-yellow;
+				color: black;
+ 			}
+		}
+	}
 	#edit-enviar {
-		@extend %btn-yellow;
-		float: right;
-		margin: 1em;
+		@extend %btn-blue;
+		float: left;
+		margin: 0.5em;
 	}
 }
+
+#block-views-home-publications-block {
+	clear: both;
+	padding-top: 2em;
+	.views-row {
+		padding: 1em;
+		border: 1px solid $orbit-gray-light;
+		margin-bottom: 1em;
+		position: relative;
+		.group-left {
+			border-right: 1px solid $orbit-gray-light;
+			margin-right: 1em;
+			width: 25%;
+			text-align: center;
+			padding-right: 1em;
+		}
+		.group-right { width: 70%;}
+		.field-name-ds-user-picture {
+			@include border-radius(100%);
+			overflow: hidden;
+			width: 50%;
+			margin: auto;
+			a, a:link {
+				display: block;
+				img{
+					height: auto;
+					width: 100%;
+				}
+			}
+		}
+		.field-name-body {
+			padding-bottom: 1em;
+			border-bottom: 1px solid $orbit-gray-light;
+			margin-bottom: 1em;
+		}
+		.flag-outer-like {
+			position: absolute;
+			left: 28%;
+			bottom: 0;
+			a, a:link {
+				background: url(../images/ico-like.png) left center no-repeat;
+				text-indent: -5000px;
+				height: 1.5em;
+				width: 1.5em;
+				display: block;
+				padding-right: 0.5em;
+				border-right: 1px solid $orbit-gray-light;
+			}
+			.flag-throbber { position: absolute;}
+		}
+	}
+}
+ 
+/*==end==*/
+
+/*directorio*/
+
+.view-id-directorio {
+	position: relative;
+	padding-top: 4em;
+	margin-top: 1em;
+	.view-header {
+		background: $orbit-gray-dark;
+		padding: 1em 0;
+		p {
+			display: inline-block;
+			vertical-align: top;
+			margin: 0;
+			a, a:link {
+				background-image: url(../images/ico-dir-home.png);
+				&:hover { background-image: url(../images/ico-dir-home-h.png);}
+			}
+		}
+		a, a:link {
+			text-indent: -5000px;
+			display: block;
+			height: 2em;
+			width: 5em;
+			background: {
+				repeat: no-repeat;
+				position: center center;
+				color: transparent;
+			};
+		}
+		.view-id-departamento {
+			display: inline-block;
+			vertical-align: top;
+			float: right;
+			width: 92%;
+			.views-row {
+				display: inline-block;
+				vertical-align: middle;
+				position: relative;
+				text-align: center;
+				&:hover {
+					a, a:link {
+						text-indent: 0px;
+						color: $orbit-gray-dark;
+						background-color: $orbit-yellow;
+						position: absolute;
+						top: -6em;
+						height: 4em;
+						background-position: center 85%;
+						padding: 0.5em 0.5em 3.5em;
+						z-index: 999;
+						width: 6em;
+						left: -1em;
+					}
+				}
+			}
+			.views-row-last {
+				a, a:link { width: 4em;}
+			}
+			.comite-ejecutivo {
+				background-image: url(../images/ico-dir-1.png);
+				&:hover { background-image: url(../images/ico-dir-1-h.png);}
+			}
+			.desarrollo-e-innovacion {
+				background-image: url(../images/ico-dir-2.png);
+				&:hover { background-image: url(../images/ico-dir-2-h.png);}
+			}
+			.direccion-medica {
+				background-image: url(../images/ico-dir-3.png);
+				&:hover { background-image: url(../images/ico-dir-3-h.png);}
+			}
+			.finanzas {
+				background-image: url(../images/ico-dir-4.png);
+				&:hover { background-image: url(../images/ico-dir-4-h.png);}
+			}
+			.galeno {
+				background-image: url(../images/ico-dir-5.png);
+				&:hover { background-image: url(../images/ico-dir-5-h.png);}
+			}
+			.genericos-otc {
+				background-image: url(../images/ico-dir-6.png);
+				&:hover { background-image: url(../images/ico-dir-6-h.png);}
+			}
+			.gestion-humana {
+				background-image: url(../images/ico-dir-7.png);
+				&:hover { background-image: url(../images/ico-dir-7-h.png);}
+			}
+			.innova {
+				background-image: url(../images/ico-dir-8.png);
+				&:hover { background-image: url(../images/ico-dir-8-h.png);}
+			}
+			.internacional {
+				background-image: url(../images/ico-dir-9.png);
+				&:hover { background-image: url(../images/ico-dir-9-h.png);}
+			}
+			.operaciones {
+				background-image: url(../images/ico-dir-10.png);
+				&:hover { background-image: url(../images/ico-dir-10-h.png);}
+			}
+			.supplay {
+				background-image: url(../images/ico-dir-11.png);
+				&:hover { background-image: url(../images/ico-dir-11-h.png);}
+			}
+			.tecnologia-informatica {
+				background-image: url(../images/ico-dir-12.png);
+				&:hover { background-image: url(../images/ico-dir-12-h.png);}
+			}
+		}
+	}
+	.view-filters {
+		position: absolute;
+		top: 0;
+		right: 0;
+		.views-widget-filter-combine {
+			padding: 0;
+			position: relative;
+			label {
+				position: absolute;
+				top: 0.5em;
+				left: 1.5em;
+				font-weight: normal;
+			}
+			.form-text { margin: 0;}
+		}
+		.views-submit-button {
+			padding: 0;
+			z-index: 2;
+			position: relative;
+			.form-submit {
+				margin: 0;
+				background: url(../images/ico-lupa.png) no-repeat center center white;
+				border: 1px solid $orbit-gray-light;
+				height: 31px;
+				width: 35px;
+				text-indent: -5000px;
+				cursor: pointer;
+			}
+		}
+	}
+	> .view-content {
+		text-align: left;
+		.views-row {
+			display: inline-block;
+			*display: inline-block;
+			vertical-align: top;
+			position: relative;
+			width: 14.3%;
+			min-height: 9em;
+			margin: 0.3em 0;
+			text-align: center;
+			cursor: pointer;
+			.views-field-picture img {
+				height: auto;
+				width: 100%;
+			}
+			.views-field-nothing {
+				@include opacity(0);
+				position: absolute;
+				width: 100%;
+				top: 0;
+				left: 0;
+				height: 100%;
+				background: $orbit-yellow;
+				color: $orbit-blue-dark;
+				.s_user_name {
+					text-transform: capitalize;
+					margin-top: 4em;
+					font-size: 1.3em;
+				}
+				.s_user_dept {
+					padding-bottom: 0.2em;
+					border-bottom: 1px solid $orbit-blue-dark;
+					width: 90%;
+					margin: auto;
+				}
+			}
+			&:hover {
+				.views-field-nothing {
+					@include opacity(0.7);
+					* {
+						@include opacity(1);
+					}
+				}
+			}
+		}
+	}
+}
+
 /*==end==*/
