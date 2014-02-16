@@ -37,6 +37,7 @@ $orbit-blue-dark: 			#1F3264;
 body {
 	font-size: 12px;
 	font-family: "futuraM";
+	font-weight: normal;
 	color: $orbit-gray;
 	margin: 0;
 }
@@ -236,6 +237,48 @@ input[type="file"] {
 	}
 }
 
+%arrow-up {
+	width: 0; 
+	height: 0; 
+	border-left: 1em solid transparent;
+	border-right: 1em solid transparent;
+	border-bottom: 1em solid red;
+}
+%arrow-down {
+	width: 0; 
+	height: 0; 
+	border-left: 1em solid transparent;
+	border-right: 1em solid transparent;	
+	border-top: 1em solid red;
+}
+%arrow-right {
+	width: 0; 
+	height: 0; 
+	border-top: 1em solid transparent;
+	border-bottom: 1em solid transparent;	
+	border-left: 1em solid red;
+}
+%arrow-left {
+	width: 0; 
+	height: 0; 
+	border-top: 1em solid transparent;
+	border-bottom: 1em solid transparent; 	
+	border-right:1em solid red; 
+}
+
+%titular {
+	padding: 1em 0 1em 1.5em;
+	margin: 0;
+	color: $orbit-blue-dark;
+	position: relative;
+	&:after {
+		@extend %after-before;
+		@extend %arrow-right;
+		top: 15%;
+		left: 0;
+	}
+}
+
 /*==end==*/
 
 /*no-log*/
@@ -250,7 +293,10 @@ input[type="file"] {
 }
 
 /*==end==*/
-
+.s_title_page {
+	@extend %titular;
+	&:after { border-left-color: $orbit-yellow;}
+}
 header {
 	@extend .clearfix;
 	background: $orbit-gray-dark;
