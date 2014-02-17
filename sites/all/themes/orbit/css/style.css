@@ -1,17 +1,17 @@
 /*Sitio desarrollado por Cristian Hernandez / TFDC*/
 @font-face {
   font-family: "futuraM";
-  src: url(/orbit/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf) format('truetype'), url(/orbit/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot) format('embedded-opentype');
+  src: url(/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf) format('truetype'), url(/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot) format('embedded-opentype');
 }
 
 @font-face {
   font-family: "futuraB";
-  src: url(/orbit/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf) format('truetype'), url(/orbit/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot) format('embedded-opentype');
+  src: url(/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf) format('truetype'), url(/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot) format('embedded-opentype');
 }
 
 @font-face {
   font-family: "florenceRegular";
-  src: url(/orbit/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf) format('truetype'), url(/orbit/sites/all/themes/orbit/fonts/florence-regular-webfont.eot) format('embedded-opentype');
+  src: url(/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf) format('truetype'), url(/sites/all/themes/orbit/fonts/florence-regular-webfont.eot) format('embedded-opentype');
 }
 
 /*=======colors=======*/
