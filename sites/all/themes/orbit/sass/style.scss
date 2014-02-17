@@ -7,9 +7,9 @@
 @import "compass/css3/border-radius";
 @import "compass/utilities";
 @import "compass/css3/transform";
-@include font-face("futuraM", font-files("/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot"));
-@include font-face("futuraB", font-files("/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot"));
-@include font-face("florenceRegular", font-files("/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf", "/sites/all/themes/orbit/fonts/florence-regular-webfont.eot"));
+@include font-face("futuraM", font-files("/orbit/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf", "/orbit/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot"));
+@include font-face("futuraB", font-files("/orbit/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf", "/orbit/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot"));
+@include font-face("florenceRegular", font-files("/orbit/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf", "/orbit/sites/all/themes/orbit/fonts/florence-regular-webfont.eot"));
 
 /*=======colors=======*/
 
@@ -218,6 +218,7 @@ input[type="file"] {
 	width: 100%;
 	background: white;
 	height: 6em;
+	z-index: 1;
 	label {
 		position: absolute;
 		top: -2em;
@@ -271,6 +272,7 @@ input[type="file"] {
 	margin: 0;
 	color: $orbit-blue-dark;
 	position: relative;
+	text-transform: uppercase;
 	&:after {
 		@extend %after-before;
 		@extend %arrow-right;
@@ -293,8 +295,13 @@ input[type="file"] {
 }
 
 /*==end==*/
+.front {
+	.s_title_page { display: none;}
+}
 .s_title_page {
 	@extend %titular;
+	width: 50%;
+	float: left;
 	&:after { border-left-color: $orbit-yellow;}
 }
 header {
@@ -305,6 +312,7 @@ header {
 	height: 5em;
 	line-height: 5em;
 	z-index: 10;
+	padding: 1px;
 }
 nav {
 	background: $orbit-gray-dark;
@@ -313,7 +321,7 @@ nav {
 	left: 0;
 	width: 6%;
 	height: 100%;
-	padding-top: 7em;
+	padding-top: 9em;
 	z-index: 9;
 	h2 { display: none;}
 	.menu {
@@ -371,7 +379,7 @@ nav {
 #content-wrapper {
 	float: right;
 	width: 94%;
-	margin-top: 5em;
+	margin-top: 7em;
 	#content  {
 		@include box-sizing(border-box);
 		float: left;
@@ -391,9 +399,9 @@ nav {
 	position: relative;
 	padding-top: 6em;
 	margin-top: 3em;
+	.active { z-index: 3;}
 	#edit-image-ajax-wrapper {
 		@extend %muro-contenedores;
-		z-index: 2;
 		label { left: 0;}
 		.form-type-managed-file {
 			@extend .clearfix;
@@ -401,7 +409,6 @@ nav {
 	}
 	.form-type-textarea {
 		@extend %muro-contenedores;
-		z-index: 3;
 		label {	left: 33%;}
 		textarea {	
 			border-color: $orbit-gray-light;
@@ -413,7 +420,6 @@ nav {
 	}
 	#edit-archivo-ajax-wrapper {
 		@extend %muro-contenedores;
-		z-index: 1;
 		label {	left: 66%;}
 	}
 	.form-type-managed-file { 
@@ -491,18 +497,34 @@ nav {
 		}
 		.flag-outer-like {
 			position: absolute;
-			left: 28%;
+			right: 0;
 			bottom: 0;
 			a, a:link {
-				background: url(../images/ico-like.png) left center no-repeat;
+				background: url(../images/ico-unlike.png) right center no-repeat;
 				text-indent: -5000px;
 				height: 1.5em;
 				width: 1.5em;
 				display: block;
-				padding-right: 0.5em;
-				border-right: 1px solid $orbit-gray-light;
+				padding-left: 0.5em;
+				border-left: 1px solid $orbit-gray-light;
 			}
 			.flag-throbber { position: absolute;}
+		}
+		.field-name-counter {
+			position: absolute;
+			left: 28%;
+			bottom: 0;
+			.field-item {
+				background: url(../images/ico-like.png) left center no-repeat;
+				color: $orbit-yellow;
+				font-weight: bold;
+				text-align: right;
+				height: 1.5em;
+				width: 1.5em;
+				display: block;
+				padding: 0 1em;
+				border-right: 1px solid $orbit-gray-light;
+			}
 		}
 	}
 }
