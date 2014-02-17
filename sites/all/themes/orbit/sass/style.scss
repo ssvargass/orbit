@@ -321,7 +321,7 @@ nav {
 	left: 0;
 	width: 6%;
 	height: 100%;
-	padding-top: 9em;
+	padding-top: 8em;
 	z-index: 9;
 	h2 { display: none;}
 	.menu {
@@ -493,12 +493,12 @@ nav {
 		.field-name-body {
 			padding-bottom: 1em;
 			border-bottom: 1px solid $orbit-gray-light;
-			margin-bottom: 1em;
+			margin-bottom: 2em;
 		}
 		.flag-outer-like {
 			position: absolute;
-			right: 0;
-			bottom: 0;
+			right: 1em;
+			bottom: 1em;
 			a, a:link {
 				background: url(../images/ico-unlike.png) right center no-repeat;
 				text-indent: -5000px;
@@ -512,8 +512,8 @@ nav {
 		}
 		.field-name-counter {
 			position: absolute;
-			left: 28%;
-			bottom: 0;
+			left: 30%;
+			bottom: 0.5em;
 			.field-item {
 				background: url(../images/ico-like.png) left center no-repeat;
 				color: $orbit-yellow;
@@ -524,6 +524,7 @@ nav {
 				display: block;
 				padding: 0 1em;
 				border-right: 1px solid $orbit-gray-light;
+				font-size: 1.2em;
 			}
 		}
 	}

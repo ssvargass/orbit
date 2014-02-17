@@ -318,7 +318,7 @@ nav {
   left: 0;
   width: 6%;
   height: 100%;
-  padding-top: 9em;
+  padding-top: 8em;
   z-index: 9;
 }
 /* line 326, ../sass/style.scss */
@@ -540,13 +540,13 @@ nav .menu li .s_casino:hover {
 #block-views-home-publications-block .views-row .field-name-body {
   padding-bottom: 1em;
   border-bottom: 1px solid #dddddd;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 /* line 498, ../sass/style.scss */
 #block-views-home-publications-block .views-row .flag-outer-like {
   position: absolute;
-  right: 0;
-  bottom: 0;
+  right: 1em;
+  bottom: 1em;
 }
 /* line 502, ../sass/style.scss */
 #block-views-home-publications-block .views-row .flag-outer-like a, #block-views-home-publications-block .views-row .flag-outer-like a:link {
@@ -565,8 +565,8 @@ nav .menu li .s_casino:hover {
 /* line 513, ../sass/style.scss */
 #block-views-home-publications-block .views-row .field-name-counter {
   position: absolute;
-  left: 28%;
-  bottom: 0;
+  left: 30%;
+  bottom: 0.5em;
 }
 /* line 517, ../sass/style.scss */
 #block-views-home-publications-block .views-row .field-name-counter .field-item {
@@ -579,36 +579,37 @@ nav .menu li .s_casino:hover {
   display: block;
   padding: 0 1em;
   border-right: 1px solid #dddddd;
+  font-size: 1.2em;
 }
 
 /*==end==*/
 /*directorio*/
-/* line 536, ../sass/style.scss */
+/* line 537, ../sass/style.scss */
 .view-id-directorio {
   position: relative;
   padding-top: 4em;
   margin-top: 1em;
 }
-/* line 540, ../sass/style.scss */
+/* line 541, ../sass/style.scss */
 .view-id-directorio .view-header {
   background: #333333;
   padding: 1em 0;
 }
-/* line 543, ../sass/style.scss */
+/* line 544, ../sass/style.scss */
 .view-id-directorio .view-header p {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 547, ../sass/style.scss */
+/* line 548, ../sass/style.scss */
 .view-id-directorio .view-header p a, .view-id-directorio .view-header p a:link {
   background-image: url(../images/ico-dir-home.png);
 }
-/* line 549, ../sass/style.scss */
+/* line 550, ../sass/style.scss */
 .view-id-directorio .view-header p a:hover, .view-id-directorio .view-header p a:link:hover {
   background-image: url(../images/ico-dir-home-h.png);
 }
-/* line 552, ../sass/style.scss */
+/* line 553, ../sass/style.scss */
 .view-id-directorio .view-header a, .view-id-directorio .view-header a:link {
   text-indent: -5000px;
   display: block;
@@ -618,21 +619,21 @@ nav .menu li .s_casino:hover {
   background-position: center center;
   background-color: transparent;
 }
-/* line 563, ../sass/style.scss */
+/* line 564, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento {
   display: inline-block;
   vertical-align: top;
   float: right;
   width: 92%;
 }
-/* line 568, ../sass/style.scss */
+/* line 569, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row {
   display: inline-block;
   vertical-align: middle;
   position: relative;
   text-align: center;
 }
-/* line 574, ../sass/style.scss */
+/* line 575, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row:hover a, .view-id-directorio .view-header .view-id-departamento .views-row:hover a:link {
   text-indent: 0px;
   color: #333333;
@@ -646,135 +647,135 @@ nav .menu li .s_casino:hover {
   width: 6em;
   left: -1em;
 }
-/* line 590, ../sass/style.scss */
+/* line 591, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row-last a, .view-id-directorio .view-header .view-id-departamento .views-row-last a:link {
   width: 4em;
 }
-/* line 592, ../sass/style.scss */
+/* line 593, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .comite-ejecutivo {
   background-image: url(../images/ico-dir-1.png);
 }
-/* line 594, ../sass/style.scss */
+/* line 595, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .comite-ejecutivo:hover {
   background-image: url(../images/ico-dir-1-h.png);
 }
-/* line 596, ../sass/style.scss */
+/* line 597, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .desarrollo-e-innovacion {
   background-image: url(../images/ico-dir-2.png);
 }
-/* line 598, ../sass/style.scss */
+/* line 599, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .desarrollo-e-innovacion:hover {
   background-image: url(../images/ico-dir-2-h.png);
 }
-/* line 600, ../sass/style.scss */
+/* line 601, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .direccion-medica {
   background-image: url(../images/ico-dir-3.png);
 }
-/* line 602, ../sass/style.scss */
+/* line 603, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .direccion-medica:hover {
   background-image: url(../images/ico-dir-3-h.png);
 }
-/* line 604, ../sass/style.scss */
+/* line 605, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .finanzas {
   background-image: url(../images/ico-dir-4.png);
 }
-/* line 606, ../sass/style.scss */
+/* line 607, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .finanzas:hover {
   background-image: url(../images/ico-dir-4-h.png);
 }
-/* line 608, ../sass/style.scss */
+/* line 609, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .galeno {
   background-image: url(../images/ico-dir-5.png);
 }
-/* line 610, ../sass/style.scss */
+/* line 611, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .galeno:hover {
   background-image: url(../images/ico-dir-5-h.png);
 }
-/* line 612, ../sass/style.scss */
+/* line 613, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .genericos-otc {
   background-image: url(../images/ico-dir-6.png);
 }
-/* line 614, ../sass/style.scss */
+/* line 615, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .genericos-otc:hover {
   background-image: url(../images/ico-dir-6-h.png);
 }
-/* line 616, ../sass/style.scss */
+/* line 617, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .gestion-humana {
   background-image: url(../images/ico-dir-7.png);
 }
-/* line 618, ../sass/style.scss */
+/* line 619, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .gestion-humana:hover {
   background-image: url(../images/ico-dir-7-h.png);
 }
-/* line 620, ../sass/style.scss */
+/* line 621, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .innova {
   background-image: url(../images/ico-dir-8.png);
 }
-/* line 622, ../sass/style.scss */
+/* line 623, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .innova:hover {
   background-image: url(../images/ico-dir-8-h.png);
 }
-/* line 624, ../sass/style.scss */
+/* line 625, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .internacional {
   background-image: url(../images/ico-dir-9.png);
 }
-/* line 626, ../sass/style.scss */
+/* line 627, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .internacional:hover {
   background-image: url(../images/ico-dir-9-h.png);
 }
-/* line 628, ../sass/style.scss */
+/* line 629, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .operaciones {
   background-image: url(../images/ico-dir-10.png);
 }
-/* line 630, ../sass/style.scss */
+/* line 631, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .operaciones:hover {
   background-image: url(../images/ico-dir-10-h.png);
 }
-/* line 632, ../sass/style.scss */
+/* line 633, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .supplay {
   background-image: url(../images/ico-dir-11.png);
 }
-/* line 634, ../sass/style.scss */
+/* line 635, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .supplay:hover {
   background-image: url(../images/ico-dir-11-h.png);
 }
-/* line 636, ../sass/style.scss */
+/* line 637, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .tecnologia-informatica {
   background-image: url(../images/ico-dir-12.png);
 }
-/* line 638, ../sass/style.scss */
+/* line 639, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .tecnologia-informatica:hover {
   background-image: url(../images/ico-dir-12-h.png);
 }
-/* line 642, ../sass/style.scss */
+/* line 643, ../sass/style.scss */
 .view-id-directorio .view-filters {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 646, ../sass/style.scss */
+/* line 647, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine {
   padding: 0;
   position: relative;
 }
-/* line 649, ../sass/style.scss */
+/* line 650, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine label {
   position: absolute;
   top: 0.5em;
   left: 1.5em;
   font-weight: normal;
 }
-/* line 655, ../sass/style.scss */
+/* line 656, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine .form-text {
   margin: 0;
 }
-/* line 657, ../sass/style.scss */
+/* line 658, ../sass/style.scss */
 .view-id-directorio .view-filters .views-submit-button {
   padding: 0;
   z-index: 2;
   position: relative;
 }
-/* line 661, ../sass/style.scss */
+/* line 662, ../sass/style.scss */
 .view-id-directorio .view-filters .views-submit-button .form-submit {
   margin: 0;
   background: url(../images/ico-lupa.png) no-repeat center center white;
@@ -784,11 +785,11 @@ nav .menu li .s_casino:hover {
   text-indent: -5000px;
   cursor: pointer;
 }
-/* line 672, ../sass/style.scss */
+/* line 673, ../sass/style.scss */
 .view-id-directorio > .view-content {
   text-align: left;
 }
-/* line 674, ../sass/style.scss */
+/* line 675, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row {
   display: inline-block;
   *display: inline-block;
@@ -800,12 +801,12 @@ nav .menu li .s_casino:hover {
   text-align: center;
   cursor: pointer;
 }
-/* line 684, ../sass/style.scss */
+/* line 685, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-picture img {
   height: auto;
   width: 100%;
 }
-/* line 688, ../sass/style.scss */
+/* line 689, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-nothing {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -817,25 +818,25 @@ nav .menu li .s_casino:hover {
   background: #f9bd14;
   color: #1f3264;
 }
-/* line 697, ../sass/style.scss */
+/* line 698, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-nothing .s_user_name {
   text-transform: capitalize;
   margin-top: 4em;
   font-size: 1.3em;
 }
-/* line 702, ../sass/style.scss */
+/* line 703, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-nothing .s_user_dept {
   padding-bottom: 0.2em;
   border-bottom: 1px solid #1f3264;
   width: 90%;
   margin: auto;
 }
-/* line 710, ../sass/style.scss */
+/* line 711, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row:hover .views-field-nothing {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
 }
-/* line 712, ../sass/style.scss */
+/* line 713, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row:hover .views-field-nothing * {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
