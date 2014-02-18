@@ -544,7 +544,9 @@ nav .menu li .s_casino:hover {
   border-bottom: 1px solid #dddddd;
   margin-bottom: 2em;
 }
-/* line 499, ../sass/style.scss */
+/* line 501, ../sass/style.scss */
+#block-views-home-publications-block .views-row .field-name-field-imagen,
+#block-views-home-publications-block .views-row .field-name-file-blank,
 #block-views-home-publications-block .views-row .name-field-imagen,
 #block-views-home-publications-block .views-row .field-name-field-archivo {
   display: inline-block;
@@ -552,18 +554,18 @@ nav .menu li .s_casino:hover {
   vertical-align: center;
   margin-right: 1em;
 }
-/* line 505, ../sass/style.scss */
+/* line 507, ../sass/style.scss */
 #block-views-home-publications-block .views-row .flag-outer-like {
   float: right;
   width: 20%;
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 510, ../sass/style.scss */
+/* line 512, ../sass/style.scss */
 #block-views-home-publications-block .views-row .flag-outer-like span {
   float: right;
 }
-/* line 511, ../sass/style.scss */
+/* line 513, ../sass/style.scss */
 #block-views-home-publications-block .views-row .flag-outer-like a, #block-views-home-publications-block .views-row .flag-outer-like a:link {
   background: url(../images/ico-unlike.png) right center no-repeat;
   text-indent: -5000px;
@@ -573,18 +575,18 @@ nav .menu li .s_casino:hover {
   padding-left: 0.5em;
   border-left: 1px solid #dddddd;
 }
-/* line 520, ../sass/style.scss */
+/* line 522, ../sass/style.scss */
 #block-views-home-publications-block .views-row .flag-outer-like .flag-throbber {
   position: absolute;
 }
-/* line 522, ../sass/style.scss */
+/* line 524, ../sass/style.scss */
 #block-views-home-publications-block .views-row .field-name-counter {
   float: left;
   width: 80%;
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 527, ../sass/style.scss */
+/* line 529, ../sass/style.scss */
 #block-views-home-publications-block .views-row .field-name-counter .field-item {
   background: url(../images/ico-like.png) left center no-repeat;
   color: #f9bd14;
@@ -600,32 +602,32 @@ nav .menu li .s_casino:hover {
 
 /*==end==*/
 /*directorio*/
-/* line 547, ../sass/style.scss */
+/* line 549, ../sass/style.scss */
 .view-id-directorio {
   position: relative;
   padding-top: 4em;
   margin-top: 1em;
 }
-/* line 551, ../sass/style.scss */
+/* line 553, ../sass/style.scss */
 .view-id-directorio .view-header {
   background: #333333;
   padding: 1em 0;
 }
-/* line 554, ../sass/style.scss */
+/* line 556, ../sass/style.scss */
 .view-id-directorio .view-header p {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 558, ../sass/style.scss */
+/* line 560, ../sass/style.scss */
 .view-id-directorio .view-header p a, .view-id-directorio .view-header p a:link {
   background-image: url(../images/ico-dir-home.png);
 }
-/* line 560, ../sass/style.scss */
+/* line 562, ../sass/style.scss */
 .view-id-directorio .view-header p a:hover, .view-id-directorio .view-header p a:link:hover {
   background-image: url(../images/ico-dir-home-h.png);
 }
-/* line 563, ../sass/style.scss */
+/* line 565, ../sass/style.scss */
 .view-id-directorio .view-header a, .view-id-directorio .view-header a:link {
   text-indent: -5000px;
   display: block;
@@ -635,21 +637,21 @@ nav .menu li .s_casino:hover {
   background-position: center center;
   background-color: transparent;
 }
-/* line 574, ../sass/style.scss */
+/* line 576, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento {
   display: inline-block;
   vertical-align: top;
   float: right;
   width: 92%;
 }
-/* line 579, ../sass/style.scss */
+/* line 581, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row {
   display: inline-block;
   vertical-align: middle;
   position: relative;
   text-align: center;
 }
-/* line 585, ../sass/style.scss */
+/* line 587, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row:hover a, .view-id-directorio .view-header .view-id-departamento .views-row:hover a:link {
   text-indent: 0px;
   color: #333333;
@@ -663,135 +665,135 @@ nav .menu li .s_casino:hover {
   width: 6em;
   left: -1em;
 }
-/* line 601, ../sass/style.scss */
+/* line 603, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row-last a, .view-id-directorio .view-header .view-id-departamento .views-row-last a:link {
   width: 4em;
 }
-/* line 603, ../sass/style.scss */
+/* line 605, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .comite-ejecutivo {
   background-image: url(../images/ico-dir-1.png);
 }
-/* line 605, ../sass/style.scss */
+/* line 607, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .comite-ejecutivo:hover {
   background-image: url(../images/ico-dir-1-h.png);
 }
-/* line 607, ../sass/style.scss */
+/* line 609, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .desarrollo-e-innovacion {
   background-image: url(../images/ico-dir-2.png);
 }
-/* line 609, ../sass/style.scss */
+/* line 611, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .desarrollo-e-innovacion:hover {
   background-image: url(../images/ico-dir-2-h.png);
 }
-/* line 611, ../sass/style.scss */
+/* line 613, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .direccion-medica {
   background-image: url(../images/ico-dir-3.png);
 }
-/* line 613, ../sass/style.scss */
+/* line 615, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .direccion-medica:hover {
   background-image: url(../images/ico-dir-3-h.png);
 }
-/* line 615, ../sass/style.scss */
+/* line 617, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .finanzas {
   background-image: url(../images/ico-dir-4.png);
 }
-/* line 617, ../sass/style.scss */
+/* line 619, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .finanzas:hover {
   background-image: url(../images/ico-dir-4-h.png);
 }
-/* line 619, ../sass/style.scss */
+/* line 621, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .galeno {
   background-image: url(../images/ico-dir-5.png);
 }
-/* line 621, ../sass/style.scss */
+/* line 623, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .galeno:hover {
   background-image: url(../images/ico-dir-5-h.png);
 }
-/* line 623, ../sass/style.scss */
+/* line 625, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .genericos-otc {
   background-image: url(../images/ico-dir-6.png);
 }
-/* line 625, ../sass/style.scss */
+/* line 627, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .genericos-otc:hover {
   background-image: url(../images/ico-dir-6-h.png);
 }
-/* line 627, ../sass/style.scss */
+/* line 629, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .gestion-humana {
   background-image: url(../images/ico-dir-7.png);
 }
-/* line 629, ../sass/style.scss */
+/* line 631, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .gestion-humana:hover {
   background-image: url(../images/ico-dir-7-h.png);
 }
-/* line 631, ../sass/style.scss */
+/* line 633, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .innova {
   background-image: url(../images/ico-dir-8.png);
 }
-/* line 633, ../sass/style.scss */
+/* line 635, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .innova:hover {
   background-image: url(../images/ico-dir-8-h.png);
 }
-/* line 635, ../sass/style.scss */
+/* line 637, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .internacional {
   background-image: url(../images/ico-dir-9.png);
 }
-/* line 637, ../sass/style.scss */
+/* line 639, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .internacional:hover {
   background-image: url(../images/ico-dir-9-h.png);
 }
-/* line 639, ../sass/style.scss */
+/* line 641, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .operaciones {
   background-image: url(../images/ico-dir-10.png);
 }
-/* line 641, ../sass/style.scss */
+/* line 643, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .operaciones:hover {
   background-image: url(../images/ico-dir-10-h.png);
 }
-/* line 643, ../sass/style.scss */
+/* line 645, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .supplay {
   background-image: url(../images/ico-dir-11.png);
 }
-/* line 645, ../sass/style.scss */
+/* line 647, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .supplay:hover {
   background-image: url(../images/ico-dir-11-h.png);
 }
-/* line 647, ../sass/style.scss */
+/* line 649, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .tecnologia-informatica {
   background-image: url(../images/ico-dir-12.png);
 }
-/* line 649, ../sass/style.scss */
+/* line 651, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .tecnologia-informatica:hover {
   background-image: url(../images/ico-dir-12-h.png);
 }
-/* line 653, ../sass/style.scss */
+/* line 655, ../sass/style.scss */
 .view-id-directorio .view-filters {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 657, ../sass/style.scss */
+/* line 659, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine {
   padding: 0;
   position: relative;
 }
-/* line 660, ../sass/style.scss */
+/* line 662, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine label {
   position: absolute;
   top: 0.5em;
   left: 1.5em;
   font-weight: normal;
 }
-/* line 666, ../sass/style.scss */
+/* line 668, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine .form-text {
   margin: 0;
 }
-/* line 668, ../sass/style.scss */
+/* line 670, ../sass/style.scss */
 .view-id-directorio .view-filters .views-submit-button {
   padding: 0;
   z-index: 2;
   position: relative;
 }
-/* line 672, ../sass/style.scss */
+/* line 674, ../sass/style.scss */
 .view-id-directorio .view-filters .views-submit-button .form-submit {
   margin: 0;
   background: url(../images/ico-lupa.png) no-repeat center center white;
@@ -801,11 +803,11 @@ nav .menu li .s_casino:hover {
   text-indent: -5000px;
   cursor: pointer;
 }
-/* line 683, ../sass/style.scss */
+/* line 685, ../sass/style.scss */
 .view-id-directorio > .view-content {
   text-align: left;
 }
-/* line 685, ../sass/style.scss */
+/* line 687, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row {
   display: inline-block;
   *display: inline-block;
@@ -817,12 +819,12 @@ nav .menu li .s_casino:hover {
   text-align: center;
   cursor: pointer;
 }
-/* line 695, ../sass/style.scss */
+/* line 697, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-picture img {
   height: auto;
   width: 100%;
 }
-/* line 699, ../sass/style.scss */
+/* line 701, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-nothing {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -834,25 +836,25 @@ nav .menu li .s_casino:hover {
   background: #f9bd14;
   color: #1f3264;
 }
-/* line 708, ../sass/style.scss */
+/* line 710, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-nothing .s_user_name {
   text-transform: capitalize;
   margin-top: 4em;
   font-size: 1.3em;
 }
-/* line 713, ../sass/style.scss */
+/* line 715, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row .views-field-nothing .s_user_dept {
   padding-bottom: 0.2em;
   border-bottom: 1px solid #1f3264;
   width: 90%;
   margin: auto;
 }
-/* line 721, ../sass/style.scss */
+/* line 723, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row:hover .views-field-nothing {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
 }
-/* line 723, ../sass/style.scss */
+/* line 725, ../sass/style.scss */
 .view-id-directorio > .view-content .views-row:hover .views-field-nothing * {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
