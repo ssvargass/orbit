@@ -7,6 +7,7 @@
 @import "compass/css3/border-radius";
 @import "compass/utilities";
 @import "compass/css3/transform";
+@import "compass/utilities/text/replacement";
 @include font-face("futuraM", font-files("/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot"));
 @include font-face("futuraB", font-files("/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot"));
 @include font-face("florenceRegular", font-files("/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf", "/sites/all/themes/orbit/fonts/florence-regular-webfont.eot"));
@@ -52,9 +53,12 @@ ul {
 	}
 }
 
-p { margin-bottom: 0.5em;}
+p { margin: 0 0 0.5em 0;}
 
-a, a:link { text-decoration: none;}
+a, a:link { 
+	color: $orbit-yellow;
+	text-decoration: none;
+}
 
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .clearfix { zoom: 1; } /* IE6 */
@@ -100,6 +104,28 @@ input[type="file"] {
 	}	
 }
 
+.messages {
+	font-size: 1em;
+	color: white;
+	padding: 0.7em;
+	text-align: center;
+	border: none;
+	font-weight: normal;
+}
+.status { background: $orbit-green;}
+
+#cboxClose { 
+	cursor: pointer;
+	text-indent: -5000px;
+	position: absolute;
+	top: -3em;
+	right: 1em;
+	background: url(../images/btn-close.png) no-repeat center bottom;
+	border: none;
+	width: 2.5em;
+	height: 3em;
+	&:hover { background: url(../images/btn-close-h.png) no-repeat center bottom;}
+}
 
 /*==end==*/
 
@@ -170,9 +196,9 @@ input[type="file"] {
 	&:hover {
 		color: $orbit-yellow;
 		background-color: $orbit-yellow-dark;
-
 	}
 }
+
 %btn-green {
 	@extend %submit;
 	background-color: $orbit-green;
@@ -183,6 +209,7 @@ input[type="file"] {
 
 	}
 }
+
 %btn-blue {
 	@extend %submit;
 	background-color: $orbit-blue;
@@ -190,9 +217,9 @@ input[type="file"] {
 	&:hover {
 		color: $orbit-blue;
 		background-color: $orbit-blue-dark;
-
 	}
 }
+
 %btn-red {
 	@extend %submit;
 	background-color: $orbit-red;
@@ -200,7 +227,6 @@ input[type="file"] {
 	&:hover {
 		color: $orbit-red;
 		background-color: $orbit-red-dark;
-
 	}
 }
 
@@ -281,6 +307,50 @@ input[type="file"] {
 	}
 }
 
+%view-comentarios {
+	@include box-sizing(border-box);
+	position: relative;
+	.flag-outer-like {
+		position: absolute;
+		width: 20%;
+		padding-top: 0.5em;
+		border-top: 1px solid #dddddd;
+		bottom: 0;
+		right: 1em;
+		span { float: right;}
+		a, a:link {
+			background: url(../images/ico-unlike.png) right center no-repeat;
+			text-indent: -5000px;
+			height: 1.2em;
+			width: 1.5em;
+			display: block;
+			padding-left: 0.5em;
+			border-left: 1px solid #dddddd;
+		}
+		.flag-throbber { position: absolute;}
+	}
+	.field-name-counter {
+		position: absolute;
+		width: 80%;
+		padding-top: 0.5em;
+		border-top: 1px solid #dddddd;
+		bottom: 0;
+		left: 1em;
+		.field-item {
+			background: url(../images/ico-like.png) left center no-repeat;
+			color: #f9bd14;
+			font-weight: bold;
+			text-align: right;
+			height: 1em;
+			width: 1.5em;
+			display: block;
+			padding: 0 1em;
+			border-right: 1px solid #dddddd;
+			font-size: 1.2em;
+		}
+	}
+}
+
 /*==end==*/
 
 /*no-log*/
@@ -332,6 +402,7 @@ nav {
 			margin: 0.5em auto;
 			list-style: none;
 			text-align: left;
+			border-bottom: 1px solid $orbit-gray;
 			a, a:link {
 				@include box-sizing(border-box);
 				color: white;
@@ -373,6 +444,7 @@ nav {
 				&:hover { background-image: url(../images/btn-ico-menu-h.png);}
 			}
 		}
+		.last { border: none;}
 	}
 }
 #content-wrapper {
@@ -469,75 +541,40 @@ nav {
 		margin-bottom: 1em;
 		position: relative;
 		.group-left {
-			border-right: 1px solid $orbit-gray-light;
-			margin-right: 1em;
 			width: 25%;
 			text-align: center;
-			padding-right: 1em;
-		}
-		.group-right { width: 70%;}
-		.field-name-ds-user-picture {
-			@include border-radius(100%);
-			overflow: hidden;
-			height: 10em;
-			width: 10em;
-			margin: auto;
-			a, a:link {
-				display: block;
-				img{
-					height: auto;
-					width: 100%;
+			.field-name-ds-user-picture {
+				@include border-radius(100%);
+				overflow: hidden;
+				height: 10em;
+				width: 10em;
+				margin: auto;
+				a, a:link {
+					display: block;
+					img{
+						height: auto;
+						width: 100%;
+					}
 				}
 			}
+			.field-name-field-imagen,
+			.field-name-file-blank,
+			.name-field-imagen,
+			.field-name-field-archivo {
+				display: inline-block;
+				*display: inline-block;
+				vertical-align: middle;
+				margin-right: 1em;
+			}
 		}
-		.field-name-body {
-			padding-bottom: 1em;
-			border-bottom: 1px solid $orbit-gray-light;
-			margin-bottom: 2em;
-		}
-		.field-name-field-imagen,
-		.field-name-file-blank,
-		.name-field-imagen,
-		.field-name-field-archivo {
-			display: inline-block;
-			*display: inline-block;
-			vertical-align: center;
-			margin-right: 1em;
-		}
-		.flag-outer-like {
+		.group-right { 
+			@extend %view-comentarios;
+			border-left: 1px solid $orbit-gray-light;
+			padding-left: 1em;
+			padding-bottom: 2.5em;
+			width: 75%;
+			min-height: 13em;
 			float: right;
-			width: 20%;
-			padding-top: 0.5em;
-			border-top: 1px solid $orbit-gray-light;
-			span { float: right;}
-			a, a:link {
-				background: url(../images/ico-unlike.png) right center no-repeat;
-				text-indent: -5000px;
-				height: 1.5em;
-				width: 1.5em;
-				display: block;
-				padding-left: 0.5em;
-				border-left: 1px solid $orbit-gray-light;
-			}
-			.flag-throbber { position: absolute;}
-		}
-		.field-name-counter {
-			float: left;
-			width: 80%;
-			padding-top: 0.5em;
-			border-top: 1px solid $orbit-gray-light;
-			.field-item {
-				background: url(../images/ico-like.png) left center no-repeat;
-				color: $orbit-yellow;
-				font-weight: bold;
-				text-align: right;
-				height: 1.5em;
-				width: 1.5em;
-				display: block;
-				padding: 0 1em;
-				border-right: 1px solid $orbit-gray-light;
-				font-size: 1.2em;
-			}
 		}
 	}
 }
@@ -603,52 +640,52 @@ nav {
 				a, a:link { width: 4em;}
 			}
 			.comite-ejecutivo {
-				background-image: url(../images/ico-dir-1.png);
-				&:hover { background-image: url(../images/ico-dir-1-h.png);}
+				background-image: url(../images/ico-dir-comite.png);
+				&:hover { background-image: url(../images/ico-dir-comite-h.png);}
 			}
 			.desarrollo-e-innovacion {
-				background-image: url(../images/ico-dir-2.png);
-				&:hover { background-image: url(../images/ico-dir-2-h.png);}
+				background-image: url(../images/ico-dir-desarrollo.png);
+				&:hover { background-image: url(../images/ico-dir-desarrollo-h.png);}
 			}
 			.direccion-medica {
-				background-image: url(../images/ico-dir-3.png);
-				&:hover { background-image: url(../images/ico-dir-3-h.png);}
+				background-image: url(../images/ico-dir-direccion.png);
+				&:hover { background-image: url(../images/ico-dir-direccion-h.png);}
 			}
 			.finanzas {
-				background-image: url(../images/ico-dir-4.png);
-				&:hover { background-image: url(../images/ico-dir-4-h.png);}
+				background-image: url(../images/ico-dir-finanzas.png);
+				&:hover { background-image: url(../images/ico-dir-finanzas-h.png);}
 			}
 			.galeno {
-				background-image: url(../images/ico-dir-5.png);
-				&:hover { background-image: url(../images/ico-dir-5-h.png);}
+				background-image: url(../images/ico-dir-galeno.png);
+				&:hover { background-image: url(../images/ico-dir-galeno-h.png);}
 			}
 			.genericos-otc {
-				background-image: url(../images/ico-dir-6.png);
-				&:hover { background-image: url(../images/ico-dir-6-h.png);}
+				background-image: url(../images/ico-dir-genericos.png);
+				&:hover { background-image: url(../images/ico-dir-genericos-h.png);}
 			}
 			.gestion-humana {
-				background-image: url(../images/ico-dir-7.png);
-				&:hover { background-image: url(../images/ico-dir-7-h.png);}
+				background-image: url(../images/ico-dir-gestion.png);
+				&:hover { background-image: url(../images/ico-dir-gestion-h.png);}
 			}
 			.innova {
-				background-image: url(../images/ico-dir-8.png);
-				&:hover { background-image: url(../images/ico-dir-8-h.png);}
+				background-image: url(../images/ico-dir-innova.png);
+				&:hover { background-image: url(../images/ico-dir-innova-h.png);}
 			}
 			.internacional {
-				background-image: url(../images/ico-dir-9.png);
-				&:hover { background-image: url(../images/ico-dir-9-h.png);}
+				background-image: url(../images/ico-dir-internacional.png);
+				&:hover { background-image: url(../images/ico-dir-internacional-h.png);}
 			}
 			.operaciones {
-				background-image: url(../images/ico-dir-10.png);
-				&:hover { background-image: url(../images/ico-dir-10-h.png);}
+				background-image: url(../images/ico-dir-operaciones.png);
+				&:hover { background-image: url(../images/ico-dir-operaciones-h.png);}
 			}
 			.supplay {
-				background-image: url(../images/ico-dir-11.png);
-				&:hover { background-image: url(../images/ico-dir-11-h.png);}
+				background-image: url(../images/ico-dir-supplay.png);
+				&:hover { background-image: url(../images/ico-dir-supplay-h.png);}
 			}
 			.tecnologia-informatica {
-				background-image: url(../images/ico-dir-12.png);
-				&:hover { background-image: url(../images/ico-dir-12-h.png);}
+				background-image: url(../images/ico-dir-tecnologia.png);
+				&:hover { background-image: url(../images/ico-dir-tecnologia-h.png);}
 			}
 		}
 	}
@@ -669,7 +706,6 @@ nav {
 		}
 		.views-submit-button {
 			padding: 0;
-			z-index: 2;
 			position: relative;
 			.form-submit {
 				margin: 0;
@@ -727,8 +763,72 @@ nav {
 					}
 				}
 			}
+			.views-field-uid {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				a, a:link {
+					text-indent: -5000px;
+					display: block;
+					width: 100%;
+					min-height: 10em;
+				}
+			}
 		}
 	}
 }
 
+/*==end==*/
+
+/*perfil*/
+.user-profile {
+	background: white;
+	.group-left {
+		width: 30%;	
+	}
+	.group-right {
+		@include box-sizing(border-box);
+		width: 70%;
+		background: $orbit-blue-dark;
+		color: white;
+		padding: 1em;
+		.field {
+			margin: 0.2em;
+			.field-label {
+				display: inline-block;
+				vertical-align: middle;
+				text-indent: -5000px;
+				width: 2em;
+				height: 2em;
+				background: {
+					color: transparent;
+					repeat: no-repeat;
+					position: center center;
+				};
+			}
+			.field-items {
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 0.3em;
+			}
+		}
+	}
+	.group-footer {
+		.views-row {
+			@extend %view-comentarios;
+			padding: 0.5em 1em 3em 1em;
+			border-top: 1px solid $orbit-gray-light;
+			.flag-outer-like {
+				bottom: -2em;
+				right: 0;
+			}
+			.field-name-counter {
+				bottom: -2em;
+				left: 0;
+			}
+		}
+	}
+}
 /*==end==*/
