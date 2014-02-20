@@ -7,7 +7,6 @@
 @import "compass/css3/border-radius";
 @import "compass/utilities";
 @import "compass/css3/transform";
-@import "compass/utilities/text/replacement";
 @include font-face("futuraM", font-files("/sites/all/themes/orbit/fonts/tt0142m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0142m_-webfont.eot"));
 @include font-face("futuraB", font-files("/sites/all/themes/orbit/fonts/tt0144m_-webfont.ttf", "/sites/all/themes/orbit/fonts/tt0144m_-webfont.eot"));
 @include font-face("florenceRegular", font-files("/sites/all/themes/orbit/fonts/florence-regular-webfont.ttf", "/sites/all/themes/orbit/fonts/florence-regular-webfont.eot"));
@@ -35,12 +34,15 @@ $orbit-blue-dark: 			#1F3264;
 /*=======end=======*/
 
 /*generico*/
+
+html { height: 100%;}
 body {
 	font-size: 12px;
 	font-family: "futuraM";
 	font-weight: normal;
 	color: $orbit-gray;
 	margin: 0;
+	height: 100%;
 }
 
 ul {
@@ -125,6 +127,12 @@ input[type="file"] {
 	width: 2.5em;
 	height: 3em;
 	&:hover { background: url(../images/btn-close-h.png) no-repeat center bottom;}
+}
+
+#cboxOverlay {
+	background: black;
+	width: 100%;
+	height: 100%;
 }
 
 /*==end==*/
