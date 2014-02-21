@@ -1,5 +1,32 @@
 <?php
 
+
+/**
+ * Implements hook_menu().
+ */
+function ob_wall_menu() {
+  $items['admin/config/orbit'] = array(
+    'title' => 'Orbit',
+    'description' => 'Settings for orbit modules.',
+    'position' => 'left',
+    'weight' => -10,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
+
+  $items['admin/config/orbit/phrase'] = array(
+    'title' => 'Phrase Config',
+    'description' => 'Configuración de la frase de muro',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ob_wall_phrase'),
+    'access arguments' => array('administer site configuration'),
+  );
+
+  return $items;
+}
+
 /**
  * Implements hook_block_info()
  */
@@ -7,6 +34,12 @@ function ob_wall_block_info() {
   $blocks = array(
     'ob_create_post' => array(
       'info' => t('Wall'),
+    ),
+    'ob_phrase' => array(
+      'info' => t('Phrase'),
+    ),
+    'ob_links' => array(
+      'info' => t('Links'),
     ),
   );
   return $blocks;
@@ -20,6 +53,12 @@ function ob_wall_block_view($delta = '') {
   switch ($delta) {
     case 'ob_create_post':
       $block['content'] = drupal_get_form('og_wall_form');
+    break;
+    case 'ob_phrase':
+      $block['content'] = ob_wall_print_phrase();
+    break;
+     case 'ob_links':
+      $block['content'] = ob_wall_print_links();
     break;
   }
   return $block;
@@ -108,6 +147,7 @@ function og_wall_form_submit($form, &$form_state){
   drupal_set_message(t('Se ha generado la publicación'));
 }
 
+
 function ob_wall_get_dept($machine_name){
   $v = taxonomy_vocabulary_machine_name_load($machine_name);
   $terms = taxonomy_get_tree($v->vid);
@@ -161,3 +201,89 @@ function ob_wall_tiempo_transcurrido($fecha) {
  
   return "$tiempo $diferencia $intervalos[$j]";
 }
+
+
+function ob_wall_phrase($form, &$form_state){
+
+  $form['ob_wall_phrase'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Wall phrase'),
+    '#default_value' => variable_get('ob_wall_phrase', ''),
+    '#description' => t('Frase a mostrar en el home'),
+    '#required' => TRUE,
+  );
+
+  return system_settings_form($form);
+}
+
+
+function ob_wall_print_phrase(){
+  return variable_get('ob_wall_phrase', '');
+}
+
+
+function ob_wall_print_links(){
+  $content = array();
+
+  $content['links_header'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_header_links')),
+    ),
+  );
+
+  $content['links_header']['time'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => date('g:i a'),
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_time'))
+    ),
+  );
+
+  $dia = t(date('l'));
+  $d_a = t(date('d'));
+  $mes = t(date('F'));
+  $a_o = t(date('Y'));
+
+
+  $content['links_header']['date'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => $dia . ' ' . $d_a . ' de ' . $mes . ' de ' . $a_o,
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_date'))
+    ),
+  );
+
+
+  $content['links_header']['notifications'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_notifications'))
+    ),
+  );
+
+  $content['links_header']['profile'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => l(t('Profile'),''),
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_profile'))
+    ),
+  );
+
+  $content['links_header']['logout'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => l(t('Logout'),'/user/logout'),
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_logout'))
+    ),
+  );
+
+
+  return $content;
+}
+
+
