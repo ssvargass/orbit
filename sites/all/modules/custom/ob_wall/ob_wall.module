@@ -347,7 +347,7 @@ function ob_wall_print_links(){
   $content['links_header']['logout'] = array(
     '#type' => 'html_tag',
     '#tag' => 'div',
-    '#value' => l(t('Logout'),'/user/logout'),
+    '#value' => l(t('Logout'),'user/logout'),
     '#attributes' => array(
       'class' => array(drupal_html_class('ob_logout'))
     ),
