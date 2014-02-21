@@ -116,7 +116,14 @@ function og_wall_form($form, &$form_state){
 
   $options = ob_wall_get_dept('departamento');
   
-  $form['permissions'] = array(
+
+  $form['actions'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('ob_actions',),
+    ),
+  );
+  $form['actions']['permissions'] = array(
     '#type' => 'select',
     '#title' => '',
     '#options' => $options,
@@ -125,14 +132,14 @@ function og_wall_form($form, &$form_state){
     ),
   );
 
-  $form['specific'] = array(
+  $form['actions']['specific'] = array(
     '#type' => 'hidden',
     '#attributes' => array(
         'class' => array('s_specific')
       )
   );
 
-  $form['enviar'] =  array(
+  $form['actions']['enviar'] =  array(
     '#type' => 'submit',
     '#value' => t('Publicar')
   );
