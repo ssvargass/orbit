@@ -4,6 +4,11 @@
     $.fn.ob_wall_directory = function(options) {
       $.colorbox(options);
     }; 
+    $('.ob-profile a').click(function(e){
+      
+      e.preventDefault();
+      return false;
+    })
   })
   $(function(){       
     $('body').ajaxStop(function() {

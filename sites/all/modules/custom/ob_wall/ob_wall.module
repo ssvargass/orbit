@@ -459,7 +459,8 @@ function ob_wall_print_profile(){
     );
   }
 
-  $colaborators = views_embed_view('colaboradores');
+  $colaborators = '<div class="s_title_block">' . t('Colaboradores') . '</div>';
+  $colaborators .= views_embed_view('colaboradores');
 
   $content['links_header']['colaborator'] = array(
     '#type' => 'html_tag',
