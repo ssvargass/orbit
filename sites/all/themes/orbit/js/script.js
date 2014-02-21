@@ -1,6 +1,6 @@
 (function ($) {
   $(document).ready(function(){
-    $('#og-wall-form .form-type-textarea').addClass('active');
+    $('#og-wall-form .ob_text').addClass('active');
   })
 	Drupal.behaviors.orbit = {
     attach: function (context, settings) {
@@ -8,9 +8,7 @@
         var form = $(this);
         $('label').click(function(){
           $('.active', form).removeClass('active');
-          var padre = $(this).parent();
-          if(padre.hasClass('form-type-textarea')) padre.addClass('active');
-          if(padre.hasClass('form-type-managed-file')) padre.parent().addClass('active');
+          $(this).parents('.s_add_file').addClass('active');
         })
       });
     }
