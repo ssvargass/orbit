@@ -136,7 +136,12 @@ input[type="file"] {
 	width: 100%;
 	height: 100%;
 	position: fixed;
+	z-index: 99;
 }
+#colorbox { z-index: 100;}
+#cboxCurrent,
+#cboxPrevious,
+#cboxNext { display: none !important;}
 
 /*==end==*/
 
@@ -878,6 +883,7 @@ nav {
 			display: inline-block;
 			padding: 1em 1em 1em 3em;
 			color: $orbit-blue-dark;
+			&:hover { background-color: $orbit-yellow-dark;}
 		}
 	}
 	.group-left { width: 30%;}
@@ -937,6 +943,10 @@ nav {
 				left: 0;
 			}
 		}
+		.view-id-home_publications.view-display-id-block_1 > .view-content {
+			height: 190px;
+			overflow-y: auto;
+		}
 	}
 }
 #block-ob-wall-ob-profile {
@@ -970,6 +980,14 @@ nav {
 		@extend %perfil-content;
 		width: 35%;
 		min-height: 17.5em;
+		> div {
+			background: {
+				repeat: no-repeat;
+				position: left center;
+			};
+			padding: 0.4em 0 0.4em 2em;
+			color: white;
+		}
 		.ob-name {
 			font: {
 				size: 2em;
@@ -981,19 +999,21 @@ nav {
 			color: $orbit-yellow;
 		}
 		.ob-depto {
-			background: url(../images/ico-colombia.png) no-repeat left center;
-			padding: 0.4em 0 0.4em 2em;
+			background-image: url(../images/ico-colombia.png);
 			color: $orbit-yellow;
 		}
 		.ob-cargo {
-			background: url(../images/ico-cargo.png) no-repeat left center;
-			padding: 0.4em 0 0.4em 2em;
+			background-image: url(../images/ico-cargo.png);
 			color: $orbit-yellow;
 		}
 		.ob-mail {
-			background: url(../images/ico-mail.png) no-repeat left center;
-			padding: 0.4em 0 0.4em 2em;
-			color: white;
+			background-image: url(../images/ico-mail.png);
+		}
+		.ob-phone {
+			background-image: url(../images/ico-cel.png);
+		}
+		.ob-birth {
+			background-image: url(../images/ico-cumple.png);
 		}
 	}
 	.ob-colaborator {
