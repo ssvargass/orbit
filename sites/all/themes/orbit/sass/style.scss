@@ -58,8 +58,9 @@ ul {
 p { margin: 0 0 0.5em 0;}
 
 a, a:link { 
-	color: $orbit-yellow;
+	color: $orbit-blue;
 	text-decoration: none;
+	&:hover { color: $orbit-yellow;}
 }
 
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
@@ -373,6 +374,8 @@ input[type="file"] {
 }
 
 /*==end==*/
+
+
 .front {
 	.s_title_page { display: none;}
 }
@@ -455,10 +458,28 @@ nav {
 		.last { border: none;}
 	}
 }
+.ob-header-links {
+	width: 50%;
+	padding-top: 1em;
+	margin-left: 22%;
+	text-align: right;
+	color: white;
+	> div {
+		display: inline-block;
+		*display: inline-block;
+		vertical-align: middle;
+		padding: 0 1em;
+		border-right: 1px solid $orbit-gray;
+		&:last-child { border: none;}
+	}
+	a, a:link { color: white;}
+}
 #content-wrapper {
+	@include clearfix;
 	float: right;
 	width: 94%;
-	margin-top: 7em;
+	position: relative;
+	top: 6em;
 	#content  {
 		@include box-sizing(border-box);
 		float: left;
@@ -469,15 +490,44 @@ nav {
 }
 
 /*muro*/
-
-#og-wall-form {
-	border: 1px solid $orbit-gray-light;
+#block-ob-wall-ob-phrase {
+	@include box-sizing(border-box);
+	width: 28%;
+	float: left;
+	color: $orbit-blue-dark;
+	font-size: 1.5em;
+	font-weight: normal;
+	font-style: italic;
+	padding: 0 2.3em;
+	position: relative;
+	text-align: center;
+	&:after {
+		@extend %after-before;
+		width: 40px;
+		height: 27px;
+		top: 0;
+		left: 0;
+		background-image: url(../images/comillas.png);
+	}
+	&:before {
+		@extend %after-before;
+		width: 40px;
+		height: 27px;
+		bottom: 0;
+		right: 0;
+		background-image: url(../images/comillas2.png);
+	}
+}
+#block-ob-wall-ob-create-post {
 	width: 70%;
 	float: right;
+}
+#og-wall-form {
+	border: 1px solid $orbit-gray-light;
 	text-align: center;
 	position: relative;
 	padding-top: 6em;
-	margin-top: 3em;
+	margin-top: 2em;
 	.active { z-index: 3 !important;}
 	#edit-image-ajax-wrapper {
 		@extend %muro-contenedores;
@@ -793,9 +843,21 @@ nav {
 /*perfil*/
 .user-profile {
 	background: white;
-	.group-left {
-		width: 30%;	
+	.group-header {
+		position: absolute;
+		top: 1em;
+		right: -20em;
+		text-align: left;
+		width: 20em;
+		a, a:link {
+			@include border-radius(0 3em 3em 0);
+			background: url(../images/ico-pinon-azul.png) no-repeat 0.5em center$orbit-yellow;
+			display: inline-block;
+			padding: 1em 1em 1em 3em;
+			color: $orbit-blue-dark;
+		}
 	}
+	.group-left { width: 30%;}
 	.group-right {
 		@include box-sizing(border-box);
 		width: 70%;
@@ -822,6 +884,21 @@ nav {
 				margin-left: 0.3em;
 			}
 		}
+		.field-name-field-departamento {
+			.field-label { background-image: url(../images/ico-colombia.png)}
+		}
+		.field-name-field-cargo {
+			.field-label { background-image: url(../images/ico-cargo.png)}
+		}
+		.field-name-field-nombre-completo {
+			color: $orbit-yellow;
+			font-size: 2em;
+			font-family: "futuraB";
+			border-bottom: 1px solid $orbit-blue;
+			padding-bottom: 0.3em;
+			margin-bottom: 0.3em;
+			.field-label { display: none;}
+		}
 	}
 	.group-footer {
 		.views-row {
@@ -837,6 +914,17 @@ nav {
 				left: 0;
 			}
 		}
+	}
+}
+#block-ob-wall-ob-profile {
+	display: none;
+	padding-top: 1em;
+	border-top: 1px solid $orbit-gray-light;
+	.ob-user-img {
+		float: left;
+		padding-right: 1em;
+		border-right: 1px solid $orbit-gray-light;
+		margin-right: 1em;
 	}
 }
 /*==end==*/
