@@ -536,7 +536,15 @@ nav {
 		vertical-align: middle;
 		padding: 0 1em;
 		border-right: 1px solid $orbit-gray;
+		height: 25px;
+		line-height: 25px;
 		&:last-child { border: none;}
+	}
+	.ob-notifications {
+		cursor: pointer;
+		background: url(../images/ico-notificacion.png)no-repeat center center;
+		width: 25px;
+		&:hover { background-image: url(../images/ico-notificacion-h.png);}
 	}
 	a, a:link { color: white;}
 }
@@ -930,10 +938,13 @@ nav {
 }
 #block-ob-wall-ob-profile {
 	@include clearfix;
-	padding-top: 1em;
-	border-top: 1px solid $orbit-gray-light;
-	margin-top: 2em;
 	width: 100%;
+	height: 0;
+	> .content {
+		padding-top: 1em;
+		border-top: 1px solid $orbit-gray-light;
+		margin-top: 2em;
+	}
 	.ob-user-img {
 		@extend %perfil-content;
 		padding-left: 0;

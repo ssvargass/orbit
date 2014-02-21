@@ -605,17 +605,29 @@ nav .menu .last {
   vertical-align: middle;
   padding: 0 1em;
   border-right: 1px solid #666666;
+  height: 25px;
+  line-height: 25px;
 }
-/* line 539, ../sass/style.scss */
+/* line 541, ../sass/style.scss */
 .ob-header-links > div:last-child {
   border: none;
 }
-/* line 541, ../sass/style.scss */
+/* line 543, ../sass/style.scss */
+.ob-header-links .ob-notifications {
+  cursor: pointer;
+  background: url(../images/ico-notificacion.png) no-repeat center center;
+  width: 25px;
+}
+/* line 547, ../sass/style.scss */
+.ob-header-links .ob-notifications:hover {
+  background-image: url(../images/ico-notificacion-h.png);
+}
+/* line 549, ../sass/style.scss */
 .ob-header-links a, .ob-header-links a:link {
   color: white;
 }
 
-/* line 543, ../sass/style.scss */
+/* line 551, ../sass/style.scss */
 #content-wrapper {
   overflow: hidden;
   *zoom: 1;
@@ -624,7 +636,7 @@ nav .menu .last {
   position: relative;
   top: 6em;
 }
-/* line 549, ../sass/style.scss */
+/* line 557, ../sass/style.scss */
 #content-wrapper #content {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -636,7 +648,7 @@ nav .menu .last {
 }
 
 /*muro*/
-/* line 559, ../sass/style.scss */
+/* line 567, ../sass/style.scss */
 #block-ob-wall-ob-phrase {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -651,7 +663,7 @@ nav .menu .last {
   position: relative;
   text-align: center;
 }
-/* line 570, ../sass/style.scss */
+/* line 578, ../sass/style.scss */
 #block-ob-wall-ob-phrase:after {
   width: 40px;
   height: 27px;
@@ -659,7 +671,7 @@ nav .menu .last {
   left: 0;
   background-image: url(../images/comillas.png);
 }
-/* line 578, ../sass/style.scss */
+/* line 586, ../sass/style.scss */
 #block-ob-wall-ob-phrase:before {
   width: 40px;
   height: 27px;
@@ -668,13 +680,13 @@ nav .menu .last {
   background-image: url(../images/comillas2.png);
 }
 
-/* line 587, ../sass/style.scss */
+/* line 595, ../sass/style.scss */
 #block-ob-wall-ob-create-post {
   width: 70%;
   float: right;
 }
 
-/* line 591, ../sass/style.scss */
+/* line 599, ../sass/style.scss */
 #og-wall-form {
   border: 1px solid #dddddd;
   text-align: center;
@@ -682,19 +694,19 @@ nav .menu .last {
   padding-top: 6em;
   margin-top: 2em;
 }
-/* line 597, ../sass/style.scss */
+/* line 605, ../sass/style.scss */
 #og-wall-form .active {
   z-index: 3 !important;
 }
-/* line 600, ../sass/style.scss */
+/* line 608, ../sass/style.scss */
 #og-wall-form #edit-image-ajax-wrapper label {
   left: 0;
 }
-/* line 607, ../sass/style.scss */
+/* line 615, ../sass/style.scss */
 #og-wall-form .form-type-textarea label {
   left: 33%;
 }
-/* line 608, ../sass/style.scss */
+/* line 616, ../sass/style.scss */
 #og-wall-form .form-type-textarea textarea {
   border-color: #dddddd;
   border-left: none;
@@ -703,21 +715,21 @@ nav .menu .last {
   height: 4em;
   padding: 0;
 }
-/* line 618, ../sass/style.scss */
+/* line 626, ../sass/style.scss */
 #og-wall-form #edit-archivo-ajax-wrapper label {
   left: 66%;
 }
-/* line 620, ../sass/style.scss */
+/* line 628, ../sass/style.scss */
 #og-wall-form .form-type-managed-file {
   text-align: center;
 }
-/* line 622, ../sass/style.scss */
+/* line 630, ../sass/style.scss */
 #og-wall-form .form-type-managed-file .form-submit {
   display: inline-block;
   vertical-align: middle;
   float: none !important;
 }
-/* line 628, ../sass/style.scss */
+/* line 636, ../sass/style.scss */
 #og-wall-form input[type="file"] {
   display: inline-block;
   vertical-align: middle;
@@ -726,49 +738,49 @@ nav .menu .last {
   top: -2px;
   height: 2.2em;
 }
-/* line 636, ../sass/style.scss */
+/* line 644, ../sass/style.scss */
 #og-wall-form .form-type-select {
   margin: 1em 0 1em 1em;
   padding-right: 1em;
   float: left;
   border-right: 1px solid;
 }
-/* line 641, ../sass/style.scss */
+/* line 649, ../sass/style.scss */
 #og-wall-form .form-type-select select {
   width: 6em;
   border: none;
   font-family: "futuraM";
   font-weight: normal;
 }
-/* line 646, ../sass/style.scss */
+/* line 654, ../sass/style.scss */
 #og-wall-form .form-type-select select option {
   background: #f9bd14;
   color: black;
 }
-/* line 652, ../sass/style.scss */
+/* line 660, ../sass/style.scss */
 #og-wall-form #edit-enviar {
   float: left;
   margin: 0.5em;
 }
 
-/* line 659, ../sass/style.scss */
+/* line 667, ../sass/style.scss */
 #block-views-home-publications-block {
   clear: both;
   padding-top: 2em;
 }
-/* line 662, ../sass/style.scss */
+/* line 670, ../sass/style.scss */
 #block-views-home-publications-block .views-row {
   padding: 1em;
   border: 1px solid #dddddd;
   margin-bottom: 1em;
   position: relative;
 }
-/* line 667, ../sass/style.scss */
+/* line 675, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-left {
   width: 25%;
   text-align: center;
 }
-/* line 670, ../sass/style.scss */
+/* line 678, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-left .field-name-ds-user-picture {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -778,16 +790,16 @@ nav .menu .last {
   width: 10em;
   margin: auto;
 }
-/* line 676, ../sass/style.scss */
+/* line 684, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-left .field-name-ds-user-picture a, #block-views-home-publications-block .views-row .group-left .field-name-ds-user-picture a:link {
   display: block;
 }
-/* line 678, ../sass/style.scss */
+/* line 686, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-left .field-name-ds-user-picture a img, #block-views-home-publications-block .views-row .group-left .field-name-ds-user-picture a:link img {
   height: auto;
   width: 100%;
 }
-/* line 687, ../sass/style.scss */
+/* line 695, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-left .field-name-field-imagen,
 #block-views-home-publications-block .views-row .group-left .field-name-file-blank,
 #block-views-home-publications-block .views-row .group-left .name-field-imagen,
@@ -797,7 +809,7 @@ nav .menu .last {
   vertical-align: middle;
   margin-right: 1em;
 }
-/* line 694, ../sass/style.scss */
+/* line 702, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-right {
   border-left: 1px solid #dddddd;
   padding-left: 1em;
@@ -809,32 +821,32 @@ nav .menu .last {
 
 /*==end==*/
 /*directorio*/
-/* line 710, ../sass/style.scss */
+/* line 718, ../sass/style.scss */
 .view-id-directorio {
   position: relative;
   padding-top: 4em;
   margin-top: 1em;
 }
-/* line 714, ../sass/style.scss */
+/* line 722, ../sass/style.scss */
 .view-id-directorio .view-header {
   background: #333333;
   padding: 1em 0;
 }
-/* line 717, ../sass/style.scss */
+/* line 725, ../sass/style.scss */
 .view-id-directorio .view-header p {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 721, ../sass/style.scss */
+/* line 729, ../sass/style.scss */
 .view-id-directorio .view-header p a, .view-id-directorio .view-header p a:link {
   background-image: url(../images/ico-dir-home.png);
 }
-/* line 723, ../sass/style.scss */
+/* line 731, ../sass/style.scss */
 .view-id-directorio .view-header p a:hover, .view-id-directorio .view-header p a:link:hover {
   background-image: url(../images/ico-dir-home-h.png);
 }
-/* line 726, ../sass/style.scss */
+/* line 734, ../sass/style.scss */
 .view-id-directorio .view-header a, .view-id-directorio .view-header a:link {
   text-indent: -5000px;
   display: block;
@@ -844,21 +856,21 @@ nav .menu .last {
   background-position: center center;
   background-color: transparent;
 }
-/* line 737, ../sass/style.scss */
+/* line 745, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento {
   display: inline-block;
   vertical-align: top;
   float: right;
   width: 92%;
 }
-/* line 742, ../sass/style.scss */
+/* line 750, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row {
   display: inline-block;
   vertical-align: middle;
   position: relative;
   text-align: center;
 }
-/* line 748, ../sass/style.scss */
+/* line 756, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row:hover a, .view-id-directorio .view-header .view-id-departamento .views-row:hover a:link {
   text-indent: 0px;
   color: #333333;
@@ -872,134 +884,134 @@ nav .menu .last {
   width: 6em;
   left: -1em;
 }
-/* line 764, ../sass/style.scss */
+/* line 772, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .views-row-last a, .view-id-directorio .view-header .view-id-departamento .views-row-last a:link {
   width: 4em;
 }
-/* line 766, ../sass/style.scss */
+/* line 774, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .comite-ejecutivo {
   background-image: url(../images/ico-dir-comite.png);
 }
-/* line 768, ../sass/style.scss */
+/* line 776, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .comite-ejecutivo:hover {
   background-image: url(../images/ico-dir-comite-h.png);
 }
-/* line 770, ../sass/style.scss */
+/* line 778, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .desarrollo-e-innovacion {
   background-image: url(../images/ico-dir-desarrollo.png);
 }
-/* line 772, ../sass/style.scss */
+/* line 780, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .desarrollo-e-innovacion:hover {
   background-image: url(../images/ico-dir-desarrollo-h.png);
 }
-/* line 774, ../sass/style.scss */
+/* line 782, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .direccion-medica {
   background-image: url(../images/ico-dir-direccion.png);
 }
-/* line 776, ../sass/style.scss */
+/* line 784, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .direccion-medica:hover {
   background-image: url(../images/ico-dir-direccion-h.png);
 }
-/* line 778, ../sass/style.scss */
+/* line 786, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .finanzas {
   background-image: url(../images/ico-dir-finanzas.png);
 }
-/* line 780, ../sass/style.scss */
+/* line 788, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .finanzas:hover {
   background-image: url(../images/ico-dir-finanzas-h.png);
 }
-/* line 782, ../sass/style.scss */
+/* line 790, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .galeno {
   background-image: url(../images/ico-dir-galeno.png);
 }
-/* line 784, ../sass/style.scss */
+/* line 792, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .galeno:hover {
   background-image: url(../images/ico-dir-galeno-h.png);
 }
-/* line 786, ../sass/style.scss */
+/* line 794, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .genericos-otc {
   background-image: url(../images/ico-dir-genericos.png);
 }
-/* line 788, ../sass/style.scss */
+/* line 796, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .genericos-otc:hover {
   background-image: url(../images/ico-dir-genericos-h.png);
 }
-/* line 790, ../sass/style.scss */
+/* line 798, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .gestion-humana {
   background-image: url(../images/ico-dir-gestion.png);
 }
-/* line 792, ../sass/style.scss */
+/* line 800, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .gestion-humana:hover {
   background-image: url(../images/ico-dir-gestion-h.png);
 }
-/* line 794, ../sass/style.scss */
+/* line 802, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .innova {
   background-image: url(../images/ico-dir-innova.png);
 }
-/* line 796, ../sass/style.scss */
+/* line 804, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .innova:hover {
   background-image: url(../images/ico-dir-innova-h.png);
 }
-/* line 798, ../sass/style.scss */
+/* line 806, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .internacional {
   background-image: url(../images/ico-dir-internacional.png);
 }
-/* line 800, ../sass/style.scss */
+/* line 808, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .internacional:hover {
   background-image: url(../images/ico-dir-internacional-h.png);
 }
-/* line 802, ../sass/style.scss */
+/* line 810, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .operaciones {
   background-image: url(../images/ico-dir-operaciones.png);
 }
-/* line 804, ../sass/style.scss */
+/* line 812, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .operaciones:hover {
   background-image: url(../images/ico-dir-operaciones-h.png);
 }
-/* line 806, ../sass/style.scss */
+/* line 814, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .supplay {
   background-image: url(../images/ico-dir-supplay.png);
 }
-/* line 808, ../sass/style.scss */
+/* line 816, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .supplay:hover {
   background-image: url(../images/ico-dir-supplay-h.png);
 }
-/* line 810, ../sass/style.scss */
+/* line 818, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .tecnologia-informatica {
   background-image: url(../images/ico-dir-tecnologia.png);
 }
-/* line 812, ../sass/style.scss */
+/* line 820, ../sass/style.scss */
 .view-id-directorio .view-header .view-id-departamento .tecnologia-informatica:hover {
   background-image: url(../images/ico-dir-tecnologia-h.png);
 }
-/* line 816, ../sass/style.scss */
+/* line 824, ../sass/style.scss */
 .view-id-directorio .view-filters {
   position: absolute;
   top: 0;
   right: 0;
 }
-/* line 820, ../sass/style.scss */
+/* line 828, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine {
   padding: 0;
   position: relative;
 }
-/* line 823, ../sass/style.scss */
+/* line 831, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine label {
   position: absolute;
   top: 0.5em;
   left: 1.5em;
   font-weight: normal;
 }
-/* line 829, ../sass/style.scss */
+/* line 837, ../sass/style.scss */
 .view-id-directorio .view-filters .views-widget-filter-combine .form-text {
   margin: 0;
 }
-/* line 831, ../sass/style.scss */
+/* line 839, ../sass/style.scss */
 .view-id-directorio .view-filters .views-submit-button {
   padding: 0;
   position: relative;
 }
-/* line 834, ../sass/style.scss */
+/* line 842, ../sass/style.scss */
 .view-id-directorio .view-filters .views-submit-button .form-submit {
   margin: 0;
   background: url(../images/ico-lupa.png) no-repeat center center white;
@@ -1009,18 +1021,18 @@ nav .menu .last {
   text-indent: -5000px;
   cursor: pointer;
 }
-/* line 845, ../sass/style.scss */
+/* line 853, ../sass/style.scss */
 .view-id-directorio > .view-content {
   text-align: left;
 }
 
 /*==end==*/
 /*perfil*/
-/* line 856, ../sass/style.scss */
+/* line 864, ../sass/style.scss */
 .user-profile {
   background: white;
 }
-/* line 858, ../sass/style.scss */
+/* line 866, ../sass/style.scss */
 .user-profile .group-header {
   position: absolute;
   top: 1em;
@@ -1028,7 +1040,7 @@ nav .menu .last {
   text-align: left;
   width: 20em;
 }
-/* line 864, ../sass/style.scss */
+/* line 872, ../sass/style.scss */
 .user-profile .group-header a, .user-profile .group-header a:link {
   -webkit-border-radius: 0 3em 3em 0;
   -moz-border-radius: 0 3em 3em 0;
@@ -1038,11 +1050,11 @@ nav .menu .last {
   padding: 1em 1em 1em 3em;
   color: #1f3264;
 }
-/* line 872, ../sass/style.scss */
+/* line 880, ../sass/style.scss */
 .user-profile .group-left {
   width: 30%;
 }
-/* line 873, ../sass/style.scss */
+/* line 881, ../sass/style.scss */
 .user-profile .group-right {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1052,11 +1064,11 @@ nav .menu .last {
   color: white;
   padding: 1em;
 }
-/* line 879, ../sass/style.scss */
+/* line 887, ../sass/style.scss */
 .user-profile .group-right .field {
   margin: 0.2em;
 }
-/* line 881, ../sass/style.scss */
+/* line 889, ../sass/style.scss */
 .user-profile .group-right .field .field-label {
   display: inline-block;
   vertical-align: middle;
@@ -1067,21 +1079,21 @@ nav .menu .last {
   background-repeat: no-repeat;
   background-position: center center;
 }
-/* line 893, ../sass/style.scss */
+/* line 901, ../sass/style.scss */
 .user-profile .group-right .field .field-items {
   display: inline-block;
   vertical-align: middle;
   margin-left: 0.3em;
 }
-/* line 900, ../sass/style.scss */
+/* line 908, ../sass/style.scss */
 .user-profile .group-right .field-name-field-departamento .field-label {
   background-image: url(../images/ico-colombia.png);
 }
-/* line 903, ../sass/style.scss */
+/* line 911, ../sass/style.scss */
 .user-profile .group-right .field-name-field-cargo .field-label {
   background-image: url(../images/ico-cargo.png);
 }
-/* line 905, ../sass/style.scss */
+/* line 913, ../sass/style.scss */
 .user-profile .group-right .field-name-field-nombre-completo {
   color: #f9bd14;
   font-size: 2em;
@@ -1090,46 +1102,50 @@ nav .menu .last {
   padding-bottom: 0.3em;
   margin-bottom: 0.3em;
 }
-/* line 912, ../sass/style.scss */
+/* line 920, ../sass/style.scss */
 .user-profile .group-right .field-name-field-nombre-completo .field-label {
   display: none;
 }
-/* line 916, ../sass/style.scss */
+/* line 924, ../sass/style.scss */
 .user-profile .group-footer .views-row {
   padding: 0.5em 1em 3em 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 920, ../sass/style.scss */
+/* line 928, ../sass/style.scss */
 .user-profile .group-footer .views-row .flag-outer-like {
   bottom: -2em;
   right: 0;
 }
-/* line 924, ../sass/style.scss */
+/* line 932, ../sass/style.scss */
 .user-profile .group-footer .views-row .field-name-counter {
   bottom: -2em;
   left: 0;
 }
 
-/* line 931, ../sass/style.scss */
+/* line 939, ../sass/style.scss */
 #block-ob-wall-ob-profile {
   overflow: hidden;
   *zoom: 1;
+  width: 100%;
+  height: 0;
+}
+/* line 943, ../sass/style.scss */
+#block-ob-wall-ob-profile > .content {
   padding-top: 1em;
   border-top: 1px solid #dddddd;
   margin-top: 2em;
-  width: 100%;
 }
-/* line 937, ../sass/style.scss */
+/* line 948, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-img {
   padding-left: 0;
   width: 15%;
 }
-/* line 942, ../sass/style.scss */
+/* line 953, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info {
   width: 35%;
   min-height: 17.5em;
 }
-/* line 946, ../sass/style.scss */
+/* line 957, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-name {
   font-size: 2em;
   font-family: "futuraB";
@@ -1138,29 +1154,29 @@ nav .menu .last {
   margin: 0 0 0.3em 0;
   color: #f9bd14;
 }
-/* line 956, ../sass/style.scss */
+/* line 967, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-depto {
   background: url(../images/ico-colombia.png) no-repeat left center;
   padding: 0.4em 0 0.4em 2em;
   color: #f9bd14;
 }
-/* line 961, ../sass/style.scss */
+/* line 972, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-cargo {
   background: url(../images/ico-cargo.png) no-repeat left center;
   padding: 0.4em 0 0.4em 2em;
   color: #f9bd14;
 }
-/* line 966, ../sass/style.scss */
+/* line 977, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-mail {
   background: url(../images/ico-mail.png) no-repeat left center;
   padding: 0.4em 0 0.4em 2em;
   color: white;
 }
-/* line 972, ../sass/style.scss */
+/* line 983, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-colaborator {
   border: none;
 }
-/* line 975, ../sass/style.scss */
+/* line 986, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-colaborator .views-row {
   min-height: auto;
   width: 7em;
