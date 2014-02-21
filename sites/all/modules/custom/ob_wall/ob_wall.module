@@ -71,6 +71,7 @@ function ob_wall_block_view($delta = '') {
 }
 
 function og_wall_form($form, &$form_state){
+  drupal_add_js(drupal_get_path('module', 'ob_wall') .'/js/ob_wall.js', 'file');
   $form['image'] = array(
     '#title' => t('Imagen'),
     '#type' => 'managed_file',
@@ -94,18 +95,41 @@ function og_wall_form($form, &$form_state){
   
   $form['permissions'] = array(
     '#type' => 'select',
-       '#title' => '',
-       '#options' => $options,
+    '#title' => '',
+    '#options' => $options,
+    '#ajax' => array(
+      'callback' => 'ob_wall_get_directory'
+    ),
+  );
+
+  $form['specific'] = array(
+    '#type' => 'hidden',
+    '#attributes' => array(
+        'class' => array('s_specific')
+      )
   );
 
   $form['enviar'] =  array(
     '#type' => 'submit',
-    '#value' => t('Publicate')
+    '#value' => t('Publicar')
   );
 
   return $form;
 }
 
+
+function ob_wall_get_directory($form, &$form_state){
+  $commands = array();
+  $permision = $form_state['values']['permissions'];
+
+  if($permision == 'specific') {
+    $markup = views_embed_view('directorio', 'block_1');
+    $markup .= '<div class="s_submit">' . t('Send') . '</div>';
+    $commands[] = ajax_command_invoke('', 'ob_wall_directory',array(array('html' => $markup ,'width' => 500,'height' => 600)));
+  }
+
+  return array('#type' => 'ajax', '#commands' => $commands);
+}
 
 function og_wall_form_submit($form, &$form_state){
   $counter = variable_get('ob_wall_counter', 1);
@@ -140,6 +164,9 @@ function og_wall_form_submit($form, &$form_state){
 
   $permissions = array();
   if ($form_state['values']['permissions'] == 'friend_group') {
+
+  } elseif ($form_state['values']['permissions'] == 'friend_group') {
+  
   } else {
     $permissions[] = $form_state['values']['permissions'];
   }
@@ -159,7 +186,7 @@ function ob_wall_get_dept($machine_name){
   $terms = taxonomy_get_tree($v->vid);
   
   $options = array(
-    'public' => t('Publico'),
+    'public' => t('Público'),
     'friend_group' => t('Grupo de amigos'),
     'specific' => t('Personal'),
   );
