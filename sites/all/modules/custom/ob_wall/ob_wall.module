@@ -365,7 +365,7 @@ function ob_wall_print_profile(){
     'height'  => false,
   ));
 
-  $content['links_header']['logout'] = array(
+  $content['links_header']['image'] = array(
     '#type' => 'html_tag',
     '#tag' => 'div',
     '#value' => $user_image,
@@ -459,6 +459,15 @@ function ob_wall_print_profile(){
     );
   }
 
+  $content['links_header']['close'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => t('close'),
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_close'))
+    ),
+  );
+
   $colaborators = '<div class="s_title_block">' . t('Colaboradores') . '</div>';
   $colaborators .= views_embed_view('colaboradores');
 
@@ -470,16 +479,6 @@ function ob_wall_print_profile(){
       'class' => array(drupal_html_class('ob_colaborator'))
     ),
   );
-
-  $content['links_header']['close'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => t('close'),
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_close'))
-    ),
-  );
-
   return $content;
 }
 
