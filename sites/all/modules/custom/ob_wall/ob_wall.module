@@ -72,54 +72,40 @@ function ob_wall_block_view($delta = '') {
 
 function og_wall_form($form, &$form_state){
   drupal_add_js(drupal_get_path('module', 'ob_wall') .'/js/ob_wall.js', 'file');
-  $content['images'] = array(
+  $form['images'] = array(
     '#type' => 'container',
     '#attributes' => array(
-      'id' => 'ob_images',
+      'class' => array('ob_images', 's_add_file'),
     ),
   );
 
-  if (empty($form_state['numero'])) {
-    $form_state['numero'] = 1;
-  }
+  $form['images']['image'] = array(
+    '#title' => t('Imagen'),
+    '#type' => 'managed_file',
+    '#upload_location' => 'public://wall/',
+    '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
+  );
 
-  for ($a = 0; $a < $form_state['numero']; $a++) {
-    $form['images'][$a] = array(
-      '#title' => t('Imagen'),
-      '#type' => 'managed_file',
-      '#upload_location' => 'public://wall/',
-      '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
-    );
-  }
-
-  $form['images']['add'] = array(
-  '#type' => 'submit',
-  '#value' => t('Agregar otro archivo'),
-  '#submit' => array('addmore_add_one'),
-    '#ajax' => array(
-      'callback' => 'addmore_callback',
-      'wrapper' => 'ob_images',
+  $form['texto'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('ob_text', 's_add_file'),
     ),
   );
 
-  if ($form_state['numero'] > 1) {
-    $form['gruppo']['remove'] = array(
-      '#type' => 'submit',
-      '#value' => t('Rimuovi file'),
-      '#submit' => array('addmore_remove_one'),
-      '#ajax' => array(
-        'callback' => 'addmore_callback',
-        'wrapper' => 'ob_images',
-      ),
-    );
-  }
-
-  $form['text'] = array(
+  $form['texto']['text'] = array(
     '#title' => t('Publicación'),
     '#type' => 'textarea',
   );
 
-  $form['archivo'] = array(
+  $form['file'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array('ob_file', 's_add_file'),
+    ),
+  );
+
+  $form['file']['archivo'] = array(
     '#title' => t('Archivo'),
     '#type' => 'managed_file',
     '#upload_location' => 'public://wall/',
@@ -152,7 +138,6 @@ function og_wall_form($form, &$form_state){
   return $form;
 }
 
-
 function ob_wall_get_directory($form, &$form_state){
   $commands = array();
   $permision = $form_state['values']['permissions'];
@@ -169,7 +154,7 @@ function ob_wall_get_directory($form, &$form_state){
 function og_wall_form_submit($form, &$form_state){
   $counter = variable_get('ob_wall_counter', 1);
   $counter ++;
- global $user;
+  global $user;
   $node = new stdClass();
   $node->type = 'ob_wall';
   $node->title = 'public_' . $counter;
@@ -208,8 +193,8 @@ function og_wall_form_submit($form, &$form_state){
     $node->field_permissions['und'][$key]['value'] = $value;
   }
   # code...
-  node_save($node);
-  variable_set('ob_wall_counter', $counter);
+  //node_save($node);
+  //variable_set('ob_wall_counter', $counter);
   drupal_set_message(t('Se ha generado la publicación'));
 }
 
