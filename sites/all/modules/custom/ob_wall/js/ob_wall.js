@@ -5,7 +5,7 @@
       $.colorbox(options);
     }; 
     $('.ob-profile a').click(function(e){
-      
+      $('#block-ob-wall-ob-profile').animate({height:'18em'},500)
       e.preventDefault();
       return false;
     })
