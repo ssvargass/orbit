@@ -961,6 +961,7 @@ nav {
 	}
 	.ob-close {
 		@include border-radius(10em);
+		display: inline-block;
 		position: absolute;
 		left: 48.5%;
 		bottom: -2.5em;

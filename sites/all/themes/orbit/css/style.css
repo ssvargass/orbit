@@ -1170,6 +1170,7 @@ nav .menu .last {
   -webkit-border-radius: 10em;
   -moz-border-radius: 10em;
   border-radius: 10em;
+  display: inline-block;
   position: absolute;
   left: 48.5%;
   bottom: -2.5em;
@@ -1179,28 +1180,28 @@ nav .menu .last {
   cursor: pointer;
   background: url(../images/arrow-close.png) no-repeat center center #f9bd14;
 }
-/* line 972, ../sass/style.scss */
+/* line 973, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-close:hover {
   bottom: 0;
 }
-/* line 974, ../sass/style.scss */
+/* line 975, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-img {
   padding-left: 0;
   width: 15%;
 }
-/* line 979, ../sass/style.scss */
+/* line 980, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info {
   width: 35%;
   min-height: 17.5em;
 }
-/* line 983, ../sass/style.scss */
+/* line 984, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info > div {
   background-repeat: no-repeat;
   background-position: left center;
   padding: 0.4em 0 0.4em 2em;
   color: white;
 }
-/* line 991, ../sass/style.scss */
+/* line 992, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-name {
   font-size: 2em;
   font-family: "futuraB";
@@ -1209,33 +1210,33 @@ nav .menu .last {
   margin: 0 0 0.3em 0;
   color: #f9bd14;
 }
-/* line 1001, ../sass/style.scss */
+/* line 1002, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-depto {
   background-image: url(../images/ico-colombia.png);
   color: #f9bd14;
 }
-/* line 1005, ../sass/style.scss */
+/* line 1006, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-cargo {
   background-image: url(../images/ico-cargo.png);
   color: #f9bd14;
 }
-/* line 1009, ../sass/style.scss */
+/* line 1010, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-mail {
   background-image: url(../images/ico-mail.png);
 }
-/* line 1012, ../sass/style.scss */
+/* line 1013, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-phone {
   background-image: url(../images/ico-cel.png);
 }
-/* line 1015, ../sass/style.scss */
+/* line 1016, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-user-info .ob-birth {
   background-image: url(../images/ico-cumple.png);
 }
-/* line 1019, ../sass/style.scss */
+/* line 1020, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-colaborator {
   border: none;
 }
-/* line 1022, ../sass/style.scss */
+/* line 1023, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-colaborator .s_title_block {
   font-size: 2em;
   font-family: "futuraB";
@@ -1245,7 +1246,7 @@ nav .menu .last {
   color: #f9bd14;
   display: block;
 }
-/* line 1033, ../sass/style.scss */
+/* line 1034, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-colaborator .views-row {
   min-height: auto;
   width: 7em;
