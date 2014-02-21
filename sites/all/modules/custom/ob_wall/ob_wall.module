@@ -72,12 +72,47 @@ function ob_wall_block_view($delta = '') {
 
 function og_wall_form($form, &$form_state){
   drupal_add_js(drupal_get_path('module', 'ob_wall') .'/js/ob_wall.js', 'file');
-  $form['image'] = array(
-    '#title' => t('Imagen'),
-    '#type' => 'managed_file',
-    '#upload_location' => 'public://wall/',
-     '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
+  $content['images'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'id' => 'ob_images',
+    ),
   );
+
+  if (empty($form_state['numero'])) {
+    $form_state['numero'] = 1;
+  }
+
+  for ($a = 0; $a < $form_state['numero']; $a++) {
+    $form['images'][$a] = array(
+      '#title' => t('Imagen'),
+      '#type' => 'managed_file',
+      '#upload_location' => 'public://wall/',
+      '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
+    );
+  }
+
+  $form['images']['add'] = array(
+  '#type' => 'submit',
+  '#value' => t('Agregar otro archivo'),
+  '#submit' => array('addmore_add_one'),
+    '#ajax' => array(
+      'callback' => 'addmore_callback',
+      'wrapper' => 'ob_images',
+    ),
+  );
+
+  if ($form_state['numero'] > 1) {
+    $form['gruppo']['remove'] = array(
+      '#type' => 'submit',
+      '#value' => t('Rimuovi file'),
+      '#submit' => array('addmore_remove_one'),
+      '#ajax' => array(
+        'callback' => 'addmore_callback',
+        'wrapper' => 'ob_images',
+      ),
+    );
+  }
 
   $form['text'] = array(
     '#title' => t('Publicación'),
@@ -163,10 +198,8 @@ function og_wall_form_submit($form, &$form_state){
   }
 
   $permissions = array();
-  if ($form_state['values']['permissions'] == 'friend_group') {
-
-  } elseif ($form_state['values']['permissions'] == 'friend_group') {
-  
+  if ($form_state['values']['permissions'] == 'specific') {
+    
   } else {
     $permissions[] = $form_state['values']['permissions'];
   }
@@ -350,73 +383,87 @@ function ob_wall_print_profile(){
     ),
   );
 
-  $content['links_header']['user_info']['name'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'h3',
-    '#value' => $usuario->field_nombre_completo['und'][0]['value'],
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_name'))
-    ),
-  );
+  if(count($usuario->field_nombre_completo) > 0) {
+    $content['links_header']['user_info']['name'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'h3',
+      '#value' => $usuario->field_nombre_completo['und'][0]['value'],
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_name'))
+      ),
+    );
+  }
 
-  $content['links_header']['user_info']['depto'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => $usuario->field_departamento['und'][0]['value'],
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_depto'))
-    ),
-  );
+  if(count($usuario->field_departamento) > 0) {
+    $content['links_header']['user_info']['depto'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => $usuario->field_departamento['und'][0]['value'],
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_depto'))
+      ),
+    );
+  }
 
-  $content['links_header']['user_info']['cargo'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => $usuario->field_cargo['und'][0]['value'],
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_cargo'))
-    ),
-  );
+  if(count($usuario->field_cargo) > 0) {
+    $content['links_header']['user_info']['cargo'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => $usuario->field_cargo['und'][0]['value'],
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_cargo'))
+      ),
+    );
+  }
+
+  if(count($usuario->field_tel_fono) > 0) {
+    $content['links_header']['user_info']['phone'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => $usuario->field_tel_fono['und'][0]['value'],
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_phone'))
+      ),
+    );
+  }
+
+  if(count($usuario->mail) > 0) {
+    $content['links_header']['user_info']['mail'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => $usuario->mail,
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_mail'))
+      ),
+    );
+  }
+
+  if(count($usuario->field_cumplea_os) > 0) {
+    $content['links_header']['user_info']['birth'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => $usuario->field_cumplea_os['und'][0]['value'],
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_birth'))
+      ),
+    );
+  }
 
 
-  $content['links_header']['user_info']['phone'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => $usuario->field_tel_fono['und'][0]['value'],
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_phone'))
-    ),
-  );
-
-  $content['links_header']['user_info']['mail'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => $usuario->mail,
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_mail'))
-    ),
-  );
-
-  $content['links_header']['user_info']['birth'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => $usuario->field_cumplea_os['und'][0]['value'],
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_birth'))
-    ),
-  );
-
-  $content['links_header']['user_info']['rh'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => $usuario->field_rh['und'][0]['value'],
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_rh'))
-    ),
-  );
+  if(count($usuario->field_rh) > 0) {
+    $content['links_header']['user_info']['rh'] = array(
+      '#type' => 'html_tag',
+      '#tag' => 'div',
+      '#value' => $usuario->field_rh['und'][0]['value'],
+      '#attributes' => array(
+        'class' => array(drupal_html_class('ob_rh'))
+      ),
+    );
+  }
 
   $colaborators = views_embed_view('colaboradores');
 
-   $content['links_header']['user_info']['colaborator'] = array(
+  $content['links_header']['colaborator'] = array(
     '#type' => 'html_tag',
     '#tag' => 'div',
     '#value' => $colaborators,
