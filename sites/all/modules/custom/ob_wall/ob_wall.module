@@ -471,6 +471,15 @@ function ob_wall_print_profile(){
     ),
   );
 
+  $content['links_header']['close'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => t('close'),
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_close'))
+    ),
+  );
+
   return $content;
 }
 

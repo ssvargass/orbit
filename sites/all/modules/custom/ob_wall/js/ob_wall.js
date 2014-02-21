@@ -9,6 +9,10 @@
       e.preventDefault();
       return false;
     })
+
+    $('.ob-close').click(function(){
+      $('#block-ob-wall-ob-profile').animate({height:'0em'},500)
+    })
   })
   $(function(){       
     $('body').ajaxStop(function() {
