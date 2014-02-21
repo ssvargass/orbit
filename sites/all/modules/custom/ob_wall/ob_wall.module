@@ -82,6 +82,7 @@ function og_wall_form($form, &$form_state){
   $form['images']['image'] = array(
     '#title' => t('Imagen'),
     '#type' => 'managed_file',
+    '#description' => t('Se pueden subir archivos de formatos png gif jpg jpeg'),
     '#upload_location' => 'public://wall/',
     '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
   );
@@ -108,6 +109,7 @@ function og_wall_form($form, &$form_state){
   $form['file']['archivo'] = array(
     '#title' => t('Archivo'),
     '#type' => 'managed_file',
+    '#description' => t('Se pueden subir archivos de formatos pdf doc docx'),
     '#upload_location' => 'public://wall/',
      '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx')),
   );
@@ -162,24 +164,35 @@ function og_wall_form_submit($form, &$form_state){
   $node->uid = $user->uid;
   $node->name = $user->name;
   node_object_prepare($node);
+
+  $none = TRUE;
   
   if($form_state['values']['image'] != 0){
-    $file = $form['image']['#file'];
+    $file =  file_load($form_state['values']['image']);
     $file->status = 1;
     file_save($file);
     $node->field_imagen['und'][0] = (array) $file;
+    $none = FALSE;
   }
-  
 
-  $node->body['und'][0]['value'] = trim($form['text']['#value']);
-  $node->format = 'plain_text';
+  if($form_state['values']['text'] != 0){
+    $node->body['und'][0]['value'] = trim($form['text']['#value']);
+    $node->format = 'plain_text';
+    $none = FALSE;
+  }
 
   if($form_state['values']['archivo'] != 0){
-    $archivo = $form['archivo']['#file'];
+    $archivo = file_load($form_state['values']['archivo']);
     $archivo->status = 1;
     $archivo->display = 1;
     file_save($archivo);
     $node->field_archivo['und'][0] = (array) $archivo;
+    $none = FALSE;
+  }
+
+  if($none){
+    drupal_set_message(t('Debe completar al menos un campo'), 'error');
+    return FALSE;
   }
 
   $permissions = array();
@@ -193,8 +206,8 @@ function og_wall_form_submit($form, &$form_state){
     $node->field_permissions['und'][$key]['value'] = $value;
   }
   # code...
-  //node_save($node);
-  //variable_set('ob_wall_counter', $counter);
+  node_save($node);
+  variable_set('ob_wall_counter', $counter);
   drupal_set_message(t('Se ha generado la publicación'));
 }
 
