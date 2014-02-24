@@ -63,6 +63,16 @@ a, a:link {
 	&:hover { color: $orbit-yellow;}
 }
 
+select {
+	border: none;
+	font-family: "futuraM";
+	font-weight: normal;
+	option {
+		background: $orbit-yellow;
+		color: black;
+		}
+}
+
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .clearfix { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
@@ -315,13 +325,25 @@ input[type="password"] {
 			border-right: none;
 		}
 	}
+	.field-name-body {
+		position: absolute;
+		bottom: -0.45em;
+		left: 1em;
+		font-size: 90%;
+		padding-top: 0.5em;
+		padding-left: 1.5em;
+		background: url(../images/ico-zona.png) no-repeat left center;
+		width: 80%;
+		border-top: 1px solid $orbit-gray-light;
+		p { opacity: 0;}
+	}
 	.flag-outer-like {
 		position: absolute;
 		width: 20%;
-		padding-top: 0.5em;
-		border-top: 1px solid #dddddd;
+		padding: 0.5em 1em 0 0;
+		border-top: 1px solid $orbit-gray-light;
 		bottom: 0;
-		right: 1em;
+		right: 2em;
 		span { float: right;}
 		.flag {
 			background: url(../images/ico-unlike.png) right center no-repeat;
@@ -337,23 +359,33 @@ input[type="password"] {
 	}
 	.field-name-counter {
 		position: absolute;
-		width: 80%;
 		padding-top: 0.5em;
 		border-top: 1px solid #dddddd;
 		bottom: 0;
-		left: 1em;
+		right: 0;
 		.field-item {
-			background: url(../images/ico-like.png) left center no-repeat;
-			color: #f9bd14;
+			color: $orbit-yellow;
 			font-weight: bold;
 			text-align: right;
 			height: 1em;
-			width: 1.5em;
+			width: 1.2em;
 			display: block;
-			padding: 0 1em;
-			border-right: 1px solid #dddddd;
+			padding-left: 1em;
+			border-left: 1px solid $orbit-gray-light;
 			font-size: 1.2em;
 		}
+	}
+	.field-name-shared {
+		position: absolute;
+		bottom: 0em;
+		left: 1em;
+		padding-left: 2em;
+		.form-type-select { 
+			margin: 0;
+			position: relative;
+			top: 3px;
+		}
+		.form-select { color: $orbit-gray;}
 	}
 }
 %perfil-content {
@@ -649,13 +681,6 @@ nav {
 		border-right: 1px solid;
 		select {
 			width: 6em;
-			border: none;
-			font-family: "futuraM";
-			font-weight: normal;
-			option {
-				background: $orbit-yellow;
-				color: black;
- 			}
 		}
 	}
 	#edit-enviar {
