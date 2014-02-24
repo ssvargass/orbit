@@ -87,27 +87,6 @@ input[type="password"] {
 	width: 100%;
 }
 
-input[type="file"] {
-	 position: relative;
-	 width: 3.5em;
-	 height: 2em;
-	 cursor: pointer;
-	&:after {
-		@extend %after-before;
-		background: url(../images/ico-upload.png) center center no-repeat $orbit-yellow;
-		border: 0.3em solid $orbit-yellow-dark;
-		border-top: none;
-		border-left: none;
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-	}
-	&:hover { 
-		&:after { background-color: $orbit-yellow-dark;}
-	}	
-}
-
 .messages {
 	font-size: 1em;
 	color: white;
@@ -600,10 +579,7 @@ nav {
 	float: right;
 }
 #og-wall-form {
-	text-align: center;
 	position: relative;
-	padding-top: 6em;
-	margin-top: 2em;
 	.active { 
 		z-index: 3;
 		label {
@@ -611,28 +587,37 @@ nav {
 			color: $orbit-blue-dark;
 		}
 	}
-	.ob_images {
-		@extend %muro-contenedores;
-		label { left: 0;}
-		.form-type-managed-file {
-			@extend .clearfix;
-		}
-	}
 	.ob_text {
-		@extend %muro-contenedores;
 		label {	left: 33%;}
 		textarea {	
 			border-color: $orbit-gray-light;
-			border-left: none;
-			border-right: none;
 			height: 4em;
-			padding: 0;}
+			padding: 0;
+		}
+		.ob_wall_head {
+			background: $orbit-blue-dark;
+			margin: 0;
+			padding: 1em;
+			color: white;
+		}
+		.form-item { margin-bottom: 0;}
 	}
-	.ob_file {
-		@extend %muro-contenedores;
-		label {	left: 66%;}
+	.ob_actions { 
+		@include clearfix;
+		border-top: 1px solid $orbit-gray-light;
+		margin-top: 1em;
+		padding-top: 1em;
+		#edit-archivo-ajax-wrapper {
+			display: inline-block;
+			vertical-align: middle;
+			.form-submit { display: none;}
+		}
+		.description { margin-top: 0.5em;}
+		.form-file {
+			position: relative;
+			left: -1.5em;
+		}
 	}
-	.ob_actions { padding-top: 1.5em;}
 	.form-type-managed-file {
 		text-align: center;
 		.form-submit {
@@ -641,18 +626,11 @@ nav {
 			float: none !important;
 		}
 	}
-	input[type="file"] {
+	.form-type-select {
 		display: inline-block;
 		vertical-align: middle;
-		margin-right: 1em;
-		position: relative;
-		top: -2px;
-		height: 2.2em;
-	}
-	.form-type-select {
-		margin: 1em 0 1em 1em;
+		margin: 1em 0 1em 5em;
 		padding-right: 1em;
-		float: left;
 		border-right: 1px solid;
 		select {
 			width: 6em;
@@ -667,8 +645,8 @@ nav {
 	}
 	#edit-enviar {
 		@extend %btn-blue;
-		float: left;
-		margin: 0.5em;
+		display: inline-block;
+		vertical-align: middle;
 	}
 }
 
@@ -733,6 +711,7 @@ nav {
 
 /*directorio*/
 
+#views-exposed-form-directorio-block-1,
 .view-id-directorio {
 	position: relative;
 	padding-top: 4em;
@@ -843,29 +822,29 @@ nav {
 		position: absolute;
 		top: 0;
 		right: 0;
-		.views-widget-filter-combine {
-			padding: 0;
-			position: relative;
-			label {
-				position: absolute;
-				top: 0.5em;
-				left: 1.5em;
-				font-weight: normal;
-			}
-			.form-text { margin: 0;}
+	}
+	.views-widget-filter-combine {
+		padding: 0;
+		position: relative;
+		label {
+			position: absolute;
+			top: 0.5em;
+			left: 1.5em;
+			font-weight: normal;
 		}
-		.views-submit-button {
-			padding: 0;
-			position: relative;
-			.form-submit {
-				margin: 0;
-				background: url(../images/ico-lupa.png) no-repeat center center white;
-				border: 1px solid $orbit-gray-light;
-				height: 31px;
-				width: 35px;
-				text-indent: -5000px;
-				cursor: pointer;
-			}
+		.form-text { margin: 0;}
+	}
+	.views-submit-button {
+		padding: 0;
+		position: relative;
+		.form-submit {
+			margin: 0;
+			background: url(../images/ico-lupa.png) no-repeat center center white;
+			border: 1px solid $orbit-gray-light;
+			height: 31px;
+			width: 35px;
+			text-indent: -5000px;
+			cursor: pointer;
 		}
 	}
 	> .view-content {
@@ -1055,6 +1034,16 @@ nav {
 /*colorBox*/
 #colorbox { 
 	z-index: 100;
+	#views-exposed-form-directorio-block-1 {
+		@include clearfix;
+		background: white;
+		padding: 1em 1em 0.5em 1em;
+		margin: 0;
+		.views-exposed-widgets { 
+			margin: 0;
+			float: right;
+		}
+	}
 	.view-id-directorio {
 		padding: 0.5em;
 		margin: 0;
@@ -1063,8 +1052,11 @@ nav {
 			@extend %view-colaboradores;
 			min-height: 0;
 			font-size: 90%;
-			.views-field-nothing .s_user_name { margin-top: 2em;}
+			.views-field-nothing .s_user_name { margin-top: 0.3em;}
 			.views-field-uid { text-indent: -5000px;}
+		}
+		.active {
+			opacity: 0.4;
 		}
 	}
 	.s_submit {
