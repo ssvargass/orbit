@@ -506,6 +506,39 @@ function _ob_wall_filterer($nid){
 }
 
 
+function _ob_wall_shared($entity){
+  $permission = $entity->field_permissions['und'][0]['value'];
+  if($permission == 'public') return t('Público');
+  if($permission == 'friend_group') return t('Colegas');
+
+  $term = explode('term_', $permission);
+  if(count($term) > 1){
+    $taxo = taxonomy_term_load($term[1]);
+    $output = $taxo->name;
+  } else {
+    $speci = explode('specific=', $permission);
+    if(count($speci) > 1){
+      $usuarios = explode(',', $speci[1]);
+      $options = array();
+      $users = user_load_multiple($usuarios);
+      foreach ($users as $key => $value) {
+        $options[] = $value->field_nombre_completo['und'][0]['value'];
+      }
+      $output = array(
+        '#type' => 'select',
+        '#title' => '',
+        '#options' => $options,
+        '#ajax' => array(
+          'callback' => 'ob_wall_get_directory',
+          'prevent' => 'click',
+        ),
+      );
+      $output = render($output);
+    } 
+  }
+  return $output;
+}
+
 
 
 
