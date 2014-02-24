@@ -686,9 +686,10 @@ nav {
 			.field-name-ds-user-picture {
 				@include border-radius(100%);
 				overflow: hidden;
-				height: 10em;
-				width: 10em;
-				margin: auto;
+				height: 8em;
+				width: 8em;
+				margin-right: 0.5em;
+				float: left;
 				a, a:link {
 					display: block;
 					img{
@@ -696,6 +697,15 @@ nav {
 						width: 100%;
 					}
 				}
+			}
+			.field-name-author {
+				text-align: left;
+				color: $orbit-blue-dark;
+				font-size: 1.5em;
+				font-family: "futuraB"
+			}
+			.field-name-hace- {
+				text-align: left;
 			}
 			.field-name-field-imagen,
 			.field-name-file-blank,
