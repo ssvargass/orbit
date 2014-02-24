@@ -967,15 +967,23 @@ nav {
 	.group-footer {
 		.views-row {
 			@extend %view-comentarios;
-			padding: 0.5em 1em 3em 1em;
+			padding: 0.5em 1em 0 1em;
 			border-top: 1px solid $orbit-gray-light;
+			min-height: 7em;
+			.field-name-body {
+				left: 0;
+				bottom: initial;
+				top: 4.5em;
+			}
 			.flag-outer-like {
-				bottom: -2em;
-				right: 0;
+				bottom: initial;
+				top: 4.1em;
+				right: 2.5em;
 			}
 			.field-name-counter {
-				bottom: -2em;
-				left: 0;
+				bottom: initial;
+				top: 4.1em;
+				.field-item { padding: 0 0.5em;}
 			}
 		}
 		.view-id-home_publications.view-display-id-block_1 > .view-content {
@@ -1158,6 +1166,13 @@ nav {
 				vertical-align: top;
 				margin: 0;
 			}
+		}
+	}
+	.view-id-home_publications {
+		.jspPane { 
+			@include box-sizing(border-box);
+			padding-right: 1.5em !important;
+			width: 100% !important;
 		}
 	}
 }
