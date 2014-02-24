@@ -138,7 +138,7 @@ input[type="file"] {
 	position: fixed;
 	z-index: 99;
 }
-#colorbox { z-index: 100;}
+
 #cboxCurrent,
 #cboxPrevious,
 #cboxNext { display: none !important;}
@@ -1050,4 +1050,28 @@ nav {
 	}
 }
 
+/*==end==*/
+
+/*colorBox*/
+#colorbox { 
+	z-index: 100;
+	.view-id-directorio {
+		padding: 0.5em;
+		margin: 0;
+		background: white;
+		.views-row {
+			@extend %view-colaboradores;
+			min-height: 0;
+			font-size: 90%;
+			.views-field-nothing .s_user_name { margin-top: 2em;}
+			.views-field-uid { text-indent: -5000px;}
+		}
+	}
+	.s_submit {
+		@extend %btn-yellow;
+		display: inline-block;
+		float: right;
+		margin-top: 1em;
+	}
+}
 /*==end==*/

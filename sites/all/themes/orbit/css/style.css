@@ -179,11 +179,6 @@ input[type="file"]:hover:after {
   z-index: 99;
 }
 
-/* line 141, ../sass/style.scss */
-#colorbox {
-  z-index: 100;
-}
-
 /* line 144, ../sass/style.scss */
 #cboxCurrent,
 #cboxPrevious,
@@ -235,7 +230,7 @@ input[type="file"]:after, .s_title_page:after, #block-ob-wall-ob-phrase:after, #
 }
 
 /* line 190, ../sass/style.scss */
-#block-user-login .form-submit, #og-wall-form .ob_images .form-submit, #og-wall-form .ob_text .form-submit, #og-wall-form .ob_file .form-submit, #og-wall-form #edit-enviar {
+#block-user-login .form-submit, #og-wall-form .ob_images .form-submit, #og-wall-form .ob_text .form-submit, #og-wall-form .ob_file .form-submit, #colorbox .s_submit, #og-wall-form #edit-enviar {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -251,18 +246,18 @@ input[type="file"]:after, .s_title_page:after, #block-ob-wall-ob-phrase:after, #
   cursor: pointer;
 }
 /* line 202, ../sass/style.scss */
-#block-user-login .form-submit:hover, #og-wall-form .ob_images .form-submit:hover, #og-wall-form .ob_text .form-submit:hover, #og-wall-form .ob_file .form-submit:hover, #og-wall-form #edit-enviar:hover {
+#block-user-login .form-submit:hover, #og-wall-form .ob_images .form-submit:hover, #og-wall-form .ob_text .form-submit:hover, #og-wall-form .ob_file .form-submit:hover, #colorbox .s_submit:hover, #og-wall-form #edit-enviar:hover {
   background-color: #333333;
 }
 
 /* line 207, ../sass/style.scss */
-#block-user-login .form-submit, #og-wall-form .ob_images .form-submit, #og-wall-form .ob_text .form-submit, #og-wall-form .ob_file .form-submit {
+#block-user-login .form-submit, #og-wall-form .ob_images .form-submit, #og-wall-form .ob_text .form-submit, #og-wall-form .ob_file .form-submit, #colorbox .s_submit {
   color: #333333;
   background-color: #f9bd14;
   border-color: #826400;
 }
 /* line 212, ../sass/style.scss */
-#block-user-login .form-submit:hover, #og-wall-form .ob_images .form-submit:hover, #og-wall-form .ob_text .form-submit:hover, #og-wall-form .ob_file .form-submit:hover {
+#block-user-login .form-submit:hover, #og-wall-form .ob_images .form-submit:hover, #og-wall-form .ob_text .form-submit:hover, #og-wall-form .ob_file .form-submit:hover, #colorbox .s_submit:hover {
   color: #f9bd14;
   background-color: #826400;
 }
@@ -408,7 +403,7 @@ input[type="file"]:after, .s_title_page:after, #block-ob-wall-ob-phrase:after, #
 }
 
 /* line 376, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row, #block-ob-wall-ob-profile .ob-colaborator .views-row {
+.view-id-directorio > .view-content .views-row, #block-ob-wall-ob-profile .ob-colaborator .views-row, #colorbox .view-id-directorio .views-row {
   display: inline-block;
   *display: inline-block;
   vertical-align: top;
@@ -420,12 +415,12 @@ input[type="file"]:after, .s_title_page:after, #block-ob-wall-ob-phrase:after, #
   cursor: pointer;
 }
 /* line 386, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row .views-field-picture img, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-picture img {
+.view-id-directorio > .view-content .views-row .views-field-picture img, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-picture img, #colorbox .view-id-directorio .views-row .views-field-picture img {
   height: auto;
   width: 100%;
 }
 /* line 390, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row .views-field-nothing, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-nothing {
+.view-id-directorio > .view-content .views-row .views-field-nothing, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-nothing, #colorbox .view-id-directorio .views-row .views-field-nothing {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
   position: absolute;
@@ -437,30 +432,30 @@ input[type="file"]:after, .s_title_page:after, #block-ob-wall-ob-phrase:after, #
   color: #1f3264;
 }
 /* line 399, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row .views-field-nothing .s_user_name, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-nothing .s_user_name {
+.view-id-directorio > .view-content .views-row .views-field-nothing .s_user_name, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-nothing .s_user_name, #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   text-transform: capitalize;
   margin-top: 4em;
   font-size: 1.3em;
 }
 /* line 404, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row .views-field-nothing .s_user_dept, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-nothing .s_user_dept {
+.view-id-directorio > .view-content .views-row .views-field-nothing .s_user_dept, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-nothing .s_user_dept, #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_dept {
   padding-bottom: 0.2em;
   border-bottom: 1px solid #1f3264;
   width: 90%;
   margin: auto;
 }
 /* line 412, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row:hover .views-field-nothing, #block-ob-wall-ob-profile .ob-colaborator .views-row:hover .views-field-nothing {
+.view-id-directorio > .view-content .views-row:hover .views-field-nothing, #block-ob-wall-ob-profile .ob-colaborator .views-row:hover .views-field-nothing, #colorbox .view-id-directorio .views-row:hover .views-field-nothing {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
   opacity: 0.7;
 }
 /* line 414, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row:hover .views-field-nothing *, #block-ob-wall-ob-profile .ob-colaborator .views-row:hover .views-field-nothing * {
+.view-id-directorio > .view-content .views-row:hover .views-field-nothing *, #block-ob-wall-ob-profile .ob-colaborator .views-row:hover .views-field-nothing *, #colorbox .view-id-directorio .views-row:hover .views-field-nothing * {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
 /* line 417, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row .views-field-uid, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-uid {
+.view-id-directorio > .view-content .views-row .views-field-uid, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-uid, #colorbox .view-id-directorio .views-row .views-field-uid {
   position: absolute;
   top: 0;
   left: 0;
@@ -468,7 +463,7 @@ input[type="file"]:after, .s_title_page:after, #block-ob-wall-ob-phrase:after, #
   height: 100%;
 }
 /* line 423, ../sass/style.scss */
-.view-id-directorio > .view-content .views-row .views-field-uid a, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-uid a, .view-id-directorio > .view-content .views-row .views-field-uid a:link, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-uid a:link {
+.view-id-directorio > .view-content .views-row .views-field-uid a, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-uid a, #colorbox .view-id-directorio .views-row .views-field-uid a, .view-id-directorio > .view-content .views-row .views-field-uid a:link, #block-ob-wall-ob-profile .ob-colaborator .views-row .views-field-uid a:link, #colorbox .view-id-directorio .views-row .views-field-uid a:link {
   text-indent: -5000px;
   display: block;
   width: 100%;
@@ -1263,6 +1258,38 @@ nav .menu .last {
   min-height: auto;
   width: 7em;
   vertical-align: middle;
+}
+
+/*==end==*/
+/*colorBox*/
+/* line 1056, ../sass/style.scss */
+#colorbox {
+  z-index: 100;
+}
+/* line 1058, ../sass/style.scss */
+#colorbox .view-id-directorio {
+  padding: 0.5em;
+  margin: 0;
+  background: white;
+}
+/* line 1062, ../sass/style.scss */
+#colorbox .view-id-directorio .views-row {
+  min-height: 0;
+  font-size: 90%;
+}
+/* line 1066, ../sass/style.scss */
+#colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
+  margin-top: 2em;
+}
+/* line 1067, ../sass/style.scss */
+#colorbox .view-id-directorio .views-row .views-field-uid {
+  text-indent: -5000px;
+}
+/* line 1070, ../sass/style.scss */
+#colorbox .s_submit {
+  display: inline-block;
+  float: right;
+  margin-top: 1em;
 }
 
 /*==end==*/
