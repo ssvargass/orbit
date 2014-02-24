@@ -303,6 +303,18 @@ input[type="password"] {
 %view-comentarios {
 	@include box-sizing(border-box);
 	position: relative;
+	.field-name-delete {
+		position: absolute;
+		top: -1em;
+		right: -1em;
+		a, a:link {
+			display: block;
+			padding: 0.5em;
+			border: 1px solid $orbit-gray-light;
+			border-top: none;
+			border-right: none;
+		}
+	}
 	.flag-outer-like {
 		position: absolute;
 		width: 20%;
@@ -311,7 +323,7 @@ input[type="password"] {
 		bottom: 0;
 		right: 1em;
 		span { float: right;}
-		a, a:link {
+		.flag {
 			background: url(../images/ico-unlike.png) right center no-repeat;
 			text-indent: -5000px;
 			height: 1.2em;
@@ -321,6 +333,7 @@ input[type="password"] {
 			border-left: 1px solid #dddddd;
 		}
 		.flag-throbber { position: absolute;}
+		.unflag-action { background: url(../images/ico-like.png) right center no-repeat;}
 	}
 	.field-name-counter {
 		position: absolute;
@@ -659,7 +672,7 @@ nav {
 		margin-bottom: 1em;
 		position: relative;
 		.group-left {
-			width: 25%;
+			width: 30%;
 			text-align: center;
 			.field-name-ds-user-picture {
 				@include border-radius(100%);
@@ -700,7 +713,7 @@ nav {
 			border-left: 1px solid $orbit-gray-light;
 			padding-left: 1em;
 			padding-bottom: 2.5em;
-			width: 75%;
+			width: 70%;
 			min-height: 13em;
 			float: right;
 		}
