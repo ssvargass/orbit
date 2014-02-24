@@ -1,19 +1,30 @@
 (function ($) {
   var personal = new Array();
+  
   $(document).ready(function(){
-    $.fn.ob_wall_directory = function(options) {
-      $.colorbox(options);
+    $.fn.ob_wall_directory_clear = function() {
+      $('.persona').remove();
     }; 
-    $('.ob-profile a').click(function(e){
-      $('#block-ob-wall-ob-profile').animate({height:'21em'},500)
-      e.preventDefault();
-      return false;
-    })
 
-    $('.ob-close').click(function(){
-      $('#block-ob-wall-ob-profile').animate({height:'0em'},500)
-    })
+    $.fn.ob_wall_directory = function(options) {
+      options.onClosed = function(){clb_clo()}
+      $.colorbox(options);
+    };  
+
+    function clb_clo(){
+      $('.persona').click(function(){
+        $.colorbox({
+          height: 400,
+          href: "#block-views-directorio-block-1",
+          inline: "true",
+          onClosed: function (){clb_clo()},
+          open: true,
+          width: 500
+        });
+      })
+    }
   })
+  
   $(function(){       
     $('body').ajaxStop(function() {
 
@@ -39,8 +50,9 @@
 
     	$('#colorbox .s_submit').click(function(){
     		persons = 'specific=' + personal.join();
+        $('#og-wall-form .s_specific').val(persons);
+        $('<span class="persona"></span>').appendTo('.form-item-permissions')
     		$.colorbox.close();
-    		$('#og-wall-form .s_specific').val(persons);
     	})
       
     });

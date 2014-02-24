@@ -135,12 +135,10 @@ function ob_wall_get_directory($form, &$form_state){
   $commands = array();
   $permision = $form_state['values']['permissions'];
 
+  $commands[] = ajax_command_invoke('', 'ob_wall_directory_clear');
+
   if($permision == 'specific') {
-    //$markup = _og_wall_view_filter('directorio', 'block_1');
-    $markup = views_embed_view('directorio', 'block_1');
-    $markup .= '<div class="s_submit">' . t('Send') . '</div>';
-    
-    $commands[] = ajax_command_invoke('', 'ob_wall_directory',array(array('html' => $markup ,'width' => 500,'height' => 600)));
+    $commands[] = ajax_command_invoke('', 'ob_wall_directory',array(array('inline' => 'true', 'href' => '#block-views-directorio-block-1' ,'width' => 500,'height' => 400,)));
   }
   return array('#type' => 'ajax', '#commands' => $commands);
 }
@@ -204,8 +202,8 @@ function ob_wall_get_dept($machine_name){
   
   $options = array(
     'public' => t('Público'),
-    'friend_group' => t('Grupo de amigos'),
-    'specific' => t('Personal'),
+    'friend_group' => t('Colegas'),
+    'specific' => t('Colega'),
   );
   foreach ($terms as $term => $value) {
     $options['term_' . $value->tid] = $value->name;
@@ -351,6 +349,13 @@ function ob_wall_print_profile(){
     'height'  => false,
   ));
 
+  $content['links_header'] = array(
+    '#type' => 'container',
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_content_profile'))
+    ),
+  );
+
   $content['links_header']['image'] = array(
     '#type' => 'html_tag',
     '#tag' => 'div',
@@ -445,16 +450,7 @@ function ob_wall_print_profile(){
     );
   }
 
-  $content['links_header']['close'] = array(
-    '#type' => 'html_tag',
-    '#tag' => 'div',
-    '#value' => t('close'),
-    '#attributes' => array(
-      'class' => array(drupal_html_class('ob_close'))
-    ),
-  );
-
-  $colaborators = '<div class="s_title_block">' . t('Colaboradores') . '</div>';
+  $colaborators = '<div class="s_title_block">' . t('Colegas') . '</div>';
   $colaborators .= views_embed_view('colaboradores');
 
   $content['links_header']['colaborator'] = array(
@@ -465,10 +461,49 @@ function ob_wall_print_profile(){
       'class' => array(drupal_html_class('ob_colaborator'))
     ),
   );
+
+  $content['close'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'div',
+    '#value' => t('close'),
+    '#attributes' => array(
+      'class' => array(drupal_html_class('ob_close'))
+    ),
+  );
+
   return $content;
 }
 
-
+function _ob_wall_filterer($nid){
+  global $user;
+  $node = node_load($nid);
+  $uid = $user->uid;
+  $permission = $node->field_permissions['und'][0]['value'];
+  if($permission == 'public') return FALSE;
+  if($uid != $node->uid){
+    if($permission == 'friend_group'){
+      $flag = flag_get_user_flags('user', NULL, $node->uid);
+      $friends = (array) $flag['friends'];
+      if (in_array($uid, array_keys($friends))) return FALSE;
+    } else {
+      $speci = explode('specific=', $permission);
+      if(count($speci) > 1){
+        $usuarios = explode(',', $speci[1]);
+        foreach ($usuarios as $key => $value) {
+          if($uid == $value) return FALSE;
+        }
+      } else {
+        $usuario = user_load($uid);
+        $departamento = $usuario->field_departamento['und'][0]['value'];
+        $term = str_replace('term_','',$permission);
+        $taxo = taxonomy_term_load($term);
+        if($taxo->name == $departamento) return FALSE;
+      }
+    }
+    return TRUE;
+  }
+  
+}
 
 
 
