@@ -136,38 +136,19 @@ function ob_wall_get_directory($form, &$form_state){
   $permision = $form_state['values']['permissions'];
 
   if($permision == 'specific') {
-    $markup = _og_wall_view_filter('directorio', 'block_1');
-    $markup .= views_embed_view('directorio', 'block_1');
+    //$markup = _og_wall_view_filter('directorio', 'block_1');
+    $markup = views_embed_view('directorio', 'block_1');
     $markup .= '<div class="s_submit">' . t('Send') . '</div>';
     
     $commands[] = ajax_command_invoke('', 'ob_wall_directory',array(array('html' => $markup ,'width' => 500,'height' => 600)));
   }
-
   return array('#type' => 'ajax', '#commands' => $commands);
 }
 
-function _og_wall_view_filter($name, $display){
-  $view = views_get_view($name);
-  $display_id = $display;
-  $view->set_display($display_id);
-  $view->init_handlers(); //initialize display handlers
-  $view->set_use_ajax(TRUE);
-  $form_state = array(
-  'view' => $view,
-  'display' => $view->display_handler->display,
-  'exposed_form_plugin' => $view->display_handler->get_plugin('exposed_form'), //exposed form plugins are used in Views 3
-  'method' => 'get',
-  'rerender' => TRUE,
-  'no_redirect' => TRUE,
-  );
-  $form = drupal_build_form('views_exposed_form', $form_state); //create the filter form
-  //you now have a form array which can be themed or further altered...
-  $he = drupal_render($form);
-  return $he;
-}
 function og_wall_form_submit($form, &$form_state){
   $counter = variable_get('ob_wall_counter', 1);
   $counter ++;
+
   global $user;
   $node = new stdClass();
   $node->type = 'ob_wall';
@@ -179,16 +160,8 @@ function og_wall_form_submit($form, &$form_state){
 
   $none = TRUE;
   
-  if($form_state['values']['image'] != 0){
-    $file =  file_load($form_state['values']['image']);
-    $file->status = 1;
-    file_save($file);
-    $node->field_imagen['und'][0] = (array) $file;
-    $none = FALSE;
-  }
-
-  if($form_state['values']['text'] != 0){
-    $node->body['und'][0]['value'] = trim($form['text']['#value']);
+  if($form_state['values']['text'] != ''){
+    $node->body['und'][0]['value'] = trim($form_state['values']['text']);
     $node->format = 'plain_text';
     $none = FALSE;
   }
@@ -208,8 +181,9 @@ function og_wall_form_submit($form, &$form_state){
   }
 
   $permissions = array();
+
   if ($form_state['values']['permissions'] == 'specific') {
-    
+    $permissions[] = $form_state['values']['specific'];
   } else {
     $permissions[] = $form_state['values']['permissions'];
   }
