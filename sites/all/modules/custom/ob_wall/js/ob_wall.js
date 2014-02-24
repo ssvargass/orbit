@@ -36,11 +36,13 @@
     			removeFromArray(personal, uid);
     		}
     	})
+
     	$('#colorbox .s_submit').click(function(){
     		persons = 'specific=' + personal.join();
     		$.colorbox.close();
     		$('#og-wall-form .s_specific').val(persons);
     	})
+      
     });
    });
 })(jQuery);

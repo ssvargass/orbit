@@ -72,64 +72,53 @@ function ob_wall_block_view($delta = '') {
 
 function og_wall_form($form, &$form_state){
   drupal_add_js(drupal_get_path('module', 'ob_wall') .'/js/ob_wall.js', 'file');
-  $form['images'] = array(
-    '#type' => 'container',
-    '#attributes' => array(
-      'class' => array('ob_images', 's_add_file'),
-    ),
-  );
-
-  $form['images']['image'] = array(
-    '#title' => t('Imagen'),
-    '#type' => 'managed_file',
-    '#description' => t('Se pueden subir archivos de formatos png gif jpg jpeg'),
-    '#upload_location' => 'public://wall/',
-    '#upload_validators' => array('file_validate_extensions' => array('png gif jpg jpeg')),
-  );
 
   $form['texto'] = array(
+    '#title' => t('Publicación'),
     '#type' => 'container',
     '#attributes' => array(
       'class' => array('ob_text', 's_add_file'),
     ),
   );
 
+  $form['texto']['head'] = array(
+    '#markup' => '<h3 class="ob_wall_head">' . t('Publicación') . '</h3>',
+  );
   $form['texto']['text'] = array(
-    '#title' => t('Publicación'),
+    '#title' => '',
     '#type' => 'textarea',
   );
-
-  $form['file'] = array(
-    '#type' => 'container',
-    '#attributes' => array(
-      'class' => array('ob_file', 's_add_file'),
-    ),
-  );
-
-  $form['file']['archivo'] = array(
-    '#title' => t('Archivo'),
-    '#type' => 'managed_file',
-    '#description' => t('Se pueden subir archivos de formatos pdf doc docx'),
-    '#upload_location' => 'public://wall/',
-     '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx')),
-  );
-
-  $options = ob_wall_get_dept('departamento');
   
-
   $form['actions'] = array(
     '#type' => 'container',
     '#attributes' => array(
       'class' => array('ob_actions',),
     ),
   );
+
+  $form['actions']['archivo'] = array(
+    '#title' => '',
+    '#type' => 'managed_file',
+    '#description' => t('Se pueden subir archivos de formatos pdf, doc, docx, png, gif, jpg, jpeg'),
+    '#upload_location' => 'public://wall/',
+     '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx png gif jpg jpeg')),
+  );
+
+  $options = ob_wall_get_dept('departamento');
+
   $form['actions']['permissions'] = array(
     '#type' => 'select',
     '#title' => '',
     '#options' => $options,
     '#ajax' => array(
-      'callback' => 'ob_wall_get_directory'
+      'callback' => 'ob_wall_get_directory',
+      'prevent' => 'click',
     ),
+  );
+
+  $form['actions']['enviar'] =  array(
+    '#type' => 'submit',
+    '#value' => t('Publicar')
   );
 
   $form['actions']['specific'] = array(
@@ -137,11 +126,6 @@ function og_wall_form($form, &$form_state){
     '#attributes' => array(
         'class' => array('s_specific')
       )
-  );
-
-  $form['actions']['enviar'] =  array(
-    '#type' => 'submit',
-    '#value' => t('Publicar')
   );
 
   return $form;
@@ -152,14 +136,35 @@ function ob_wall_get_directory($form, &$form_state){
   $permision = $form_state['values']['permissions'];
 
   if($permision == 'specific') {
-    $markup = views_embed_view('directorio', 'block_1');
+    $markup = _og_wall_view_filter('directorio', 'block_1');
+    $markup .= views_embed_view('directorio', 'block_1');
     $markup .= '<div class="s_submit">' . t('Send') . '</div>';
+    
     $commands[] = ajax_command_invoke('', 'ob_wall_directory',array(array('html' => $markup ,'width' => 500,'height' => 600)));
   }
 
   return array('#type' => 'ajax', '#commands' => $commands);
 }
 
+function _og_wall_view_filter($name, $display){
+  $view = views_get_view($name);
+  $display_id = $display;
+  $view->set_display($display_id);
+  $view->init_handlers(); //initialize display handlers
+  $view->set_use_ajax(TRUE);
+  $form_state = array(
+  'view' => $view,
+  'display' => $view->display_handler->display,
+  'exposed_form_plugin' => $view->display_handler->get_plugin('exposed_form'), //exposed form plugins are used in Views 3
+  'method' => 'get',
+  'rerender' => TRUE,
+  'no_redirect' => TRUE,
+  );
+  $form = drupal_build_form('views_exposed_form', $form_state); //create the filter form
+  //you now have a form array which can be themed or further altered...
+  $he = drupal_render($form);
+  return $he;
+}
 function og_wall_form_submit($form, &$form_state){
   $counter = variable_get('ob_wall_counter', 1);
   $counter ++;
