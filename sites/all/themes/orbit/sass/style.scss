@@ -438,6 +438,7 @@ input[type="password"] {
 
 
 .front {
+	#block-views-directorio-block-1,
 	.s_title_page { display: none;}
 }
 .s_title_page {
@@ -454,6 +455,7 @@ header {
 	width: 100%;
 	z-index: 10;
 	padding: 1em;
+	#block-block-1 { z-index: 3;}
 }
 nav {
 	background: $orbit-gray-dark;
@@ -714,7 +716,7 @@ nav {
 			padding-left: 1em;
 			padding-bottom: 2.5em;
 			width: 70%;
-			min-height: 13em;
+			min-height: 8em;
 			float: right;
 		}
 	}
@@ -888,7 +890,13 @@ nav {
 			&:hover { background-color: $orbit-yellow-dark;}
 		}
 	}
-	.group-left { width: 30%;}
+	.group-left { 
+		width: 30%;
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
 	.group-right {
 		@include box-sizing(border-box);
 		width: 70%;
@@ -978,6 +986,10 @@ nav {
 		@extend %perfil-content;
 		padding-left: 0;
 		width: 15%;
+		img { 
+			height: auto;
+			width: 100%;
+		}
 	}
 	.ob-user-info {
 		@extend %perfil-content;
@@ -1018,6 +1030,9 @@ nav {
 		.ob-birth {
 			background-image: url(../images/ico-cumple.png);
 		}
+		.ob-rh {
+			background-image: url(../images/ico-rh.png);
+		}
 	}
 	.ob-colaborator {
 		@extend %perfil-content;
@@ -1035,9 +1050,13 @@ nav {
 		}
 		.views-row {
 			@extend %view-colaboradores;
-			min-height: auto;
+			min-height: 0;
 			width: 7em;
 			vertical-align: middle;
+			margin: 0 0.2em;
+			.views-field-nothing .s_user_name {
+				margin-top: 1.5em;
+			}
 		}
 	}
 }
@@ -1047,20 +1066,30 @@ nav {
 /*colorBox*/
 #colorbox { 
 	z-index: 100;
+	#block-views-directorio-block-1 { 
+		background: white;
+		display: block;
+		padding: 1em;
+		h2 { 
+			margin-top: 0;
+			color: $orbit-blue-dark;
+		}
+	}
 	#views-exposed-form-directorio-block-1 {
 		@include clearfix;
 		background: white;
-		padding: 1em 1em 0.5em 1em;
 		margin: 0;
+		padding: 0;
 		.views-exposed-widgets { 
 			margin: 0;
 			float: right;
 		}
 	}
 	.view-id-directorio {
-		padding: 0.5em;
 		margin: 0;
 		background: white;
+		padding: 0;
+		.view-filters { top: -3.2em;}
 		.views-row {
 			@extend %view-colaboradores;
 			min-height: 0;
@@ -1071,12 +1100,40 @@ nav {
 		.active {
 			opacity: 0.4;
 		}
+		> .view-content {
+			padding-top: 0.5em;
+			border-top: 1px solid $orbit-gray-light;
+		}
+		.view-footer { 
+			text-align: right;
+			padding-top: 1em;
+			border-top: 1px solid $orbit-gray-light;
+		}
 	}
 	.s_submit {
 		@extend %btn-yellow;
 		display: inline-block;
-		float: right;
-		margin-top: 1em;
+	}
+
+	.confirmation {
+		background: white;
+		padding: 1em;
+		.form-actions {
+			text-align: center;
+			.form-submit {
+				@extend %btn-blue;
+				display: inline-block;
+				padding: 0.36em 1em;
+				vertical-align: top;
+				margin: 0 1em 0 0;
+			}
+			#edit-cancel {
+				@extend %btn-red;
+				display: inline-block;
+				vertical-align: top;
+				margin: 0;
+			}
+		}
 	}
 }
 /*==end==*/
