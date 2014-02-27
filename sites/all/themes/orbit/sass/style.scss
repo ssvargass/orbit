@@ -559,6 +559,18 @@ nav {
 				&:hover { background-image: url(../images/btn-ico-menu-h.png);}
 			}
 		}
+		.first {
+			.s_home {
+				background-image: url(../images/ico-dir-home-h.png);
+				background-position: center center;
+				&:hover { 
+					background: url(../images/ico-dir-home.png);
+					background-repeat: no-repeat;
+					background-color: $orbit-gray-dark;
+					background-position: 1em center;
+				}
+			}
+		}
 		.last { border: none;}
 	}
 }
@@ -1023,7 +1035,7 @@ nav {
 		height: 4em;
 		text-indent: -5000px;
 		cursor: pointer;
-		background: url(../images/arrow-close.png) no-repeat center center $orbit-yellow;
+		background: url(../images/arrow-close-2.png) no-repeat center center $orbit-gray-dark;
 	}
 	.ob-user-img {
 		@extend %perfil-content;
@@ -1103,6 +1115,9 @@ nav {
 		}
 	}
 }
+#block-ob-wall-ob-profile.actice {
+	.ob-close { background: url(../images/arrow-close.png) no-repeat center center $orbit-yellow;}
+}
 
 /*==end==*/
 
@@ -1111,7 +1126,7 @@ nav {
 .page-calendar {
 	.tabs {
 		border: none;
-		margin: 0;
+		margin: 0.5em 0 0 0;
 		float: right;
 		padding: 0;
 		li {
@@ -1126,6 +1141,7 @@ nav {
 				border: none;
 				margin: 0;
 				cursor: pointer;
+				display: block;
 			}
 		}
 		.active {
@@ -1220,6 +1236,21 @@ nav {
 			}
 		}
 	}
+	.calendar-calendar {
+		.date-nav {
+			background-color: $orbit-blue-dark;
+			padding: 0.5em 0;
+			a, a:link {
+				color: white;
+			}
+		}
+		.days {
+			padding: 0.3em 0;
+			background: $orbit-blue-dark;
+			color: white
+		}
+		tbody td { border: 1px solid $orbit-gray-light;}
+	}
 }
 
 .node-event-form {
@@ -1232,6 +1263,24 @@ nav {
 		padding-left: 1em;
 		border-left: 1px solid $orbit-gray-light;
 		.form-type-checkbox { margin: 0.3em 0;}
+	}
+	.date-no-float {
+		.form-type-date-popup,
+		.container-inline-date {
+			margin: 0 0 2em 0;
+			width: 100%;
+			.date-padding {
+				padding: 0;
+				float: none;
+				width: 100%;
+				.form-type-textfield {
+					@include box-sizing(border-box);
+					width: 50%;
+					padding-right: 1em;
+					input[type=text] { width: 100%;}
+				}
+			}
+		}
 	}
 }
 
@@ -1317,4 +1366,5 @@ nav {
 		}
 	}
 }
+#cboxLoadedContent { background: white;}
 /*==end==*/
