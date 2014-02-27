@@ -2,6 +2,24 @@
   $(document).ready(function(){
     $('#og-wall-form .ob_text').addClass('active');
     $('.views-exposed-form .views-widget-filter-combine').hide_label();
+    $('#block-ob-wall-ob-profile .ob-close').click(function(e){
+        up = undefined;
+        if($(this).parents('#block-ob-wall-ob-profile').hasClass('actice')){
+          altura = '0em';
+        } else {
+          altura = '18.5em'
+          up = 'true';
+        }
+        $('#block-ob-wall-ob-profile').animate({height:altura},500, function(){
+          if(up) {
+            $(this).addClass('actice')
+          } else {
+            $(this).removeClass('actice')
+          }
+        })
+        e.preventDefault();
+        return false;
+      })
   })
   $.fn.hide_label = function(){
     var complete_input = this;
@@ -47,19 +65,6 @@
           $(this).parents('.s_add_file').addClass('active');
         })
       });
-      $('.ob-profile:not(.active) .ob-close').click(function(e){
-        $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500, function(){
-          $(this).addClass(active)
-        })
-        e.preventDefault();
-        return false;
-      })
-
-      $('.ob-profile.active .ob-close').click(function(){
-        $('#block-ob-wall-ob-profile').animate({height:'0em'},500, function(){
-          $(this).removeClass('active')
-        })
-      })
     }
   };
 })(jQuery);
