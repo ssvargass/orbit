@@ -485,7 +485,9 @@ function _ob_wall_filterer($nid){
       $flag = flag_get_user_flags('user', NULL, $node->uid);
       if(count($flag) > 0){
         $friends = (array) $flag['friends'];
-        if (in_array($uid, array_keys($friends))) return FALSE;
+        if (!in_array($uid, array_keys($friends))){
+          return FALSE;
+        }
       }
     } else {
       $speci = explode('specific=', $permission);
