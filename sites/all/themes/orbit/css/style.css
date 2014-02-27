@@ -394,12 +394,12 @@ input[type="password"] {
   position: absolute;
   bottom: 0em;
   left: 1em;
-  padding: 0.5em 0 0.5em 2em;
+  padding: 0.45em 0 0em 2em;
   border-top: 1px solid #dddddd;
 }
 /* line 391, ../sass/style.scss */
 #block-views-home-publications-block .views-row .group-right .field-name-shared .form-type-select, .user-profile .group-footer .views-row .field-name-shared .form-type-select {
-  margin: 0;
+  margin: -7px 0 0 0;
   position: relative;
   top: 3px;
 }
@@ -1298,9 +1298,9 @@ nav .menu .last {
   display: inline-block;
   position: absolute;
   left: 48.5%;
-  bottom: -2.5em;
-  width: 4em;
-  height: 4em;
+  bottom: -2em;
+  width: 3em;
+  height: 3em;
   text-indent: -5000px;
   cursor: pointer;
   background: url(../images/arrow-close-2.png) no-repeat center center #333333;
@@ -1391,24 +1391,27 @@ nav .menu .last {
 /* line 1119, ../sass/style.scss */
 #block-ob-wall-ob-profile.actice .ob-close {
   background: url(../images/arrow-close.png) no-repeat center center #f9bd14;
+  bottom: -2.5em;
+  width: 4em;
+  height: 4em;
 }
 
 /*==end==*/
 /*planeador*/
-/* line 1127, ../sass/style.scss */
+/* line 1132, ../sass/style.scss */
 .page-calendar .tabs {
   border: none;
   margin: 0.5em 0 0 0;
   float: right;
   padding: 0;
 }
-/* line 1132, ../sass/style.scss */
+/* line 1137, ../sass/style.scss */
 .page-calendar .tabs li {
   display: inline-block;
   *display: inline-block;
   vertical-align: top;
 }
-/* line 1136, ../sass/style.scss */
+/* line 1141, ../sass/style.scss */
 .page-calendar .tabs li a, .page-calendar .tabs li a:link {
   background: #1f3264;
   color: white;
@@ -1419,13 +1422,13 @@ nav .menu .last {
   cursor: pointer;
   display: block;
 }
-/* line 1148, ../sass/style.scss */
+/* line 1153, ../sass/style.scss */
 .page-calendar .tabs .active a, .page-calendar .tabs .active a:link {
   background: #f9bd14;
   color: #1f3264;
 }
 
-/* line 1156, ../sass/style.scss */
+/* line 1161, ../sass/style.scss */
 .pst_content_region {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1434,24 +1437,24 @@ nav .menu .last {
   padding: 1em;
   float: right;
 }
-/* line 1162, ../sass/style.scss */
+/* line 1167, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header {
   background: #1f3264;
 }
-/* line 1164, ../sass/style.scss */
+/* line 1169, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header * {
   margin: 0;
   padding: 0;
 }
-/* line 1167, ../sass/style.scss */
+/* line 1172, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header * .date-heading {
   padding: 0.3em 0;
 }
-/* line 1169, ../sass/style.scss */
+/* line 1174, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header * .date-heading a, .pst_content_region .view-id-paneador .view-header * .date-heading a:link {
   color: white;
 }
-/* line 1172, ../sass/style.scss */
+/* line 1177, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header li {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1461,7 +1464,7 @@ nav .menu .last {
   background: none;
   padding: 0;
 }
-/* line 1178, ../sass/style.scss */
+/* line 1183, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header li a, .pst_content_region .view-id-paneador .view-header li a:link {
   background-position: center center;
   background-repeat: no-repeat;
@@ -1471,36 +1474,36 @@ nav .menu .last {
   width: 2em;
   color: #1f3264;
 }
-/* line 1190, ../sass/style.scss */
+/* line 1195, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header .date-prev {
   left: 5px;
 }
-/* line 1192, ../sass/style.scss */
+/* line 1197, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header .date-prev a, .pst_content_region .view-id-paneador .view-header .date-prev a:link {
   background-image: url(../images/arrow-plan-left.png);
 }
-/* line 1194, ../sass/style.scss */
+/* line 1199, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header .date-next {
   right: 5px;
 }
-/* line 1196, ../sass/style.scss */
+/* line 1201, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header .date-next a, .pst_content_region .view-id-paneador .view-header .date-next a:link {
   background-image: url(../images/arrow-plan-right.png);
 }
-/* line 1201, ../sass/style.scss */
+/* line 1206, ../sass/style.scss */
 .pst_content_region .calendar-calendar .days {
   background-color: white;
   padding: 0.5em 0;
   color: #333333;
 }
-/* line 1209, ../sass/style.scss */
+/* line 1214, ../sass/style.scss */
 .pst_content_region .calendar-calendar .empty,
 .pst_content_region .calendar-calendar .future,
 .pst_content_region .calendar-calendar .today,
 .pst_content_region .calendar-calendar .past {
   border: 1px solid #CCC;
 }
-/* line 1211, ../sass/style.scss */
+/* line 1216, ../sass/style.scss */
 .pst_content_region .calendar-calendar .empty .mini-day-off,
 .pst_content_region .calendar-calendar .future .mini-day-off,
 .pst_content_region .calendar-calendar .today .mini-day-off,
@@ -1508,11 +1511,11 @@ nav .menu .last {
   padding: 0 0 1em 0;
 }
 
-/* line 1218, ../sass/style.scss */
+/* line 1223, ../sass/style.scss */
 #content .view-id-paneador .date-nav {
   padding: 0;
 }
-/* line 1221, ../sass/style.scss */
+/* line 1226, ../sass/style.scss */
 #content .view-id-paneador .date-nav .pager li {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1520,68 +1523,68 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 1225, ../sass/style.scss */
+/* line 1230, ../sass/style.scss */
 #content .view-id-paneador .date-nav .pager li a, #content .view-id-paneador .date-nav .pager li a:link {
   background: #1f3264;
   color: white;
   font-weight: normal;
   padding: 0.3em 0.5em;
 }
-/* line 1230, ../sass/style.scss */
+/* line 1235, ../sass/style.scss */
 #content .view-id-paneador .date-nav .pager li a:hover, #content .view-id-paneador .date-nav .pager li a:link:hover {
   background: #f9bd14;
   color: black;
 }
-/* line 1240, ../sass/style.scss */
+/* line 1245, ../sass/style.scss */
 #content .calendar-calendar .date-nav {
   background-color: #1f3264;
   padding: 0.5em 0;
 }
-/* line 1243, ../sass/style.scss */
+/* line 1248, ../sass/style.scss */
 #content .calendar-calendar .date-nav a, #content .calendar-calendar .date-nav a:link {
   color: white;
 }
-/* line 1247, ../sass/style.scss */
+/* line 1252, ../sass/style.scss */
 #content .calendar-calendar .days {
   padding: 0.3em 0;
   background: #1f3264;
   color: white;
 }
-/* line 1252, ../sass/style.scss */
+/* line 1257, ../sass/style.scss */
 #content .calendar-calendar tbody td {
   border: 1px solid #dddddd;
 }
 
-/* line 1256, ../sass/style.scss */
+/* line 1261, ../sass/style.scss */
 .node-event-form {
   width: 100%;
   margin-top: 3em;
 }
-/* line 1260, ../sass/style.scss */
+/* line 1265, ../sass/style.scss */
 .node-event-form .date-float {
   float: right;
   margin-top: -2em;
   padding-left: 1em;
   border-left: 1px solid #dddddd;
 }
-/* line 1265, ../sass/style.scss */
+/* line 1270, ../sass/style.scss */
 .node-event-form .date-float .form-type-checkbox {
   margin: 0.3em 0;
 }
-/* line 1269, ../sass/style.scss */
+/* line 1274, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup,
 .node-event-form .date-no-float .container-inline-date {
   margin: 0 0 2em 0;
   width: 100%;
 }
-/* line 1272, ../sass/style.scss */
+/* line 1277, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding,
 .node-event-form .date-no-float .container-inline-date .date-padding {
   padding: 0;
   float: none;
   width: 100%;
 }
-/* line 1276, ../sass/style.scss */
+/* line 1281, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield,
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield {
   -webkit-box-sizing: border-box;
@@ -1590,7 +1593,7 @@ nav .menu .last {
   width: 50%;
   padding-right: 1em;
 }
-/* line 1280, ../sass/style.scss */
+/* line 1285, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield input[type=text],
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield input[type=text] {
   width: 100%;
@@ -1598,22 +1601,22 @@ nav .menu .last {
 
 /*==end==*/
 /*colorBox*/
-/* line 1290, ../sass/style.scss */
+/* line 1295, ../sass/style.scss */
 #colorbox {
   z-index: 100;
 }
-/* line 1292, ../sass/style.scss */
+/* line 1297, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 {
   background: white;
   display: block;
   padding: 1em;
 }
-/* line 1296, ../sass/style.scss */
+/* line 1301, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 h2 {
   margin-top: 0;
   color: #1f3264;
 }
-/* line 1301, ../sass/style.scss */
+/* line 1306, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 {
   overflow: hidden;
   *zoom: 1;
@@ -1621,76 +1624,76 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 1306, ../sass/style.scss */
+/* line 1311, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 .views-exposed-widgets {
   margin: 0;
   float: right;
 }
-/* line 1311, ../sass/style.scss */
+/* line 1316, ../sass/style.scss */
 #colorbox .view-id-directorio {
   margin: 0;
   background: white;
   padding: 0;
 }
-/* line 1315, ../sass/style.scss */
+/* line 1320, ../sass/style.scss */
 #colorbox .view-id-directorio .view-filters {
   top: -3.2em;
 }
-/* line 1316, ../sass/style.scss */
+/* line 1321, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row {
   min-height: 0;
   font-size: 90%;
 }
-/* line 1320, ../sass/style.scss */
+/* line 1325, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   margin-top: 0.3em;
 }
-/* line 1321, ../sass/style.scss */
+/* line 1326, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-uid {
   text-indent: -5000px;
 }
-/* line 1323, ../sass/style.scss */
+/* line 1328, ../sass/style.scss */
 #colorbox .view-id-directorio .active {
   opacity: 0.4;
 }
-/* line 1326, ../sass/style.scss */
+/* line 1331, ../sass/style.scss */
 #colorbox .view-id-directorio > .view-content {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 1330, ../sass/style.scss */
+/* line 1335, ../sass/style.scss */
 #colorbox .view-id-directorio .view-footer {
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 1336, ../sass/style.scss */
+/* line 1341, ../sass/style.scss */
 #colorbox .s_submit {
   display: inline-block;
 }
-/* line 1341, ../sass/style.scss */
+/* line 1346, ../sass/style.scss */
 #colorbox .confirmation {
   background: white;
   padding: 1em;
 }
-/* line 1344, ../sass/style.scss */
+/* line 1349, ../sass/style.scss */
 #colorbox .confirmation .form-actions {
   text-align: center;
 }
-/* line 1346, ../sass/style.scss */
+/* line 1351, ../sass/style.scss */
 #colorbox .confirmation .form-actions .form-submit {
   display: inline-block;
   padding: 0.36em 1em;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 1353, ../sass/style.scss */
+/* line 1358, ../sass/style.scss */
 #colorbox .confirmation .form-actions #edit-cancel {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 1362, ../sass/style.scss */
+/* line 1367, ../sass/style.scss */
 #colorbox .view-id-home_publications .jspPane {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1699,7 +1702,7 @@ nav .menu .last {
   width: 100% !important;
 }
 
-/* line 1369, ../sass/style.scss */
+/* line 1374, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }
