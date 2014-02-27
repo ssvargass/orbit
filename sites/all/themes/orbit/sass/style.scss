@@ -44,6 +44,10 @@ html {
 		text-align: center;
 		border: none;
 		font-weight: normal;
+		.error {
+			background-color: $orbit-red;
+			background-image: none;
+		}
 	}
 }
 body {
@@ -593,29 +597,6 @@ nav {
 		padding: 1em;
 		border-right: 1px solid $orbit-gray-light;
 	}
-	.pst_content_region {
-		@include box-sizing(border-box);
-		width: 30%;
-		padding: 1em;
-		float: right;
-		.view-id-paneador {
-			.view-header {
-				background: $orbit-blue-dark;
-				* { margin: 0;}
-				li {
-					@include border-radius(0);
-					background: none;
-					padding: 0;
-					a, a:link {
-						@extend %arrow-left;
-						display: block;
-						width: 1em;
-						height: 1em;
-					}
-				}
-			}
-		}
-	}
 }
 
 /*muro*/
@@ -1152,9 +1133,87 @@ nav {
 		}
 	}
 }
-.view-id-paneador {
-	.view-id-paneador {
 
+.pst_content_region {
+	@include box-sizing(border-box);
+	width: 30%;
+	padding: 1em;
+	float: right;
+	.view-id-paneador {
+		.view-header {
+			background: $orbit-blue-dark;
+			* { 
+				margin: 0;
+				padding: 0;
+				.date-heading { 
+					padding: 0.3em 0;
+					a, a:link { color: white;}
+				}
+			}
+			li {
+				@include border-radius(0);
+				text-indent: -5000px;
+				font-size: 0;
+				background: none;
+				padding: 0;
+				a, a:link {
+					background: {
+						position: center center;
+						repeat: no-repeat;
+					}
+					display: block;
+					margin-top: 0.5em;
+					height: 2em;
+					width: 2em;
+					color: $orbit-blue-dark;
+				}
+			}
+			.date-prev {
+				left: 5px;
+				a, a:link { background-image: url(../images/arrow-plan-left.png);}
+			}
+			.date-next {
+				right: 5px;
+				a, a:link { background-image: url(../images/arrow-plan-right.png);}
+			}
+		}
+	}
+	.calendar-calendar {
+		.days {
+			background-color: white;
+			padding: 0.5em 0;
+			color: $orbit-gray-dark;
+		}
+		.empty,
+		.future,
+		.today,
+		.past {
+			border: 1px solid #CCC;
+			.mini-day-off { padding: 0 0 1em 0;}
+		}
+	}
+}
+
+.view-id-paneador {
+	.date-nav {
+		padding: 0;
+		.pager {
+			li {
+				@include border-radius(0);
+				margin: 0;
+				padding: 0;
+				a, a:link { 
+					background: $orbit-blue-dark;
+					color: white;
+					font-weight: normal;
+					padding: 0.3em 0.5em;
+					&:hover {
+						background: $orbit-yellow;
+						color: black;
+					}
+				}
+			}
+		}
 	}
 }
 
