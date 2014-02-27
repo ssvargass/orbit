@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Implements hook_block_info()
+ */
+function ob_blocks_block_info() {
+  $blocks = array(
+    'ob_create_vent' => array(
+      'info' => t('Create Event'),
+    ),
+  );
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view()
+ */
+function ob_blocks_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'ob_create_vent':
+      $block['content'] = _ob_blocks_create_event();
+    break;
+  }
+  return $block;
+}
+
+function _ob_blocks_create_event(){
+  module_load_include('inc', 'node', 'node.pages');
+  $form = node_add('event');
+  $output = drupal_render($form);
+  return $output;
+}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function ob_blocks_form_alter(&$form, &$form_state, $form_id) {
+  switch ($form_id) {
+    case 'event_node_form':
+      hide($form['author']);
+      hide($form['revision_information']);
+      hide($form['options']);
+      hide($form['additional_settings']);
+    break;
+  }
+}
