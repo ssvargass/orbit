@@ -47,14 +47,18 @@
           $(this).parents('.s_add_file').addClass('active');
         })
       });
-      $('.ob-profile a').click(function(e){
-        $('#block-ob-wall-ob-profile').animate({height:'21em'},500)
+      $('.ob-profile:not(.active) .ob-close').click(function(e){
+        $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500, function(){
+          $(this).addClass(active)
+        })
         e.preventDefault();
         return false;
       })
 
-      $('.ob-close').click(function(){
-        $('#block-ob-wall-ob-profile').animate({height:'0em'},500)
+      $('.ob-profile.active .ob-close').click(function(){
+        $('#block-ob-wall-ob-profile').animate({height:'0em'},500, function(){
+          $(this).removeClass('active')
+        })
       })
     }
   };

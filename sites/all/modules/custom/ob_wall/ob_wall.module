@@ -202,7 +202,7 @@ function ob_wall_get_dept($machine_name){
   
   $options = array(
     'public' => t('Público'),
-    'friend_group' => t('Colegas'),
+    'friend_group' => t('Grupo de colegas'),
     'specific' => t('Colega'),
   );
   foreach ($terms as $term => $value) {
