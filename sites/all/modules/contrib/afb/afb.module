@@ -181,9 +181,12 @@ function afb_create_block_ajax_handler($form, $form_state) {
  * Returns the page containing existing block list with block creation form.
  */
 function afb_admin_page() {
-  $output = render(drupal_get_form('afb_existing_blocks_display_form'));
-  $output .= render(drupal_get_form('afb_new_block_create_form'));
-
+  //$output = render(drupal_get_form('afb_existing_blocks_display_form'));
+  //$output .= render(drupal_get_form('afb_new_block_create_form'));
+  $form = drupal_get_form('afb_existing_blocks_display_form');
+  $output = render($form);
+  $form = drupal_get_form('afb_new_block_create_form');
+  $output .= render($form);
   return $output;
 }
 
