@@ -91,6 +91,10 @@ select {
 		}
 }
 
+*:focus {
+	outline: none;
+}
+
 .clearfix:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
 * html .clearfix { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
@@ -1041,6 +1045,7 @@ nav {
 		text-indent: -5000px;
 		cursor: pointer;
 		background: url(../images/arrow-close-2.png) no-repeat center center $orbit-gray-dark;
+		&:hover { bottom: -3em;}
 	}
 	.ob-user-img {
 		@extend %perfil-content;
@@ -1122,10 +1127,12 @@ nav {
 }
 #block-ob-wall-ob-profile.actice {
 	.ob-close { 
+		@include border-radius(10em);
 		background: url(../images/arrow-close.png) no-repeat center center $orbit-yellow;
-		bottom: -2.5em;
+		bottom: -2em;
 		width: 4em;
 		height: 4em;
+		&:hover { background-color: $orbit-yellow-dark;}
 	}
 }
 
