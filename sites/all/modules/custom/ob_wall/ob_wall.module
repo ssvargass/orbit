@@ -428,10 +428,12 @@ function ob_wall_print_profile(){
   }
 
   if(count($usuario->field_cumplea_os) > 0) {
+    $time = strtotime($usuario->field_cumplea_os['und'][0]['value']);
+    $mes = t(date($time,'F'));
     $content['links_header']['user_info']['birth'] = array(
       '#type' => 'html_tag',
       '#tag' => 'div',
-      '#value' => $usuario->field_cumplea_os['und'][0]['value'],
+      '#value' => date($time,'d') . t($mes),
       '#attributes' => array(
         'class' => array(drupal_html_class('ob_birth'))
       ),
