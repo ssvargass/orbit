@@ -27,9 +27,10 @@ function ob_blocks_block_view($delta = '') {
 
 function _ob_blocks_create_event(){
   module_load_include('inc', 'node', 'node.pages');
-  $form = node_add('event');
-  $output = drupal_render($form);
-  return $output;
+  //$form = node_add('event');
+  //dpm($form);
+  //$output = drupal_render($form);
+  //return $output;
 }
 
 
