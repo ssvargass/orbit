@@ -362,6 +362,10 @@ input[type="password"] {
 		.flag-throbber { position: absolute;}
 		.unflag-action { background: url(../images/ico-like.png) right center no-repeat;}
 	}
+	.field-name-file-blank {
+		border-top: 1px solid #EEEEEE;
+		padding-top: 0.3em;
+	}
 	.field-name-counter {
 		position: absolute;
 		padding-top: 0.5em;
@@ -1134,6 +1138,8 @@ nav {
 		margin: 0.5em 0 0 0;
 		float: right;
 		padding: 0;
+		position: relative;
+		z-index: 9;
 		li {
 			display: inline-block;
 			*display: inline-block;
@@ -1287,6 +1293,11 @@ nav {
 			}
 		}
 	}
+	#edit-submit {
+		@extend %btn-blue;
+		float: right;
+	}
+	#edit-preview { display: none;}
 }
 
 /*==end==*/
