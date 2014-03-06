@@ -65,6 +65,13 @@
           $(this).parents('.s_add_file').addClass('active');
         })
       });
+      
+      $('.field-name-ds-user-picture a', context).once('init-colorbox-node-processed', function () {
+          var url = $(this).attr('href');
+          url = url + '?width=600&height=400';
+          $(this).attr('href', url);
+          $(this).colorboxNode({'launch': false});
+      });
     }
   };
 })(jQuery);

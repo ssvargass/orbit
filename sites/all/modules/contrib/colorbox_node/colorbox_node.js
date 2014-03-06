@@ -61,7 +61,6 @@
 
         $(this).click(function () {
             $this = $(this);
-
             // Lets extract our width and height giving priority to the data attributes.
             var innerWidth = $this.data('inner-width');
             var innerHeight = $this.data('inner-height');
