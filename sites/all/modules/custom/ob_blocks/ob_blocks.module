@@ -34,21 +34,6 @@ function _ob_blocks_create_event(){
 }
 
 
-/**
- * Implements hook_form_alter().
- */
-function ob_blocks_form_alter(&$form, &$form_state, $form_id) {
-  switch ($form_id) {
-    case 'event_node_form':
-      hide($form['author']);
-      hide($form['revision_information']);
-      hide($form['options']);
-      hide($form['additional_settings']);
-    break;
-  }
-}
-
-
 function ob_blocks_separate_room($nid){
   $output = '';
   $form = afb_get_add_block(1);
