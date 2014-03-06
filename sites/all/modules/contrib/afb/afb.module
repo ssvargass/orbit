@@ -384,7 +384,7 @@ function afb_ajax_handler($form, $form_state) {
 /**
  * Alters the image widget to induce custom process function.
  */
-function afb_field_widget_form_alter(&$element, &$form_state, $context) {
+/*function afb_field_widget_form_alter(&$element, &$form_state, $context) {
   foreach (element_children($element) as $key) {
     if (isset($element[$key]['#type'])) {
       if ($element[$key]['#type'] == 'managed_file') {

@@ -544,7 +544,7 @@ function node_delete_confirm_submit($form, &$form_state) {
     node_delete($form_state['values']['nid']);
     cache_clear_all();
     watchdog('content', '@type: deleted %title.', array('@type' => $node->type, '%title' => $node->title));
-    drupal_set_message(t('Se ha elimina la @type.', array('@type' => node_type_get_name($node), '%title' => $node->title)));
+    drupal_set_message(t('@type %title has been deleted.', array('@type' => node_type_get_name($node), '%title' => $node->title)));
   }
 
   $form_state['redirect'] = '<front>';
