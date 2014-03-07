@@ -1683,23 +1683,88 @@ nav .menu .last {
 }
 
 /*==end==*/
+/*salas*/
+/* line 1349, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .item-list {
+  clear: both;
+}
+/* line 1351, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .item-list ul {
+  margin: 0;
+  border-bottom: 1px solid #dddddd;
+}
+/* line 1355, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .item-list li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 1px;
+}
+/* line 1360, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .item-list li a, #block-quicktabs-salas-de-reuni-n .item-list li a:link {
+  padding: 0.5em 1em;
+  display: inline-block;
+  background: #dddddd;
+  color: #1f3264;
+  font-family: "futuraB";
+  text-transform: uppercase;
+  font-size: 1.1em;
+  border: 1px solid #dddddd;
+  border-bottom: none;
+  margin-right: 0.3em;
+}
+/* line 1371, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .item-list li a:hover, #block-quicktabs-salas-de-reuni-n .item-list li a:link:hover {
+  background: white;
+}
+/* line 1375, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .item-list .active a, #block-quicktabs-salas-de-reuni-n .item-list .active a:link {
+  border-bottom: 1px solid white;
+  background: white;
+}
+/* line 1382, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides {
+  width: 100% !important;
+}
+/* line 1384, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .slide-button {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-height: 2em;
+  background-width: 3em;
+}
+/* line 1393, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .prev-slide {
+  background-image: url(../images/arrow-salas-prev.png);
+}
+/* line 1394, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .next-slide {
+  background-image: url(../images/arrow-salas-next.png);
+}
+/* line 1396, ../sass/style.scss */
+#block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-thumbs {
+  display: none;
+}
+
+/*==end==*/
 /*colorBox*/
-/* line 1347, ../sass/style.scss */
+/* line 1404, ../sass/style.scss */
 #colorbox {
   z-index: 100;
 }
-/* line 1349, ../sass/style.scss */
+/* line 1406, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 {
   background: white;
   display: block;
   padding: 1em;
 }
-/* line 1353, ../sass/style.scss */
+/* line 1410, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 h2 {
   margin-top: 0;
   color: #1f3264;
 }
-/* line 1358, ../sass/style.scss */
+/* line 1415, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 {
   overflow: hidden;
   *zoom: 1;
@@ -1707,76 +1772,76 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 1363, ../sass/style.scss */
+/* line 1420, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 .views-exposed-widgets {
   margin: 0;
   float: right;
 }
-/* line 1368, ../sass/style.scss */
+/* line 1425, ../sass/style.scss */
 #colorbox .view-id-directorio {
   margin: 0;
   background: white;
   padding: 0;
 }
-/* line 1372, ../sass/style.scss */
+/* line 1429, ../sass/style.scss */
 #colorbox .view-id-directorio .view-filters {
   top: -3.2em;
 }
-/* line 1373, ../sass/style.scss */
+/* line 1430, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row {
   min-height: 0;
   font-size: 90%;
 }
-/* line 1377, ../sass/style.scss */
+/* line 1434, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   margin-top: 0.3em;
 }
-/* line 1378, ../sass/style.scss */
+/* line 1435, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-uid {
   text-indent: -5000px;
 }
-/* line 1380, ../sass/style.scss */
+/* line 1437, ../sass/style.scss */
 #colorbox .view-id-directorio .active {
   opacity: 0.4;
 }
-/* line 1383, ../sass/style.scss */
+/* line 1440, ../sass/style.scss */
 #colorbox .view-id-directorio > .view-content {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 1387, ../sass/style.scss */
+/* line 1444, ../sass/style.scss */
 #colorbox .view-id-directorio .view-footer {
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 1393, ../sass/style.scss */
+/* line 1450, ../sass/style.scss */
 #colorbox .s_submit {
   display: inline-block;
 }
-/* line 1398, ../sass/style.scss */
+/* line 1455, ../sass/style.scss */
 #colorbox .confirmation {
   background: white;
   padding: 1em;
 }
-/* line 1401, ../sass/style.scss */
+/* line 1458, ../sass/style.scss */
 #colorbox .confirmation .form-actions {
   text-align: center;
 }
-/* line 1403, ../sass/style.scss */
+/* line 1460, ../sass/style.scss */
 #colorbox .confirmation .form-actions .form-submit {
   display: inline-block;
   padding: 0.36em 1em;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 1410, ../sass/style.scss */
+/* line 1467, ../sass/style.scss */
 #colorbox .confirmation .form-actions #edit-cancel {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 1419, ../sass/style.scss */
+/* line 1476, ../sass/style.scss */
 #colorbox .view-id-home_publications .jspPane {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1785,7 +1850,7 @@ nav .menu .last {
   width: 100% !important;
 }
 
-/* line 1426, ../sass/style.scss */
+/* line 1483, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }

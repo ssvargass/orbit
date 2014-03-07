@@ -1343,6 +1343,63 @@ nav {
 
 /*==end==*/
 
+/*salas*/
+
+#block-quicktabs-salas-de-reuni-n {
+	.item-list {
+		clear: both;
+		ul { 
+			margin: 0;
+			border-bottom: 1px solid $orbit-gray-light;
+		}
+		li {
+			margin: 0;
+			padding: 0;
+			position: relative;
+			top: 1px;
+			a, a:link {
+				padding: 0.5em 1em;
+				display: inline-block;
+				background: $orbit-gray-light;
+				color: $orbit-blue-dark;
+				font-family: "futuraB";
+				text-transform: uppercase;
+				font-size: 1.1em;
+				border: 1px solid $orbit-gray-light;
+				border-bottom: none;
+				margin-right: 0.3em;
+				&:hover { background: white;}
+			}
+		}
+		.active {
+			a, a:link { 
+				border-bottom: 1px solid white;
+				background: white;
+			}
+		}
+	}
+	.galleryformatter {
+		.gallery-slides {
+			width: 100% !important;
+			.slide-button {
+				background: {
+					color: rgba(255, 255, 255, 0.5);
+					position: center center;
+					repeat: no-repeat; 
+					height: 2em;
+					width: 3em;
+				}
+			}
+			.prev-slide { background-image: url(../images/arrow-salas-prev.png);}
+			.next-slide { background-image: url(../images/arrow-salas-next.png);}
+		}
+		.gallery-thumbs { display: none;}
+	}
+}
+
+/*==end==*/
+
+
 /*colorBox*/
 #colorbox { 
 	z-index: 100;
