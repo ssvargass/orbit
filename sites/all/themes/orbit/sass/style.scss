@@ -1281,6 +1281,7 @@ nav {
 
 .block-advpoll,
 .block-afb {
+	clear: both;
 	margin-top: 3em;
 	border-top: 1px solid $orbit-gray-light;
 	text-align: center;
@@ -1337,10 +1338,10 @@ nav {
 		@extend %btn-blue;
 		float: right;
 	}
+	.vertical-tabs,
 	#edit-preview { display: none;}
-	.vertical-tabs { clear: both;}
 }
-
+.block-advpoll { margin-top: 6em;}
 /*==end==*/
 
 /*salas*/
