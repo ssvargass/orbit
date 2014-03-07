@@ -50,6 +50,7 @@ function _ob_blocks_clear_words($s) {
   //para ampliar los caracteres a reemplazar agregar lineas de este tipo:
   //$s = str_replace("caracter-que-queremos-cambiar","caracter-por-el-cual-lo-vamos-a-cambiar",$s);
   $s = str_replace(" ","-",$s);
+  $s = strtolower($s);
   return $s;
 }
 
