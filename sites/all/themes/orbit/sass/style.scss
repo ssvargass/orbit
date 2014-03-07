@@ -1241,17 +1241,21 @@ nav {
 					@include border-radius(0);
 					margin: 0;
 					padding: 0;
+					background: none;
 					a, a:link { 
 						background: $orbit-blue-dark;
 						color: white;
 						font-weight: normal;
-						padding: 0.3em 0.5em;
+						padding: 0.5em 1em;
+						margin: 0;
+						display: block;
 						&:hover {
 							background: $orbit-yellow;
 							color: black;
 						}
 					}
 				}
+				.date-next { margin-top: -1.3em;}
 			}
 		}
 	}
@@ -1275,10 +1279,35 @@ nav {
 	}
 }
 
+.block-advpoll,
+.block-afb {
+	margin-top: 3em;
+	border-top: 1px solid $orbit-gray-light;
+	text-align: center;
+	h2 {
+		color: $orbit-blue-dark;
+		margin: 0;
+		display: inline-block;
+		background: white;
+		padding: 0.5em;
+		position: relative;
+		top: -1.3em;
+	}
+	.node-advpoll { 
+		text-align: left;
+		margin-top: -2em;
+	}
+	.form-submit {
+		@extend %btn-blue;
+		float: right;
+		color: white;
+	}
+}
 .node-event-form {
 	@extend %form;
 	width: 100%;
-	margin-top: 3em;
+	text-align: left;
+	margin-top: -2em;
 	.date-float {
 		float: right;
 		margin-top: -2em;
@@ -1309,6 +1338,7 @@ nav {
 		float: right;
 	}
 	#edit-preview { display: none;}
+	.vertical-tabs { clear: both;}
 }
 
 /*==end==*/
