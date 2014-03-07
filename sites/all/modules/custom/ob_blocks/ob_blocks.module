@@ -25,14 +25,6 @@ function ob_blocks_block_view($delta = '') {
   return $block;
 }
 
-function _ob_blocks_create_event(){
-  module_load_include('inc', 'node', 'node.pages');
-  //$form = node_add('event');
-  //dpm($form);
-  //$output = drupal_render($form);
-  //return $output;
-}
-
 
 function ob_blocks_separate_room($nid){
   $output = '';
@@ -41,7 +33,25 @@ function ob_blocks_separate_room($nid){
   return $output;
 }
 
-
+function _ob_blocks_clear_words($s) {
+  $s = ereg_replace("[áàâãª]","a",$s);
+  $s = ereg_replace("[ÁÀÂÃ]","A",$s);
+  $s = ereg_replace("[éèê]","e",$s);
+  $s = ereg_replace("[ÉÈÊ]","E",$s);
+  $s = ereg_replace("[íìî]","i",$s);
+  $s = ereg_replace("[ÍÌÎ]","I",$s);
+  $s = ereg_replace("[óòôõº]","o",$s);
+  $s = ereg_replace("[ÓÒÔÕ]","O",$s);
+  $s = ereg_replace("[úùû]","u",$s);
+  $s = ereg_replace("[ÚÙÛ]","U",$s);
+  $s = str_replace(" ","-",$s);
+  $s = str_replace("ñ","n",$s);
+  $s = str_replace("Ñ","N",$s);
+  //para ampliar los caracteres a reemplazar agregar lineas de este tipo:
+  //$s = str_replace("caracter-que-queremos-cambiar","caracter-por-el-cual-lo-vamos-a-cambiar",$s);
+  $s = str_replace(" ","-",$s);
+  return $s;
+}
 
 
 
