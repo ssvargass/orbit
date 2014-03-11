@@ -252,7 +252,7 @@ input[type="password"] {
 }
 
 /* line 205, ../sass/style.scss */
-#block-user-login .form-submit, .node-event-form .form-submit, #colorbox .s_submit, #og-wall-form #edit-enviar, .block-afb .form-submit, .block-advpoll .form-submit, .node-event-form #edit-submit, #colorbox .confirmation .form-actions .form-submit, #colorbox .confirmation .form-actions #edit-cancel {
+#block-user-login .form-submit, .node-event-form .form-submit, #colorbox .s_submit, #og-wall-form #edit-enviar, .block-afb .form-submit, .block-advpoll .form-submit, .s_event_create, .node-event-form #edit-submit, #colorbox .confirmation .form-actions .form-submit, #colorbox .confirmation .form-actions #edit-cancel {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -268,7 +268,7 @@ input[type="password"] {
   cursor: pointer;
 }
 /* line 217, ../sass/style.scss */
-#block-user-login .form-submit:hover, .node-event-form .form-submit:hover, #colorbox .s_submit:hover, #og-wall-form #edit-enviar:hover, .block-afb .form-submit:hover, .block-advpoll .form-submit:hover, .node-event-form #edit-submit:hover, #colorbox .confirmation .form-actions .form-submit:hover, #colorbox .confirmation .form-actions #edit-cancel:hover {
+#block-user-login .form-submit:hover, .node-event-form .form-submit:hover, #colorbox .s_submit:hover, #og-wall-form #edit-enviar:hover, .block-afb .form-submit:hover, .block-advpoll .form-submit:hover, .s_event_create:hover, .node-event-form #edit-submit:hover, #colorbox .confirmation .form-actions .form-submit:hover, #colorbox .confirmation .form-actions #edit-cancel:hover {
   background-color: #333333;
 }
 
@@ -285,12 +285,12 @@ input[type="password"] {
 }
 
 /* line 244, ../sass/style.scss */
-#og-wall-form #edit-enviar, .block-afb .form-submit, .block-advpoll .form-submit, .node-event-form #edit-submit, #colorbox .confirmation .form-actions .form-submit {
+#og-wall-form #edit-enviar, .block-afb .form-submit, .block-advpoll .form-submit, .s_event_create, .node-event-form #edit-submit, #colorbox .confirmation .form-actions .form-submit {
   background-color: #0071bc;
   border-color: #1f3264;
 }
 /* line 248, ../sass/style.scss */
-#og-wall-form #edit-enviar:hover, .block-afb .form-submit:hover, .block-advpoll .form-submit:hover, .node-event-form #edit-submit:hover, #colorbox .confirmation .form-actions .form-submit:hover {
+#og-wall-form #edit-enviar:hover, .block-afb .form-submit:hover, .block-advpoll .form-submit:hover, .s_event_create:hover, .node-event-form #edit-submit:hover, #colorbox .confirmation .form-actions .form-submit:hover {
   color: #0071bc;
   background-color: #1f3264;
 }
@@ -1481,7 +1481,7 @@ nav .menu .last {
 }
 /* line 1187, ../sass/style.scss */
 .pst_content_region .view-id-paneador {
-  margin-bottom: 3em;
+  margin-bottom: 1em;
 }
 /* line 1189, ../sass/style.scss */
 .pst_content_region .view-id-paneador .view-header {
@@ -1639,39 +1639,49 @@ nav .menu .last {
 .block-afb .form-submit, .block-advpoll .form-submit {
   color: white;
 }
+/* line 1313, ../sass/style.scss */
+.block-afb.active, .active.block-advpoll {
+  overflow: visible;
+}
 
-/* line 1314, ../sass/style.scss */
+/* line 1315, ../sass/style.scss */
+.s_event_create {
+  display: inline-block;
+  margin-bottom: 3em;
+}
+
+/* line 1320, ../sass/style.scss */
 .node-event-form {
   width: 100%;
   text-align: left;
   margin-top: -2em;
   margin-bottom: 4em;
 }
-/* line 1320, ../sass/style.scss */
+/* line 1326, ../sass/style.scss */
 .node-event-form .date-float {
   float: right;
   margin-top: -2em;
   padding-left: 1em;
   border-left: 1px solid #dddddd;
 }
-/* line 1325, ../sass/style.scss */
+/* line 1331, ../sass/style.scss */
 .node-event-form .date-float .form-type-checkbox {
   margin: 0.3em 0;
 }
-/* line 1329, ../sass/style.scss */
+/* line 1335, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup,
 .node-event-form .date-no-float .container-inline-date {
   margin: 0 0 2em 0;
   width: 100%;
 }
-/* line 1332, ../sass/style.scss */
+/* line 1338, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding,
 .node-event-form .date-no-float .container-inline-date .date-padding {
   padding: 0;
   float: none;
   width: 100%;
 }
-/* line 1336, ../sass/style.scss */
+/* line 1342, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield,
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield {
   -webkit-box-sizing: border-box;
@@ -1680,30 +1690,42 @@ nav .menu .last {
   width: 50%;
   padding-right: 1em;
 }
-/* line 1340, ../sass/style.scss */
+/* line 1346, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield input[type=text],
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield input[type=text] {
   width: 100%;
 }
-/* line 1345, ../sass/style.scss */
+/* line 1351, ../sass/style.scss */
 .node-event-form .field-name-field-invitados {
   text-align: right;
 }
-/* line 1347, ../sass/style.scss */
+/* line 1353, ../sass/style.scss */
 .node-event-form .field-name-field-invitados .form-submit {
   display: inline-block;
   margin-top: 1em;
 }
-/* line 1352, ../sass/style.scss */
+/* line 1357, ../sass/style.scss */
+.node-event-form .field-name-field-invitados .tabledrag-toggle-weight-wrapper {
+  display: none;
+}
+/* line 1359, ../sass/style.scss */
+.node-event-form .field-name-field-invitados table .draggable {
+  background: none;
+}
+/* line 1361, ../sass/style.scss */
+.node-event-form .field-name-field-invitados table .draggable .tabledrag-handle {
+  padding: 0 0 0 0.7em;
+}
+/* line 1365, ../sass/style.scss */
 .node-event-form #edit-submit {
   float: right;
 }
-/* line 1356, ../sass/style.scss */
+/* line 1369, ../sass/style.scss */
 .node-event-form input[type="submit"] {
   display: block;
   margin-top: -3.5em;
 }
-/* line 1361, ../sass/style.scss */
+/* line 1374, ../sass/style.scss */
 .node-event-form .vertical-tabs,
 .node-event-form #edit-preview {
   display: none;
@@ -1711,23 +1733,23 @@ nav .menu .last {
 
 /*==end==*/
 /*salas*/
-/* line 1369, ../sass/style.scss */
+/* line 1382, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list {
   clear: both;
 }
-/* line 1371, ../sass/style.scss */
+/* line 1384, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list ul {
   margin: 0;
   border-bottom: 1px solid #dddddd;
 }
-/* line 1375, ../sass/style.scss */
+/* line 1388, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list li {
   margin: 0;
   padding: 0;
   position: relative;
   top: 1px;
 }
-/* line 1380, ../sass/style.scss */
+/* line 1393, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list li a, #block-quicktabs-salas-de-reuni-n .item-list li a:link {
   padding: 0.5em 1em;
   display: inline-block;
@@ -1740,20 +1762,20 @@ nav .menu .last {
   border-bottom: none;
   margin-right: 0.3em;
 }
-/* line 1391, ../sass/style.scss */
+/* line 1404, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list li a:hover, #block-quicktabs-salas-de-reuni-n .item-list li a:link:hover {
   background: white;
 }
-/* line 1395, ../sass/style.scss */
+/* line 1408, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list .active a, #block-quicktabs-salas-de-reuni-n .item-list .active a:link {
   border-bottom: 1px solid white;
   background: white;
 }
-/* line 1402, ../sass/style.scss */
+/* line 1415, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides {
   width: 100% !important;
 }
-/* line 1404, ../sass/style.scss */
+/* line 1417, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .slide-button {
   background-color: rgba(255, 255, 255, 0.5);
   background-position: center center;
@@ -1761,48 +1783,48 @@ nav .menu .last {
   background-height: 2em;
   background-width: 3em;
 }
-/* line 1413, ../sass/style.scss */
+/* line 1426, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .prev-slide {
   background-image: url(../images/arrow-salas-prev.png);
 }
-/* line 1414, ../sass/style.scss */
+/* line 1427, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .next-slide {
   background-image: url(../images/arrow-salas-next.png);
 }
-/* line 1416, ../sass/style.scss */
+/* line 1429, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-thumbs {
   display: none;
 }
 
-/* line 1420, ../sass/style.scss */
+/* line 1433, ../sass/style.scss */
 .block-advpoll {
   height: auto;
   overflow: visible;
   margin-top: 0;
 }
-/* line 1425, ../sass/style.scss */
+/* line 1438, ../sass/style.scss */
 .block-advpoll .form-submit {
   float: right;
 }
 
 /*==end==*/
 /*colorBox*/
-/* line 1432, ../sass/style.scss */
+/* line 1445, ../sass/style.scss */
 #colorbox {
   z-index: 100;
 }
-/* line 1434, ../sass/style.scss */
+/* line 1447, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 {
   background: white;
   display: block;
   padding: 1em;
 }
-/* line 1438, ../sass/style.scss */
+/* line 1451, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 h2 {
   margin-top: 0;
   color: #1f3264;
 }
-/* line 1443, ../sass/style.scss */
+/* line 1456, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 {
   overflow: hidden;
   *zoom: 1;
@@ -1810,76 +1832,76 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 1448, ../sass/style.scss */
+/* line 1461, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 .views-exposed-widgets {
   margin: 0;
   float: right;
 }
-/* line 1453, ../sass/style.scss */
+/* line 1466, ../sass/style.scss */
 #colorbox .view-id-directorio {
   margin: 0;
   background: white;
   padding: 0;
 }
-/* line 1457, ../sass/style.scss */
+/* line 1470, ../sass/style.scss */
 #colorbox .view-id-directorio .view-filters {
   top: -3.2em;
 }
-/* line 1458, ../sass/style.scss */
+/* line 1471, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row {
   min-height: 0;
   font-size: 90%;
 }
-/* line 1462, ../sass/style.scss */
+/* line 1475, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   margin-top: 0.3em;
 }
-/* line 1463, ../sass/style.scss */
+/* line 1476, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-uid {
   text-indent: -5000px;
 }
-/* line 1465, ../sass/style.scss */
+/* line 1478, ../sass/style.scss */
 #colorbox .view-id-directorio .active {
   opacity: 0.4;
 }
-/* line 1468, ../sass/style.scss */
+/* line 1481, ../sass/style.scss */
 #colorbox .view-id-directorio > .view-content {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 1472, ../sass/style.scss */
+/* line 1485, ../sass/style.scss */
 #colorbox .view-id-directorio .view-footer {
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 1478, ../sass/style.scss */
+/* line 1491, ../sass/style.scss */
 #colorbox .s_submit {
   display: inline-block;
 }
-/* line 1483, ../sass/style.scss */
+/* line 1496, ../sass/style.scss */
 #colorbox .confirmation {
   background: white;
   padding: 1em;
 }
-/* line 1486, ../sass/style.scss */
+/* line 1499, ../sass/style.scss */
 #colorbox .confirmation .form-actions {
   text-align: center;
 }
-/* line 1488, ../sass/style.scss */
+/* line 1501, ../sass/style.scss */
 #colorbox .confirmation .form-actions .form-submit {
   display: inline-block;
   padding: 0.36em 1em;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 1495, ../sass/style.scss */
+/* line 1508, ../sass/style.scss */
 #colorbox .confirmation .form-actions #edit-cancel {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 1504, ../sass/style.scss */
+/* line 1517, ../sass/style.scss */
 #colorbox .view-id-home_publications .jspPane {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1888,7 +1910,7 @@ nav .menu .last {
   width: 100% !important;
 }
 
-/* line 1511, ../sass/style.scss */
+/* line 1524, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }

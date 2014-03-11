@@ -1185,7 +1185,7 @@ nav {
 	padding: 1em 2em;
 	float: right;
 	.view-id-paneador {
-		margin-bottom: 3em; 
+		margin-bottom: 1em; 
 		.view-header {
 			background: $orbit-blue-dark;
 			* { 
@@ -1310,6 +1310,12 @@ nav {
 		@extend %btn-blue;
 		color: white;
 	}
+	&.active { overflow: visible;}
+}
+.s_event_create {
+	@extend %btn-blue;
+	display: inline-block;
+	margin-bottom: 3em;
 }
 .node-event-form {
 	@extend %form;
@@ -1347,6 +1353,13 @@ nav {
 		.form-submit {
 			display: inline-block;
 			margin-top: 1em;
+		}
+		.tabledrag-toggle-weight-wrapper { display: none;}
+		table {
+			.draggable { 
+				background: none;
+				.tabledrag-handle { padding: 0 0 0 0.7em;}
+			}
 		}
 	}
 	#edit-submit {
