@@ -312,14 +312,14 @@ function ob_wall_print_links(){
     ),
   );
 
-  /*$content['links_header']['profile'] = array(
+  $content['links_header']['profile'] = array(
     '#type' => 'html_tag',
     '#tag' => 'div',
     '#value' => l(t('Profile'),''),
     '#attributes' => array(
       'class' => array(drupal_html_class('ob_profile'))
     ),
-  );*/
+  );
 
   $content['links_header']['logout'] = array(
     '#type' => 'html_tag',

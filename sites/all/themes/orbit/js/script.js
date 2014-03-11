@@ -2,24 +2,14 @@
   $(document).ready(function(){
     $('#og-wall-form .ob_text').addClass('active');
     $('.views-exposed-form .views-widget-filter-combine').hide_label();
-    $('#block-ob-wall-ob-profile .ob-close').click(function(e){
-        up = undefined;
-        if($(this).parents('#block-ob-wall-ob-profile').hasClass('actice')){
-          altura = '0em';
-        } else {
-          altura = '18.5em'
-          up = 'true';
-        }
-        $('#block-ob-wall-ob-profile').animate({height:altura},500, function(){
-          if(up) {
-            $(this).addClass('actice')
-          } else {
-            $(this).removeClass('actice')
-          }
-        })
-        e.preventDefault();
-        return false;
-      })
+    $('.ob-profile a').click(function(e){
+      $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500)
+      e.preventDefault();
+      return false;
+    })
+    $('.ob-close').click(function(){
+      $('#block-ob-wall-ob-profile').animate({height:'0'},500)
+    })
       var output = '<div class="s_event_create">Crear Evento</div>';
       $('#block-afb-1').before(output);
       $('.s_event_create').click(function(){
