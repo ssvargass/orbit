@@ -48,7 +48,8 @@ function _ob_blocks_clear_words($s) {
 function ob_blocks_block_view_alter(&$data, $block){
   if(isset($data['subject']) && $data['subject'] == 'event form'){
     $form = $data['content']['form'];
-    //dpm($form['field_tipo_de_evento']);
+    $form['field_tipo_de_evento']['und']['#options']['_none'] = t('Seleccione un tipo de evento');
+    dpm($form['field_tipo_de_evento']);
   }
 }
 

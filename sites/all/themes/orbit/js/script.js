@@ -25,8 +25,12 @@
       $('.s_event_create').click(function(){
         if($(this).hasClass('active')){
           $(this).removeClass('active');
+          $('#block-afb-1').animate({height: 0},500)
         } else {
           $(this).addClass('active');
+          $('#block-afb-1').animate({height: 730},500, function(){
+            $(this).css('height','auto');
+          })
         }
       })
   })
