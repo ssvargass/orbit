@@ -28,8 +28,9 @@
           $('#block-afb-1').animate({height: 0},500).removeClass('active');
         } else {
           $(this).addClass('active');
+          $('#block-afb-1').addClass('active')
           $('#block-afb-1').animate({height: 730},500, function(){
-            $(this).css('height','auto').addClass('active');
+            $(this).css('height','auto');
           })
         }
       })
