@@ -3,12 +3,12 @@
     $('#og-wall-form .ob_text').addClass('active');
     $('.views-exposed-form .views-widget-filter-combine').hide_label();
     $('.ob-profile a').click(function(e){
-      $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500)
+      $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500).addClass('active')
       e.preventDefault();
       return false;
     })
     $('.ob-close').click(function(){
-      $('#block-ob-wall-ob-profile').animate({height:'0'},500)
+      $('#block-ob-wall-ob-profile').animate({height:'0'},500).removeClass('active')
     })
       var output = '<div class="s_event_create">Crear Evento</div>';
       $('#block-afb-1').before(output);
