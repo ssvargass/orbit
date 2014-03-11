@@ -54,6 +54,13 @@ function _ob_blocks_clear_words($s) {
 }
 
 
+function ob_blocks_block_view_alter(&$data, $block){
+  if($data['subject'] == 'Encuesta'){
+    dpm($data);
+  }
+}
+
+
 
 
 
