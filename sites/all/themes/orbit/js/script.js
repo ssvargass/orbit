@@ -20,6 +20,15 @@
         e.preventDefault();
         return false;
       })
+      var output = '<div class="s_event_create">Crear Evento</div>';
+      $('#block-afb-1').before(output);
+      $('.s_event_create').click(function(){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+        } else {
+          $(this).addClass('active');
+        }
+      })
   })
   $.fn.hide_label = function(){
     var complete_input = this;
