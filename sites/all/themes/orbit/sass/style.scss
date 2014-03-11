@@ -423,9 +423,9 @@ input[type="password"] {
 	*display: inline-block;
 	vertical-align: top;
 	position: relative;
-	width: 14.3%;
+	width: 13.3%;
 	min-height: 9em;
-	margin: 0.3em 0;
+	margin: 0.5em 0.1em;
 	text-align: center;
 	cursor: pointer;
 	.views-field-picture img {
@@ -925,7 +925,7 @@ nav {
 		}
 	}
 	> .view-content {
-		text-align: left;
+		text-align: center;
 		.views-row {
 			@extend %view-colaboradores;
 		}
@@ -1043,7 +1043,7 @@ nav {
 	.ob-content-profile { overflow: hidden;}
 	.ob-close {
 		@include border-radius(0 0 1em 1em);
-		display: inline-block;
+		display: none;
 		position: absolute;
 		left: 48.5%;
 		bottom: -2em;
@@ -1131,15 +1131,8 @@ nav {
 			}
 		}
 	}
-}
-#block-ob-wall-ob-profile.actice {
-	.ob-close { 
-		@include border-radius(10em);
-		background: url(../images/arrow-close.png) no-repeat center center $orbit-yellow;
-		bottom: -2em;
-		width: 4em;
-		height: 4em;
-		&:hover { background-color: $orbit-yellow-dark;}
+	&.active {
+		display: inline-block;
 	}
 }
 
@@ -1284,9 +1277,109 @@ nav {
 		.date-box .date-box {
 			border-bottom: 1px solid transparent;
 		}
+		.monthview { 
+			background: none;
+			position: relative;
+			padding: 0.5em;
+			.views-field {
+				position: relative;
+				z-index: 2;
+			}
+			.views-field-title {
+				a, a:link {
+					color: white;
+					padding: 0.3em 0;
+					display: block;
+					font-size: 1.25em;
+					text-transform: uppercase;
+				}
+			}
+			.views-field-field-fecha { 
+				font-family: "futuraM";
+				color: white;
+				margin-top: 0.3em;
+				* { font-weight: normal;}
+			}
+			.views-field-php {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 1;
+			}
+			.s-color_celebración,
+			.s-color_celebracion { 
+				background: #E7B041;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cierre_contable {
+				background: #2E3687;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cierre_nomina {
+				background: #BD9C69;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cita_médica,
+			.s-color_cita_medica {
+				background: #D0684B;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_coaching {
+				background: #559F99;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_comité_ejecutivo,
+			.s-color_comite_ejecutivo {
+				background: #A21B25;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_comité_estratégico,
+			.s-color_comite_estrategico {
+				background: #C6362E;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cumpleaños,
+			.s-color_cumpleanos {
+				background: #F7E939;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_junta_directiva {
+				background: #59277F;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_llamada {
+				background: #8A1E59;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_presentación,
+			.s-color_presentacion {
+				background: #69A841;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_recordatorio {
+				background: #68A7DE;
+				height: 100%;
+				width: 100%;
+			}
+		}
 	}
 }
-
+.page-calendar {
+	.block-afb { border: none;}
+}
 .block-afb {
 	clear: both;
 	border-top: 1px solid $orbit-gray-light;
