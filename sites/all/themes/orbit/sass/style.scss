@@ -1256,7 +1256,7 @@ nav {
 						}
 					}
 				}
-				.date-next { margin-top: -1.3em;}
+				.date-next { margin-top: -1.24em;}
 			}
 		}
 	}
@@ -1277,7 +1277,12 @@ nav {
 		.date-box .date-box {
 			border-bottom: 1px solid transparent;
 		}
+		.yearview,
+		.weekview,
+		.dayview,
 		.monthview { 
+			@include border-radius(0);
+			border: none;
 			background: none;
 			position: relative;
 			padding: 0.5em;
@@ -1613,6 +1618,10 @@ nav {
 			padding-right: 1.5em !important;
 			width: 100% !important;
 		}
+	}
+	.node-event {
+		padding: 0 1em;
+		.field { margin-bottom: 0.5em;}
 	}
 }
 #cboxLoadedContent { background: white;}
