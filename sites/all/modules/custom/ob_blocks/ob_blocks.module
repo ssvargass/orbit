@@ -34,19 +34,10 @@ function ob_blocks_separate_room($nid){
 }
 
 function _ob_blocks_clear_words($s) {
-  $s = preg_replace("[áàâãª]","a",$s);
-  $s = preg_replace("[ÁÀÂÃ]","A",$s);
-  $s = preg_replace("[éèê]","e",$s);
-  $s = preg_replace("[ÉÈÊ]","E",$s);
-  $s = preg_replace("[íìî]","i",$s);
-  $s = preg_replace("[ÍÌÎ]","I",$s);
-  $s = preg_replace("[óòôõº]","o",$s);
-  $s = preg_replace("[ÓÒÔÕ]","O",$s);
-  $s = preg_replace("[úùû]","u",$s);
-  $s = preg_replace("[ÚÙÛ]","U",$s);
-  $s = str_replace(" ","-",$s);
-  $s = str_replace("ñ","n",$s);
-  $s = str_replace("Ñ","N",$s);
+  $no_permitidas= array ("á","é","í","ó","ú","Á","É","Í","Ó","Ú","ñ","À","Ã","Ì","Ò","Ù","Ã™","Ã ","Ã¨","Ã¬","Ã²","Ã¹","ç","Ç","Ã¢","ê","Ã®","Ã´","Ã»","Ã‚","ÃŠ","ÃŽ","Ã”","Ã›","ü","Ã¶","Ã–","Ã¯","Ã¤","«","Ò","Ã","Ã„","Ã‹");
+  $permitidas= array ("a","e","i","o","u","A","E","I","O","U","n","N","A","E","I","O","U","a","e","i","o","u","c","C","a","e","i","o","u","A","E","I","O","U","u","o","O","i","a","e","U","I","A","E");
+  $texto = str_replace($no_permitidas, $permitidas ,$s);
+  $s = str_replace(" ","_",$s);
   //para ampliar los caracteres a reemplazar agregar lineas de este tipo:
   //$s = str_replace("caracter-que-queremos-cambiar","caracter-por-el-cual-lo-vamos-a-cambiar",$s);
   $s = strtolower($s);
@@ -55,8 +46,9 @@ function _ob_blocks_clear_words($s) {
 
 
 function ob_blocks_block_view_alter(&$data, $block){
-  if($data['subject'] == 'Encuesta'){
-    dpm($data);
+  if(isset($data['subject']) && $data['subject'] == 'event form'){
+    $form = $data['content']['form'];
+    //dpm($form['field_tipo_de_evento']);
   }
 }
 
