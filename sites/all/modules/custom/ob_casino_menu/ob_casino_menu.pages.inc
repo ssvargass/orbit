@@ -11,7 +11,7 @@ function ob_mc_special_menu_page() {
 	$content = array();
 	// Select meteting form
 	$content['form'] = drupal_get_form('ob_mc_select_meeting_form');
-	$content['form']['#access'] = TRUE;
+	$content['form']['#access'] = ob_mc_select_meeting_form_access();
 
 	// Assingned special menus
 	$casino_special_menu_query = new EntityFieldQuery();
@@ -52,11 +52,32 @@ function ob_mc_special_menu_page() {
 					'query' => array(
 						'destination' => current_path(),
 					),
-				)) 
+				)),
+				'#access' => ob_mc_edit_button_access(),
 			);
   	}
   }
 	return $content;
+}
+
+/**
+ * Select Meeting form access callback
+ */
+function ob_mc_select_meeting_form_access() {
+	if (user_access('create own meetings casino special menu') || user_access('create all meetings casino special menu')) {
+		return TRUE;
+	}
+	return FALSE;
+}
+
+/**
+ * Edit button access callback
+ */
+function ob_mc_edit_button_access() {
+	if (user_access('edit own meetings casino special menu') || user_access('edit all meetings casino special menu')) {
+		return TRUE;
+	}
+	return FALSE;
 }
 
 /**

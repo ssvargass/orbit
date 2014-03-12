@@ -142,6 +142,17 @@ function _casinospecialmenuentity_entity_view_access_callback($meeting) {
       return TRUE;
     }
   }
+  elseif (user_access('view invited meetings casino special menu')) {
+    global $user;
+    $field_invitados = field_get_items('node', $meeting, 'field_invitados');
+    if ($field_invitados) {
+      foreach ($field_invitados as $key => $invitado) {
+        if ($invitado['target_id'] == $user->uid) {
+          return TRUE;
+        }
+      }
+    }
+  }
   return FALSE;
 }
 
