@@ -17,7 +17,7 @@ function ob_casino_menu_menu() {
     'access arguments' => array('access content'),
     'file' => 'ob_casino_menu.pages.inc',
     'type' => MENU_NORMAL_ITEM,
-    'menu_name' => 'menu-menu-casino',
+    'menu_name' => 'menu-casino-menu',
   );
   // $items['menu-casino/special-menu/config/%node'] = array(
   //   'title callback' => 'ob_mc_special_menu_title',
