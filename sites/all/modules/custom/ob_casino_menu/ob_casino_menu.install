@@ -1,0 +1,50 @@
+<?php
+/**
+ * @file
+ * Definition for casino menu tables.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function ob_casino_menu_schema() {
+  $schema = array();
+  $schema['casino_special_menu_table'] = array(
+    'description' => 'Casino special menu entity table',
+    'fields' => array(
+      'id' => array(
+        'description' => 'Primary key of the Casino special menu entity',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'meeting' => array(
+        'description' => 'Node event nid.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+      ),
+      'created' => array(
+        'description' => 'Date and time the Casino special menu record was processed.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => FALSE,
+      ),
+      'updated' => array(
+        'description' => 'Date and time the Casino special menu record was last modified.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => FALSE,
+      ),
+    ),
+    'foreign keys' => array(
+      'event' => array(
+        'table' => 'node',
+        'columns' => array('meeting' => 'nid'),
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}
+

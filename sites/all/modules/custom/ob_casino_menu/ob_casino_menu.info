@@ -1,0 +1,7 @@
+name = Orbit Casino Menu
+description = Casino menu functionality
+core = 7.x
+
+package = "Orbit"
+
+files[] = ob_casino_menu.inc

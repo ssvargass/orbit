@@ -1,0 +1,244 @@
+<?php
+/**
+ * @file
+ * Casino menu functionality.
+ */
+
+define('TID_REUNION', 19);
+
+/**
+ * Implements hook_menu()
+ */
+function ob_casino_menu_menu() {
+	$items['menu-casino/special-menu'] = array(
+    'title' => 'Special menu',
+    'description' => 'Special menu page',
+    'page callback' => 'ob_mc_special_menu_page',
+    'access arguments' => array('access content'),
+    'file' => 'ob_casino_menu.pages.inc',
+    'type' => MENU_NORMAL_ITEM,
+    'menu_name' => 'menu-menu-casino',
+  );
+  // $items['menu-casino/special-menu/config/%node'] = array(
+  //   'title callback' => 'ob_mc_special_menu_title',
+  //   'title arguments' => array(3),
+  //   'description' => 'Special menu config page',
+  //   'page callback' => 'drupal_get_form',
+  //   'page arguments' => array('ob_mc_special_menu_config_form', 3),
+  //   'access arguments' => array('access content'),
+  //   'file' => 'ob_casino_menu.forms.inc',
+  //   'type' => MENU_CALLBACK,
+  // );
+  return $items;
+}
+
+// /**
+//  * Function for title construction
+//  */
+// function ob_mc_special_menu_title($node) {
+// 	$title = t('Special menu config for @meeting', array('@meeting' => $node->title));
+// 	return $title;
+// }
+
+/**
+ * Implements hook_entity_info().
+ */
+function ob_casino_menu_entity_info() {
+  $info = array();
+  $info['casino_special_menu'] = array(
+    'label' => t('Casino Special Menu'),
+    'base table' => 'casino_special_menu_table',
+    'entity keys' => array(
+      'id' => 'id',
+      'label' => 'title',
+    ),
+    'uri callback' => 'entity_class_uri',
+    'entity class' => 'CasinoSpecialMenu',
+    'controller class' => 'CasinoSpecialMenuController',
+
+    'admin ui' => array(
+      'path' => 'admin/casino-special-menu',
+      'controller class' => 'CasinoSpecialMenuUIController',
+      'menu wildcard' => '%casinospecialmenu',
+      'file' => 'ob_casino_menu.admin.inc',
+    ),
+    'module' => 'ob_casino_menu',
+    'access callback' => '_casinospecialmenuentity_entity_access_callback',
+    'fieldable' => TRUE,
+    'bundles' => array(
+      'casino_special_menu' => array(
+        'label' => t('Casino Special Menu'),
+        'admin' => array(
+          'path' => 'admin/casino-special-menu',
+          'access arguments' => array('edit all casino special menu'),
+        ),
+      ),
+    ),
+    'views controller class' => 'EntityDefaultViewsController',
+    'view modes' => array(
+      'full' => array(
+        'label' => t('Full'),
+        'custom settings' => FALSE,
+      ),
+    ),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_property_info().
+ */
+function ob_casino_menu_property_info() {
+  $info = array();
+  $info['casino_special_menu']['properties'] = array(
+    'id' => array(
+      'label' => t('Casino special menu ID'),
+      'description' => t('Unique ID of the Casino special menu.'),
+      'type' => 'integer',
+      'schema field' => 'id',
+    ),
+    'meeting' => array(
+      'label' => t('Meeting nid'),
+      'description' => t('Nid of meeting'),
+      'type' => 'integer',
+      'schema field' => 'meeting',
+    ),
+    'created' => array(
+      'label' => t('Created at'),
+      'description' => t('Date the Casino special menu was created.'),
+      'type' => 'date',
+      'schema field' => 'created',
+    ),
+    'updated' => array(
+      'label' => t('Updated at'),
+      'description' => t('Date the Casino special menu was updated.'),
+      'type' => 'date',
+      'schema field' => 'updated',
+    ),
+  );
+  return $info;
+}
+
+/**
+ * General Permission callback.
+ */
+function _casinospecialmenuentity_entity_access_callback($op, $entity = NULL, $account = NULL) {
+  if ($op = 'view' && (user_access('view all meetings casino special menu', $account) || user_access('view own meetings casino special menu', $account))) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * View Permission callback.
+ */
+function _casinospecialmenuentity_entity_view_access_callback($meeting) {
+  if (user_access('view all meetings casino special menu')) {
+    return TRUE;
+  }
+  elseif (user_access('view own meetings casino special menu')) {
+    global $user;
+    if ($meeting->uid == $user->uid) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Menu autoloader for casino special menu.
+ */
+function casinospecialmenu_load($id) {
+  $casino_special_menu = entity_load('casino_special_menu', array($id));
+  return array_pop($casino_special_menu);
+}
+
+/**
+ * Get no assigned future meetings.
+ */
+function ob_cm_get_meetings($future = FALSE, $no_assingned = FALSE) {
+  $meetings = array();
+  $assigned_meetings = array();
+  $now = date("Y-m-d\TH:i:s", REQUEST_TIME);
+  $meetings_query = new EntityFieldQuery();
+  $meetings_query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->propertyCondition('status', 1)
+    ->fieldCondition('field_tipo_de_evento', 'tid', TID_REUNION, '=');
+
+  if ($future) {
+    $meetings_query->fieldCondition('field_fecha', 'value', $now, '>=');
+  }
+
+  $meetings_query->fieldOrderBy('field_fecha', 'value', 'ASC')
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+  $meetings_result = $meetings_query->execute();
+  if ($no_assingned) {
+    $special_menu_result = db_select('casino_special_menu_table', 'c')
+      ->fields('c', array('meeting'))
+      ->execute()
+      ->fetchAll();
+
+    foreach ($special_menu_result as $key => $value) {
+    	$assigned_meetings[] = $value->meeting;
+    }
+
+    foreach ($meetings_result['node'] as $nid => $value) {
+    	if (!in_array((string)$nid, $assigned_meetings)) {
+    		$node = node_load($nid);
+        if (user_access('create all meetings casino special menu') || user_access('edit all meetings casino special menu')) {
+          $meetings[$nid] = $node->title;
+        }
+        elseif (user_access('create own meetings casino special menu') || user_access('edit own meetings casino special menu')) {
+          global $user;
+          if ($node->uid == $user->uid) {
+            $meetings[$nid] = $node->title;
+          }
+        }
+    	}
+    }
+  }
+  else {
+    foreach ($meetings_result['node'] as $nid => $value) {
+      $node = node_load($nid);
+      $meetings[$nid] = $node->title;
+    }
+  }
+  return $meetings;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ob_casino_menu_permission() {
+  return array(
+    'view all meetings casino special menu' => array(
+      'title' => t('View all meetings casino special menu'),
+      'description' => t('View all meetings casino special menu'),
+    ),
+    'view own meetings casino special menu' => array(
+      'title' => t('View own meetings casino special menu'),
+      'description' => t('View own meetings casino special menu'),
+    ),
+    'view invited meetings casino special menu' => array(
+      'title' => t('View invited meetings casino special menu'),
+      'description' => t('View invited meetings casino special menu'),
+    ),
+    'edit all meetings  casino special menu' => array(
+      'title' => t('Edit all meetings casino special menu'),
+      'description' => t('Edit all meetings casino special menu'),
+    ),
+    'edit own meetings casino special menu' => array(
+      'title' => t('Edit own meetings casino special menu'),
+      'description' => t('Edit own meetings casino special menu'),
+    ),
+    'create all meetings casino special menu' => array(
+      'title' => t('Create all meetings casino special menu'),
+      'description' => t('Create all meetings casino special menu'),
+    ),
+    'create own meetings casino special menu' => array(
+      'title' => t('Create own meetings casino special menu'),
+      'description' => t('Create own meetings casino special menu'),
+    ),
+  );
+}
