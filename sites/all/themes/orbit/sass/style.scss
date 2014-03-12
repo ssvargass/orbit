@@ -37,7 +37,7 @@ $orbit-blue-dark: 			#1F3264;
 
 html { 
 	height: 100%;
-	.messages {
+	div.messages {
 		font-size: 1em;
 		color: white;
 		padding: 0.7em;
@@ -45,14 +45,19 @@ html {
 		border: none;
 		font-weight: normal;
 	}
-	.error {
+	div.error {
 		background-color: $orbit-red;
 		background-image: none;
 	}
-	.status {
+	div.status {
 		background-color: $orbit-green-dark;
 		background-image: none;
 	}
+	div.warning {
+		background-color: $orbit-yellow;
+		background-image: none;
+	}
+	input.error { background-color: none;}
 }
 body {
 	font-size: 12px;
@@ -418,9 +423,9 @@ input[type="password"] {
 	*display: inline-block;
 	vertical-align: top;
 	position: relative;
-	width: 14.3%;
+	width: 13.3%;
 	min-height: 9em;
-	margin: 0.3em 0;
+	margin: 0.5em 0.1em;
 	text-align: center;
 	cursor: pointer;
 	.views-field-picture img {
@@ -480,6 +485,8 @@ input[type="password"] {
 
 #block-user-login {
 	@extend %form;
+	ul li { margin: 0;}
+	.first { display: none;}
 }
 
 /*==end==*/
@@ -617,7 +624,7 @@ nav {
 		@include box-sizing(border-box);
 		float: left;
 		width: 70%;
-		padding: 1em;
+		padding: 1em 2em;
 		border-right: 1px solid $orbit-gray-light;
 	}
 }
@@ -918,7 +925,7 @@ nav {
 		}
 	}
 	> .view-content {
-		text-align: left;
+		text-align: center;
 		.views-row {
 			@extend %view-colaboradores;
 		}
@@ -1036,7 +1043,7 @@ nav {
 	.ob-content-profile { overflow: hidden;}
 	.ob-close {
 		@include border-radius(0 0 1em 1em);
-		display: inline-block;
+		display: none;
 		position: absolute;
 		left: 48.5%;
 		bottom: -2em;
@@ -1124,15 +1131,8 @@ nav {
 			}
 		}
 	}
-}
-#block-ob-wall-ob-profile.actice {
-	.ob-close { 
-		@include border-radius(10em);
-		background: url(../images/arrow-close.png) no-repeat center center $orbit-yellow;
-		bottom: -2em;
-		width: 4em;
-		height: 4em;
-		&:hover { background-color: $orbit-yellow-dark;}
+	&.active {
+		display: inline-block;
 	}
 }
 
@@ -1175,9 +1175,10 @@ nav {
 .pst_content_region {
 	@include box-sizing(border-box);
 	width: 30%;
-	padding: 1em;
+	padding: 1em 2em;
 	float: right;
 	.view-id-paneador {
+		margin-bottom: 1em; 
 		.view-header {
 			background: $orbit-blue-dark;
 			* { 
@@ -1255,7 +1256,7 @@ nav {
 						}
 					}
 				}
-				.date-next { margin-top: -1.3em;}
+				.date-next { margin-top: -1.24em;}
 			}
 		}
 	}
@@ -1276,15 +1277,121 @@ nav {
 		.date-box .date-box {
 			border-bottom: 1px solid transparent;
 		}
+		.yearview,
+		.weekview,
+		.dayview,
+		.monthview { 
+			@include border-radius(0);
+			border: none;
+			background: none;
+			position: relative;
+			padding: 0.5em;
+			.views-field {
+				position: relative;
+				z-index: 2;
+			}
+			.views-field-title {
+				a, a:link {
+					color: white;
+					padding: 0.3em 0;
+					display: block;
+					font-size: 1.25em;
+					text-transform: uppercase;
+				}
+			}
+			.views-field-field-fecha { 
+				font-family: "futuraM";
+				color: white;
+				margin-top: 0.3em;
+				* { font-weight: normal;}
+			}
+			.views-field-php {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				width: 100%;
+				z-index: 1;
+			}
+			.s-color_celebración,
+			.s-color_celebracion { 
+				background: #E7B041;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cierre_contable {
+				background: #2E3687;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cierre_nomina {
+				background: #BD9C69;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cita_médica,
+			.s-color_cita_medica {
+				background: #D0684B;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_coaching {
+				background: #559F99;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_comité_ejecutivo,
+			.s-color_comite_ejecutivo {
+				background: #A21B25;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_comité_estratégico,
+			.s-color_comite_estrategico {
+				background: #C6362E;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_cumpleaños,
+			.s-color_cumpleanos {
+				background: #F7E939;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_junta_directiva {
+				background: #59277F;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_llamada {
+				background: #8A1E59;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_presentación,
+			.s-color_presentacion {
+				background: #69A841;
+				height: 100%;
+				width: 100%;
+			}
+			.s-color_recordatorio {
+				background: #68A7DE;
+				height: 100%;
+				width: 100%;
+			}
+		}
 	}
 }
+.page-calendar {
+	.block-afb { border: none;}
+}
 
-.block-advpoll,
 .block-afb {
 	clear: both;
-	margin-top: 3em;
 	border-top: 1px solid $orbit-gray-light;
 	text-align: center;
+	height: 0;
+	overflow: hidden;
 	h2 {
 		color: $orbit-blue-dark;
 		margin: 0;
@@ -1300,15 +1407,21 @@ nav {
 	}
 	.form-submit {
 		@extend %btn-blue;
-		float: right;
 		color: white;
 	}
+	&.active { overflow: visible;}
+}
+.s_event_create {
+	@extend %btn-blue;
+	display: inline-block;
+	margin-bottom: 3em;
 }
 .node-event-form {
 	@extend %form;
 	width: 100%;
 	text-align: left;
 	margin-top: -2em;
+	margin-bottom: 4em;
 	.date-float {
 		float: right;
 		margin-top: -2em;
@@ -1334,14 +1447,32 @@ nav {
 			}
 		}
 	}
+	.field-name-field-invitados {
+		text-align: right;
+		.form-submit {
+			display: inline-block;
+			margin-top: 1em;
+		}
+		.tabledrag-toggle-weight-wrapper { display: none;}
+		table {
+			.draggable { 
+				background: none;
+				.tabledrag-handle { padding: 0 0 0 0.7em;}
+			}
+		}
+	}
 	#edit-submit {
 		@extend %btn-blue;
 		float: right;
 	}
+	input[type="submit"] {
+		display: block;
+		margin-top: -3.5em;
+	}
 	.vertical-tabs,
 	#edit-preview { display: none;}
 }
-.block-advpoll { margin-top: 6em;}
+
 /*==end==*/
 
 /*salas*/
@@ -1396,6 +1527,14 @@ nav {
 		}
 		.gallery-thumbs { display: none;}
 	}
+}
+
+.block-advpoll {
+	@extend .block-afb;
+	height: auto;
+	overflow: visible;
+	margin-top: 0;
+	.form-submit { float: right;}
 }
 
 /*==end==*/
@@ -1479,6 +1618,10 @@ nav {
 			padding-right: 1.5em !important;
 			width: 100% !important;
 		}
+	}
+	.node-event {
+		padding: 0 1em;
+		.field { margin-bottom: 0.5em;}
 	}
 }
 #cboxLoadedContent { background: white;}

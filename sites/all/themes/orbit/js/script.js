@@ -2,23 +2,27 @@
   $(document).ready(function(){
     $('#og-wall-form .ob_text').addClass('active');
     $('.views-exposed-form .views-widget-filter-combine').hide_label();
-    $('#block-ob-wall-ob-profile .ob-close').click(function(e){
-        up = undefined;
-        if($(this).parents('#block-ob-wall-ob-profile').hasClass('actice')){
-          altura = '0em';
+    $('.ob-profile a').click(function(e){
+      $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500).addClass('active')
+      e.preventDefault();
+      return false;
+    })
+    $('.ob-close').click(function(){
+      $('#block-ob-wall-ob-profile').animate({height:'0'},500).removeClass('active')
+    })
+      var output = '<div class="s_event_create">Crear Evento</div>';
+      $('#block-afb-1').before(output);
+      $('.s_event_create').click(function(){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+          $('#block-afb-1').animate({height: 0},500).removeClass('active');
         } else {
-          altura = '18.5em'
-          up = 'true';
+          $(this).addClass('active');
+          $('#block-afb-1').addClass('active')
+          $('#block-afb-1').animate({height: 730},500, function(){
+            $(this).css('height','auto');
+          })
         }
-        $('#block-ob-wall-ob-profile').animate({height:altura},500, function(){
-          if(up) {
-            $(this).addClass('actice')
-          } else {
-            $(this).removeClass('actice')
-          }
-        })
-        e.preventDefault();
-        return false;
       })
   })
   $.fn.hide_label = function(){
