@@ -26,7 +26,7 @@ function ob_mc_special_menu_page() {
   	'#collapsible' => FALSE,
   	'#collapsed' => FALSE,
   );
-  if ($casino_special_menu_result['casino_special_menu']) {
+  if (isset($casino_special_menu_result['casino_special_menu'])) {
   	foreach ($casino_special_menu_result['casino_special_menu'] as $key => $value) {
   		$casinospecialmenu = casinospecialmenu_load($key);
   		$meeting = node_load($casinospecialmenu->meeting);

@@ -184,35 +184,37 @@ function ob_cm_get_meetings($future = FALSE, $no_assingned = FALSE) {
   $meetings_query->fieldOrderBy('field_fecha', 'value', 'ASC')
     ->addMetaData('account', user_load(1)); // Run the query as user 1.
   $meetings_result = $meetings_query->execute();
-  if ($no_assingned) {
-    $special_menu_result = db_select('casino_special_menu_table', 'c')
-      ->fields('c', array('meeting'))
-      ->execute()
-      ->fetchAll();
+  if (isset($meetings_result['node'])) {
+    if ($no_assingned) {
+      $special_menu_result = db_select('casino_special_menu_table', 'c')
+        ->fields('c', array('meeting'))
+        ->execute()
+        ->fetchAll();
 
-    foreach ($special_menu_result as $key => $value) {
-    	$assigned_meetings[] = $value->meeting;
-    }
+      foreach ($special_menu_result as $key => $value) {
+      	$assigned_meetings[] = $value->meeting;
+      }
 
-    foreach ($meetings_result['node'] as $nid => $value) {
-    	if (!in_array((string)$nid, $assigned_meetings)) {
-    		$node = node_load($nid);
-        if (user_access('create all meetings casino special menu') || user_access('edit all meetings casino special menu')) {
-          $meetings[$nid] = $node->title;
-        }
-        elseif (user_access('create own meetings casino special menu') || user_access('edit own meetings casino special menu')) {
-          global $user;
-          if ($node->uid == $user->uid) {
+      foreach ($meetings_result['node'] as $nid => $value) {
+      	if (!in_array((string)$nid, $assigned_meetings)) {
+      		$node = node_load($nid);
+          if (user_access('create all meetings casino special menu') || user_access('edit all meetings casino special menu')) {
             $meetings[$nid] = $node->title;
           }
-        }
-    	}
+          elseif (user_access('create own meetings casino special menu') || user_access('edit own meetings casino special menu')) {
+            global $user;
+            if ($node->uid == $user->uid) {
+              $meetings[$nid] = $node->title;
+            }
+          }
+      	}
+      }
     }
-  }
-  else {
-    foreach ($meetings_result['node'] as $nid => $value) {
-      $node = node_load($nid);
-      $meetings[$nid] = $node->title;
+    else {
+      foreach ($meetings_result['node'] as $nid => $value) {
+        $node = node_load($nid);
+        $meetings[$nid] = $node->title;
+      }
     }
   }
   return $meetings;
