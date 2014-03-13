@@ -473,6 +473,37 @@ input[type="password"] {
 		}
 	}
 }
+%tabs {
+	ul { 
+		margin: 0;
+		border-bottom: 1px solid $orbit-gray-light;
+	}
+	li {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		top: 1px;
+		a, a:link {
+			padding: 0.5em 1em;
+			display: inline-block;
+			background: $orbit-gray-light;
+			color: $orbit-blue-dark;
+			font-family: "futuraB";
+			text-transform: uppercase;
+			font-size: 1.1em;
+			border: 1px solid $orbit-gray-light;
+			border-bottom: none;
+			margin-right: 0.3em;
+			&:hover { background: white;}
+		}
+	}
+	.active {
+		a, a:link { 
+			border-bottom: 1px solid white;
+			background: white;
+		}
+	}
+}
 
 /*==end==*/
 
@@ -1132,7 +1163,7 @@ nav {
 		}
 	}
 	&.active {
-		display: inline-block;
+		.ob-close { display: inline-block;}
 	}
 }
 
@@ -1479,36 +1510,8 @@ nav {
 
 #block-quicktabs-salas-de-reuni-n {
 	.item-list {
-		clear: both;
-		ul { 
-			margin: 0;
-			border-bottom: 1px solid $orbit-gray-light;
-		}
-		li {
-			margin: 0;
-			padding: 0;
-			position: relative;
-			top: 1px;
-			a, a:link {
-				padding: 0.5em 1em;
-				display: inline-block;
-				background: $orbit-gray-light;
-				color: $orbit-blue-dark;
-				font-family: "futuraB";
-				text-transform: uppercase;
-				font-size: 1.1em;
-				border: 1px solid $orbit-gray-light;
-				border-bottom: none;
-				margin-right: 0.3em;
-				&:hover { background: white;}
-			}
-		}
-		.active {
-			a, a:link { 
-				border-bottom: 1px solid white;
-				background: white;
-			}
-		}
+		@extend %tabs;
+		clear: both;		
 	}
 	.galleryformatter {
 		.gallery-slides {
@@ -1535,6 +1538,49 @@ nav {
 	overflow: visible;
 	margin-top: 0;
 	.form-submit { float: right;}
+}
+
+/*==end==*/
+
+
+/*menu*/
+
+#block-menu-menu-casino-menu {
+	@extend %tabs;
+	clear: both;
+	margin-bottom: 1em;
+	.leaf {
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		a, a:link {
+			background: $orbit-gray-light;
+		}
+	}
+	.active-trail {
+		a, a:link {
+			background: white;
+		}
+	}
+}
+.field-name-field-menu-casino {
+	margin-top: 1em;
+	.field-label {
+		margin-bottom: 0.5em;
+		font-size: 1.3em;
+	}
+	.field-item {
+		clear: both;
+		margin-bottom: 0.3em;
+		.field-name-field-menu-part {
+			display: inline-block;
+			margin-right: 0.5em;
+			font-family: "futuraB";
+		}
+		.field-name-field-menu-part-desc {
+			display: inline-block;
+		}
+	}
 }
 
 /*==end==*/
