@@ -125,7 +125,11 @@ input[type="password"] {
 	padding: 0.5em 1em;
 	width: 100%;
 }
-
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
 .status { background: $orbit-green;}
 
 #cboxClose { 
@@ -164,11 +168,6 @@ input[type="password"] {
 %form {
 	width: 50%;
 	margin: auto;
-	fieldset {
-		margin: 0;
-		padding: 0;
-		border: 0;
-	}
 	.webform-component-select {
 		display: inline-block;
 		vertical-align: top;
@@ -513,6 +512,10 @@ input[type="password"] {
 }
 
 %color-planeador-tipos {
+	.views-field {
+		position: relative;
+		z-index: 2;
+	}
 	.views-field-php {
 		position: absolute;
 		top: 0;
@@ -1324,10 +1327,6 @@ nav {
 				.views-field-field-fecha { padding: 0 0.5em;}
 				* { color: white;}
 			}
-			.views-field {
-				position: relative;
-				z-index: 2;
-			}
 		}
 	}
 	.view-id-paneador {
@@ -1438,12 +1437,7 @@ nav {
 			@include border-radius(0);
 			border: none;
 			background: none;
-			position: relative;
 			padding: 0.5em;
-			.views-field {
-				position: relative;
-				z-index: 2;
-			}
 			.views-field-title {
 				a, a:link {
 					color: white;
@@ -1575,6 +1569,69 @@ nav {
 			.next-slide { background-image: url(../images/arrow-salas-next.png);}
 		}
 		.gallery-thumbs { display: none;}
+	}
+	.node-salas-de-reunion {
+		.field-name-body {
+			margin: 1em 0;
+		}
+		.field-name-create-room {
+			.block-afb {
+				height: auto;
+				border: none;
+				text-align: left;
+				h2 { 
+					top: 0;
+					padding: 0;
+				}
+				form { 
+					@extend .clearfix;
+					.fieldset-wrapper > .date-clear { display: none;}
+					.date-no-float {
+						width: 100%;
+						.form-item {
+							@extend .clearfix;
+							width: 100%;
+							margin: 0;
+							.form-type-textfield {
+								float: left;
+								width: 45%;
+								margin-left: 1em;
+								input {
+									margin: 0;
+									width: 100%;
+								}
+							}
+						}
+						.date-padding {
+							padding: 0.5em 0;
+							float: none;
+						}
+					}
+				}
+				.field-name-field-fecha {
+					float: left;
+					width: 45%;
+				}
+				.field-name-field-invitados,
+				.field-name-field-descripci-n {
+					float: right;
+					width: 50%;
+				}
+				.form-submit {
+					float: right;
+					margin-top: 1em;
+					clear: both;
+					margin-right: 0;
+				}
+				.vertical-tabs { display: none;}
+				table {
+					.draggable { 
+						background: none;
+						.tabledrag-handle { padding: 0 0 0 0.7em;}
+					}
+				}
+			}
+		}
 	}
 }
 
