@@ -55,3 +55,54 @@ function ob_polls_reports_permission() {
     ),
   );
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ob_polls_reports_form_advpoll_choice_form_alter(&$form, &$form_state, $form_id){
+  $node = $form_state['build_info']['args'][0];
+  $field_opinion_question = field_get_items('node', $node, 'field_opinion_question');
+  if ($field_opinion_question) {
+    $question = $field_opinion_question[0]['value'];
+    $form['opinion_question'] = array(
+      '#title' => $question,
+      '#type' => 'textarea',
+    );
+    $form['submit']['#weight'] = 10;
+
+    $form['#submit'][] = 'ob_polls_reports_opinion_question_submit';
+  }
+}
+
+/**
+ * Opinion question submit
+ */
+function ob_polls_reports_opinion_question_submit($form, &$form_state) {
+  $choice = '';
+  foreach ($form_state['values'] as $key => $value) {
+    if (is_numeric($key)) {
+      $choice = $value;
+    }
+  }
+  global $user;
+  $uid = $user->uid;
+  $nid = $form_state['build_info']['args'][0]->nid;
+  $answer = $form_state['values']['opinion_question'];
+  $record = array(
+    'nid' => $nid,
+    'uid' => $uid,
+    'answer' => $answer,
+    'choice' => $choice,
+  );
+  drupal_write_record('users_polls_opinion_answers', $record);
+}
+
+/**
+ * Implements hook_views_api().
+ */
+function ob_polls_reports_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'ob_polls_reports') . '/views',
+  );
+}

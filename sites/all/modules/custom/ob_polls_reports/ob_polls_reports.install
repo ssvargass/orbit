@@ -1,0 +1,62 @@
+<?php
+/**
+ * @file
+ * Definition for casino menu tables.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function ob_polls_reports_schema() {
+  $schema = array();
+  $schema['users_polls_opinion_answers'] = array(
+    'description' => 'Poll opinion answers table',
+    'fields' => array(
+      'id' => array(
+        'description' => 'Primary key of the answer',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => 'Node poll nid.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'reference to the user who answer.',
+        'type' => 'int',
+        'length' => 10,
+        'not null' => TRUE,
+      ),
+      'choice' => array(
+        'description' => 'Choice text.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'answer' => array(
+        'description' => 'Answer text.',
+        'type' => 'varchar',
+        'length' => 1000,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'foreign keys' => array(
+      'poll' => array(
+        'table' => 'node',
+        'columns' => array('nid' => 'nid'),
+      ),
+      'users' => array(
+        'table' => 'user',
+        'columns' => array('uid' => 'uid'),
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+  return $schema;
+}
+

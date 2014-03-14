@@ -173,6 +173,20 @@ function ob_polls_reports_display_results($nid, $data, $image = TRUE) {
     '#markup' => theme_table($table),
   );
 
+  // Opinion Table
+  $node = node_load($nid);
+  $field_opinion_question = field_get_items('node', $node, 'field_opinion_question');
+  $content['opinion_table_title'] = array(
+    '#type' => 'html_tag',
+    '#tag' => 'h3',
+    '#value' => t('Opinions about @question' , array('@question' => $field_opinion_question[0]['value'])),
+    '#attributes' => array(
+      'class' => array('opinion-table-title'),
+    ),
+  );
+  $content['opinion_table'] = array(
+    '#markup' => views_embed_view('users_polls_opinions', 'block', $nid),
+  );
   
   return $content;
 }
