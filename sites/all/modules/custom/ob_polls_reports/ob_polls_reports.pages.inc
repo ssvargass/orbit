@@ -72,7 +72,7 @@ function ob_polls_reports_results_page_pdf($node) {
   $pdf->SetY(140);
   $pdf->writeHTML($html, true, false, true, false, '');
   // This method has several options, check the source code documentation for more information.
-  $pdf->Output($node->title . '.pdf', 'FD');
+  $pdf->Output($node->title . '.pdf', 'D');
 }
 
 /*
