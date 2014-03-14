@@ -1335,6 +1335,7 @@ nav {
 				padding: 0.5em;
 				margin: 0;
 				overflow: hidden;
+				font-size: 85%;
 				.view-id-paneador, ul, li {
 					margin: 0;
 				}
@@ -1342,7 +1343,8 @@ nav {
 					margin-bottom: 0.3em;
 					a, a:link {
 						color: white;
-						font-size: 1.2em;
+						font-size: 110%;
+						font-family: "futuraB";
 					}
 				}
 				.views-field-field-fecha { color: white;}
@@ -1650,9 +1652,8 @@ nav {
 		.gallery-thumbs { display: none;}
 	}
 	.node-salas-de-reunion {
-		.field-name-body {
-			margin: 1em 0;
-		}
+		.field-name-body { margin: 1em 0;}
+		.field-type-ds { display: none;}
 		.field-name-create-room {
 			.block-afb {
 				height: auto;
@@ -1694,8 +1695,12 @@ nav {
 				.field-name-field-descripci-n {
 					float: right;
 					width: 50%;
+					.form-submit {
+						@extend %btn-blue;
+					}
 				}
 				.form-submit {
+					@extend %btn-yellow;
 					float: right;
 					margin-top: 1em;
 					clear: both;
