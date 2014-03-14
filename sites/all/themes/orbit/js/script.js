@@ -24,6 +24,20 @@
           })
         }
       })
+      var output = '<div class="s_import_create">Agregar Calendario</div>';
+      $('#block-afb-2').before(output);
+      $('.s_import_create').click(function(){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+          $('#block-afb-2').animate({height: 0},500).removeClass('active');
+        } else {
+          $(this).addClass('active');
+          $('#block-afb-2').addClass('active')
+          $('#block-afb-2').animate({height: 730},500, function(){
+            $(this).css('height','auto');
+          })
+        }
+      })
   })
   $.fn.hide_label = function(){
     var complete_input = this;

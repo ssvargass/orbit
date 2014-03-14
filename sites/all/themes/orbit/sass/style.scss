@@ -125,7 +125,11 @@ input[type="password"] {
 	padding: 0.5em 1em;
 	width: 100%;
 }
-
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
 .status { background: $orbit-green;}
 
 #cboxClose { 
@@ -164,11 +168,6 @@ input[type="password"] {
 %form {
 	width: 50%;
 	margin: auto;
-	fieldset {
-		margin: 0;
-		padding: 0;
-		border: 0;
-	}
 	.webform-component-select {
 		display: inline-block;
 		vertical-align: top;
@@ -335,7 +334,14 @@ input[type="password"] {
 		left: 0;
 	}
 }
-
+%sub-titulo {
+	color: $orbit-blue-dark;
+	margin: 0;
+	display: inline-block;
+	background: white;
+	padding: 0.5em;
+	position: relative;
+}
 %view-comentarios {
 	@include box-sizing(border-box);
 	position: relative;
@@ -473,6 +479,119 @@ input[type="password"] {
 		}
 	}
 }
+%tabs {
+	ul { 
+		margin: 0;
+		border-bottom: 1px solid $orbit-gray-light;
+	}
+	li {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		top: 1px;
+		a, a:link {
+			padding: 0.5em 1em;
+			display: inline-block;
+			background: $orbit-gray-light;
+			color: $orbit-blue-dark;
+			font-family: "futuraB";
+			text-transform: uppercase;
+			font-size: 1.1em;
+			border: 1px solid $orbit-gray-light;
+			border-bottom: none;
+			margin-right: 0.3em;
+			&:hover { background: white;}
+		}
+	}
+	.active {
+		a, a:link { 
+			border-bottom: 1px solid white;
+			background: white;
+		}
+	}
+}
+
+%color-planeador-tipos {
+	.views-field {
+		position: relative;
+		z-index: 2;
+	}
+	.views-field-php {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
+	}
+	.s-color_celebración,
+	.s-color_celebracion { 
+		background: #E7B041;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_cierre_contable {
+		background: #2E3687;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_cierre_nomina {
+		background: #BD9C69;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_cita_médica,
+	.s-color_cita_medica {
+		background: #D0684B;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_coaching {
+		background: #559F99;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_comité_ejecutivo,
+	.s-color_comite_ejecutivo {
+		background: #A21B25;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_comité_estratégico,
+	.s-color_comite_estrategico {
+		background: #C6362E;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_cumpleaños,
+	.s-color_cumpleanos {
+		background: #F7E939;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_junta_directiva {
+		background: #59277F;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_llamada {
+		background: #8A1E59;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_presentación,
+	.s-color_presentacion {
+		background: #69A841;
+		height: 100%;
+		width: 100%;
+	}
+	.s-color_recordatorio {
+		background: #68A7DE;
+		height: 100%;
+		width: 100%;
+	}
+}
+
 
 /*==end==*/
 
@@ -1132,7 +1251,7 @@ nav {
 		}
 	}
 	&.active {
-		display: inline-block;
+		.ob-close { display: inline-block;}
 	}
 }
 
@@ -1177,6 +1296,39 @@ nav {
 	width: 30%;
 	padding: 1em 2em;
 	float: right;
+	#block-views-paneador-block-2 {
+		text-align: center;
+		h2 { @extend %sub-titulo;}
+		.content {
+			text-align: left;
+			padding-top: 2em;
+			border-top: 1px solid $orbit-gray-light;
+			margin-top: -1.5em;
+		}
+		.view-id-paneador {
+			.views-row {
+				@extend %color-planeador-tipos;
+				margin: 0 0 0.5em 0;
+				padding: 0.5em 0;
+				position: relative;
+				a, a:link {
+					display: block;
+					padding: 0 0.5em 0.2em 0.5em;
+					border-bottom: 1px solid white;
+					font-size: 1.5em;
+					font-family: "futuraM";
+					margin-bottom: 0.3em;
+				}
+				.s-color_ { 
+					background: red;
+					height: 100%;
+					width: 100%;
+				}
+				.views-field-field-fecha { padding: 0 0.5em;}
+				* { color: white;}
+			}
+		}
+	}
 	.view-id-paneador {
 		margin-bottom: 1em; 
 		.view-header {
@@ -1281,15 +1433,11 @@ nav {
 		.weekview,
 		.dayview,
 		.monthview { 
+			@extend %color-planeador-tipos;
 			@include border-radius(0);
 			border: none;
 			background: none;
-			position: relative;
 			padding: 0.5em;
-			.views-field {
-				position: relative;
-				z-index: 2;
-			}
 			.views-field-title {
 				a, a:link {
 					color: white;
@@ -1305,83 +1453,11 @@ nav {
 				margin-top: 0.3em;
 				* { font-weight: normal;}
 			}
-			.views-field-php {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 100%;
-				width: 100%;
-				z-index: 1;
-			}
-			.s-color_celebración,
-			.s-color_celebracion { 
-				background: #E7B041;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_cierre_contable {
-				background: #2E3687;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_cierre_nomina {
-				background: #BD9C69;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_cita_médica,
-			.s-color_cita_medica {
-				background: #D0684B;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_coaching {
-				background: #559F99;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_comité_ejecutivo,
-			.s-color_comite_ejecutivo {
-				background: #A21B25;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_comité_estratégico,
-			.s-color_comite_estrategico {
-				background: #C6362E;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_cumpleaños,
-			.s-color_cumpleanos {
-				background: #F7E939;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_junta_directiva {
-				background: #59277F;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_llamada {
-				background: #8A1E59;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_presentación,
-			.s-color_presentacion {
-				background: #69A841;
-				height: 100%;
-				width: 100%;
-			}
-			.s-color_recordatorio {
-				background: #68A7DE;
-				height: 100%;
-				width: 100%;
-			}
+			
 		}
 	}
 }
+
 .page-calendar {
 	.block-afb { border: none;}
 }
@@ -1393,12 +1469,7 @@ nav {
 	height: 0;
 	overflow: hidden;
 	h2 {
-		color: $orbit-blue-dark;
-		margin: 0;
-		display: inline-block;
-		background: white;
-		padding: 0.5em;
-		position: relative;
+		@extend %sub-titulo;
 		top: -1.3em;
 	}
 	.node-advpoll { 
@@ -1479,36 +1550,8 @@ nav {
 
 #block-quicktabs-salas-de-reuni-n {
 	.item-list {
-		clear: both;
-		ul { 
-			margin: 0;
-			border-bottom: 1px solid $orbit-gray-light;
-		}
-		li {
-			margin: 0;
-			padding: 0;
-			position: relative;
-			top: 1px;
-			a, a:link {
-				padding: 0.5em 1em;
-				display: inline-block;
-				background: $orbit-gray-light;
-				color: $orbit-blue-dark;
-				font-family: "futuraB";
-				text-transform: uppercase;
-				font-size: 1.1em;
-				border: 1px solid $orbit-gray-light;
-				border-bottom: none;
-				margin-right: 0.3em;
-				&:hover { background: white;}
-			}
-		}
-		.active {
-			a, a:link { 
-				border-bottom: 1px solid white;
-				background: white;
-			}
-		}
+		@extend %tabs;
+		clear: both;		
 	}
 	.galleryformatter {
 		.gallery-slides {
@@ -1527,6 +1570,69 @@ nav {
 		}
 		.gallery-thumbs { display: none;}
 	}
+	.node-salas-de-reunion {
+		.field-name-body {
+			margin: 1em 0;
+		}
+		.field-name-create-room {
+			.block-afb {
+				height: auto;
+				border: none;
+				text-align: left;
+				h2 { 
+					top: 0;
+					padding: 0;
+				}
+				form { 
+					@extend .clearfix;
+					.fieldset-wrapper > .date-clear { display: none;}
+					.date-no-float {
+						width: 100%;
+						.form-item {
+							@extend .clearfix;
+							width: 100%;
+							margin: 0;
+							.form-type-textfield {
+								float: left;
+								width: 45%;
+								margin-left: 1em;
+								input {
+									margin: 0;
+									width: 100%;
+								}
+							}
+						}
+						.date-padding {
+							padding: 0.5em 0;
+							float: none;
+						}
+					}
+				}
+				.field-name-field-fecha {
+					float: left;
+					width: 45%;
+				}
+				.field-name-field-invitados,
+				.field-name-field-descripci-n {
+					float: right;
+					width: 50%;
+				}
+				.form-submit {
+					float: right;
+					margin-top: 1em;
+					clear: both;
+					margin-right: 0;
+				}
+				.vertical-tabs { display: none;}
+				table {
+					.draggable { 
+						background: none;
+						.tabledrag-handle { padding: 0 0 0 0.7em;}
+					}
+				}
+			}
+		}
+	}
 }
 
 .block-advpoll {
@@ -1535,6 +1641,49 @@ nav {
 	overflow: visible;
 	margin-top: 0;
 	.form-submit { float: right;}
+}
+
+/*==end==*/
+
+
+/*menu*/
+
+#block-menu-menu-casino-menu {
+	@extend %tabs;
+	clear: both;
+	margin-bottom: 1em;
+	.leaf {
+		display: inline-block;
+		list-style: none;
+		margin: 0;
+		a, a:link {
+			background: $orbit-gray-light;
+		}
+	}
+	.active-trail {
+		a, a:link {
+			background: white;
+		}
+	}
+}
+.field-name-field-menu-casino {
+	margin-top: 1em;
+	.field-label {
+		margin-bottom: 0.5em;
+		font-size: 1.3em;
+	}
+	.field-item {
+		clear: both;
+		margin-bottom: 0.3em;
+		.field-name-field-menu-part {
+			display: inline-block;
+			margin-right: 0.5em;
+			font-family: "futuraB";
+		}
+		.field-name-field-menu-part-desc {
+			display: inline-block;
+		}
+	}
 }
 
 /*==end==*/
