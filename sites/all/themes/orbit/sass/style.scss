@@ -592,6 +592,12 @@ fieldset {
 	}
 }
 
+%view-salas {
+	@include box-sizing(border-box);
+	border-right: 1px solid $orbit-gray-light;
+	padding-right: 1em;
+	width: 28%;	
+}
 
 /*==end==*/
 
@@ -622,7 +628,7 @@ fieldset {
 	&:after { border-left-color: $orbit-yellow;}
 }
 header {
-	@extend .clearfix;
+	@include clearfix;
 	@include box-sizing(border-box);
 	background: $orbit-gray-dark;
 	position: fixed;
@@ -1730,25 +1736,65 @@ nav {
 .view-id-salas_de_reunion {
 	clear: both;
 	.views-row {
-		@extend .clearfix;
+		@include clearfix;
 		padding: 1em;
 		border: 1px solid $orbit-gray-light;
 		margin-bottom: 1em;
 	}
 	.views-field-field-fecha,
 	.views-field-field-email,
-	.views-field-field-tel-fono,
-	.views-field-field-departamento,
-	.views-field-name,
-	.views-field-picture {
-		clear: both;
-		float: left;
-		width: 30%;	
+	.views-field-field-tel-fono {
+		@extend %view-salas;
 	}
-	.views-field-nothing,
+	.views-field-field-departamento {
+		@extend %view-salas;
+		color: $orbit-yellow;
+		font-weight: normal;
+	}
+	.views-field-name {
+		@extend %view-salas;
+		color: $orbit-blue-dark;
+		font-size: 1.3em;
+		font-weight: normal;
+	}
+	.views-field-picture {
+		@extend %view-salas;
+		padding-bottom: 1em;
+		.field-content {
+			@include border-radius(20em);
+			height: 15em;
+			width: 15em;
+			overflow: hidden;
+			text-align: center;
+			margin: 0 auto;
+			img { 
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+	.views-field-nothing {
+		float: right;
+		width: 70%;
+		> div { margin-bottom: 0.5em;}
+		.s_title {
+			font-size: 1.5em;
+			font-weight: normal;
+			margin-bottom: 1em;
+		}
+	}
 	.views-field-field-nid {
 		float: right;
-		width: 67%;
+		width: 70%;
+		padding-top: 0.5em;
+		text-align: right;
+		border-top: 1px solid $orbit-gray-light;
+		margin-top: -3.5em;
+		margin-bottom: 0;
+		.colorbox-load {
+			@extend %btn-yellow;
+			display: inline-block;
+		}	
 	}
 }
 
@@ -1797,6 +1843,29 @@ nav {
 
 /*==end==*/
 
+/*reportes*/
+#ob-polls-reports-form {
+	clear: both;
+	text-align: center;
+	.form-item {
+		display: inline-block;
+		*display: inline-block;
+		vertical-align: top;
+		padding: 0 1em 1em 1em;
+		border: 1px solid $orbit-gray-light;
+		border-top: none;
+		margin-right: -5px;
+		width: 47%;
+		select { border: 1px solid $orbit-gray-light;}
+	}
+	.form-submit {
+		@extend %btn-yellow;
+		display: inline-block;
+		margin-top: 1em;
+	}
+}
+
+/*==end==*/
 
 /*colorBox*/
 #colorbox { 
@@ -1880,6 +1949,18 @@ nav {
 	.node-event {
 		padding: 0 1em;
 		.field { margin-bottom: 0.5em;}
+	}
+	header { display: none;}
+	#content-wrapper {
+		margin: 0 auto;
+		float: none;
+		position: static;
+		padding: 1em 0;
+		#content { 
+			width: 100%;
+			padding: 0;
+			border: none;
+		}
 	}
 }
 #cboxLoadedContent { background: white;}
