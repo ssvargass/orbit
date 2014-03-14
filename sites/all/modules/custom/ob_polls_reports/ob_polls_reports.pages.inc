@@ -19,7 +19,28 @@ function ob_polls_reports_results_page($node) {
 function ob_polls_reports_results_page_pdf($node) {
   $data = advpoll_get_data($node);
   module_load_include('php', 'ob_polls_reports', 'includes/tcpdf/tcpdf');
-  $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, TRUE, 'UTF-8', FALSE);
+  class MYPDF extends TCPDF {
+
+    //Page header
+    public function Header() {
+        // Logo
+        $image_file = drupal_get_path('module', 'ob_polls_reports') . '/header-lasante.jpg';
+        $this->Image($image_file, -10, '', 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+    }
+
+    // Page footer
+    public function Footer() {
+        // Position at 15 mm from bottom
+        $this->SetY(-15);
+        // Set font
+        $this->SetFont('helvetica', 'I', 8);
+        $this->Cell(0, 15, "Calle 17A No. 32-34 - Tels: (57-1) 364 75 00 Fax: (57-1) 364 75 00 A.A. 10491 Bogotá D.C - Colombia", 0, false, 'C', 0, '', 0, false, 'M', 'M');
+        $this->SetY(-10);
+        $this->Cell(0, 15, "Linea de Servicio al Cliente 01 8000 110028 Pagina web: www.lasante.com", 0, false, 'C', 0, '', 0, false, 'M', 'M');
+    }
+  }
+  $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, TRUE, 'UTF-8', FALSE);
+  $pdf->SetHeaderMargin(0);
   $pdf->setFontSubsetting(TRUE);
   $pdf->SetFont('dejavusans', '', 14, '', TRUE);
   $pdf->AddPage();
@@ -44,10 +65,11 @@ function ob_polls_reports_results_page_pdf($node) {
   $content_with_image = ob_polls_reports_display_results($node->nid, $data);
   $chart_url = $content_with_image['chart']['#attributes']['src'];
   // Print text using writeHTML()
+  $pdf->SetY(40);
   $pdf->writeHTML($title, true, false, true, false, '');
-  $pdf->SetY(20);
+  $pdf->SetY(47);
   $pdf->Image($chart_url, '', '', 180);
-  $pdf->SetY(120);
+  $pdf->SetY(140);
   $pdf->writeHTML($html, true, false, true, false, '');
   // This method has several options, check the source code documentation for more information.
   $pdf->Output($node->title . '.pdf', 'I');
