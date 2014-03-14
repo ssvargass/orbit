@@ -1,0 +1,27 @@
+<?php
+/**
+ * Implements hook_menu()
+ */
+/*function ob_room_menu() {
+  $items['salas-de-reunion/admin'] = array(
+    'title' => 'Salas de Reunión',
+    'page callback' => 'ob_room_aprovate',
+    'access arguments' => array('administrate_room'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ob_room_permission() {
+  return array(
+    'administrate_room' => array(
+      'title' => t('Administrate Room'),
+      'description' => t('Administrate room'),
+    ),
+  );
+}
+
+?>
