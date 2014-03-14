@@ -1,0 +1,5 @@
+name = Orbit Polls report
+description = Casino polls report
+core = 7.x
+
+package = "Orbit"

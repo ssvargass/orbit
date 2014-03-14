@@ -1,0 +1,57 @@
+<?php
+/**
+ * @file
+ * Polls reports functionality.
+ */
+
+/**
+ * Implements hook_menu()
+ */
+function ob_polls_reports_menu() {
+  $menu['polls-report'] = array(
+    'title' => 'Polls results export',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ob_polls_reports_form'),
+    // 'access callback' => '_advpoll_results_access',
+    'access arguments' => array('export polls reports'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ob_polls_reports.pages.inc',
+  );
+  $menu['poll/%node/results'] = array(
+    'title' => 'Results',
+    'page callback' => 'ob_polls_reports_results_page',
+    'page arguments' => array(1),
+    'access arguments' => array('export polls reports'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ob_polls_reports.pages.inc',
+  );
+  $menu['poll/%node/results.pdf'] = array(
+    'title' => 'Results pdf',
+    'page callback' => 'ob_polls_reports_results_page_pdf',
+    'page arguments' => array(1),
+    'access arguments' => array('export polls reports'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ob_polls_reports.pages.inc',
+  );
+  $menu['poll/%node/results.xls'] = array(
+    'title' => 'Results excel',
+    'page callback' => 'ob_polls_reports_results_page_xls',
+    'page arguments' => array(1),
+    'access arguments' => array('export polls reports'),
+    'type' => MENU_CALLBACK,
+    'file' => 'ob_polls_reports.pages.inc',
+  );
+  return $menu;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function ob_polls_reports_permission() {
+  return array(
+    'export polls reports' => array(
+      'title' => t('Export polls reports'),
+      'description' => t('Export polls reports'),
+    ),
+  );
+}
