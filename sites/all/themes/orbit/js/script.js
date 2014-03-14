@@ -1,5 +1,9 @@
 (function ($) {
   $(document).ready(function(){
+    $('.view-salas-de-reunion .views-field-field-nid a').colorbox({
+      width: 500,
+      height: 500,
+    })
     $('#og-wall-form .ob_text').addClass('active');
     $('.views-exposed-form .views-widget-filter-combine').hide_label();
     $('.ob-profile a').click(function(e){
