@@ -1653,7 +1653,7 @@ nav {
 	}
 	.node-salas-de-reunion {
 		.field-name-body { margin: 1em 0;}
-		.field-type-ds { display: none;}
+		.field-name-nid { display: none;}
 		.field-name-create-room {
 			.block-afb {
 				height: auto;
@@ -1698,6 +1698,7 @@ nav {
 					.form-submit {
 						@extend %btn-blue;
 					}
+					.tabledrag-toggle-weight-wrapper { display: none;}
 				}
 				.form-submit {
 					@extend %btn-yellow;
@@ -1724,6 +1725,31 @@ nav {
 	overflow: visible;
 	margin-top: 0;
 	.form-submit { float: right;}
+}
+
+.view-id-salas_de_reunion {
+	clear: both;
+	.views-row {
+		@extend .clearfix;
+		padding: 1em;
+		border: 1px solid $orbit-gray-light;
+		margin-bottom: 1em;
+	}
+	.views-field-field-fecha,
+	.views-field-field-email,
+	.views-field-field-tel-fono,
+	.views-field-field-departamento,
+	.views-field-name,
+	.views-field-picture {
+		clear: both;
+		float: left;
+		width: 30%;	
+	}
+	.views-field-nothing,
+	.views-field-field-nid {
+		float: right;
+		width: 67%;
+	}
 }
 
 /*==end==*/
