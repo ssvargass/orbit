@@ -90,6 +90,11 @@
           $(this).attr('href', url);
           $(this).colorboxNode({'launch': false});
       });
+
+      $('#quicktabs-salas_de_reuni_n .quicktabs-tabpage').each(function(){
+        var nid = $('.field-name-nid .field-item', this).html();
+        $('.field-name-field-nid input').val(nid);
+      })
     }
   };
 })(jQuery);
