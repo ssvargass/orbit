@@ -2571,8 +2571,13 @@ nav .menu .last {
   padding: 0;
   border: none;
 }
+/* line 1965, ../sass/style.scss */
+#colorbox iframe {
+  height: 100%;
+  width: 100%;
+}
 
-/* line 1966, ../sass/style.scss */
+/* line 1970, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }
