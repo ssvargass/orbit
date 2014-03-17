@@ -101,6 +101,7 @@
         var nid = $('.field-name-nid .field-item', this).html();
         $('.field-name-field-nid input').val(nid);
       })
+    
     }
   };
 })(jQuery);
