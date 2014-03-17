@@ -24,4 +24,19 @@ function ob_room_permission() {
   );
 }
 
+function ob_room_separate($form, &$form_state){
+  $form['denegate'] = array(
+    '#type' => 'submit',
+    '#value' => t('Rechazar'),
+  );
+
+  $form['acept'] = array(
+    '#type' => 'submit',
+    '#value' => t('Aceptar'),
+  );
+
+  return $form;  
+
+}
+
 ?>
