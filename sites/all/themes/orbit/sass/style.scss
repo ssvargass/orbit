@@ -921,6 +921,7 @@ nav {
 	.view-header {
 		background: $orbit-gray-dark;
 		padding: 1em 0;
+		clear: both;
 		p {
 			display: inline-block;
 			vertical-align: top;
@@ -1795,6 +1796,22 @@ nav {
 			@extend %btn-yellow;
 			display: inline-block;
 		}	
+	}
+}
+
+/*colorBox*/
+.page-calendar-room {
+	#admin-menu { display: none;}
+	#content-wrapper {
+		margin: 0;
+		float: none;
+		width: 100%;
+		#content {
+			border: none;
+			float: none;
+			width: 100%;
+		}
+		.date-heading { text-align: left;}
 	}
 }
 
