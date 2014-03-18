@@ -1621,8 +1621,11 @@ nav {
 	.field-name-field-invitados {
 		text-align: right;
 		.form-submit {
-			display: inline-block;
-			margin-top: 1em;
+			display: block;
+			background: none;
+			border: none;
+			color: $orbit-blue;
+			padding: 0;
 		}
 		.tabledrag-toggle-weight-wrapper { display: none;}
 		table {
@@ -1631,14 +1634,14 @@ nav {
 				.tabledrag-handle { padding: 0 0 0 0.7em;}
 			}
 		}
+		.form-autocomplete { background: none;}
 	}
 	#edit-submit {
 		@extend %btn-blue;
 		float: right;
 	}
 	input[type="submit"] {
-		display: block;
-		margin-top: -3.5em;
+		clear: both;
 	}
 	.vertical-tabs,
 	#edit-preview { display: none;}
@@ -1715,7 +1718,10 @@ nav {
 					float: right;
 					width: 50%;
 					.form-submit {
-						@extend %btn-blue;
+						padding: 0;
+						background: none;
+						border: none;
+						color: $orbit-blue;
 					}
 					.tabledrag-toggle-weight-wrapper { display: none;}
 				}
@@ -1728,11 +1734,13 @@ nav {
 				}
 				.vertical-tabs { display: none;}
 				table {
+					width: 98%;
 					.draggable { 
 						background: none;
 						.tabledrag-handle { padding: 0 0 0 0.7em;}
 					}
 				}
+				.form-autocomplete { background: none;}
 			}
 		}
 	}
@@ -1744,6 +1752,10 @@ nav {
 	overflow: visible;
 	margin-top: 0;
 	.form-submit { float: right;}
+	.form-type-radio {
+		position: relative;
+		.ajax-progress { right: 0;}
+	}
 }
 
 .view-id-salas_de_reunion {
