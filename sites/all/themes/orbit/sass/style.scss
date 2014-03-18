@@ -1177,7 +1177,7 @@ nav {
 		height: 3em;
 		text-indent: -5000px;
 		cursor: pointer;
-		background: url(../images/arrow-close-2.png) no-repeat center center $orbit-gray-dark;
+		background: url(../images/arrow-close-3.png) no-repeat center center $orbit-gray-dark;
 		&:hover { bottom: -3em;}
 	}
 	.ob-user-img {
@@ -1477,19 +1477,31 @@ nav {
 					padding: 0;
 					background: none;
 					a, a:link { 
-						background: $orbit-blue-dark;
-						color: white;
-						font-weight: normal;
-						padding: 0.5em 1em;
+						background: $orbit-blue-dark no-repeat center center;
+						color: $orbit-blue-dark;
 						margin: 0;
 						display: block;
+						text-indent: -5000px;
+						text-align: center;
+						width: 4.5em;
+						height: 2.5em;
 						&:hover {
-							background: $orbit-yellow;
-							color: black;
+							background-color: $orbit-yellow;
+							color: $orbit-yellow;
 						}
 					}
 				}
-				.date-next { margin-top: -1.24em;}
+				.date-next { 
+					margin-top: -1.24em;
+					a, a:link {
+						background-image: url(../images/arrow-plan-right.png);	
+					}
+				}
+				.date-prev {
+					a, a:link {
+						background-image: url(../images/arrow-plan-left.png);
+					}
+				}
 			}
 		}
 	}
@@ -1806,12 +1818,31 @@ nav {
 		margin: 0;
 		float: none;
 		width: 100%;
+		top: 0;
 		#content {
 			border: none;
 			float: none;
 			width: 100%;
+			top: 0;
 		}
 		.date-heading { text-align: left;}
+	}
+	header,
+	.s_title_page { display: none;}
+	.view-id-paneador {
+		.view-content {
+			height: 29em;
+			overflow: hidden;
+			margin-bottom: 1em;
+		}
+		.view-footer {
+			text-align: right;
+			clear: both;
+			padding-top: 1em;
+			border-top: 1px solid $orbit-gray-light;
+			#edit-denegate { @extend %btn-red;}
+			#edit-acept { @extend %btn-green;}
+		}
 	}
 }
 

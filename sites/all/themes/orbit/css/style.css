@@ -255,9 +255,9 @@ fieldset {
 
 /* line 204, ../sass/style.scss */
 #block-user-login .form-submit, .node-event-form .form-submit, .s_import_create,
-.s_event_create, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit, .view-id-salas_de_reunion .views-field-field-nid .colorbox-load, #ob-polls-reports-form .form-submit, #colorbox .s_submit, #og-wall-form #edit-enviar, .block-afb .form-submit, .block-advpoll .form-submit, .node-event-form #edit-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados .form-submit,
+.s_event_create, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit, .view-id-salas_de_reunion .views-field-field-nid .colorbox-load, #ob-polls-reports-form .form-submit, #colorbox .s_submit, .page-calendar-room .view-id-paneador .view-footer #edit-acept, #og-wall-form #edit-enviar, .block-afb .form-submit, .block-advpoll .form-submit, .node-event-form #edit-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados .form-submit,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-descripci-n .form-submit,
-#block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n .form-submit, #colorbox .confirmation .form-actions .form-submit, #colorbox .confirmation .form-actions #edit-cancel {
+#block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n .form-submit, #colorbox .confirmation .form-actions .form-submit, .page-calendar-room .view-id-paneador .view-footer #edit-denegate, #colorbox .confirmation .form-actions #edit-cancel {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -274,7 +274,7 @@ fieldset {
 }
 /* line 216, ../sass/style.scss */
 #block-user-login .form-submit:hover, .node-event-form .form-submit:hover, .s_import_create:hover,
-.s_event_create:hover, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit:hover, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit:hover, .view-id-salas_de_reunion .views-field-field-nid .colorbox-load:hover, #ob-polls-reports-form .form-submit:hover, #colorbox .s_submit:hover, #og-wall-form #edit-enviar:hover, .block-afb .form-submit:hover, .block-advpoll .form-submit:hover, .node-event-form #edit-submit:hover, #colorbox .confirmation .form-actions .form-submit:hover, #colorbox .confirmation .form-actions #edit-cancel:hover {
+.s_event_create:hover, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit:hover, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit:hover, .view-id-salas_de_reunion .views-field-field-nid .colorbox-load:hover, #ob-polls-reports-form .form-submit:hover, #colorbox .s_submit:hover, .page-calendar-room .view-id-paneador .view-footer #edit-acept:hover, #og-wall-form #edit-enviar:hover, .block-afb .form-submit:hover, .block-advpoll .form-submit:hover, .node-event-form #edit-submit:hover, #colorbox .confirmation .form-actions .form-submit:hover, .page-calendar-room .view-id-paneador .view-footer #edit-denegate:hover, #colorbox .confirmation .form-actions #edit-cancel:hover {
   background-color: #333333;
 }
 
@@ -290,6 +290,17 @@ fieldset {
 .s_event_create:hover, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit:hover, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit:hover, .view-id-salas_de_reunion .views-field-field-nid .colorbox-load:hover, #ob-polls-reports-form .form-submit:hover, #colorbox .s_submit:hover {
   color: #f9bd14;
   background-color: #826400;
+}
+
+/* line 232, ../sass/style.scss */
+.page-calendar-room .view-id-paneador .view-footer #edit-acept {
+  background-color: #83c341;
+  border-color: #09743b;
+}
+/* line 236, ../sass/style.scss */
+.page-calendar-room .view-id-paneador .view-footer #edit-acept:hover {
+  color: #83c341;
+  background-color: #09743b;
 }
 
 /* line 243, ../sass/style.scss */
@@ -308,12 +319,12 @@ fieldset {
 }
 
 /* line 253, ../sass/style.scss */
-#colorbox .confirmation .form-actions #edit-cancel {
+.page-calendar-room .view-id-paneador .view-footer #edit-denegate, #colorbox .confirmation .form-actions #edit-cancel {
   background-color: #e41e25;
   border-color: #8a181b;
 }
 /* line 257, ../sass/style.scss */
-#colorbox .confirmation .form-actions #edit-cancel:hover {
+.page-calendar-room .view-id-paneador .view-footer #edit-denegate:hover, #colorbox .confirmation .form-actions #edit-cancel:hover {
   color: #e41e25;
   background-color: #8a181b;
 }
@@ -1557,7 +1568,7 @@ nav .menu .last {
   height: 3em;
   text-indent: -5000px;
   cursor: pointer;
-  background: url(../images/arrow-close-2.png) no-repeat center center #333333;
+  background: url(../images/arrow-close-3.png) no-repeat center center #333333;
 }
 /* line 1181, ../sass/style.scss */
 #block-ob-wall-ob-profile .ob-close:hover {
@@ -1963,46 +1974,56 @@ nav .menu .last {
 }
 /* line 1479, ../sass/style.scss */
 #content .view-id-paneador .date-nav .pager li a, #content .view-id-paneador .date-nav .pager li a:link {
-  background: #1f3264;
-  color: white;
-  font-weight: normal;
-  padding: 0.5em 1em;
+  background: #1f3264 no-repeat center center;
+  color: #1f3264;
   margin: 0;
   display: block;
+  text-indent: -5000px;
+  text-align: center;
+  width: 4.5em;
+  height: 2.5em;
 }
-/* line 1486, ../sass/style.scss */
+/* line 1488, ../sass/style.scss */
 #content .view-id-paneador .date-nav .pager li a:hover, #content .view-id-paneador .date-nav .pager li a:link:hover {
-  background: #f9bd14;
-  color: black;
+  background-color: #f9bd14;
+  color: #f9bd14;
 }
-/* line 1492, ../sass/style.scss */
+/* line 1494, ../sass/style.scss */
 #content .view-id-paneador .date-nav .pager .date-next {
   margin-top: -1.24em;
 }
-/* line 1497, ../sass/style.scss */
+/* line 1496, ../sass/style.scss */
+#content .view-id-paneador .date-nav .pager .date-next a, #content .view-id-paneador .date-nav .pager .date-next a:link {
+  background-image: url(../images/arrow-plan-right.png);
+}
+/* line 1501, ../sass/style.scss */
+#content .view-id-paneador .date-nav .pager .date-prev a, #content .view-id-paneador .date-nav .pager .date-prev a:link {
+  background-image: url(../images/arrow-plan-left.png);
+}
+/* line 1509, ../sass/style.scss */
 #content .calendar-calendar .date-nav {
   background-color: #1f3264;
   padding: 0.5em 0;
 }
-/* line 1500, ../sass/style.scss */
+/* line 1512, ../sass/style.scss */
 #content .calendar-calendar .date-nav a, #content .calendar-calendar .date-nav a:link {
   color: white;
 }
-/* line 1504, ../sass/style.scss */
+/* line 1516, ../sass/style.scss */
 #content .calendar-calendar .days {
   padding: 0.3em 0;
   background: #1f3264;
   color: white;
 }
-/* line 1509, ../sass/style.scss */
+/* line 1521, ../sass/style.scss */
 #content .calendar-calendar tbody td {
   border: 1px solid #dddddd;
 }
-/* line 1510, ../sass/style.scss */
+/* line 1522, ../sass/style.scss */
 #content .calendar-calendar .date-box .date-box {
   border-bottom: 1px solid transparent;
 }
-/* line 1516, ../sass/style.scss */
+/* line 1528, ../sass/style.scss */
 #content .calendar-calendar .yearview,
 #content .calendar-calendar .weekview,
 #content .calendar-calendar .dayview,
@@ -2014,7 +2035,7 @@ nav .menu .last {
   background: none;
   padding: 0.5em;
 }
-/* line 1523, ../sass/style.scss */
+/* line 1535, ../sass/style.scss */
 #content .calendar-calendar .yearview .views-field-title a, #content .calendar-calendar .yearview .views-field-title a:link,
 #content .calendar-calendar .weekview .views-field-title a,
 #content .calendar-calendar .weekview .views-field-title a:link,
@@ -2028,7 +2049,7 @@ nav .menu .last {
   font-size: 1.25em;
   text-transform: uppercase;
 }
-/* line 1531, ../sass/style.scss */
+/* line 1543, ../sass/style.scss */
 #content .calendar-calendar .yearview .views-field-field-fecha,
 #content .calendar-calendar .weekview .views-field-field-fecha,
 #content .calendar-calendar .dayview .views-field-field-fecha,
@@ -2037,7 +2058,7 @@ nav .menu .last {
   color: white;
   margin-top: 0.3em;
 }
-/* line 1535, ../sass/style.scss */
+/* line 1547, ../sass/style.scss */
 #content .calendar-calendar .yearview .views-field-field-fecha *,
 #content .calendar-calendar .weekview .views-field-field-fecha *,
 #content .calendar-calendar .dayview .views-field-field-fecha *,
@@ -2045,50 +2066,50 @@ nav .menu .last {
   font-weight: normal;
 }
 
-/* line 1543, ../sass/style.scss */
+/* line 1555, ../sass/style.scss */
 .page-calendar .block-afb, .page-calendar .block-advpoll {
   border: none;
 }
 
-/* line 1546, ../sass/style.scss */
+/* line 1558, ../sass/style.scss */
 .block-afb, .block-advpoll {
   clear: both;
   text-align: center;
   height: 0;
   overflow: hidden;
 }
-/* line 1551, ../sass/style.scss */
+/* line 1563, ../sass/style.scss */
 .block-afb .content, .block-advpoll .content {
   text-align: left;
 }
-/* line 1552, ../sass/style.scss */
+/* line 1564, ../sass/style.scss */
 .block-afb h2, .block-advpoll h2 {
   top: -1.3em;
 }
-/* line 1556, ../sass/style.scss */
+/* line 1568, ../sass/style.scss */
 .block-afb .node-advpoll, .block-advpoll .node-advpoll {
   text-align: left;
   margin-top: -2em;
 }
-/* line 1560, ../sass/style.scss */
+/* line 1572, ../sass/style.scss */
 .block-afb .form-submit, .block-advpoll .form-submit {
   color: white;
 }
-/* line 1564, ../sass/style.scss */
+/* line 1576, ../sass/style.scss */
 .block-afb.active, .active.block-advpoll {
   overflow: visible;
   margin-top: 2em;
   border-top: 1px solid #dddddd;
 }
 
-/* line 1571, ../sass/style.scss */
+/* line 1583, ../sass/style.scss */
 .s_import_create,
 .s_event_create {
   display: inline-block;
   margin-bottom: 1em;
 }
 
-/* line 1576, ../sass/style.scss */
+/* line 1588, ../sass/style.scss */
 .node-event-form {
   width: 100%;
   text-align: left;
@@ -2097,31 +2118,31 @@ nav .menu .last {
   padding-bottom: 1em;
   border-bottom: 1px solid #dddddd;
 }
-/* line 1584, ../sass/style.scss */
+/* line 1596, ../sass/style.scss */
 .node-event-form .date-float {
   float: right;
   margin-top: -2em;
   padding-left: 1em;
   border-left: 1px solid #dddddd;
 }
-/* line 1589, ../sass/style.scss */
+/* line 1601, ../sass/style.scss */
 .node-event-form .date-float .form-type-checkbox {
   margin: 0.3em 0;
 }
-/* line 1593, ../sass/style.scss */
+/* line 1605, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup,
 .node-event-form .date-no-float .container-inline-date {
   margin: 0 0 2em 0;
   width: 100%;
 }
-/* line 1596, ../sass/style.scss */
+/* line 1608, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding,
 .node-event-form .date-no-float .container-inline-date .date-padding {
   padding: 0;
   float: none;
   width: 100%;
 }
-/* line 1600, ../sass/style.scss */
+/* line 1612, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield,
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield {
   -webkit-box-sizing: border-box;
@@ -2130,42 +2151,42 @@ nav .menu .last {
   width: 50%;
   padding-right: 1em;
 }
-/* line 1604, ../sass/style.scss */
+/* line 1616, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield input[type=text],
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield input[type=text] {
   width: 100%;
 }
-/* line 1609, ../sass/style.scss */
+/* line 1621, ../sass/style.scss */
 .node-event-form .field-name-field-invitados {
   text-align: right;
 }
-/* line 1611, ../sass/style.scss */
+/* line 1623, ../sass/style.scss */
 .node-event-form .field-name-field-invitados .form-submit {
   display: inline-block;
   margin-top: 1em;
 }
-/* line 1615, ../sass/style.scss */
+/* line 1627, ../sass/style.scss */
 .node-event-form .field-name-field-invitados .tabledrag-toggle-weight-wrapper {
   display: none;
 }
-/* line 1617, ../sass/style.scss */
+/* line 1629, ../sass/style.scss */
 .node-event-form .field-name-field-invitados table .draggable {
   background: none;
 }
-/* line 1619, ../sass/style.scss */
+/* line 1631, ../sass/style.scss */
 .node-event-form .field-name-field-invitados table .draggable .tabledrag-handle {
   padding: 0 0 0 0.7em;
 }
-/* line 1623, ../sass/style.scss */
+/* line 1635, ../sass/style.scss */
 .node-event-form #edit-submit {
   float: right;
 }
-/* line 1627, ../sass/style.scss */
+/* line 1639, ../sass/style.scss */
 .node-event-form input[type="submit"] {
   display: block;
   margin-top: -3.5em;
 }
-/* line 1632, ../sass/style.scss */
+/* line 1644, ../sass/style.scss */
 .node-event-form .vertical-tabs,
 .node-event-form #edit-preview {
   display: none;
@@ -2173,15 +2194,15 @@ nav .menu .last {
 
 /*==end==*/
 /*salas*/
-/* line 1640, ../sass/style.scss */
+/* line 1652, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list {
   clear: both;
 }
-/* line 1645, ../sass/style.scss */
+/* line 1657, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides {
   width: 100% !important;
 }
-/* line 1647, ../sass/style.scss */
+/* line 1659, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .slide-button {
   background-color: rgba(255, 255, 255, 0.5);
   background-position: center center;
@@ -2189,119 +2210,119 @@ nav .menu .last {
   background-height: 2em;
   background-width: 3em;
 }
-/* line 1656, ../sass/style.scss */
+/* line 1668, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .prev-slide {
   background-image: url(../images/arrow-salas-prev.png);
 }
-/* line 1657, ../sass/style.scss */
+/* line 1669, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .next-slide {
   background-image: url(../images/arrow-salas-next.png);
 }
-/* line 1659, ../sass/style.scss */
+/* line 1671, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-thumbs {
   display: none;
 }
-/* line 1662, ../sass/style.scss */
+/* line 1674, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-body {
   margin: 1em 0;
 }
-/* line 1663, ../sass/style.scss */
+/* line 1675, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-nid {
   display: none;
 }
-/* line 1665, ../sass/style.scss */
+/* line 1677, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll {
   height: auto;
   text-align: left;
 }
-/* line 1668, ../sass/style.scss */
+/* line 1680, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb h2, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll h2 {
   top: 0;
   padding: 0;
 }
-/* line 1674, ../sass/style.scss */
+/* line 1686, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .fieldset-wrapper > .date-clear, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .fieldset-wrapper > .date-clear {
   display: none;
 }
-/* line 1675, ../sass/style.scss */
+/* line 1687, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float {
   width: 100%;
 }
-/* line 1677, ../sass/style.scss */
+/* line 1689, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .form-item, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .form-item {
   width: 100%;
   margin: 0;
 }
-/* line 1681, ../sass/style.scss */
+/* line 1693, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .form-item .form-type-textfield, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .form-item .form-type-textfield {
   float: left;
   width: 45%;
   margin-left: 1em;
 }
-/* line 1685, ../sass/style.scss */
+/* line 1697, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .form-item .form-type-textfield input, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .form-item .form-type-textfield input {
   margin: 0;
   width: 100%;
 }
-/* line 1691, ../sass/style.scss */
+/* line 1703, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .date-padding, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .date-padding {
   padding: 0.5em 0;
   float: none;
 }
-/* line 1697, ../sass/style.scss */
+/* line 1709, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-fecha, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-fecha {
   float: left;
   width: 45%;
 }
-/* line 1702, ../sass/style.scss */
+/* line 1714, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-descripci-n,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n {
   float: right;
   width: 50%;
 }
-/* line 1708, ../sass/style.scss */
+/* line 1720, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados .tabledrag-toggle-weight-wrapper, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados .tabledrag-toggle-weight-wrapper,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-descripci-n .tabledrag-toggle-weight-wrapper,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n .tabledrag-toggle-weight-wrapper {
   display: none;
 }
-/* line 1710, ../sass/style.scss */
+/* line 1722, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit {
   float: right;
   margin-top: 1em;
   clear: both;
   margin-right: 0;
 }
-/* line 1717, ../sass/style.scss */
+/* line 1729, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .vertical-tabs, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .vertical-tabs {
   display: none;
 }
-/* line 1719, ../sass/style.scss */
+/* line 1731, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb table .draggable, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll table .draggable {
   background: none;
 }
-/* line 1721, ../sass/style.scss */
+/* line 1733, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb table .draggable .tabledrag-handle, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll table .draggable .tabledrag-handle {
   padding: 0 0 0 0.7em;
 }
 
-/* line 1729, ../sass/style.scss */
+/* line 1741, ../sass/style.scss */
 .block-advpoll {
   height: auto;
   overflow: visible;
   margin-top: 0;
 }
-/* line 1734, ../sass/style.scss */
+/* line 1746, ../sass/style.scss */
 .block-advpoll .form-submit {
   float: right;
 }
 
-/* line 1737, ../sass/style.scss */
+/* line 1749, ../sass/style.scss */
 .view-id-salas_de_reunion {
   clear: both;
 }
-/* line 1739, ../sass/style.scss */
+/* line 1751, ../sass/style.scss */
 .view-id-salas_de_reunion .views-row {
   overflow: hidden;
   *zoom: 1;
@@ -2309,22 +2330,22 @@ nav .menu .last {
   border: 1px solid #dddddd;
   margin-bottom: 1em;
 }
-/* line 1750, ../sass/style.scss */
+/* line 1762, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-field-departamento {
   color: #f9bd14;
   font-weight: normal;
 }
-/* line 1755, ../sass/style.scss */
+/* line 1767, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-name {
   color: #1f3264;
   font-size: 1.3em;
   font-weight: normal;
 }
-/* line 1761, ../sass/style.scss */
+/* line 1773, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-picture {
   padding-bottom: 1em;
 }
-/* line 1764, ../sass/style.scss */
+/* line 1776, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-picture .field-content {
   -webkit-border-radius: 20em;
   -moz-border-radius: 20em;
@@ -2335,27 +2356,27 @@ nav .menu .last {
   text-align: center;
   margin: 0 auto;
 }
-/* line 1771, ../sass/style.scss */
+/* line 1783, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-picture .field-content img {
   width: 100%;
   height: auto;
 }
-/* line 1777, ../sass/style.scss */
+/* line 1789, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-nothing {
   float: right;
   width: 70%;
 }
-/* line 1780, ../sass/style.scss */
+/* line 1792, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-nothing > div {
   margin-bottom: 0.5em;
 }
-/* line 1781, ../sass/style.scss */
+/* line 1793, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-nothing .s_title {
   font-size: 1.5em;
   font-weight: normal;
   margin-bottom: 1em;
 }
-/* line 1787, ../sass/style.scss */
+/* line 1799, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-field-nid {
   float: right;
   width: 70%;
@@ -2365,88 +2386,108 @@ nav .menu .last {
   margin-top: -3.5em;
   margin-bottom: 0;
 }
-/* line 1795, ../sass/style.scss */
+/* line 1807, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-field-nid .colorbox-load {
   display: inline-block;
 }
 
 /*colorBox*/
-/* line 1804, ../sass/style.scss */
+/* line 1816, ../sass/style.scss */
 .page-calendar-room #admin-menu {
   display: none;
 }
-/* line 1805, ../sass/style.scss */
+/* line 1817, ../sass/style.scss */
 .page-calendar-room #content-wrapper {
   margin: 0;
   float: none;
   width: 100%;
+  top: 0;
 }
-/* line 1809, ../sass/style.scss */
+/* line 1822, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content {
   border: none;
   float: none;
   width: 100%;
+  top: 0;
 }
-/* line 1814, ../sass/style.scss */
+/* line 1828, ../sass/style.scss */
 .page-calendar-room #content-wrapper .date-heading {
   text-align: left;
+}
+/* line 1831, ../sass/style.scss */
+.page-calendar-room header,
+.page-calendar-room .s_title_page {
+  display: none;
+}
+/* line 1833, ../sass/style.scss */
+.page-calendar-room .view-id-paneador .view-content {
+  height: 29em;
+  overflow: hidden;
+  margin-bottom: 1em;
+}
+/* line 1838, ../sass/style.scss */
+.page-calendar-room .view-id-paneador .view-footer {
+  text-align: right;
+  clear: both;
+  padding-top: 1em;
+  border-top: 1px solid #dddddd;
 }
 
 /*==end==*/
 /*menu*/
-/* line 1823, ../sass/style.scss */
+/* line 1854, ../sass/style.scss */
 #block-menu-menu-casino-menu {
   clear: both;
   margin-bottom: 1em;
 }
-/* line 1827, ../sass/style.scss */
+/* line 1858, ../sass/style.scss */
 #block-menu-menu-casino-menu .leaf {
   display: inline-block;
   list-style: none;
   margin: 0;
 }
-/* line 1831, ../sass/style.scss */
+/* line 1862, ../sass/style.scss */
 #block-menu-menu-casino-menu .leaf a, #block-menu-menu-casino-menu .leaf a:link {
   background: #dddddd;
 }
-/* line 1836, ../sass/style.scss */
+/* line 1867, ../sass/style.scss */
 #block-menu-menu-casino-menu .active-trail a, #block-menu-menu-casino-menu .active-trail a:link {
   background: white;
 }
 
-/* line 1841, ../sass/style.scss */
+/* line 1872, ../sass/style.scss */
 .field-name-field-menu-casino {
   margin-top: 1em;
 }
-/* line 1843, ../sass/style.scss */
+/* line 1874, ../sass/style.scss */
 .field-name-field-menu-casino .field-label {
   margin-bottom: 0.5em;
   font-size: 1.3em;
 }
-/* line 1847, ../sass/style.scss */
+/* line 1878, ../sass/style.scss */
 .field-name-field-menu-casino .field-item {
   clear: both;
   margin-bottom: 0.3em;
 }
-/* line 1850, ../sass/style.scss */
+/* line 1881, ../sass/style.scss */
 .field-name-field-menu-casino .field-item .field-name-field-menu-part {
   display: inline-block;
   margin-right: 0.5em;
   font-family: "futuraB";
 }
-/* line 1855, ../sass/style.scss */
+/* line 1886, ../sass/style.scss */
 .field-name-field-menu-casino .field-item .field-name-field-menu-part-desc {
   display: inline-block;
 }
 
 /*==end==*/
 /*reportes*/
-/* line 1864, ../sass/style.scss */
+/* line 1895, ../sass/style.scss */
 #ob-polls-reports-form {
   clear: both;
   text-align: center;
 }
-/* line 1867, ../sass/style.scss */
+/* line 1898, ../sass/style.scss */
 #ob-polls-reports-form .form-item {
   display: inline-block;
   *display: inline-block;
@@ -2457,11 +2498,11 @@ nav .menu .last {
   margin-right: -5px;
   width: 47%;
 }
-/* line 1876, ../sass/style.scss */
+/* line 1907, ../sass/style.scss */
 #ob-polls-reports-form .form-item select {
   border: 1px solid #dddddd;
 }
-/* line 1878, ../sass/style.scss */
+/* line 1909, ../sass/style.scss */
 #ob-polls-reports-form .form-submit {
   display: inline-block;
   margin-top: 1em;
@@ -2469,22 +2510,22 @@ nav .menu .last {
 
 /*==end==*/
 /*colorBox*/
-/* line 1888, ../sass/style.scss */
+/* line 1919, ../sass/style.scss */
 #colorbox {
   z-index: 100;
 }
-/* line 1890, ../sass/style.scss */
+/* line 1921, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 {
   background: white;
   display: block;
   padding: 1em;
 }
-/* line 1894, ../sass/style.scss */
+/* line 1925, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 h2 {
   margin-top: 0;
   color: #1f3264;
 }
-/* line 1899, ../sass/style.scss */
+/* line 1930, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 {
   overflow: hidden;
   *zoom: 1;
@@ -2492,76 +2533,76 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 1904, ../sass/style.scss */
+/* line 1935, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 .views-exposed-widgets {
   margin: 0;
   float: right;
 }
-/* line 1909, ../sass/style.scss */
+/* line 1940, ../sass/style.scss */
 #colorbox .view-id-directorio {
   margin: 0;
   background: white;
   padding: 0;
 }
-/* line 1913, ../sass/style.scss */
+/* line 1944, ../sass/style.scss */
 #colorbox .view-id-directorio .view-filters {
   top: -3.2em;
 }
-/* line 1914, ../sass/style.scss */
+/* line 1945, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row {
   min-height: 0;
   font-size: 90%;
 }
-/* line 1918, ../sass/style.scss */
+/* line 1949, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   margin-top: 0.3em;
 }
-/* line 1919, ../sass/style.scss */
+/* line 1950, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-uid {
   text-indent: -5000px;
 }
-/* line 1921, ../sass/style.scss */
+/* line 1952, ../sass/style.scss */
 #colorbox .view-id-directorio .active {
   opacity: 0.4;
 }
-/* line 1924, ../sass/style.scss */
+/* line 1955, ../sass/style.scss */
 #colorbox .view-id-directorio > .view-content {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 1928, ../sass/style.scss */
+/* line 1959, ../sass/style.scss */
 #colorbox .view-id-directorio .view-footer {
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 1934, ../sass/style.scss */
+/* line 1965, ../sass/style.scss */
 #colorbox .s_submit {
   display: inline-block;
 }
-/* line 1939, ../sass/style.scss */
+/* line 1970, ../sass/style.scss */
 #colorbox .confirmation {
   background: white;
   padding: 1em;
 }
-/* line 1942, ../sass/style.scss */
+/* line 1973, ../sass/style.scss */
 #colorbox .confirmation .form-actions {
   text-align: center;
 }
-/* line 1944, ../sass/style.scss */
+/* line 1975, ../sass/style.scss */
 #colorbox .confirmation .form-actions .form-submit {
   display: inline-block;
   padding: 0.36em 1em;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 1951, ../sass/style.scss */
+/* line 1982, ../sass/style.scss */
 #colorbox .confirmation .form-actions #edit-cancel {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 1960, ../sass/style.scss */
+/* line 1991, ../sass/style.scss */
 #colorbox .view-id-home_publications .jspPane {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2569,38 +2610,38 @@ nav .menu .last {
   padding-right: 1.5em !important;
   width: 100% !important;
 }
-/* line 1966, ../sass/style.scss */
+/* line 1997, ../sass/style.scss */
 #colorbox .node-event {
   padding: 0 1em;
 }
-/* line 1968, ../sass/style.scss */
+/* line 1999, ../sass/style.scss */
 #colorbox .node-event .field {
   margin-bottom: 0.5em;
 }
-/* line 1970, ../sass/style.scss */
+/* line 2001, ../sass/style.scss */
 #colorbox header {
   display: none;
 }
-/* line 1971, ../sass/style.scss */
+/* line 2002, ../sass/style.scss */
 #colorbox #content-wrapper {
   margin: 0 auto;
   float: none;
   position: static;
   padding: 1em 0;
 }
-/* line 1976, ../sass/style.scss */
+/* line 2007, ../sass/style.scss */
 #colorbox #content-wrapper #content {
   width: 100%;
   padding: 0;
   border: none;
 }
-/* line 1982, ../sass/style.scss */
+/* line 2013, ../sass/style.scss */
 #colorbox iframe {
   height: 100%;
   width: 100%;
 }
 
-/* line 1987, ../sass/style.scss */
+/* line 2018, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }
