@@ -1454,6 +1454,12 @@ nav {
 				a, a:link { background-image: url(../images/arrow-plan-right.png);}
 			}
 		}
+		.view-content {
+			tbody {
+				td { height: 2.4em;}
+			}
+		}
+		.mini { height: 2.4em;}
 	}
 	.calendar-calendar {
 		.days {
@@ -1623,6 +1629,9 @@ nav {
 			}
 		}
 	}
+	.weekly {
+		.form-type-checkbox { width: 5em;}
+	}
 	.field-name-field-invitados {
 		text-align: right;
 		.form-submit {
@@ -1639,7 +1648,7 @@ nav {
 				.tabledrag-handle { padding: 0 0 0 0.7em;}
 			}
 		}
-		.form-autocomplete { background: none;}
+		.form-autocomplete { background-position: 100% 10px;}
 	}
 	#edit-submit {
 		@extend %btn-blue;
@@ -1745,7 +1754,7 @@ nav {
 						.tabledrag-handle { padding: 0 0 0 0.7em;}
 					}
 				}
-				.form-autocomplete { background: none;}
+				.form-autocomplete { background-position: 100% 10px;}
 			}
 		}
 	}
