@@ -24,19 +24,69 @@ function ob_room_permission() {
   );
 }
 
-function ob_room_separate($form, &$form_state){
+function ob_room_separate($form, &$form_state, $nid){
+  $form_state['custom']['nid'] = $nid;
   $form['denegate'] = array(
     '#type' => 'submit',
     '#value' => t('Rechazar'),
+    '#ajax' => array(
+      'callback' => '_ob_room_callback',
+    )
   );
-
   $form['acept'] = array(
     '#type' => 'submit',
     '#value' => t('Aceptar'),
+    '#ajax' => array(
+      'callback' => '_ob_room_callback',
+    )
+  );
+  return $form;  
+}
+
+function _ob_room_callback($form, $form_state) {
+  $commands = array();
+  $nid = $form_state['custom']['nid'];
+  if($form_state['clicked_button']['#value'] == 'Rechazar'){
+    $formulario = drupal_get_form('ob_room_denegate', $nid);
+    $commands[] = ajax_command_replace('.view-id-paneador.view-display-id-page_5', render($formulario));
+  } else {
+    $node = node_load($nid);
+    $node->status = 1;
+    node_save($node);    
+    drupal_set_message('Se ha actualizado');
+    
+  }
+
+  return array('#type' => 'ajax', '#commands' => $commands);  
+}
+
+function ob_room_denegate($form, &$form_state, $nid){
+  $form_state['custom']['nid'] = $nid;
+  $form['header'] = array(
+    '#markup' => t('RESPUESTA'),
+  );
+  $form['text'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Su sala no fue agendada por:'),
   );
 
+  $form['responce'] = array(
+    '#type' => 'submit',
+    '#value' => t('Responder'),
+    '#ajax' => array(
+      'callback' => '_ob_room_callback_delete',
+    )
+  );
   return $form;  
+}
 
+function _ob_room_callback_delete($form, $form_state) {
+  $commands = array();
+  $nid = $form_state['custom']['nid'];
+  $respuesta = t('Se ha cancelado y notificado la reserva.');
+  node_delete($nid);
+  $commands[] = ajax_command_replace('#ob-room-denegate', $respuesta);
+  return array('#type' => 'ajax', '#commands' => $commands);  
 }
 
 ?>
