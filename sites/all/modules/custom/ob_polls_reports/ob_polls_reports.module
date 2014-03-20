@@ -78,23 +78,25 @@ function ob_polls_reports_form_advpoll_choice_form_alter(&$form, &$form_state, $
  * Opinion question submit
  */
 function ob_polls_reports_opinion_question_submit($form, &$form_state) {
-  $choice = '';
-  foreach ($form_state['values'] as $key => $value) {
-    if (is_numeric($key)) {
-      $choice = $value;
-    }
-  }
-  global $user;
-  $uid = $user->uid;
-  $nid = $form_state['build_info']['args'][0]->nid;
   $answer = $form_state['values']['opinion_question'];
-  $record = array(
-    'nid' => $nid,
-    'uid' => $uid,
-    'answer' => $answer,
-    'choice' => $choice,
-  );
-  drupal_write_record('users_polls_opinion_answers', $record);
+  if ($answer) {
+    $choice = '';
+    foreach ($form_state['values'] as $key => $value) {
+      if (is_numeric($key)) {
+        $choice = $value;
+      }
+    }
+    global $user;
+    $uid = $user->uid;
+    $nid = $form_state['build_info']['args'][0]->nid;
+    $record = array(
+      'nid' => $nid,
+      'uid' => $uid,
+      'answer' => $answer,
+      'choice' => $choice,
+    );
+    drupal_write_record('users_polls_opinion_answers', $record);
+  }
 }
 
 /**
