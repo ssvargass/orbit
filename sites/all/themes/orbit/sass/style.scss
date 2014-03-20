@@ -1850,6 +1850,27 @@ nav {
 			float: none;
 			width: 100%;
 			top: 0;
+			.view-header { display: none;}
+			.view-content {
+				height: 33em;
+				overflow: hidden;
+				margin-bottom: 1em;
+				#single-day-container {
+					height: 27.5em;
+				}
+			}
+			.view-footer {
+				clear: both;
+				text-align: right;
+				padding-top: 1em;
+				border-top: 1px solid $orbit-gray-light;
+				#edit-denegate {
+					@extend %btn-red;
+				}
+				#edit-acept {
+					@extend %btn-green;
+				}
+			}
 		}
 		.date-heading { text-align: left;}
 	}
