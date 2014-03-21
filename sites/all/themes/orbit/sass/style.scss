@@ -1533,7 +1533,37 @@ nav {
 			background: $orbit-blue-dark;
 			color: white
 		}
-		tbody td { border: 1px solid $orbit-gray-light;}
+		tbody {
+			td { 
+				border: 1px solid $orbit-gray-light;
+				position: relative;
+				.s_ind_content_color {
+					@include box-sizing(border-box);
+					@extend %color-planeador-tipos;
+					padding: 1em;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					.s_ind_color {
+						@include border-radius(5em);
+						display: inline-block;
+						width: 1em;
+						height: 1em;
+						margin: 0.5em;
+					}
+				}
+			}
+			.single-day {
+				.inner { 
+					display: none;
+					opacity: 0;
+					position: absolute;
+				}
+			}
+		}
 		.date-box .date-box {
 			border-bottom: 1px solid transparent;
 		}
@@ -2121,17 +2151,4 @@ nav {
 	}
 }
 #cboxLoadedContent { background: white;}
-/*==end==*/
-
-/*=membrete=*/
-.membrete {
-	width: 620px;
-	height: 900px;
-	margin: auto;
-	background: url(../images/membrete.jpg) center center;
-	position: relative;
-	.campo-text {
-		margin-top: 15em;
-	}
-}
 /*==end==*/
