@@ -196,6 +196,15 @@
       output += '</div>'
       $(output).appendTo($(this));
     }
+
+    $(this).mouseenter(function(){
+      $('.inner',this).stop(true).show().animate({opacity:1},300);
+
+    }).mouseleave(function(){
+      $('.inner',this).stop(true).animate({opacity:0},300,function(){
+        $(this).hide();
+      });
+    })
   }  
 
   $.fn.menu_quicktabs_width = function() {
