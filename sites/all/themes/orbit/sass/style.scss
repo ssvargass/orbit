@@ -760,6 +760,8 @@ nav {
 		width: 70%;
 		padding: 1em 2em;
 		border-right: 1px solid $orbit-gray-light;
+		height: 49em;
+		overflow: auto;
 	}
 }
 
@@ -1125,6 +1127,15 @@ nav {
 		.field-name-field-cargo {
 			.field-label { background-image: url(../images/ico-cargo.png)}
 		}
+		.field-name-field-tel-fono {
+			.field-label { background-image: url(../images/ico-tel.png)}
+		}
+		.field-name-field-email {
+			.field-label { background-image: url(../images/ico-mail.png)}
+		}
+		.field-name-field-rh {
+			.field-label { background-image: url(../images/ico-rh.png)}
+		}
 		.field-name-field-nombre-completo {
 			color: $orbit-yellow;
 			font-size: 2em;
@@ -1142,13 +1153,12 @@ nav {
 			border-top: 1px solid $orbit-gray-light;
 			min-height: 7em;
 			.field-name-body {
-				left: 0;
-				bottom: initial;
-				top: 4.5em;
+				padding-bottom: 0.5em;
 			}
 			.flag-outer-like {
 				right: 2.5em;
 				bottom: -1.7em;
+				width: 93%;
 			}
 			.field-name-counter {
 				bottom: -1.7em;
@@ -1156,9 +1166,7 @@ nav {
 			}
 			.field-name-file-blank {
 				border-top: none;
-				border-bottom: 1px solid #DDD;
 				padding-top: 0;
-				padding-bottom: 0.3em;
 			}
 		}
 		.view-id-home_publications.view-display-id-block_1 > .view-content {
@@ -1315,6 +1323,8 @@ nav {
 	width: 30%;
 	padding: 1em 2em;
 	float: right;
+	height: 49em;
+	overflow-y: auto;
 	#block-views-proximos-eventos-block {
 		text-align: center;
 		h2 { @extend %sub-titulo;}
