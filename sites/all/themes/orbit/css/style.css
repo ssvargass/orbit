@@ -2789,3 +2789,18 @@ nav .menu .last {
 }
 
 /*==end==*/
+/*=membrete=*/
+/* line 2127, ../sass/style.scss */
+.membrete {
+  width: 620px;
+  height: 900px;
+  margin: auto;
+  background: url(../images/membrete.jpg) center center;
+  position: relative;
+}
+/* line 2133, ../sass/style.scss */
+.membrete .campo-text {
+  margin-top: 15em;
+}
+
+/*==end==*/

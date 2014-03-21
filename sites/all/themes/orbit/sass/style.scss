@@ -2122,3 +2122,16 @@ nav {
 }
 #cboxLoadedContent { background: white;}
 /*==end==*/
+
+/*=membrete=*/
+.membrete {
+	width: 620px;
+	height: 900px;
+	margin: auto;
+	background: url(../images/membrete.jpg) center center;
+	position: relative;
+	.campo-text {
+		margin-top: 15em;
+	}
+}
+/*==end==*/
