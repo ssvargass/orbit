@@ -177,13 +177,7 @@ function ob_polls_reports_group_others_results($nid, $data, $page = 0) {
     $output .= theme('advpoll_ineligible', array('data' => $data));
   } elseif (!$page && ($data->show_results == 'never'
     || ($data->show_results == 'afterclose' && !$expired))) {
-    $output .= theme('advpoll_noresults', array(
-      'data' => $data,
-      'votes' => $votes,
-      'nid' => $nid,
-      'cancel_form' => $rendered_form,
-      )
-    );
+    $output .= t('Thank you for voting.');
   } else {
     $results = advpoll_get_votes($nid, $data->behavior);
     $bars = '';
