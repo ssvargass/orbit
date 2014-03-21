@@ -1794,35 +1794,35 @@ nav .menu .last {
 }
 /* line 1370, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-1 .ui-helper-reset {
-  background: #2E3687;
+  background: #E7B041;
 }
 /* line 1371, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-1 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #2e3687;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #e7b041;
 }
 /* line 1374, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-2 .ui-helper-reset {
-  background: #BD9C69;
+  background: #2E3687;
 }
 /* line 1375, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-2 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #bd9c69;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #2e3687;
 }
 /* line 1378, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-3 .ui-helper-reset {
-  background: #A21B25;
+  background: #BD9C69;
 }
 /* line 1379, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-3 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #a21b25;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #bd9c69;
 }
 /* line 1382, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-4 .ui-helper-reset {
-  background: #C6362E;
+  background: #D0684B;
 }
 /* line 1383, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-4 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #c6362e;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #d0684b;
 }
 /* line 1386, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-5 .ui-helper-reset {
@@ -1834,67 +1834,67 @@ nav .menu .last {
 }
 /* line 1390, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-6 .ui-helper-reset {
-  background: #59277F;
+  background: #A21B25;
 }
 /* line 1391, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-6 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #59277f;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #a21b25;
 }
 /* line 1394, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-7 .ui-helper-reset {
-  background: #A1BF37;
+  background: #C6362E;
 }
 /* line 1395, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-7 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #a1bf37;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #c6362e;
 }
 /* line 1398, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-8 .ui-helper-reset {
-  background: #69A841;
+  background: #F7E939;
 }
 /* line 1399, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-8 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #69a841;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #f7e939;
 }
 /* line 1402, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-9 .ui-helper-reset {
-  background: #D0684B;
+  background: #59277F;
 }
 /* line 1403, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-9 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #d0684b;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #59277f;
 }
 /* line 1406, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-10 .ui-helper-reset {
-  background: #68A7DE;
+  background: #8A1E59;
 }
 /* line 1407, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-10 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #68a7de;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #8a1e59;
 }
 /* line 1410, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-11 .ui-helper-reset {
-  background: #8A1E59;
+  background: #69A841;
 }
 /* line 1411, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-11 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #8a1e59;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #69a841;
 }
 /* line 1414, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-12 .ui-helper-reset {
-  background: #F7E939;
+  background: #68A7DE;
 }
 /* line 1415, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-12 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #f7e939;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #68a7de;
 }
 /* line 1418, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-13 .ui-helper-reset {
-  background: #E7B041;
+  background: #A1BF37;
 }
 /* line 1419, ../sass/style.scss */
 .pst_content_region #block-views-proximos-eventos-block .views-row-13 .views-accordion-header {
-  background: url(../images/arrow-close-21.png) no-repeat 95% center #e7b041;
+  background: url(../images/arrow-close-21.png) no-repeat 95% center #a1bf37;
 }
 /* line 1422, ../sass/style.scss */
 .pst_content_region .view-id-paneador {
