@@ -93,7 +93,11 @@ select {
 	option {
 		background: $orbit-yellow;
 		color: black;
-		}
+	}
+}
+label {
+	margin-bottom: 0.5em;
+	font-weight: normal;
 }
 
 *:focus {
@@ -1859,12 +1863,13 @@ nav {
 				#single-day-container {
 					height: 27.5em;
 				}
+				.view-item-salas_event { background: $orbit-gray-light;}
 			}
 			.view-footer {
 				clear: both;
 				text-align: right;
 				padding-top: 1em;
-				border-top: 1px solid $orbit-gray-light;
+				border-top: 1px solid $orbit-gray;
 				#edit-denegate {
 					@extend %btn-red;
 				}
@@ -1890,6 +1895,21 @@ nav {
 			border-top: 1px solid $orbit-gray-light;
 			#edit-denegate { @extend %btn-red;}
 			#edit-acept { @extend %btn-green;}
+		}
+	}
+	#ob-room-denegate {
+		color: $orbit-blue-dark;
+		font-size: 1.3em;
+		font-family: "futuraB";
+		.form-type-textarea {
+			margin: 0.5em 0;
+			color: $orbit-gray;
+			font-family: "futuraM";
+			font-weight: normal;
+		}
+		#edit-responce {
+			@extend %btn-green;
+			float: right;
 		}
 	}
 }
