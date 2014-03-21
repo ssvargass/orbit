@@ -2100,7 +2100,7 @@ nav {
 		.views-row {
 			@extend %view-colaboradores;
 			min-height: 0;
-			font-size: 90%;
+			font-size: 75%;
 			.views-field-nothing .s_user_name { margin-top: 0.3em;}
 			.views-field-uid { text-indent: -5000px;}
 		}
