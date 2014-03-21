@@ -78,7 +78,6 @@
     })*/    
 
     $('#og-wall-form .ob_text').addClass('active');
-    $('.views-exposed-form .views-widget-filter-combine').hide_label();
     $('.ob-profile a').click(function(e){
       $('#block-ob-wall-ob-profile').animate({height:'21em'},500).addClass('active')
       e.preventDefault();
@@ -153,6 +152,7 @@
   }
 	Drupal.behaviors.orbit = {
     attach: function (context, settings) {
+      $('.views-exposed-form .views-widget-filter-combine').hide_label();
       $('#og-wall-form').once('wall_form',function(){
         var form = $(this);
         $('label').click(function(){
