@@ -771,7 +771,6 @@ nav {
 	color: $orbit-blue-dark;
 	font-size: 1.5em;
 	font-weight: normal;
-	font-style: italic;
 	padding: 0 2.3em;
 	position: relative;
 	text-align: center;
@@ -825,19 +824,18 @@ nav {
 		border-top: 1px solid $orbit-gray-light;
 		margin-top: 1em;
 		padding-top: 1em;
+		position: relative;
 		#edit-archivo-ajax-wrapper {
 			display: inline-block;
-			vertical-align: middle;
+			float: left;
+			width: 67%;
+			text-align: left;
 			.form-submit { display: none;}
 		}
 		.description { margin-top: 0.5em;}
-		.form-file {
-			position: relative;
-			left: -1.5em;
-		}
 	}
 	.form-type-managed-file {
-		text-align: center;
+		margin: 0;
 		.form-submit {
 			display: inline-block;
 			vertical-align: middle;
@@ -845,9 +843,10 @@ nav {
 		}
 	}
 	.form-type-select {
-		display: inline-block;
-		vertical-align: middle;
-		margin: 1em 0 1em 5em;
+		position: absolute;
+		margin: 0;
+		right: 8em;
+		top: 1.5em;
 		padding-right: 1em;
 		border-right: 1px solid;
 		select {
@@ -857,7 +856,7 @@ nav {
 	#edit-enviar {
 		@extend %btn-blue;
 		display: inline-block;
-		vertical-align: middle;
+		float: right;
 	}
 }
 
