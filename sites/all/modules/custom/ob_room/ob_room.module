@@ -48,15 +48,14 @@ function _ob_room_callback($form, $form_state) {
   $nid = $form_state['custom']['nid'];
   if($form_state['clicked_button']['#value'] == 'Rechazar'){
     $formulario = drupal_get_form('ob_room_denegate', $nid);
-    $commands[] = ajax_command_replace('.view-id-paneador.view-display-id-page_5', render($formulario));
+    $commands[] = ajax_command_replace('.view-salas-event', render($formulario));
   } else {
     $node = node_load($nid);
     $node->status = 1;
-    node_save($node);    
+    node_save($node);
+    $commands[] = ajax_command_invoke('', 'ob_room_reload');
     drupal_set_message('Se ha actualizado');
-    
   }
-
   return array('#type' => 'ajax', '#commands' => $commands);  
 }
 

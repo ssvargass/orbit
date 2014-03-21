@@ -179,4 +179,9 @@
 
       return width;
     }
+
+    $.fn.ob_room_reload = function(options) {
+      location.reload();
+    };
+    
 })(jQuery);
