@@ -1642,6 +1642,7 @@ nav {
 		padding-left: 1em;
 		border-left: 1px solid $orbit-gray-light;
 		.form-type-checkbox { margin: 0.3em 0;}
+
 	}
 	.date-no-float {
 		.form-type-date-popup,
@@ -1658,6 +1659,19 @@ nav {
 					padding-right: 1em;
 					input[type=text] { width: 100%;}
 				}
+			}
+		}
+	}
+	#repeat-settings-fieldset {
+		.yearly {
+			.form-type-checkbox {
+				width: 5em;
+			}
+		}
+		.range-of-repeat {
+			.container-inline {
+				.form-text { margin: 0.5em 0 0 0;}
+
 			}
 		}
 	}
