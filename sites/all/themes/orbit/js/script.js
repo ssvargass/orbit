@@ -2,6 +2,7 @@
   $(document).ready(function(){
     $.fn.ob_room_reload = function(options) {
       window.parent.location.reload();
+      window.location.reload();
     };
     galscrollMouse();
     function galscrollMouse(){
