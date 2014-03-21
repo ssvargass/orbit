@@ -1,6 +1,74 @@
 (function ($) {
   $(document).ready(function(){
+    galscrollMouse();
+    function galscrollMouse(){
+        gallencierra = $('.view-colaboradores');
+        nulistado = $('.view-colaboradores .views-row').length;
+        var ciclos = Math.round(nulistado/5);
+        counterclickscroll = 1;
+        $('.slide_gallery_right').click(function(){
+          counterclickscroll ++;
+          if(counterclickscroll > ciclos) { 
+            counterclickscroll = ciclos;
+            return false;
+          }
+          $('.view-colaboradores .view-content').animate({scrollLeft:960 * counterclickscroll},2000); 
+        })
+        $('.slide_gallery_left').click(function(){
+          counterclickscroll --;
+          if(counterclickscroll < 1){   
+            counterclickscroll = 1;
+            return false;
+          }
+          $('.view-colaboradores .view-content').animate({scrollLeft:960 * (counterclickscroll - 1)},1000);         
+        })
 
+        var scroll = 0;
+          var mouse_in = false;
+          var posx_pointer = 0;
+          var scroll_speed = 2;    
+          var qwidth = $().menu_quicktabs_width();
+          var scroll_limit_right = Math.ceil(gallencierra.width()/2 - 100);  
+          var scroll_limit_left = Math.ceil(gallencierra.width() - scroll_limit_right);
+          gallencierra.mouseover(function(e) {       
+            mouse_in = true;
+            posx_pointer = e.pageX;     
+            //scroll_limit_right = Math.ceil(gallencierra.width() / 3);  
+            //scroll_limit_left = Math.ceil(gallencierra.width() - scroll_limit_right);  
+          }).mouseout(function(){
+            mouse_in = false;
+          }); 
+            process = setInterval(function(){
+            if (mouse_in) {
+              gallencierra.each(function() {  
+                /* Manejo de scroll */
+                //console.log(scroll_limit_right, scroll_limit_left, qwidth, posx_pointer);
+                if (posx_pointer > scroll_limit_right && scroll < qwidth) {
+                  scroll = scroll + scroll_speed;
+                }
+                if (posx_pointer <= scroll_limit_left && scroll >= scroll_speed) {
+                  scroll = scroll - scroll_speed;
+                }
+
+                /* Manejo de flechas */
+                if (scroll  > 0) {
+                  $('.slide_gallery_left', this).addClass('active');
+                } else {
+                  $('.slide_gallery_left', this).removeClass('active');
+                }
+
+                if (scroll  < qwidth - 15) {
+                  $('.slide_gallery_right', this).addClass('active');
+                } else {
+                  $('.slide_gallery_right', this).removeClass('active');
+                }
+                
+                $('.slide_gallery_content', this).scrollLeft(scroll);     
+                $('.view-content', this).scrollLeft(scroll);          
+              }); 
+            }
+          }, 10);
+    }
     /*$('.view-salas-de-reunion .views-field-field-nid a').colorbox({
       width: 500,
       height: 500,
@@ -9,7 +77,7 @@
     $('#og-wall-form .ob_text').addClass('active');
     $('.views-exposed-form .views-widget-filter-combine').hide_label();
     $('.ob-profile a').click(function(e){
-      $('#block-ob-wall-ob-profile').animate({height:'18.5em'},500).addClass('active')
+      $('#block-ob-wall-ob-profile').animate({height:'21em'},500).addClass('active')
       e.preventDefault();
       return false;
     })
@@ -101,7 +169,14 @@
         var nid = $('.field-name-nid .field-item', this).html();
         $('.field-name-field-nid input').val(nid);
       })
-    
     }
   };
+  $.fn.menu_quicktabs_width = function() {
+      width = 0;
+      $('.view-colaboradores .views-row').each(function() {
+        width = width + $(this).width();
+      }); 
+
+      return width;
+    }
 })(jQuery);

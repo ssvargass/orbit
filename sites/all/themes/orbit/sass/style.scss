@@ -1838,6 +1838,7 @@ nav {
 }
 
 /*colorBox*/
+
 .page-calendar-room {
 	#admin-menu { display: none;}
 	#content-wrapper {
@@ -1850,6 +1851,27 @@ nav {
 			float: none;
 			width: 100%;
 			top: 0;
+			.view-header { display: none;}
+			.view-content {
+				height: 33em;
+				overflow: hidden;
+				margin-bottom: 1em;
+				#single-day-container {
+					height: 27.5em;
+				}
+			}
+			.view-footer {
+				clear: both;
+				text-align: right;
+				padding-top: 1em;
+				border-top: 1px solid $orbit-gray-light;
+				#edit-denegate {
+					@extend %btn-red;
+				}
+				#edit-acept {
+					@extend %btn-green;
+				}
+			}
 		}
 		.date-heading { text-align: left;}
 	}
@@ -1871,6 +1893,43 @@ nav {
 		}
 	}
 }
+
+.node-type-event {
+	@extend .page-calendar-room;
+	#content-wrapper{
+		#content { padding-top: 0em;}
+	}
+	.tabs {
+		@extend %tabs;
+		margin-bottom: 1em;
+		li { display: none;}
+		li:first-child,
+		li:nth-child(2) { display: inline-block;}
+	}
+	.view-mode-full {
+		position: relative;
+		margin-right: 1.5em;
+		.field { margin-bottom: 0.5em;}
+		.field-name-delete {
+			position: absolute;
+			top: 0;
+			right: -1.5em;
+			a, a:link {
+				padding: 0.5em;
+				background: $orbit-yellow;
+				color: black;
+			}
+		}
+	}
+	.node-event-form { 
+		margin-top: 0;
+		height: 21.5em;
+		overflow-x: hidden;
+		overflow-y: auto;
+		border-bottom: none;
+	}
+}
+
 
 /*==end==*/
 
