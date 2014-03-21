@@ -1915,9 +1915,19 @@ nav {
 			float: none;
 			width: 100%;
 			top: 0;
-			.view-header { display: none;}
+			.view-header { 
+				.date-nav {
+					margin: 0;
+					padding: 0;
+				}
+				.pager li {
+					background: $orbit-blue-dark;
+					text-align: center;
+					a, a:link { color: white;}
+				}
+			}
 			.view-content {
-				height: 33em;
+				height: 29em;
 				overflow: hidden;
 				margin-bottom: 1em;
 				#single-day-container {
