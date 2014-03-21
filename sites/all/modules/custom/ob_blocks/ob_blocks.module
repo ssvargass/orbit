@@ -57,16 +57,13 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
   if($form_id == 'event_node_form' || $form_id == 'room_event_node_form'){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Crear Evento');
+    $form['#submit'][] = 'ob_blocks_form_submit';
   } 
 }
 
-
-/*<div class="s_links">
-<a href="/node/<?php print $entity->nid ?>?width=300&height=300" class="s_view colorbox-node">Ver</a>
-<a href="/node/<?php print $entity->nid ?>/edit?width=300&height=300" class="s_edit colorbox-node">Editar</a>
-</div>*/
-
-
+function ob_blocks_form_submit($form, &$form_state){
+  drupal_add_js('ob_room_reload()');
+}
 
 
 

@@ -1,5 +1,8 @@
 (function ($) {
   $(document).ready(function(){
+    $.fn.ob_room_reload = function(options) {
+      window.parent.location.reload();
+    };
     galscrollMouse();
     function galscrollMouse(){
         gallencierra = $('.view-colaboradores');
@@ -169,8 +172,32 @@
         var nid = $('.field-name-nid .field-item', this).html();
         $('.field-name-field-nid input').val(nid);
       })
+
+      $('.view-paneador .view-content td.single-day').each(
+        function(){
+          $ (this).hidde_cal()
+        }
+      );
     }
   };
+
+  $.fn.hidde_cal = function() {
+    clases = new Array();
+    $('.view-item-paneador',this).each(function(){
+      var clase = $('.views-field-php .s_colortype', this).attr('class');
+      clase = clase.replace('s_colortype ','');
+      clases.push(clase);
+    })
+    if(clases.length > 0){
+      var output = '<div class="s_ind_content_color">';
+      for (index in clases) {
+        output += '<div class="s_ind_color ' + clases[index] + '"></div>'
+      }
+      output += '</div>'
+      $(output).appendTo($(this));
+    }
+  }  
+
   $.fn.menu_quicktabs_width = function() {
       width = 0;
       $('.view-colaboradores .views-row').each(function() {
@@ -178,10 +205,5 @@
       }); 
 
       return width;
-    }
-
-    $.fn.ob_room_reload = function(options) {
-      location.reload();
-    };
-    
+    }    
 })(jQuery);
