@@ -382,8 +382,8 @@ fieldset {
 		.unflag-action { background: url(../images/ico-like.png) right center no-repeat;}
 	}
 	.field-name-file-blank {
-		border-top: 1px solid #EEEEEE;
-		padding-top: 0.3em;
+		border-bottom: 1px solid #dddddd;
+		padding-bottom: 0.3em;
 	}
 	.field-name-counter {
 		position: absolute;
@@ -1139,7 +1139,7 @@ nav {
 	.group-footer {
 		.views-row {
 			@extend %view-comentarios;
-			padding: 0.5em 1em 0 1em;
+			padding: 0.5em 1em 3em 1em;
 			border-top: 1px solid $orbit-gray-light;
 			min-height: 7em;
 			.field-name-body {
@@ -1148,13 +1148,11 @@ nav {
 				top: 4.5em;
 			}
 			.flag-outer-like {
-				bottom: initial;
-				top: 4.1em;
 				right: 2.5em;
+				bottom: -1.7em;
 			}
 			.field-name-counter {
-				bottom: initial;
-				top: 4.1em;
+				bottom: -1.7em;
 				.field-item { padding: 0 0.5em;}
 			}
 		}
