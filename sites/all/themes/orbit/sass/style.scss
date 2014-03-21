@@ -382,8 +382,8 @@ fieldset {
 		.unflag-action { background: url(../images/ico-like.png) right center no-repeat;}
 	}
 	.field-name-file-blank {
-		border-bottom: 1px solid #dddddd;
-		padding-bottom: 0.3em;
+		border-top: 1px solid #dddddd;
+		padding-top: 0.3em;
 	}
 	.field-name-counter {
 		position: absolute;
@@ -1155,6 +1155,12 @@ nav {
 				bottom: -1.7em;
 				.field-item { padding: 0 0.5em;}
 			}
+			.field-name-file-blank {
+				border-top: none;
+				border-bottom: 1px solid #DDD;
+				padding-top: 0;
+				padding-bottom: 0.3em;
+			}
 		}
 		.view-id-home_publications.view-display-id-block_1 > .view-content {
 			height: 190px;
@@ -1663,6 +1669,9 @@ nav {
 		}
 	}
 	#repeat-settings-fieldset {
+		.daily,
+		.weekly,
+		.monthly,
 		.yearly {
 			.form-type-checkbox {
 				width: 5em;
