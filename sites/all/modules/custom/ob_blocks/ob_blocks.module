@@ -57,7 +57,6 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
   if($form_id == 'event_node_form' || $form_id == 'room_event_node_form'){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Crear Evento');
-    dpm($form);
     $form['submit'] = array(
       '#type' => 'submit',
       '#value' => 'crear evento',
