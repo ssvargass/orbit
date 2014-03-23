@@ -1,8 +1,9 @@
 (function ($) {
   $(document).ready(function(){
     $.fn.ob_room_reload = function(options) {
+      console.log('eleimina');
       window.parent.location.reload();
-      window.location.reload();
+      location.reload(true);
     };
     galscrollMouse();
     function galscrollMouse(){
