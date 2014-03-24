@@ -1,0 +1,57 @@
+<?php
+/**
+ * Implements hook_menu().
+ */
+function ob_certificates_menu() {
+  $items['admin/config/orbit/certificates'] = array(
+    'title' => 'Certificates files',
+    'description' => 'Ubicación de los archivos para certificados',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ob_cerficiates_admin'),
+    'access arguments' => array('administer site configuration'),
+  );
+  $items['documentos/certificados'] = array(
+    'title' => 'Certificados',
+    'page callback' => 'ob_certificates_print',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  $items['documentos/tiket'] = array(
+    'title' => 'Certificados',
+    'page callback' => 'ob_tiket_print',
+    'access arguments' => array('access content'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+  return $items;
+}
+
+function ob_cerficiates_admin($form, $form_state){
+  $form['ob_certificates'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Certificados'),
+    '#default_value' => variable_get('ob_cetrificates', ''),
+    '#description' => t('Dirección donde se consulta el xml de certificados'),
+    '#required' => TRUE,
+  );
+
+  $form['ob_tiket'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Tiket de nómina'),
+    '#default_value' => variable_get('ob_tiket', ''),
+    '#description' => t('Dirección donde se consulta el xml de tiket'),
+    '#required' => TRUE,
+  );
+  return system_settings_form($form);
+}
+
+function ob_certificates_print(){
+  $output = 'asdadas';
+  return $output;
+}
+
+function ob_tiket_print(){
+  $output = 'xxxxxx';
+  return $output;
+}
+
+?>
