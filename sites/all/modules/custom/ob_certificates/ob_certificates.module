@@ -45,13 +45,35 @@ function ob_cerficiates_admin($form, $form_state){
 }
 
 function ob_certificates_print(){
-  $output = 'asdadas';
+  $output = l('Descargue aqui su certificado laboral', '');
   return $output;
 }
 
 function ob_tiket_print(){
-  $output = 'xxxxxx';
+  $output = drupal_get_form('ob_certificates_form');
   return $output;
+}
+
+function ob_certificates_form($form, $form_state){
+  $form['years'] = array(
+    '#type' => 'select',
+    '#title' => 'Año',
+    '#options' => array(
+      2012 => '2012',
+    ),
+  );
+  $form['months'] = array(
+    '#type' => 'select',
+    '#title' => 'Mes',
+    '#options' => array(
+      01 => 'Enero',
+    ),
+  );
+  $form['envia'] = array(
+    '#type' => 'submit',
+    '#value' => 'Envia'
+  );
+  return $form;
 }
 
 ?>
