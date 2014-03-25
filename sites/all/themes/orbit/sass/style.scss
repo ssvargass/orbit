@@ -766,6 +766,7 @@ nav {
 		border-right: 1px solid $orbit-gray-light;
 		height: 49em;
 		overflow: auto;
+		> .tabs { display: none;}
 	}
 }
 
@@ -1076,7 +1077,7 @@ nav {
 
 /*perfil*/
 .user-profile {
-	background: white;
+	background: $orbit-blue-dark;
 	.group-header {
 		position: absolute;
 		top: 1em;
@@ -1151,6 +1152,7 @@ nav {
 		}
 	}
 	.group-footer {
+		background: white;
 		.views-row {
 			@extend %view-comentarios;
 			padding: 0.5em 1em 3em 1em;
@@ -2016,14 +2018,30 @@ nav {
 		}
 	}
 	.node-event-form { 
-		margin-top: 0;
-		height: 21.5em;
+		margin: 0;
+		padding: 0;
+		height: 26.5em;
 		overflow-x: hidden;
 		overflow-y: auto;
 		border-bottom: none;
 	}
 }
-
+.node-type-room-event {
+	header,
+	#admin-menu { display: none;}
+	#content-wrapper {
+		position: static;
+		top: 0;
+		float: none;
+		width: 100%;
+		#content {
+			float: none;
+			width: 100%;
+			padding: 0 1em;
+			margin: 0;
+		}
+	}
+}
 
 /*==end==*/
 
@@ -2105,6 +2123,7 @@ nav {
 /*colorBox*/
 #colorbox { 
 	z-index: 100;
+	#page-title{ display: none;}
 	#block-views-directorio-block-1 { 
 		background: white;
 		display: block;
