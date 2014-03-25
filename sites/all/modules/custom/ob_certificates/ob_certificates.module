@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * Implements hook_theme()
+ */
+function ob_certificates_theme($existing, $type, $theme, $path) {  
+  return array(
+    'ticket' => array(
+      'template' => 'ticket',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'cabeza' => NULL,
+        'detalle' => NULL,
+      ),
+    ),
+  );   
+}
+
 /**
  * Implements hook_menu().
  */
@@ -26,7 +43,7 @@ function ob_certificates_menu() {
 }
 
 function ob_cerficiates_admin($form, $form_state){
-  $form['ob_certificates'] = array(
+  $form['ob_cetrificates'] = array(
     '#type' => 'textfield',
     '#title' => t('Certificados'),
     '#default_value' => variable_get('ob_cetrificates', ''),
@@ -34,13 +51,22 @@ function ob_cerficiates_admin($form, $form_state){
     '#required' => TRUE,
   );
 
-  $form['ob_tiket'] = array(
+  $form['ob_tiket_cabeza'] = array(
     '#type' => 'textfield',
-    '#title' => t('Tiket de nómina'),
-    '#default_value' => variable_get('ob_tiket', ''),
-    '#description' => t('Dirección donde se consulta el xml de tiket'),
+    '#title' => t('Tiket de nómina cabezera'),
+    '#default_value' => variable_get('ob_tiket_cabeza', ''),
+    '#description' => t('Dirección donde se consulta el xml de la cabezera para tiket de nomina'),
     '#required' => TRUE,
   );
+
+  $form['ob_tiket_detalle'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Tiket de nómina cabezera'),
+    '#default_value' => variable_get('ob_tiket_detalle', ''),
+    '#description' => t('Dirección donde se consulta el xml con el detalle para tiket de nomina'),
+    '#required' => TRUE,
+  );
+
   return system_settings_form($form);
 }
 
@@ -55,25 +81,116 @@ function ob_tiket_print(){
 }
 
 function ob_certificates_form($form, $form_state){
+  global $user;
+  $usuario = user_load($user->uid);
+  $documento = $usuario->field_documento['und'][0]['value'];
+  $years = array();
+
+  if (file_exists(variable_get('ob_tiket_detalle', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_tiket_detalle', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $personal = array();
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['ID_TERC'];
+      if(trim($doc) == $documento){
+        $personal[] = $value['@attributes'];
+        $years[$value['@attributes']['LAPSO_DOC']] = $value['@attributes']['LAPSO_DOC'];
+      }
+    }
+    $form_state['custom']['personal'] = $personal;
+  }
+
+  if (file_exists(variable_get('ob_tiket_cabeza', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_tiket_cabeza', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['ID_TERC'];
+      if(trim($doc) == $documento){
+        $form_state['custom']['cabezera'] = $value['@attributes'];
+      }
+    }
+    
+  }
+
+  $selected = isset($form_state['values']['years']) ? $form_state['values']['years'] : 0;
   $form['years'] = array(
     '#type' => 'select',
-    '#title' => 'Año',
-    '#options' => array(
-      2012 => '2012',
+    '#title' => 'Lapso',
+    '#options' => $years,
+    '#empty_option' => t('Seleccione un valor'),
+    '#ajax' => array(
+      'callback' => 'ob_cetificates_filter_month_call',
+      'wrapper' => 's_month',
     ),
   );
+
   $form['months'] = array(
+    '#prefix' => '<div id="s_month">',
     '#type' => 'select',
-    '#title' => 'Mes',
-    '#options' => array(
-      01 => 'Enero',
+    '#title' => 'Fecha inicial',
+    '#options' => ob_cetificates_filter_month($personal, $selected),
+    '#empty_option' => t('Seleccione un valor'),
+    '#attributes' => array(
+      'disabled' => 'disabled',
     ),
+    '#ajax' => array(
+      'callback' => 'ob_cetificates_filter_submit_call',
+      'wrapper' => 's_submit',
+    ),
+    '#suffix' => '</div>',
   );
+
   $form['envia'] = array(
+    '#prefix' => '<div id="s_submit">',
     '#type' => 'submit',
-    '#value' => 'Envia'
+    '#value' => 'Consultar',
+    '#attributes' => array(
+      'disabled' => 'disabled',
+    ),
+    '#ajax' => array(
+      'callback' => 'ob_cetificates_tiket_end',
+    ),
+    '#suffix' => '</div>',
   );
+
   return $form;
+}
+
+function ob_cetificates_filter_month($personal, $selected){
+  $options = array();
+  foreach ($personal as $key => $value) {
+   if($selected == trim($value['LAPSO_DOC'])) $options[$value['FECHA_INICIAL']] = $value['FECHA_INICIAL'];
+  }
+  return $options; 
+}
+
+function ob_cetificates_filter_month_call(&$form, &$form_state){
+  unset($form['months']['#attributes']['disabled']);
+  return $form['months'];
+}
+
+function ob_cetificates_filter_submit_call(&$form, &$form_state){
+  unset($form['envia']['#attributes']['disabled']);
+  return $form['envia'];
+}
+
+function ob_cetificates_tiket_end($form, &$form_state){
+  $personal = $form_state['custom']['personal'];
+  $cabeza = $form_state['custom']['cabezera'];
+  $mes = $form_state['values']['months'];
+  $info = array();
+
+  foreach ($personal as $key => $value) {
+    if($value['FECHA_INICIAL'] == $mes) $info[] = $value;
+  }
+
+  $html = theme('ticket', array(
+    'cabeza' => $cabeza,
+    'detalle' => $personal,
+  ));
+
+  module_load_include('php', 'ob_polls_reports', 'includes/tcpdf/tcpdf');
+
 }
 
 ?>

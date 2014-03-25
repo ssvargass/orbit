@@ -57,78 +57,12 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
   if($form_id == 'event_node_form' || $form_id == 'room_event_node_form'){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Crear Evento');
-    $form['submit'] = array(
+    /*$form['submit'] = array(
       '#type' => 'submit',
       '#value' => 'crear evento',
       '#weight' => 100
     );
     unset($form['ajax-submit']);
-    $form['#submit'][] = 'ob_blocks_form_submit';
+    $form['#submit'][] = 'ob_blocks_form_submit';*/
   } 
 }
-function ob_blocks_form_submit($form, $form_state) {
-  if (isset($form['#node']->nid)) {
-    $id = $form['#id'];
-    module_load_include('inc', 'node', 'node.pages');
-    $node = node_load($form['#node']->nid);
-    $form_state['build_info']['args'][0]->form_id = $id;
-    $form = drupal_rebuild_form($node->type . '_node_form', $form_state, $form);
-    $form['#id'] = $id;
-    return $form;
-  }
-  else {
-    $node = $form_state['node'];
-    if (!empty($node->nid)) {
-      $id = $form['#id'];
-      $new_node = (object) array(
-        'uid' => $node->uid,
-        'name' => $node->name,
-        'type' => $node->type,
-        'language' => $node->language,
-        'ajax_form' => 1,
-        'delta' => $node->delta,
-        'form_id' => $id,
-      );
-      $new_form_state = array();
-      $new_form_state['build_info']['args'] = array($new_node);
-      $new_form_state['values'] = array();
-      $new_form_state['method'] = $form_state['method'];
-      form_load_include($new_form_state, 'inc', 'node', 'node.pages');
-
-      $form = drupal_rebuild_form($node->type . '_node_form', $new_form_state);
-      $form['#id'] = $id;
-      return $form;
-    }
-    else {
-      return $form;
-    }
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
