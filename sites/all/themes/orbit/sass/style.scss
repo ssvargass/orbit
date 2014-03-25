@@ -707,6 +707,10 @@ nav {
 				background-image: url(../images/btn-ico-menu.png);
 				&:hover { background-image: url(../images/btn-ico-menu-h.png);}
 			}
+			.s_document {
+				background-image: url(../images/btn-ico-docs.png);
+				&:hover { background-image: url(../images/btn-ico-docs-h.png);}
+			}
 		}
 		.first {
 			.s_home {
@@ -2089,6 +2093,14 @@ nav {
 }
 
 /*==end==*/
+
+/*documentos*/
+#quicktabs-certificates {
+	@extend %tabs;
+	clear: both;
+}
+/*==end==*/
+
 
 /*colorBox*/
 #colorbox { 
