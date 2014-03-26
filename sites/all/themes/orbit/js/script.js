@@ -178,7 +178,7 @@
 
       $('#quicktabs-salas_de_reuni_n .quicktabs-tabpage').each(function(){
         var nid = $('.field-name-nid .field-item', this).html();
-        $('.field-name-field-nid input').val(nid);
+        $('.field-name-field-nid input',this).val(nid);
       })
 
       $('.view-paneador .view-content td.single-day').each(
