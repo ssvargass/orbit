@@ -1,4 +1,21 @@
 <?php
+
+/**
+ * Implements hook_theme()
+ */
+function ob_certificates_theme($existing, $type, $theme, $path) {  
+  return array(
+    'ticket' => array(
+      'template' => 'ticket',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'cabeza' => NULL,
+        'detalle' => NULL,
+      ),
+    ),
+  );   
+}
+
 /**
  * Implements hook_menu().
  */
@@ -10,23 +27,41 @@ function ob_certificates_menu() {
     'page arguments' => array('ob_cerficiates_admin'),
     'access arguments' => array('administer site configuration'),
   );
+
   $items['documentos/certificados'] = array(
     'title' => 'Certificados',
     'page callback' => 'ob_certificates_print',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
+
   $items['documentos/tiket'] = array(
     'title' => 'Certificados',
     'page callback' => 'ob_tiket_print',
     'access arguments' => array('access content'),
     'type' => MENU_NORMAL_ITEM,
   );
+
+  $items['ticket/%/result'] = array(
+    'title' => 'Download pdf',
+    'description' => 'TCPDF usage.',
+    'page callback' => 'ob_certificates_pdf_download',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+  );
+
+  $items['certificate/download'] = array(
+    'title' => 'Download pdf',
+    'description' => 'TCPDF usage.',
+    'page callback' => 'ob_certificates_pdf',
+    'access arguments' => array('access content'),
+  );
+
   return $items;
 }
 
 function ob_cerficiates_admin($form, $form_state){
-  $form['ob_certificates'] = array(
+  $form['ob_cetrificates'] = array(
     '#type' => 'textfield',
     '#title' => t('Certificados'),
     '#default_value' => variable_get('ob_cetrificates', ''),
@@ -34,18 +69,27 @@ function ob_cerficiates_admin($form, $form_state){
     '#required' => TRUE,
   );
 
-  $form['ob_tiket'] = array(
+  $form['ob_tiket_cabeza'] = array(
     '#type' => 'textfield',
-    '#title' => t('Tiket de nómina'),
-    '#default_value' => variable_get('ob_tiket', ''),
-    '#description' => t('Dirección donde se consulta el xml de tiket'),
+    '#title' => t('Tiket de nómina cabezera'),
+    '#default_value' => variable_get('ob_tiket_cabeza', ''),
+    '#description' => t('Dirección donde se consulta el xml de la cabezera para tiket de nomina'),
     '#required' => TRUE,
   );
+
+  $form['ob_tiket_detalle'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Tiket de nómina cabezera'),
+    '#default_value' => variable_get('ob_tiket_detalle', ''),
+    '#description' => t('Dirección donde se consulta el xml con el detalle para tiket de nomina'),
+    '#required' => TRUE,
+  );
+
   return system_settings_form($form);
 }
 
 function ob_certificates_print(){
-  $output = l('Descargue aqui su certificado laboral', '');
+  $output = l('Descargue aqui su certificado laboral', 'certificate/download');
   return $output;
 }
 
@@ -55,25 +99,206 @@ function ob_tiket_print(){
 }
 
 function ob_certificates_form($form, $form_state){
+  global $user;
+  $usuario = user_load($user->uid);
+  $documento = $usuario->field_documento['und'][0]['value'];
+  $years = array();
+
+  if (file_exists(variable_get('ob_tiket_detalle', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_tiket_detalle', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $personal = array();
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['ID_TERC'];
+      if(trim($doc) == $documento){
+        $personal[] = $value['@attributes'];
+        $years[$value['@attributes']['LAPSO_DOC']] = $value['@attributes']['LAPSO_DOC'];
+      }
+    }
+    $form_state['custom']['personal'] = $personal;
+  }
+
+  $selected = isset($form_state['values']['years']) ? $form_state['values']['years'] : 0;
   $form['years'] = array(
     '#type' => 'select',
-    '#title' => 'Año',
-    '#options' => array(
-      2012 => '2012',
+    '#title' => 'Lapso',
+    '#options' => $years,
+    '#empty_option' => t('Seleccione un valor'),
+    '#ajax' => array(
+      'callback' => 'ob_cetificates_filter_month_call',
+      'wrapper' => 's_month',
     ),
   );
+
   $form['months'] = array(
+    '#prefix' => '<div id="s_month">',
     '#type' => 'select',
-    '#title' => 'Mes',
-    '#options' => array(
-      01 => 'Enero',
+    '#title' => 'Fecha inicial',
+    '#options' => ob_cetificates_filter_month($personal, $selected),
+    '#empty_option' => t('Seleccione un valor'),
+    '#attributes' => array(
+      'disabled' => 'disabled',
     ),
+    '#ajax' => array(
+      'callback' => 'ob_cetificates_filter_submit_call',
+      'wrapper' => 's_submit',
+    ),
+    '#suffix' => '</div>',
   );
+
   $form['envia'] = array(
+    '#prefix' => '<div id="s_submit">',
     '#type' => 'submit',
-    '#value' => 'Envia'
+    '#value' => 'Consultar',
+    '#attributes' => array(
+      'disabled' => 'disabled',
+    ),
+    '#suffix' => '</div>',
   );
+
   return $form;
 }
 
+function ob_cetificates_filter_month($personal, $selected){
+  $options = array();
+  foreach ($personal as $key => $value) {
+   if($selected == trim($value['LAPSO_DOC'])) $options[$value['FECHA_INICIAL']] = $value['FECHA_INICIAL'];
+  }
+  return $options; 
+}
+
+function ob_cetificates_filter_month_call(&$form, &$form_state){
+  unset($form['months']['#attributes']['disabled']);
+  return $form['months'];
+}
+
+function ob_cetificates_filter_submit_call(&$form, &$form_state){
+  unset($form['envia']['#attributes']['disabled']);
+  return $form['envia'];
+}
+
+function ob_certificates_form_submit($form, &$form_state){
+  $mes = $form_state['values']['months'];
+  $form_state['redirect'] = 'ticket/' . $mes . '/result';
+}
+
+function ob_certificates_pdf_download($month){
+  global $user;
+  $usuario = user_load($user->uid);
+  $documento = $usuario->field_documento['und'][0]['value'];
+  $personal = array();
+
+  if (file_exists(variable_get('ob_tiket_detalle', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_tiket_detalle', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $personal = array();
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['ID_TERC'];
+      $mes = $value['@attributes']['FECHA_INICIAL'];
+      if(trim($doc) == $documento && trim($mes) == $month){
+        $personal[] = $value['@attributes'];
+      }
+    }
+    $form_state['custom']['personal'] = $personal;
+  }
+
+  if (file_exists(variable_get('ob_tiket_cabeza', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_tiket_cabeza', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['ID_TERC'];
+      if(trim($doc) == $documento){
+        $cabeza = $value['@attributes'];
+      }
+    }
+  }
+
+  $html = theme('ticket', array(
+    'cabeza' => $cabeza, 
+    'detalle' => $personal,
+  ));
+
+  $tcpdf = tcpdf_get_instance();
+  $tcpdf->DrupalInitialize(array(
+    'footer' => array(
+    ),
+    'header' => array(
+    ),
+  ));
+  
+  $tcpdf->writeHTML($html);
+  $pdf = $tcpdf->Output('', 'S');
+
+  header('Content-Type: application/pdf');
+  header('Content-Length: ' . strlen($pdf));
+  header('Content-Disposition: attachment; filename="ticket.pdf"');
+  print $pdf;
+
+  return NULL;
+}
+
+function ob_certificates_pdf(){
+  global $user;
+  $usuario = user_load($user->uid);
+  $documento = $usuario->field_documento['und'][0]['value'];
+  if (file_exists(variable_get('ob_cetrificates', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_cetrificates', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['EMPLEADO'];
+      if(trim($doc) == $documento){
+        $personal = $value['@attributes'];
+      }
+    }
+  }
+
+  $tcpdf = tcpdf_get_instance();
+  $tcpdf->DrupalInitialize(array(
+    'footer' => array(
+      'callback' => array(
+        'function' => 'ob_certificates_pdf_footer',
+        'context' => array(
+          // 'welcome_message' => 'Hello, context array!',
+        ),
+      ),
+
+    ),
+    'header' => array(
+      'callback' => array(
+        'function' => 'ob_certificates_pdf_header',
+        'context' => array(
+          // 'welcome_message' => 'Hello, context array!',
+        ),
+      ),
+    ),
+  ));
+
+  $html = 'falta texto';
+
+  $tcpdf->writeHTML($html);
+  $pdf = $tcpdf->Output('', 'S');
+
+  header('Content-Type: application/pdf');
+  header('Content-Length: ' . strlen($pdf));
+  header('Content-Disposition: attachment; filename="certificado.pdf"');
+  print $pdf;
+
+  return NULL;
+}
+
+function ob_certificates_pdf_header(&$tcpdf, $context) {
+  // Logo
+  $image_file = drupal_get_path('module', 'ob_polls_reports') . '/header-lasante.jpg';
+  $tcpdf->Image($image_file, -10, '', 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+}
+
+function ob_certificates_pdf_footer(&$tcpdf, $context) {
+  // Position at 15 mm from bottom
+  $tcpdf->SetY(-15);
+  // Set font
+  $tcpdf->SetFont('helvetica', 'I', 8);
+  $tcpdf->Cell(0, 15, "Calle 17A No. 32-34 - Tels: (57-1) 364 75 00 Fax: (57-1) 364 75 00 A.A. 10491 Bogotá D.C - Colombia", 0, false, 'C', 0, '', 0, false, 'M', 'M');
+  $tcpdf->SetY(-10);
+  $tcpdf->Cell(0, 15, "Linea de Servicio al Cliente 01 8000 110028 Pagina web: www.lasante.com", 0, false, 'C', 0, '', 0, false, 'M', 'M');
+}
 ?>

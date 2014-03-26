@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+
+<Encabezado>
+  <Elemento1 ID_EMP="LS" DESCRIPCION="LABORATORIOS LA SANTE S.A.              " ID_TERC="0000002     " NOMBRE_COMPLETO="EBANO PEREZ                      " CARGO="AUXILIAR DE SOPORTE TECNICO             " ID_CCOSTO="19000001" CENTRO_COSTO="Dpto de Tecnologia e Informatica        " ID_CO="007" CENTRO_OPERACION="ADMINISTRACION                          " ID_TIPO_NOMINA="Q" TIPO_NOMINA="NOMINA QUINCENAL                        " BANCO="07  " CUENTA="22549324685     "/>
+  <Elemento1 ID_EMP="LS" DESCRIPCION="LABORATORIOS LA SANTE S.A.              " ID_TERC="0000003       " NOMBRE_COMPLETO="SUTANO GAMEZ                                " CARGO="ESPECIALISTA                        " ID_CCOSTO="37000019" CENTRO_COSTO="Tecnologia e Informatica Venezuela      " ID_CO="007" CENTRO_OPERACION="ADMINISTRACION                          " ID_TIPO_NOMINA="Q" TIPO_NOMINA="NOMINA QUINCENAL                        " BANCO="07  " CUENTA="20565951212     "/>
+  <Elemento1 ID_EMP="LS" DESCRIPCION="LABORATORIOS LA SANTE S.A.              " ID_TERC="0000001       " NOMBRE_COMPLETO="PEPITO PEREZ                                 " CARGO="ESPECIALISTA                        " ID_CCOSTO="19000001" CENTRO_COSTO="Dpto de Tecnologia e Informatica        " ID_CO="007" CENTRO_OPERACION="ADMINISTRACION                          " ID_TIPO_NOMINA="Q" TIPO_NOMINA="NOMINA QUINCENAL                        " BANCO="07  " CUENTA="22536244399     "/>
+</Encabezado>
