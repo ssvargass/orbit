@@ -121,7 +121,7 @@ function ob_certificates_form($form, $form_state){
   $selected = isset($form_state['values']['years']) ? $form_state['values']['years'] : 0;
   $form['years'] = array(
     '#type' => 'select',
-    '#title' => 'Lapso',
+    '#title' => 'Mes',
     '#options' => $years,
     '#empty_option' => t('Seleccione un valor'),
     '#ajax' => array(
@@ -133,7 +133,7 @@ function ob_certificates_form($form, $form_state){
   $form['months'] = array(
     '#prefix' => '<div id="s_month">',
     '#type' => 'select',
-    '#title' => 'Fecha inicial',
+    '#title' => 'Quincena',
     '#options' => ob_cetificates_filter_month($personal, $selected),
     '#empty_option' => t('Seleccione un valor'),
     '#attributes' => array(
