@@ -990,7 +990,7 @@ nav .menu .last {
   overflow: auto;
 }
 /* line 769, ../sass/style.scss */
-#content-wrapper #content > .tabs {
+/*#content-wrapper #content > .tabs {
   display: none;
 }
 
