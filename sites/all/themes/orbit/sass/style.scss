@@ -766,7 +766,6 @@ nav {
 		border-right: 1px solid $orbit-gray-light;
 		height: 49em;
 		overflow: auto;
-		> .tabs { display: none;}
 	}
 }
 
@@ -2025,7 +2024,21 @@ nav {
 		overflow-y: auto;
 		border-bottom: none;
 	}
+	.confirmation {
+		.form-actions {
+			@include clearfix;
+			input {
+				float: left;
+				@extend %btn-yellow;
+			}
+			a, a:link {
+				@extend %btn-red;
+				float: right;
+			}
+		}
+	}
 }
+
 .node-type-room-event {
 	header,
 	#admin-menu { display: none;}
