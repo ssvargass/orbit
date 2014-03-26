@@ -102,7 +102,7 @@ function og_wall_form($form, &$form_state){
     '#description' => t('Los archivos deben ser menores a 2 MB. </br>
       Formatos permitidos: pdf doc docx xls xlsx png gif jpg jpeg.'),
     '#upload_location' => 'public://wall/',
-    '#upload_validators' => array('file_validate_extensions' => array('pdf, doc, docx, xls, xlsx, png, gif, jpg, jpeg')),
+    '#upload_validators' => array('file_validate_extensions' => array('pdf doc docx xls xlsx png gif jpg jpeg')),
   );
 
   $options = ob_wall_get_dept('departamento');
