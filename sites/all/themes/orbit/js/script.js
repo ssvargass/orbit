@@ -1,7 +1,7 @@
 (function ($) {
   $(document).ready(function(){
+
     $.fn.ob_room_reload = function(options) {
-      console.log('eleimina');
       window.parent.location.reload();
       location.reload(true);
     };
@@ -74,10 +74,6 @@
             }
           }, 10);
     }
-    /*$('.view-salas-de-reunion .views-field-field-nid a').colorbox({
-      width: 500,
-      height: 500,
-    })*/    
 
     $('#og-wall-form .ob_text').addClass('active');
     $('.ob-profile a').click(function(e){
@@ -129,7 +125,6 @@
       });
 
       $(complete_input).find('input').blur(function() {
-        console.log(this);
         if($(this).val() === ''){
           complete_input.find("label").show();
         }
@@ -145,7 +140,6 @@
       });
 
       $(complete_input).find('textarea').blur(function() {
-        console.log(this);
         if($(this).val() === ''){
           complete_input.find("label").show();
         }
@@ -154,6 +148,18 @@
   }
 	Drupal.behaviors.orbit = {
     attach: function (context, settings) {
+      $("form#event-node-form").ajaxSuccess(function(event, xhr, settings){
+        if($('.messages.status',this).length > 1) console.log('asdas')
+      })
+      $('.bymonthday select option').each(function(){
+        var valor = $(this).val();
+        if(valor < 1) $(this).remove();
+      })
+      $('.byday-count select option').each(function(){
+        var valor = $(this).val();
+        if(valor < -1) $(this).remove();
+      })
+
       $('.views-exposed-form .views-widget-filter-combine').hide_label();
       $('#og-wall-form').once('wall_form',function(){
         var form = $(this);
@@ -180,6 +186,23 @@
           $ (this).hidde_cal()
         }
       );
+      $('.view-home-publications .views-row').each(function(){
+        var row = $(this);
+        $('.flag-outer-like .flag-action',this).once('s_click',function(){
+          $(this).click(function(){
+            var num = $('.field-name-counter .field-item', row).html();
+            num = parseInt(num);
+            $('.field-name-counter .field-item', row).html(num + 1);
+          })   
+        })
+        $('.flag-outer-like .unflag-action',this).once('s_unclick',function(){
+          $(this).click(function(){
+            var num = $('.field-name-counter .field-item', row).html();
+            num = parseInt(num);
+            $('.field-name-counter .field-item', row).html(num - 1);
+          })
+        })
+      })
     }
   };
 

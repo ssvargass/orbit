@@ -343,6 +343,7 @@ function afb_form_alter(&$form, &$form_state, $form_id) {
  * Ajax Handler that returns the forms in each individual blocks.
  */
 function afb_ajax_handler($form, $form_state) {
+
   if (isset($form['#node']->nid)) {
     $id = $form['#id'];
     module_load_include('inc', 'node', 'node.pages');
@@ -353,6 +354,7 @@ function afb_ajax_handler($form, $form_state) {
     return $form;
   }
   else {
+
     $node = $form_state['node'];
     if (!empty($node->nid)) {
       $id = $form['#id'];
@@ -370,7 +372,6 @@ function afb_ajax_handler($form, $form_state) {
       $new_form_state['values'] = array();
       $new_form_state['method'] = $form_state['method'];
       form_load_include($new_form_state, 'inc', 'node', 'node.pages');
-
       $form = drupal_rebuild_form($node->type . '_node_form', $new_form_state);
       $form['#id'] = $id;
       return $form;
