@@ -149,7 +149,7 @@ function ob_certificates_form($form, $form_state){
   $form['envia'] = array(
     '#prefix' => '<div id="s_submit">',
     '#type' => 'submit',
-    '#value' => 'Consultar',
+    '#value' => 'Descargar',
     '#attributes' => array(
       'disabled' => 'disabled',
     ),
