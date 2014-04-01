@@ -5,6 +5,7 @@
       window.parent.location.reload();
       location.reload(true);
     };
+    
     galscrollMouse();
     function galscrollMouse(){
         gallencierra = $('.view-colaboradores');
@@ -148,6 +149,12 @@
   }
 	Drupal.behaviors.orbit = {
     attach: function (context, settings) {
+      $('#node-delete-confirm').submit(function(){
+        parent.location.reload();
+      });
+      $('.node-event-form').submit(function(){
+        console.log('asdas');
+      })
       $("form#event-node-form").ajaxSuccess(function(event, xhr, settings){
         if($('.messages.status',this).length > 1) console.log('asdas')
       })
