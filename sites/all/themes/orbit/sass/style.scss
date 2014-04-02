@@ -758,6 +758,7 @@ nav {
 		cursor: pointer;
 		background: url(../images/ico-notificacion.png)no-repeat center center;
 		width: 25px;
+		display: none;
 		&:hover { background-image: url(../images/ico-notificacion-h.png);}
 	}
 	a, a:link { color: white;}
