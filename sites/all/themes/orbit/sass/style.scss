@@ -623,6 +623,17 @@ fieldset {
 	.first { display: none;}
 }
 
+.page-user-password {
+	.tabs { display: none;}
+}
+#user-pass {
+	.form-actions {
+		input {
+			@extend %btn-green;
+		}
+	}
+}
+
 /*==end==*/
 
 
@@ -654,7 +665,7 @@ nav {
 	left: 0;
 	width: 6%;
 	height: 100%;
-	padding-top: 8em;
+	padding-top: 6em;
 	z-index: 9;
 	h2 { display: none;}
 	.menu {
@@ -2138,6 +2149,40 @@ nav {
 #quicktabs-certificates {
 	@extend %tabs;
 	clear: both;
+	.quicktabs-tabpage {
+		form {
+			.form-item-years,
+			#s_month,
+			#s_year {
+				display: inline-block;
+				width: 45%;
+				margin-left: 2em;
+				select {
+					width: 100%;
+					margin: 0;
+					border: 1px solid $orbit-gray-light;
+				}
+			}
+			#s_submit {
+				padding-top: 0.5em;
+				border-top: 1px solid $orbit-gray-light;
+				text-align: center;
+				input {
+					@extend %btn-blue;
+					display: inline-block;
+				}
+			}
+		}
+		a, a:link {	
+			@extend %btn-blue;
+			margin-top: 2em;
+			display: inline-block;
+		}
+	}
+	.s_previsual {
+		margin: 3em 0 0 0;
+		h3 { text-align: center;}
+	}
 }
 /*==end==*/
 
