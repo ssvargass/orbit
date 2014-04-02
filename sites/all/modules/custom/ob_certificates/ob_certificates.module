@@ -109,7 +109,8 @@ function ob_certificates_print(){
 }
 
 function ob_tiket_print(){
-  $output = render(drupal_get_form('ob_certificates_form'));
+  $form = drupal_get_form('ob_certificates_form');
+  $output = render($form);
   $output .= '<div id="s_previs_tck"></div>';
   return $output;
 }
