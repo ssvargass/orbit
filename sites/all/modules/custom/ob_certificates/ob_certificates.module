@@ -13,6 +13,20 @@ function ob_certificates_theme($existing, $type, $theme, $path) {
         'detalle' => NULL,
       ),
     ),
+    'variable' => array(
+      'template' => 'certificado_variable',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'personal' => NULL,
+      ),
+    ),
+    'certificado' => array(
+      'template' => 'certificado',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'personal' => NULL,
+      ),
+    ),
   );   
 }
 
@@ -89,12 +103,14 @@ function ob_cerficiates_admin($form, $form_state){
 }
 
 function ob_certificates_print(){
-  $output = l('Descargue aqui su certificado laboral', 'certificate/download');
+  $output = '<div class="s_previsual">' . ob_certificates_print_certificate() . '</div>';
+  $output .= l('Descargue aqui su certificado laboral', 'certificate/download');
   return $output;
 }
 
 function ob_tiket_print(){
-  $output = drupal_get_form('ob_certificates_form');
+  $output = render(drupal_get_form('ob_certificates_form'));
+  $output .= '<div id="s_previs_tck"></div>';
   return $output;
 }
 
@@ -119,6 +135,7 @@ function ob_certificates_form($form, $form_state){
   }
 
   $selected = isset($form_state['values']['years']) ? $form_state['values']['years'] : 0;
+  
   $form['years'] = array(
     '#type' => 'select',
     '#title' => 'Mes',
@@ -141,7 +158,7 @@ function ob_certificates_form($form, $form_state){
     ),
     '#ajax' => array(
       'callback' => 'ob_cetificates_filter_submit_call',
-      'wrapper' => 's_submit',
+      //'wrapper' => 's_submit',
     ),
     '#suffix' => '</div>',
   );
@@ -174,15 +191,43 @@ function ob_cetificates_filter_month_call(&$form, &$form_state){
 
 function ob_cetificates_filter_submit_call(&$form, &$form_state){
   unset($form['envia']['#attributes']['disabled']);
-  return $form['envia'];
+  $commands[] = ajax_command_replace('#s_submit', render($form['envia']));
+  $month = $form_state['values']['months'];
+  $body = ob_certificates_gethtml_tickt($month);
+  $commands[] = ajax_command_replace('#s_previs_tck', $body);
+  return array('#type' => 'ajax', '#commands' => $commands);  
 }
+
 
 function ob_certificates_form_submit($form, &$form_state){
   $mes = $form_state['values']['months'];
   $form_state['redirect'] = 'ticket/' . $mes . '/result';
 }
 
+
 function ob_certificates_pdf_download($month){
+  $html = ob_certificates_gethtml_tickt($month);
+
+  $tcpdf = tcpdf_get_instance();
+  $tcpdf->DrupalInitialize(array(
+    'footer' => array(
+    ),
+    'header' => array(
+    ),
+  ));
+  
+  $tcpdf->writeHTML($html);
+  $pdf = $tcpdf->Output('', 'S');
+
+  header('Content-Type: application/pdf');
+  header('Content-Length: ' . strlen($pdf));
+  header('Content-Disposition: attachment; filename="ticket.pdf"');
+  print $pdf;
+
+  return NULL;
+}
+
+function ob_certificates_gethtml_tickt($month){
   global $user;
   $usuario = user_load($user->uid);
   $documento = $usuario->field_documento['und'][0]['value'];
@@ -218,23 +263,7 @@ function ob_certificates_pdf_download($month){
     'detalle' => $personal,
   ));
 
-  $tcpdf = tcpdf_get_instance();
-  $tcpdf->DrupalInitialize(array(
-    'footer' => array(
-    ),
-    'header' => array(
-    ),
-  ));
-  
-  $tcpdf->writeHTML($html);
-  $pdf = $tcpdf->Output('', 'S');
-
-  header('Content-Type: application/pdf');
-  header('Content-Length: ' . strlen($pdf));
-  header('Content-Disposition: attachment; filename="ticket.pdf"');
-  print $pdf;
-
-  return NULL;
+  return $html;
 }
 
 function ob_certificates_pdf(){
@@ -257,39 +286,45 @@ function ob_certificates_pdf(){
     'footer' => array(
       'callback' => array(
         'function' => 'ob_certificates_pdf_footer',
-        'context' => array(
-          // 'welcome_message' => 'Hello, context array!',
-        ),
+        'context' => array(),
       ),
 
     ),
     'header' => array(
       'callback' => array(
         'function' => 'ob_certificates_pdf_header',
-        'context' => array(
-          // 'welcome_message' => 'Hello, context array!',
-        ),
+        'context' => array(),
       ),
     ),
   ));
 
-  $html = 'falta texto';
+  $html = ob_certificates_print_certificate();
 
-  $tcpdf->writeHTML($html);
+  $css_url = drupal_get_path('module', 'ob_certificates') . '/css/pdf-report-style.css';
+
+  $css_file = array(
+    '#type' => 'html_tag',
+    '#tag' => 'style',
+    '#value' => file_get_contents($css_url),
+  );
+
+  $tcpdf->writeHTML(render($css_file) . $html, true, false, true, false, '');
   $pdf = $tcpdf->Output('', 'S');
 
   header('Content-Type: application/pdf');
   header('Content-Length: ' . strlen($pdf));
   header('Content-Disposition: attachment; filename="certificado.pdf"');
   print $pdf;
-
   return NULL;
 }
+
+
+
 
 function ob_certificates_pdf_header(&$tcpdf, $context) {
   // Logo
   $image_file = drupal_get_path('module', 'ob_polls_reports') . '/header-lasante.jpg';
-  $tcpdf->Image($image_file, -10, '', 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+  $tcpdf->Image($image_file, -10, 0, 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 }
 
 function ob_certificates_pdf_footer(&$tcpdf, $context) {
@@ -301,4 +336,271 @@ function ob_certificates_pdf_footer(&$tcpdf, $context) {
   $tcpdf->SetY(-10);
   $tcpdf->Cell(0, 15, "Linea de Servicio al Cliente 01 8000 110028 Pagina web: www.lasante.com", 0, false, 'C', 0, '', 0, false, 'M', 'M');
 }
+
+
+
+function ob_certificates_print_certificate(){
+  global $user;
+  $usuario = user_load($user->uid);
+  $documento = $usuario->field_documento['und'][0]['value'];
+  if (file_exists(variable_get('ob_cetrificates', ''))) {
+    $detalle = simplexml_load_file(variable_get('ob_cetrificates', '')); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['EMPLEADO'];
+      if(trim($doc) == $documento){
+        $personal = $value['@attributes'];
+      }
+    }
+  }
+
+  $total = $personal['SALARIO'];
+  $V=new EnLetras(); 
+  $con_letra=strtoupper($V->ValorEnLetras($total,"pesos")); 
+  setlocale(LC_MONETARY, 'en_US');
+  $personal['salario_num'] = money_format('%=#10.2n', $total);
+  $personal['salario_letr'] = $con_letra;
+  $personal['dia'] = iconv_substr($personal['FECHA_INGRESO'],6,2);
+  $personal['mes'] = iconv_substr($personal['FECHA_INGRESO'],4,2);
+  $personal['ano'] = iconv_substr($personal['FECHA_INGRESO'],0,4);
+
+
+  $personal['act_dia'] = date('d');
+  $personal['act_mes'] = t(date('F'));
+  $personal['act_ano'] = date('Y');
+  $variable = $personal['VALOR_FLEXIBLE'];
+  if($variable > 0) {
+    $con_letra=strtoupper($V->ValorEnLetras($variable,"pesos"));
+    $personal['variable_num'] = money_format('%=#10.2n', $variable);
+    $personal['variable_letr'] = $con_letra;
+    $html = theme('variable', array(
+      'personal' => $personal, 
+    ));
+  } else {
+    $html = theme('certificado', array(
+      'personal' => $personal, 
+    ));
+  }
+  return $html;
+}
+
+
+class EnLetras 
+{ 
+  var $Void = ""; 
+  var $SP = " "; 
+  var $Dot = "."; 
+  var $Zero = "0"; 
+  var $Neg = "Menos"; 
+   
+function ValorEnLetras($x, $Moneda )  
+{ 
+    $s=""; 
+    $Ent=""; 
+    $Frc=""; 
+    $Signo=""; 
+         
+    if(floatVal($x) < 0) 
+     $Signo = $this->Neg . " "; 
+    else 
+     $Signo = ""; 
+     
+    if(intval(number_format($x,2,'.','') )!=$x) //<- averiguar si tiene decimales 
+      $s = number_format($x,2,'.',''); 
+    else 
+      $s = number_format($x,2,'.',''); 
+        
+    $Pto = strpos($s, $this->Dot); 
+         
+    if ($Pto === false) 
+    { 
+      $Ent = $s; 
+      $Frc = $this->Void; 
+    } 
+    else 
+    { 
+      $Ent = substr($s, 0, $Pto ); 
+      $Frc =  substr($s, $Pto+1); 
+    } 
+
+    if($Ent == $this->Zero || $Ent == $this->Void) 
+       $s = "Cero "; 
+    elseif( strlen($Ent) > 7) 
+    { 
+       $s = $this->SubValLetra(intval( substr($Ent, 0,  strlen($Ent) - 6))) .  
+             "Millones " . $this->SubValLetra(intval(substr($Ent,-6, 6))); 
+    } 
+    else 
+    { 
+      $s = $this->SubValLetra(intval($Ent)); 
+    } 
+
+    if (substr($s,-9, 9) == "Millones " || substr($s,-7, 7) == "Millón ") 
+       $s = $s . "de "; 
+
+    $s = $s . $Moneda; 
+    $letrass = $Signo . $s; 
+    return ($Signo . $s ); 
+    
+} 
+
+
+function SubValLetra($numero)  
+{ 
+    $Ptr=""; 
+    $n=0; 
+    $i=0; 
+    $x =""; 
+    $Rtn =""; 
+    $Tem =""; 
+
+    $x = trim("$numero"); 
+    $n = strlen($x); 
+
+    $Tem = $this->Void; 
+    $i = $n; 
+     
+    while( $i > 0) 
+    { 
+       $Tem = $this->Parte(intval(substr($x, $n - $i, 1).  
+                           str_repeat($this->Zero, $i - 1 ))); 
+       If( $Tem != "Cero" ) 
+          $Rtn .= $Tem . $this->SP; 
+       $i = $i - 1; 
+    } 
+
+     
+    //--------------------- GoSub FiltroMil ------------------------------ 
+    $Rtn=str_replace(" Mil Mil", " Un Mil", $Rtn ); 
+    while(1) 
+    { 
+       $Ptr = strpos($Rtn, "Mil ");        
+       If(!($Ptr===false)) 
+       { 
+          If(! (strpos($Rtn, "Mil ",$Ptr + 1) === false )) 
+            $this->ReplaceStringFrom($Rtn, "Mil ", "", $Ptr); 
+          Else 
+           break; 
+       } 
+       else break; 
+    } 
+
+    //--------------------- GoSub FiltroCiento ------------------------------ 
+    $Ptr = -1; 
+    do{ 
+       $Ptr = strpos($Rtn, "Cien ", $Ptr+1); 
+       if(!($Ptr===false)) 
+       { 
+          $Tem = substr($Rtn, $Ptr + 5 ,1); 
+          if( $Tem == "M" || $Tem == $this->Void) 
+             ; 
+          else           
+             $this->ReplaceStringFrom($Rtn, "Cien", "Ciento", $Ptr); 
+       } 
+    }while(!($Ptr === false)); 
+
+    //--------------------- FiltroEspeciales ------------------------------ 
+    $Rtn=str_replace("Diez Un", "Once", $Rtn ); 
+    $Rtn=str_replace("Diez Dos", "Doce", $Rtn ); 
+    $Rtn=str_replace("Diez Tres", "Trece", $Rtn ); 
+    $Rtn=str_replace("Diez Cuatro", "Catorce", $Rtn ); 
+    $Rtn=str_replace("Diez Cinco", "Quince", $Rtn ); 
+    $Rtn=str_replace("Diez Seis", "Dieciseis", $Rtn ); 
+    $Rtn=str_replace("Diez Siete", "Diecisiete", $Rtn ); 
+    $Rtn=str_replace("Diez Ocho", "Dieciocho", $Rtn ); 
+    $Rtn=str_replace("Diez Nueve", "Diecinueve", $Rtn ); 
+    $Rtn=str_replace("Veinte Un", "Veintiun", $Rtn ); 
+    $Rtn=str_replace("Veinte Dos", "Veintidos", $Rtn ); 
+    $Rtn=str_replace("Veinte Tres", "Veintitres", $Rtn ); 
+    $Rtn=str_replace("Veinte Cuatro", "Veinticuatro", $Rtn ); 
+    $Rtn=str_replace("Veinte Cinco", "Veinticinco", $Rtn ); 
+    $Rtn=str_replace("Veinte Seis", "Veintiseís", $Rtn ); 
+    $Rtn=str_replace("Veinte Siete", "Veintisiete", $Rtn ); 
+    $Rtn=str_replace("Veinte Ocho", "Veintiocho", $Rtn ); 
+    $Rtn=str_replace("Veinte Nueve", "Veintinueve", $Rtn ); 
+
+    //--------------------- FiltroUn ------------------------------ 
+    If(substr($Rtn,0,1) == "M") $Rtn = "Un " . $Rtn; 
+    //--------------------- Adicionar Y ------------------------------ 
+    for($i=65; $i<=88; $i++) 
+    { 
+      If($i != 77) 
+         $Rtn=str_replace("a " . Chr($i), "* y " . Chr($i), $Rtn); 
+    } 
+    $Rtn=str_replace("*", "a" , $Rtn); 
+    return($Rtn); 
+} 
+
+
+function ReplaceStringFrom(&$x, $OldWrd, $NewWrd, $Ptr) 
+{ 
+  $x = substr($x, 0, $Ptr)  . $NewWrd . substr($x, strlen($OldWrd) + $Ptr); 
+} 
+
+
+function Parte($x) 
+{ 
+    $Rtn=''; 
+    $t=''; 
+    $i=''; 
+    Do 
+    { 
+      switch($x) 
+      { 
+         Case 0:  $t = "Cero";break; 
+         Case 1:  $t = "Un";break; 
+         Case 2:  $t = "Dos";break; 
+         Case 3:  $t = "Tres";break; 
+         Case 4:  $t = "Cuatro";break; 
+         Case 5:  $t = "Cinco";break; 
+         Case 6:  $t = "Seis";break; 
+         Case 7:  $t = "Siete";break; 
+         Case 8:  $t = "Ocho";break; 
+         Case 9:  $t = "Nueve";break; 
+         Case 10: $t = "Diez";break; 
+         Case 20: $t = "Veinte";break; 
+         Case 30: $t = "Treinta";break; 
+         Case 40: $t = "Cuarenta";break; 
+         Case 50: $t = "Cincuenta";break; 
+         Case 60: $t = "Sesenta";break; 
+         Case 70: $t = "Setenta";break; 
+         Case 80: $t = "Ochenta";break; 
+         Case 90: $t = "Noventa";break; 
+         Case 100: $t = "Cien";break; 
+         Case 200: $t = "Doscientos";break; 
+         Case 300: $t = "Trescientos";break; 
+         Case 400: $t = "Cuatrocientos";break; 
+         Case 500: $t = "Quinientos";break; 
+         Case 600: $t = "Seiscientos";break; 
+         Case 700: $t = "Setecientos";break; 
+         Case 800: $t = "Ochocientos";break; 
+         Case 900: $t = "Novecientos";break; 
+         Case 1000: $t = "Mil";break; 
+         Case 1000000: $t = "Millón";break; 
+      } 
+
+      If($t == $this->Void) 
+      { 
+        $i = $i + 1; 
+        $x = $x / 1000; 
+        If($x== 0) $i = 0; 
+      } 
+      else 
+         break; 
+            
+    }while($i != 0); 
+    
+    $Rtn = $t; 
+    Switch($i) 
+    { 
+       Case 0: $t = $this->Void;break; 
+       Case 1: $t = " Mil";break; 
+       Case 2: $t = " Millones";break; 
+       Case 3: $t = " Billones";break; 
+    } 
+    return($Rtn . $t); 
+} 
+
+}
+
 ?>
