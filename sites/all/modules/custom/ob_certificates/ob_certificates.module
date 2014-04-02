@@ -217,7 +217,16 @@ function ob_certificates_pdf_download($month){
     ),
   ));
   
-  $tcpdf->writeHTML($html);
+  $css_url = drupal_get_path('module', 'ob_certificates') . '/css/certificates.css';
+
+  $css_file = array(
+    '#type' => 'html_tag',
+    '#tag' => 'style',
+    '#value' => file_get_contents($css_url),
+  );
+
+  $tcpdf->writeHTML(render($css_file) . $html, true, false, true, false, '');
+  
   $pdf = $tcpdf->Output('', 'S');
 
   header('Content-Type: application/pdf');
