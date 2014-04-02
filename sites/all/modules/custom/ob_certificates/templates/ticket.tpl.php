@@ -26,7 +26,7 @@
       border-bottom: 1px solid #DDD;
   }
 </style>
-<div id="content" class="membrete">
+<div id="s_content" class="membrete">
     <table width="100%">
       <tr>
         <td>Empresa:</td>
@@ -62,7 +62,7 @@
           <td>Tipo Nomina</td>
           <td><?php print $cabeza['ID_TIPO_NOMINA'].' '.$cabeza['TIPO_NOMINA']; ?></td>
       </tr>
-        <tr>
+      <tr>
           <td>Banco</td>
           <td><?php print $cabeza['BANCO']?></td>
           <td>BANCOLOMBIA</td>
@@ -90,10 +90,7 @@
           <td style="text-align: right"><span style="text-align: right"><?php print $value['DEDUCCION']?></span></td>
           <td>&nbsp;</td>
         </tr>
-      <?php
-      }
-      ?>
-
+      <?php }?>
     </table>
     <table width="100%">
       <tr style="padding-bottom:0.5em, margin: 0.5em 0, border-bottom: 1px solid #333">

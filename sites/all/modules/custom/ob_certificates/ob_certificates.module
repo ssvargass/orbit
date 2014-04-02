@@ -194,7 +194,7 @@ function ob_cetificates_filter_submit_call(&$form, &$form_state){
   unset($form['envia']['#attributes']['disabled']);
   $commands[] = ajax_command_replace('#s_submit', render($form['envia']));
   $month = $form_state['values']['months'];
-  $body = ob_certificates_gethtml_tickt($month);
+  $body = '<div id="s_previs_tck">' . ob_certificates_gethtml_tickt($month) .'</div>';
   $commands[] = ajax_command_replace('#s_previs_tck', $body);
   return array('#type' => 'ajax', '#commands' => $commands);  
 }
