@@ -301,7 +301,7 @@ function ob_certificates_pdf(){
 
   $html = ob_certificates_print_certificate();
 
-  $css_url = drupal_get_path('module', 'ob_certificates') . '/css/pdf-report-style.css';
+  $css_url = drupal_get_path('module', 'ob_certificates') . '/css/certificates.css';
 
   $css_file = array(
     '#type' => 'html_tag',
