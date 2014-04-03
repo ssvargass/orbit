@@ -8,7 +8,7 @@ define('TID_REUNION', 19);
 
 /**
  * Implements hook_menu()
- */
+ *//*
 function ob_casino_menu_menu() {
 	/*$items['menu-casino/special-menu'] = array(
     'title' => 'Special menu',
@@ -28,7 +28,7 @@ function ob_casino_menu_menu() {
   //   'access arguments' => array('access content'),
   //   'file' => 'ob_casino_menu.forms.inc',
   //   'type' => MENU_CALLBACK,
-  // );*/
+  // );
   return $items;
 }
 
