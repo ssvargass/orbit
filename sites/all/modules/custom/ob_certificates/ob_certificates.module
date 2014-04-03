@@ -11,6 +11,7 @@ function ob_certificates_theme($existing, $type, $theme, $path) {
       'variables' => array(
         'cabeza' => NULL,
         'detalle' => NULL,
+        'totales' => NULL,
       ),
     ),
     'variable' => array(
@@ -268,9 +269,32 @@ function ob_certificates_gethtml_tickt($month){
     }
   }
 
+  $total_horas = 0;
+  $devengo = 0;
+  $deduccion = 0;
+  $neto = 0;
+
+  foreach ($personal as $key => $value) {
+    dpm($devengo);
+    dpm($value);
+    $total_horas += $value['NMMOV_HORAS'];
+    $devengo += $value['DEVENGO'];
+    $deduccion += $value['DEDUCCION'];
+  }
+
+  $neto = $devengo - $deduccion;
+
+  $totales = array(
+    'total_horas' => $total_horas,
+    'devengo' => $devengo,
+    'deduccion' => $deduccion,
+    'neto' => $neto,
+  );
+
   $html = theme('ticket', array(
     'cabeza' => $cabeza, 
     'detalle' => $personal,
+    'totales' => $totales,
   ));
 
   return $html;

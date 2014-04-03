@@ -82,16 +82,16 @@
           <th width="17%" scope="col">Descripcion</th>
           <th width="15%" scope="col">Cant/horas</th>
           <th width="11%" scope="col">Vlr. Devengado</th>
-          <th width="12%" scope="col">Vlr. Devolucion</th>
+          <th width="12%" scope="col">Vlr. Deduccion</th>
           <th width="35%" scope="col">&nbsp;</th>
       </tr>
       <?php foreach ($detalle as $key => $value) { ?>
         <tr>
-          <td style="text-align: center"><?php print $value['ID_CPTO']?></td>
-          <td><?php print $value['DESCRIPCION']?></td>
-          <td><?php print $value['NMMOV_HORAS']?></td>
-          <td style="text-align: right"><?php print $value['DEVENGO']?></td>
-          <td style="text-align: right"><span style="text-align: right"><?php print $value['DEDUCCION']?></span></td>
+          <td style="text-align: center"><?php print $value['ID_CPTO']; ?></td>
+          <td><?php print $value['DESCRIPCION'];?></td>
+          <td><?php print number_format(trim($value['NMMOV_HORAS'])); ?></td>
+          <td style="text-align: right"><?php print number_format(trim($value['DEVENGO']), 2); ?></td>
+          <td style="text-align: right"><span style="text-align: right"><?php print number_format(trim($value['DEDUCCION']), 2); ?></span></td>
           <td>&nbsp;</td>
         </tr>
       <?php }?>
@@ -106,16 +106,16 @@
       </tr>
         <tr>
           <td>TOTALES</td>
-          <td style="text-align: right">120</td>
-          <td style="text-align: right">1.632.765.40</td>
-          <td style="text-align: right">25.678</td>
-          <td style="text-align: right">1.678.567</td>
+          <td style="text-align: right"><?php print $totales['total_horas']?></td>
+          <td style="text-align: right"><?php print number_format(trim($totales['devengo']), 2) ?></td>
+          <td style="text-align: right"><?php print number_format(trim($totales['deduccion']), 2) ?></td>
+          <td style="text-align: right"><?php print number_format(trim($totales['neto']), 2) ?></td>
       </tr>
     </table>
     <table width="100%">
       <tr>
         <td width="7%">CC:</td>
-        <td width="93%">10347890933</td>
+        <td width="93%"><?php print $cabeza['ID_TERC']?></td>
       </tr>
     </table>
 </div>
