@@ -1,8 +1,8 @@
 <style>
   .membrete {
-      width: 900px;
+      width: 100%;
       height: 700px;
-      margin: auto;
+      margin: 1em auto;
       position: relative;
   }
   .campo-text {
@@ -24,6 +24,10 @@
       padding-bottom: 0.5em;
       margin-bottom: 0.5em;
       border-bottom: 1px solid #DDD;
+  }
+  tr td {
+    border: 1px solid #DDD;
+    padding: 0.5em;
   }
 </style>
 <div id="s_content" class="membrete">
