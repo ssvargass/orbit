@@ -665,7 +665,7 @@ nav {
 	left: 0;
 	width: 6%;
 	height: 100%;
-	padding-top: 6em;
+	padding-top: 7em;
 	z-index: 9;
 	h2 { display: none;}
 	.menu {
@@ -1956,9 +1956,7 @@ nav {
 				height: 29em;
 				overflow: hidden;
 				margin-bottom: 1em;
-				#single-day-container {
-					height: 27.5em;
-				}
+				#single-day-container {	height: 27.5em;}
 				.view-item-salas_event { background: $orbit-gray-light;}
 			}
 			.view-footer {
@@ -1973,9 +1971,25 @@ nav {
 					@extend %btn-green;
 				}
 			}
+			#single-day-container {
+				.calendar-agenda-items {
+					.inner {
+						display: block;
+						opacity: 1;
+						width: 100%;
+						.dayview {
+							width: 100% !important;
+							padding: 0;
+							height: 100%;
+							margin: 0;
+						}
+					}
+				}
+			}
 		}
 		.date-heading { text-align: left;}
 	}
+
 	header,
 	.s_title_page { display: none;}
 	.view-id-paneador {
@@ -2097,6 +2111,15 @@ nav {
 	.active-trail {
 		a, a:link {
 			background: white;
+		}
+	}
+}
+.view-menu-reuniones {
+	.views-row {
+		margin-bottom: 1em;
+		.views-field-title {
+			font-family: "futuraB";
+			margin-bottom: 0.3em;
 		}
 	}
 }
