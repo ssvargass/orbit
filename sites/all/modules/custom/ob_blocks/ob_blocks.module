@@ -63,3 +63,39 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
     $form['field_invitados']['und']['add_more']['#value'] = t('Añadir otro invitado');
   } 
 }
+
+
+function ob_get_uid(){
+  global $user;
+  $uid = 1;
+  if(isset($_GET['user'])){
+    $usuario = $_GET['user'];
+    if(array_key_exists(5, $user->roles)){
+      $uid = $usuario;
+    } else if(array_key_exists(6, $user->roles)){
+      $load = user_load($usuario);
+      if(!array_key_exists(5, $load->roles)) $uid = $usuario;
+    } else if(array_key_exists(7, $user->roles)){
+      $load = user_load($usuario);
+      if(!array_key_exists(5, $load->roles) && !array_key_exists(5, $load->roles)) $uid = $usuario;
+    }
+  }else{
+    $uid = $user->uid;
+  } 
+  return $uid;
+}
+
+function ob_get_uid_planner($uid){
+  global $user;
+  if(array_key_exists(5, $user->roles)) {
+    return TRUE;
+  } else {
+    $load = user_load($uid);
+    if(array_key_exists(6, $user->roles)){
+      if(!array_key_exists(5, $load->roles)) return TRUE;
+    } else if(array_key_exists(7, $user->roles)){
+      if(!array_key_exists(5, $load->roles) && !array_key_exists(5, $load->roles)) return TRUE;
+    }
+  }
+  return FALSE;
+}
