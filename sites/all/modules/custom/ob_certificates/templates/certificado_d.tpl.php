@@ -1,4 +1,4 @@
-<h3 class="cer_titulo">LABORATORIOS LA SANTE S.A.</h3>
+<h3 class="cer_titulo"><br><br><br><br>LABORATORIOS LA SANTE S.A.</h3>
 <h3 class="cer_titulo2">CERTIFICA QUE</h3>
 <p>La señora <?php print $personal['NOMBRE_COMPLETO'] ?> indentificada con cedula 
 de ciudadanía No. <?php print $personal['EMPLEADO'] ?>
