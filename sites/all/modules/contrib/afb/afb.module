@@ -374,6 +374,9 @@ function afb_ajax_handler($form, $form_state) {
       $form['#id'] = $id;
       if($form_state['executed']) {
         $commands[] = ajax_command_invoke('', 'ob_room_reload');
+        $path = drupal_get_path('module', 'ob_polls_reports') . '/send_email.php';
+        include($path);
+        dpm($form_state);
         return array('#type' => 'ajax', '#commands' => $commands);
       }
       return $form;

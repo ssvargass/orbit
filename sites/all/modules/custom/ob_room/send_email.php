@@ -1,90 +1,77 @@
 <?php
-function sendIcalEmail($nombre_dest,$apellido_dest,$email,$fecha_inicio,$evento_nombre,$fecha_fin,$evento_desc) {
 
- $nombre_from = "";//nombre para mostrar en el campo DE: $email_from = "";//tu@mail.com para el campo DE:
- $email_from = "";
- $subject = ""; //asunto del mail
- $evento_descripcion = $evento_desc; //Descripción del evento
- $meeting_location = ""; //Lugar donde se llevará a cabo el evento
+function sendCalEntry(){
+ 	$tsStart = '2014-04-11 12:00:00';
+ 	$tsEnd = '2014-04-11 13:00:00';
+ 	$location = '';
+ 	$summary = '';
+ 	$title = 'Ejemplo';
+ 	$resources = '';
+ 	$to = 'sergio.svargass@gmail.com';
+ 	$subject = 'ejemplo envio 1';
+	
+	$meetingstamp = strtotime($tsStart . " UTC");    
+	$meetingstampb = strtotime($tsEnd . " UTC");     
+	$dtstart= gmdate("Ymd\THis\Z",$meetingstamp);
+	$dtend= gmdate("Ymd\THis\Z",$meetingstampb);
+	$todaystamp = gmdate("Ymd\THis\Z");
+	$loc = $location;
+ 	$vcal = "Se ha enviado una invitacion con la siguiente informacion: ..... 
+ 	por favor revise su calendario en outlook para encontrar el evento agendado";
+	$vcal = "BEGIN:VCALENDAR\r\n";
+	$vcal .= "VERSION:2.0\r\n";
+	$vcal .= "PRODID:-//nonstatics.com//OrgCalendarWebTool//EN\r\n";
+	$vcal .= "METHOD:REQUEST\r\n";
+	$vcal .= "BEGIN:VEVENT\r\n";
+	$vcal .= "ORGANIZER;CN=\"".'LASANTE'." (".'usuariopreuba'.")"."\":mailto:".'orbit@lasante.com.co'."\r\n";
+	$vcal .= "UID:".date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n";
+	$vcal .= "DTSTAMP:".date('Ymd').'T'.date('His')."\r\n";
+	$vcal .= "DTSTART:$dtstart\r\n";
+	$vcal .= "DTEND:$dtend\r\n"; 
+	$vcal .= "LOCATION:$location\r\n";
+	$vcal .= "SUMMARY:$summary\r\n";
+	$vcal .= "DESCRIPTION:Hinweis/Fahrer:$summary - Folgende Resourcen wurden gebucht: $resources \r\n";
+	$vcal .= "BEGIN:VALARM\r\n";
+	$vcal .= "TRIGGER:-PT15M\r\n";
+	$vcal .= "ACTION:DISPLAY\r\n";
+	$vcal .= "DESCRIPTION:Reminder\r\n";
+	$vcal .= "END:VALARM\r\n";
+	$vcal .= "END:VEVENT\r\n";
+	$vcal .= "END:VCALENDAR\r\n";
+ 
 
+	$module = 'notifications';
+	$key = 'envio';
+	$language = language_default();
+	$params = array();
+	$from = NULL;
+	$send = FALSE;
 
-//Convertimos la fecha de formato MYSQL (YYYY-MM-DD HH:MM:SS) a formato UTC (yyyymmddThhmmssZ)
- $meetingstamp = strtotime($fecha_inicio . " UTC");    
- $meetingstampb = strtotime($fecha_fin . " UTC");     
- $dtstart= gmdate("Ymd\THis\Z",$meetingstamp);
- $dtend= gmdate("Ymd\THis\Z",$meetingstampb);
- $todaystamp = gmdate("Ymd\THis\Z");
+	$message = drupal_mail($module, $key, $to ,$language, $params, $from, $send);
 
-//Creamos identificador único aleatorio para el mensaje
- $cal_uid = date('Ymd').'T'.date('His')."-".rand()."ejemplo.com";
-
-//Establecemos el formato del MIME 
- $mime_boundary = "----Meeting Booking----".md5(time());
-
-
- $module = 'notifications';
- $key = 'envio';
-$language = language_default();
-$params = array();
-$from = NULL;
-$send = FALSE;
-$message = drupal_mail($module, $key, $email ,$language, $params, $from, $send);
-$message['subject'] = $subject;
-$message['headers']['Content-Type'] = "multipart/alternative; boundary=\"$mime_boundary\"\n";
-$message['headers']['Content-class'] = "urn:content-classes:calendarmessage";
-
-$message['body'] = array();
-
- $body = "--$mime_boundary\n";
- $body .= "Content-Type: text/html; charset=UTF-8\n";
- $body .=  "Content-Transfer-Encoding: 8bit\n\n";
- $body .=  "<html>\n";
- $body .= "<body>\n";
- $body .= '<p>Hola '.$nombre_dest.',</p>';
- $body .= "</body>\n";
- $body .= "</html>\n";
- $body .= "--$mime_boundary\n";
-
-//$message['body'][] = $body;
-//Ahora armamos los datos en formato iCalendar
- $ical =    'BEGIN:VCALENDAR
-PRODID:-//Microsoft Corporation//Outlook 11.0 MIMEDIR//EN
-VERSION:2.0
-METHOD:PUBLISH
-BEGIN:VEVENT
-ORGANIZER:MAILTO:'.$email_from.'
-DTSTART:'.$dtstart.'
-DTEND:'.$dtend.'
-LOCATION:'.$meeting_location.'
-TRANSP:OPAQUE
-SEQUENCE:0
-UID:'.$cal_uid.'
-DTSTAMP:'.$todaystamp.'
-DESCRIPTION:'.$evento_descripcion.'
-SUMMARY:'.$subject.'
-PRIORITY:5
-CLASS:PUBLIC
-END:VEVENT
-END:VCALENDAR';
-
-$invitacion =   'Content-Type: text/calendar;name="meeting.ics";method=REQUEST\n';
-$invitacion .= "Content-Transfer-Encoding: 8bit\n\n";
-$invitacion .= $ical;
-$message['body'][] = $body . $invitacion;
-//Agregamos al cuerpo del mensaje la iCal
- //$message['body'][] =  'Content-Type: text/calendar;name="meeting.ics";method=REQUEST';
- //$message['body'][] =  "Content-Transfer-Encoding: 8bit";
- //$message['body'][] = $ical;
-$system = drupal_mail_system($module, $key);
+	$message['subject'] = $subject;
+	$message['headers']['Content-Type'] = 'text/calendar';
+	$message['headers']['name'] = 'calendar.ics';
+	$message['headers']['method'] = 'REQUEST';
+	$message['headers']['charset'] = 'UTF-8';
+	$message['headers']['Content-Transfer-Encoding'] = '8bit';
+	$message['headers']['X-Mailer'] = 'Microsoft Office Outlook 12.0';
 
 
-// Format the message body.
-$message = $system->format($message);
+	$message['body'] = array();
+
+	$message['body'][] = $vcal;
+	$system = drupal_mail_system($module, $key);
 
 
-// Send e-mail.
-$message['result'] = $system->mail($message);
-dpm($message);
+	// Format the message body.
+	$message = $system->format($message);
+
+
+	// Send e-mail.
+	$message['result'] = $system->mail($message);
+	dpm($message);
+
 }
 
 /*$path = drupal_get_path('module', 'ob_polls_reports') . '/send_email.php';
