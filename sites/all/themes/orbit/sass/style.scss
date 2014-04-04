@@ -129,6 +129,7 @@ input[type="password"] {
 	padding: 0.5em 1em;
 	width: 100%;
 }
+.form-button-disabled { opacity: 0.5;}
 fieldset {
 	margin: 0;
 	padding: 0;
@@ -2200,6 +2201,12 @@ nav {
 		a, a:link {	
 			@extend %btn-blue;
 			margin-top: 2em;
+			display: inline-block;
+		}
+	}
+	#ob-certificates-type-form {
+		.form-submit {
+			@extend %btn-blue;
 			display: inline-block;
 		}
 	}
