@@ -516,7 +516,8 @@ function ob_certificates_print_certificate($type){
     "path" =>$uri,
     "height" => NULL,
     "width" => NULL,
-   );
+  );
+
   $picture = theme_image_style($config);
 
   $personal['firma'] = $picture;
