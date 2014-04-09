@@ -952,8 +952,8 @@ nav {
 	padding-top: 4em;
 	margin-top: 1em;
 	.view-header {
-		@include clearfix;
 		background: $orbit-gray-dark;
+		min-height: 2em;
 		padding: 1em 0;
 		clear: both;
 		p {

@@ -1222,9 +1222,8 @@ nav .menu .last {
 /* line 954, ../sass/style.scss */
 #views-exposed-form-directorio-block-1 .view-header,
 .view-id-directorio .view-header {
-  overflow: hidden;
-  *zoom: 1;
   background: #333333;
+  min-height: 2em;
   padding: 1em 0;
   clear: both;
 }
