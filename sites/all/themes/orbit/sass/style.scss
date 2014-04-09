@@ -2015,8 +2015,7 @@ nav {
 						opacity: 1;
 						width: 100%;
 						.dayview {
-							background: $orbit-gray-light;
-							width: 10% !important;
+							width: 5% !important;
 							padding: 0;
 							height: 100%;
 							margin: 0;
@@ -2029,6 +2028,7 @@ nav {
 								position: static;
 							}
 							a, a:link { 
+								background: $orbit-gray;
 								text-indent: -5000px;
 								display: block;
 								position: absolute;
@@ -2036,6 +2036,9 @@ nav {
 								height: 100%;
 								top: 0;
 								left: 0;
+								cursor: pointer;
+								z-index: 999;
+								&:hover { background: $orbit-gray-light;}
 							}
 						}
 					}
