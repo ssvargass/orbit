@@ -600,6 +600,7 @@ fieldset {
 		height: 100%;
 		width: 100%;
 	}
+	.s-color_otros,
 	.s-color_ {
 		background: $orbit-gray;
 		height: 100%;
@@ -1654,6 +1655,27 @@ nav {
 		}
 	}
 }
+
+.page-calendar-day,
+.page-calendar-week {
+	#content .calendar-calendar {
+		.single-day {
+			.inner {
+				display: block;
+				opacity: 1;
+				position: relative;
+				width: 100%;
+				margin-left: 0.3em;
+				.weekview {
+					@include box-sizing(border-box);
+					width: 100% !important;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+
 
 .page-calendar {
 	.block-afb { border: none;}
