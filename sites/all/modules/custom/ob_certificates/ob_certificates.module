@@ -490,25 +490,39 @@ function ob_certificates_print_certificate($type){
     }
   }
 
+  dpm($personal);
+
   $total = $personal['SALARIO'];
   $V=new EnLetras(); 
   $con_letra=strtoupper($V->ValorEnLetras($total,"pesos")); 
   setlocale(LC_MONETARY, 'en_US');
   $personal['salario_num'] = money_format('%=#10.2n', $total);
   $personal['salario_letr'] = $con_letra;
+
+  $variable = $personal['VALOR_FLEXIBLE'];
+  $con_letra=strtoupper($V->ValorEnLetras($variable,"pesos"));
+  $personal['flex_num'] = money_format('%=#10.2n', $variable);
+  $personal['flex_letr'] = $con_letra;
+
+  $variable = $personal['SALARIO_VBLE'];
+  $con_letra=strtoupper($V->ValorEnLetras($variable,"pesos"));
+  $personal['var_num'] = money_format('%=#10.2n', $variable);
+  $personal['var_letr'] = $con_letra;
+
+  $variable = $personal['SALARIO']+$personal['VALOR_FLEXIBLE']+$personal['SALARIO_VBLE'];
+  $con_letra=strtoupper($V->ValorEnLetras($variable,"pesos"));
+  $personal['fijo_num'] = money_format('%=#10.2n', $variable);
+  $personal['fijo_letr'] = $con_letra;
+  
+
   $personal['dia'] = iconv_substr($personal['FECHA_INGRESO'],6,2);
   $personal['mes'] = iconv_substr($personal['FECHA_INGRESO'],4,2);
   $personal['ano'] = iconv_substr($personal['FECHA_INGRESO'],0,4);
 
-
   $personal['act_dia'] = date('d');
   $personal['act_mes'] = t(date('F'));
   $personal['act_ano'] = date('Y');
-  $variable = $personal['VALOR_FLEXIBLE'];
-  $con_letra=strtoupper($V->ValorEnLetras($variable,"pesos"));
-  $personal['variable_num'] = money_format('%=#10.2n', $variable);
-  $personal['variable_letr'] = $con_letra;
-  
+
   $fid = variable_get('ob_firma_rrhh');
   $uri = file_load($fid)->uri;
   $config = array(
