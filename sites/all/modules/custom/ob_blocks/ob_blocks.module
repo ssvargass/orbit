@@ -29,7 +29,6 @@ function ob_blocks_block_view($delta = '') {
 function ob_blocks_separate_room($nid){
   $output = '';
   $form = afb_get_add_block(1);
-  dpm($form);
   return $output;
 }
 

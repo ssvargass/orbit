@@ -1,16 +1,4 @@
 <?php
-/**
- * Implements hook_menu()
- */
-/*function ob_room_menu() {
-  $items['salas-de-reunion/admin'] = array(
-    'title' => 'Salas de Reunión',
-    'page callback' => 'ob_room_aprovate',
-    'access arguments' => array('administrate_room'),
-    'type' => MENU_NORMAL_ITEM,
-  );
-  return $items;
-}
 
 /**
  * Implements hook_permission().
@@ -87,5 +75,10 @@ function _ob_room_callback_delete($form, $form_state) {
   $commands[] = ajax_command_replace('#ob-room-denegate', $respuesta);
   return array('#type' => 'ajax', '#commands' => $commands);  
 }
+
+function hook_node_event_insert($info){
+  dpm($info);
+}
+
 
 ?>

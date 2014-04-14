@@ -490,8 +490,6 @@ function ob_certificates_print_certificate($type){
     }
   }
 
-  dpm($personal);
-
   $total = $personal['SALARIO'];
   $V=new EnLetras(); 
   $con_letra=strtoupper($V->ValorEnLetras($total,"pesos")); 
