@@ -149,12 +149,22 @@
   }
 	Drupal.behaviors.orbit = {
     attach: function (context, settings) {
+
+      if($('.view-salas-event').length > 0){
+        left = 0;
+        $('.calendar-agenda-items').each(function(){
+          
+            $('.inner > div',this).each(function(){
+              $(this).css('margin-left',left);
+              left += 25;
+            })
+          //}
+        })
+      }
+
       $('#node-delete-confirm').submit(function(){
         parent.location.reload();
       });
-      $('.node-event-form').submit(function(){
-        console.log('asdas');
-      })
       $("form#event-node-form").ajaxSuccess(function(event, xhr, settings){
         if($('.messages.status',this).length > 1) console.log('asdas')
       })
