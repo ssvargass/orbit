@@ -76,7 +76,7 @@ function _ob_room_callback_delete($form, $form_state) {
   return array('#type' => 'ajax', '#commands' => $commands);  
 }
 
-function hook_node_event_insert($info){
+function ob_room_node_event_insert($info){
   dpm($info);
 }
 
