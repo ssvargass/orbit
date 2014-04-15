@@ -118,20 +118,23 @@ function _ob_room_callback($form, $form_state) {
     
     $creador = $node->uid;
     $creador = user_load($creador);
-    $invitados = $node->field_invitados['und'];
-    $inv = array();
 
-    foreach ($invitados as $key => $value) {
-      $inv[] = $value['target_id'];
-    }
+    if(isset($node->field_invitados['und'])){
+      $invitados = $node->field_invitados['und'];
+      $inv = array();
 
-    $node->invitados = user_load_multiple($inv);
+      foreach ($invitados as $key => $value) {
+        $inv[] = $value['target_id'];
+      }
 
-    foreach ($node->invitados as $key => $value) {
-      $invitado = theme('room_invitado', array(
-        'node' => $node, 
-      ));
-      ob_room_send_mail($value->mail, t('Ha sido invitado a la reunion ') . $node->title, $invitado);
+      $node->invitados = user_load_multiple($inv);
+
+      foreach ($node->invitados as $key => $value) {
+        $invitado = theme('room_invitado', array(
+          'node' => $node, 
+        ));
+        ob_room_send_mail($value->mail, t('Ha sido invitado a la reunion ') . $node->title, $invitado);
+      }
     }
 
     $author = theme('room_author', array(
@@ -201,11 +204,9 @@ function ob_room_node_submit($node, $form, &$form_state){
   }
 
   if($node->type == 'room_event'){
-
-    $creador = $node->uid;
+    /*$creador = $node->uid;
     $creador = user_load($creador);
-
-    $invitados = $node->field_invitados['und'];
+    /*$invitados = $node->field_invitados['und'];
     $inv = array();
     foreach ($invitados as $key => $value) {
       $inv[] = $value['target_id'];
@@ -224,7 +225,7 @@ function ob_room_node_submit($node, $form, &$form_state){
     $solicitud = theme('room_administer', array(
       'node' => $node, 
     ));
-
+    */
     $administrator = variable_get('ob_room_mail');
     ob_room_send_mail($administrator, t('Ha generado la solicitud ') . $node->title, $solicitud);
   }
