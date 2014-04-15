@@ -2154,6 +2154,10 @@ nav {
 			width: 100%;
 			padding: 0 1em;
 			margin: 0;
+			.s_title_page {
+				float: none;
+				width: 100%;
+			}
 			.node-room-event {
 				.user-picture { display: none;}
 				.submitted { clear: both;}
