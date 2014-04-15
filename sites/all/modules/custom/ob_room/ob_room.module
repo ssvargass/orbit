@@ -245,10 +245,12 @@ function ob_room_send_mail($email, $subject, $body){
   $message['body'][] = $body;
   // Retrieve the responsible implementation for this message.
   $system = drupal_mail_system($module, $key);
-  /*// Format the message body.
-  $message = $system->format($message);
+  // Format the message body.
+  //$message = 
+  $system->format($message);
   // Send e-mail.
-  $message['result'] = $system->mail($message);*/
+  //$message['result'] = 
+  $system->mail($message);
 }
 
 
