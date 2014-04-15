@@ -205,6 +205,14 @@ function ob_room_node_submit($node, $form, &$form_state){
     $creador = $node->uid;
     $creador = user_load($creador);
 
+    $invitados = $node->field_invitados['und'];
+    $inv = array();
+    foreach ($invitados as $key => $value) {
+      $inv[] = $value['target_id'];
+    }
+
+    $node->invitados = user_load_multiple($inv);
+
     $author = theme('room_create', array(
       'node' => $node, 
     ));

@@ -1,4 +1,4 @@
-<strong><?php print $node->name ?>lo han invitado al evento <?php $node->title ?>.</strong>
+<strong><?php print $node->name ?>lo ha invitado al evento <?php $node->title ?>.</strong>
 <br>
 <br>
 Inicio: <?php print $node->field_fecha['und'][0]['value']; ?>
