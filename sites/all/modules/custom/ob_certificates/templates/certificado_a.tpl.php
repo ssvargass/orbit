@@ -3,18 +3,18 @@
 <p>
 La señora <?php print $personal['NOMBRES_COMPLETOS'] ?> indentificada con cedula de ciudadanía No. 
 <?php print $personal['EMPLEADO'] ?> labora en esta compañía desde el <?php print $personal['dia'] ?> 
-de <?php print $personal['mes'] ?> de  <?php print $personal['ano'] ?>
-desempeñando en la actualidad el cargo de <?php print $personal['NOMBRE_CARGO'] ?>, con
+de <?php print $personal['mes'] ?> de  <?php print $personal['ano'] ?> 
+desempeñando en la actualidad el cargo de <?php print trim($personal['NOMBRE_CARGO']) ?>, con
  un contrato de trabajo a <?php print $personal['TIPO_CONTRATO'] ?>, con un ingreso fijo mensual de 
- <?php print $personal['fijo_letr'] ?>.(<?php print $personal['fijo_num'] ?>)
- . Distribuidos en un sueldo básico ordinario de 
- <?php print $personal['salario_letr'] ?>.(<?php print $personal['salario_num'] ?>)
- , y otros beneficios de carácter no 
- salarial por <?php print $personal['flex_letr'] ?>.(<?php print $personal['flex_num'] ?>).
+ <?php print $personal['fijo_letr'] ?> (<?php print $personal['fijo_num'] ?>)
+. Distribuidos en un sueldo básico ordinario de 
+ <?php print $personal['salario_letr'] ?> (<?php print $personal['salario_num'] ?>)
+, y otros beneficios de carácter no 
+ salarial por <?php print $personal['flex_letr'] ?>. (<?php print $personal['flex_num'] ?>).
 </p>
 <p>
-La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?>
-días del mes de <?php print $personal['act_mes'] ?> de <?php print $personal['act_ano'] ?>
+La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?> 
+días del mes de <?php print $personal['act_mes'] ?> de <?php print $personal['act_ano'] ?>.
 </p>
 <p>
 	<?php print $personal['firma'] ?>
