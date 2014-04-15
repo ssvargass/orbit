@@ -9,6 +9,13 @@ function ob_room_theme($existing, $type, $theme, $path) {
         'node' => NULL,
       ),
     ),
+    'invitado' => array(
+      'template' => 'invitado',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'node' => NULL,
+      ),
+    ),
   );   
 }
 /**
@@ -93,10 +100,25 @@ function ob_room_node_submit($node, $form, &$form_state){
     $creador = $node->uid;
     $invitados = $node->field_invitados['und'];
     $creador = user_load($creador);
+    $inv = array();
+    foreach ($invitados as $key => $value) {
+      $inv[] = $value['target_id'];
+    }
+
+    $node->invitados = user_load_multiple($inv);
+
+    foreach ($node->invitados as $key => $value) {
+      $invitado = theme('invitado', array(
+        'node' => $node, 
+      ));
+      ob_room_send_mail($value->mail, t('Ha sido invitado al evento ') . $node->title, $invitado);
+    }
+
     $author = theme('author', array(
       'node' => $node, 
     ));
-    ob_room_send_mail($creador->mail, t('Ha creado un evento'), $author);
+
+    ob_room_send_mail($creador->mail, t('Ha creado el evento ') . $node->title, $author);
   }
 }
 
