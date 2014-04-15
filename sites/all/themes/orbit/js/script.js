@@ -7,6 +7,7 @@
     };
     
     galscrollMouse();
+    
     function galscrollMouse(){
         gallencierra = $('.view-colaboradores');
         nulistado = $('.view-colaboradores .views-row').length;

@@ -54,19 +54,13 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
   if($form_id == 'event_node_form'){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Crear Evento');
-    // $form['#submit'][] = 'ob_blocks_submited';
     $form['field_invitados']['und']['add_more']['#value'] = t('Añadir otro invitado');
-    dpm($_SESSION);
   }
   if($form_id == 'room_event_node_form'){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Solicitar');
     $form['field_invitados']['und']['add_more']['#value'] = t('Añadir otro invitado');
   } 
-}
-
-function ob_blocks_submited($form, &$form_state){
-  dpm($form);
 }
 
 function ob_get_uid(){
