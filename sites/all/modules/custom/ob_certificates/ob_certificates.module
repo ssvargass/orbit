@@ -517,6 +517,23 @@ function ob_certificates_print_certificate($type){
   $personal['mes'] = iconv_substr($personal['FECHA_INGRESO'],4,2);
   $personal['ano'] = iconv_substr($personal['FECHA_INGRESO'],0,4);
 
+  $arry_mes = array(
+    '01' => 'enero',
+    '02' => 'febrero',
+    '03' => 'marzo',
+    '04' => 'abril',
+    '05' => 'mayo',
+    '06' => 'junio',
+    '07' => 'julio',
+    '08' => 'agosto',
+    '09' => 'septiembre',
+    '10' => 'octubre',
+    '11' => 'noviembre',
+    '12' => 'diciembre',
+  );
+
+  $personal['mes'] = $arry_mes[$personal['mes']];
+
   $personal['act_dia'] = date('d');
   $personal['act_mes'] = t(date('F'));
   $personal['act_ano'] = date('Y');

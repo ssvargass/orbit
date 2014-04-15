@@ -9,7 +9,7 @@ de  <?php print $personal['mes'] ?> de  <?php print $personal['ano'] ?> con un c
 <?php print $personal['salario_letr'] ?> (<?php print $personal['salario_num'] ?>).
 </p>
 <p>
-La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?>
+La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?> 
 días del mes de <?php print $personal['act_mes'] ?> de <?php print $personal['act_ano'] ?>
 </p>
 <p>
