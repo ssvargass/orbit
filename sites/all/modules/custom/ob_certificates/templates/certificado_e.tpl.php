@@ -7,7 +7,7 @@ de  <?php print $personal['mes'] ?> de  <?php print $personal['ano'] ?> con un c
 <?php print $personal['TIPO_CONTRATO'] ?> desempeñando en la actualidad el cargo de 
 <?php print $personal['NOMBRE_CARGO'] ?> con un salario básico menusal 
 <?php print $personal['salario_letr'] ?> (<?php print $personal['salario_num'] ?>). Y un salario promedio 
-variable de <?php print $personal['variable_letr'] ?> (<?php print $personal['variable_num'] ?>).
+variable de <?php print $personal['var_letr'] ?> (<?php print $personal['var_num'] ?>).
 </p>
 <p>
 La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?>
