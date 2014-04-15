@@ -1,5 +1,19 @@
 <?php
 
+/**
+ * Implements hook_menu().
+ */
+function ob_room_menu() {
+  $items['admin/config/orbit/room'] = array(
+    'title' => 'Room administer',
+    'description' => 'Email de administrador de salas',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ob_room_administer_form'),
+    'access arguments' => array('administer site configuration'),
+  );
+  return $items;
+}
+
 function ob_room_theme($existing, $type, $theme, $path) {  
   return array(
     'author' => array(
@@ -16,8 +30,23 @@ function ob_room_theme($existing, $type, $theme, $path) {
         'node' => NULL,
       ),
     ),
+    'room_create' => array(
+      'template' => 'room_create',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'node' => NULL,
+      ),
+    ),
+    'room_administer' => array(
+      'template' => 'room_administer',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'node' => NULL,
+      ),
+    ),
   );   
 }
+
 /**
  * Implements hook_permission().
  */
@@ -28,6 +57,17 @@ function ob_room_permission() {
       'description' => t('Administrate room'),
     ),
   );
+}
+
+function ob_room_administer_form($form, $form_state){
+  $form['ob_room_mail'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Administrador'),
+    '#default_value' => variable_get('ob_room_mail', ''),
+    '#description' => t('Email del administrador de salas'),
+    '#required' => TRUE,
+  );
+  return system_settings_form($form);
 }
 
 function ob_room_separate($form, &$form_state, $nid){
@@ -60,6 +100,8 @@ function _ob_room_callback($form, $form_state) {
     $node->status = 1;
     node_save($node);
     $commands[] = ajax_command_invoke('', 'ob_room_reload');
+
+    //ob_room_send_mail($email, $subject, $body);
     drupal_set_message('Se ha actualizado');
   }
   return array('#type' => 'ajax', '#commands' => $commands);  
@@ -96,10 +138,9 @@ function _ob_room_callback_delete($form, $form_state) {
 
 function ob_room_node_submit($node, $form, &$form_state){
   if($node->type == 'event'){
-    $_SESSION['custom'] = $node;
     $creador = $node->uid;
-    $invitados = $node->field_invitados['und'];
     $creador = user_load($creador);
+    $invitados = $node->field_invitados['und'];
     $inv = array();
     foreach ($invitados as $key => $value) {
       $inv[] = $value['target_id'];
@@ -120,6 +161,28 @@ function ob_room_node_submit($node, $form, &$form_state){
 
     ob_room_send_mail($creador->mail, t('Ha creado el evento ') . $node->title, $author);
   }
+
+  if($node->type == 'room_event'){
+
+    $creador = $node->uid;
+    $creador = user_load($creador);
+
+    $author = theme('room_create', array(
+      'node' => $node, 
+    ));
+
+    $node->sala = node_load($node->field_nid['und'][0]['value']);
+    
+    ob_room_send_mail($creador->mail, t('Ha creado la solicitud ') . $node->title, $author);
+
+    $solicitud = theme('room_administer', array(
+      'node' => $node, 
+    ));
+
+    $administrator = variable_get('ob_room_mail');
+    ob_room_send_mail($administrator, t('Ha generado la solicitud ') . $node->title, $solicitud);
+  }
+
 }
 
 function ob_room_send_mail($email, $subject, $body){
@@ -135,10 +198,10 @@ function ob_room_send_mail($email, $subject, $body){
   $message['body'][] = $body;
   // Retrieve the responsible implementation for this message.
   $system = drupal_mail_system($module, $key);
-  // Format the message body.
+  /*// Format the message body.
   $message = $system->format($message);
   // Send e-mail.
-  $message['result'] = $system->mail($message);
+  $message['result'] = $system->mail($message);*/
 }
 
 
