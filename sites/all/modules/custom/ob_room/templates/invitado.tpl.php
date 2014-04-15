@@ -1,4 +1,4 @@
-<strong><?php print $node->name ?>lo ha invitado al evento <?php $node->title ?>.</strong>
+<strong><?php print $node->name ?> lo ha invitado al evento <?php print $node->title ?>.</strong>
 <br>
 <br>
 Inicio: <?php print $node->field_fecha['und'][0]['value']; ?>
@@ -10,6 +10,6 @@ Descripción: <?php print $node->field_descripci_n['und'][0]['value']; ?>
 <?php if(count($node->invitados) > 0): ?>
 Invitados:
 <?php foreach ($node->invitados as $key => $value) { 
-  print $value->name;
+  print $value->name . '<br>';
 }?>
 <?php endif; ?>

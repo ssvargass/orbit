@@ -202,12 +202,11 @@ function ob_room_node_submit($node, $form, &$form_state){
     ));
 
     ob_room_send_mail($creador->mail, t('Ha creado el evento ') . $node->title, $author);
-  }
-
-  if($node->type == 'room_event'){
-    /*$creador = $node->uid;
+  } else if($node->type == 'room_event'){
+    $_SESSION['custom'] = $node;
+    $creador = $node->uid;
     $creador = user_load($creador);
-    /*$invitados = $node->field_invitados['und'];
+    $invitados = $node->field_invitados['und'];
     $inv = array();
     foreach ($invitados as $key => $value) {
       $inv[] = $value['target_id'];
@@ -226,7 +225,7 @@ function ob_room_node_submit($node, $form, &$form_state){
     $solicitud = theme('room_administer', array(
       'node' => $node, 
     ));
-    */
+    
     $administrator = variable_get('ob_room_mail');
     ob_room_send_mail($administrator, t('Ha generado la solicitud ') . $node->title, $solicitud);
   }
