@@ -2820,72 +2820,76 @@ nav .menu .last {
   padding: 0 1em;
   margin: 0;
 }
+/* line 2157, ../sass/style.scss */
+.node-type-room-event #content-wrapper #content .node-room-event .user-picture {
+  display: none;
+}
 
 /*==end==*/
 /*menu*/
-/* line 2166, ../sass/style.scss */
+/* line 2167, ../sass/style.scss */
 #block-menu-menu-casino-menu {
   clear: both;
   margin-bottom: 1em;
 }
-/* line 2170, ../sass/style.scss */
+/* line 2171, ../sass/style.scss */
 #block-menu-menu-casino-menu .leaf {
   display: inline-block;
   list-style: none;
   margin: 0;
 }
-/* line 2174, ../sass/style.scss */
+/* line 2175, ../sass/style.scss */
 #block-menu-menu-casino-menu .leaf a, #block-menu-menu-casino-menu .leaf a:link {
   background: #dddddd;
 }
-/* line 2179, ../sass/style.scss */
+/* line 2180, ../sass/style.scss */
 #block-menu-menu-casino-menu .active-trail a, #block-menu-menu-casino-menu .active-trail a:link {
   background: white;
 }
 
-/* line 2185, ../sass/style.scss */
+/* line 2186, ../sass/style.scss */
 .view-menu-reuniones .views-row {
   margin-bottom: 1em;
 }
-/* line 2187, ../sass/style.scss */
+/* line 2188, ../sass/style.scss */
 .view-menu-reuniones .views-row .views-field-title {
   font-family: "futuraB";
   margin-bottom: 0.3em;
 }
 
-/* line 2193, ../sass/style.scss */
+/* line 2194, ../sass/style.scss */
 .field-name-field-menu-casino {
   margin-top: 1em;
 }
-/* line 2195, ../sass/style.scss */
+/* line 2196, ../sass/style.scss */
 .field-name-field-menu-casino .field-label {
   margin-bottom: 0.5em;
   font-size: 1.3em;
 }
-/* line 2199, ../sass/style.scss */
+/* line 2200, ../sass/style.scss */
 .field-name-field-menu-casino .field-item {
   clear: both;
   margin-bottom: 0.3em;
 }
-/* line 2202, ../sass/style.scss */
+/* line 2203, ../sass/style.scss */
 .field-name-field-menu-casino .field-item .field-name-field-menu-part {
   display: inline-block;
   margin-right: 0.5em;
   font-family: "futuraB";
 }
-/* line 2207, ../sass/style.scss */
+/* line 2208, ../sass/style.scss */
 .field-name-field-menu-casino .field-item .field-name-field-menu-part-desc {
   display: inline-block;
 }
 
 /*==end==*/
 /*reportes*/
-/* line 2216, ../sass/style.scss */
+/* line 2217, ../sass/style.scss */
 #ob-polls-reports-form {
   clear: both;
   text-align: center;
 }
-/* line 2219, ../sass/style.scss */
+/* line 2220, ../sass/style.scss */
 #ob-polls-reports-form .form-item {
   display: inline-block;
   *display: inline-block;
@@ -2896,17 +2900,17 @@ nav .menu .last {
   margin-right: -5px;
   width: 47%;
 }
-/* line 2228, ../sass/style.scss */
+/* line 2229, ../sass/style.scss */
 #ob-polls-reports-form .form-item select {
   border: 1px solid #dddddd;
 }
-/* line 2230, ../sass/style.scss */
+/* line 2231, ../sass/style.scss */
 #ob-polls-reports-form .form-submit {
   display: inline-block;
   margin-top: 1em;
 }
 
-/* line 2237, ../sass/style.scss */
+/* line 2238, ../sass/style.scss */
 .page-node-305 .region-content {
   clear: both;
   text-align: center;
@@ -2918,11 +2922,11 @@ nav .menu .last {
 
 /*==end==*/
 /*documentos*/
-/* line 2250, ../sass/style.scss */
+/* line 2251, ../sass/style.scss */
 #quicktabs-certificates {
   clear: both;
 }
-/* line 2257, ../sass/style.scss */
+/* line 2258, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form .form-item-years,
 #quicktabs-certificates .quicktabs-tabpage form #s_month,
 #quicktabs-certificates .quicktabs-tabpage form #s_year {
@@ -2930,7 +2934,7 @@ nav .menu .last {
   width: 45%;
   margin-left: 2em;
 }
-/* line 2261, ../sass/style.scss */
+/* line 2262, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form .form-item-years select,
 #quicktabs-certificates .quicktabs-tabpage form #s_month select,
 #quicktabs-certificates .quicktabs-tabpage form #s_year select {
@@ -2938,56 +2942,56 @@ nav .menu .last {
   margin: 0;
   border: 1px solid #dddddd;
 }
-/* line 2267, ../sass/style.scss */
+/* line 2268, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form #s_submit {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
   text-align: center;
 }
-/* line 2271, ../sass/style.scss */
+/* line 2272, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form #s_submit input {
   display: inline-block;
 }
-/* line 2277, ../sass/style.scss */
+/* line 2278, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage a, #quicktabs-certificates .quicktabs-tabpage a:link {
   margin-top: 2em;
   display: inline-block;
 }
-/* line 2284, ../sass/style.scss */
+/* line 2285, ../sass/style.scss */
 #quicktabs-certificates #ob-certificates-type-form .form-submit {
   display: inline-block;
 }
-/* line 2289, ../sass/style.scss */
+/* line 2290, ../sass/style.scss */
 #quicktabs-certificates .s_previsual {
   margin: 3em 0 0 0;
 }
-/* line 2291, ../sass/style.scss */
+/* line 2292, ../sass/style.scss */
 #quicktabs-certificates .s_previsual h3 {
   text-align: center;
 }
 
 /*==end==*/
 /*colorBox*/
-/* line 2298, ../sass/style.scss */
+/* line 2299, ../sass/style.scss */
 #colorbox {
   z-index: 100;
 }
-/* line 2300, ../sass/style.scss */
+/* line 2301, ../sass/style.scss */
 #colorbox #page-title {
   display: none;
 }
-/* line 2301, ../sass/style.scss */
+/* line 2302, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 {
   background: white;
   display: block;
   padding: 1em;
 }
-/* line 2305, ../sass/style.scss */
+/* line 2306, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 h2 {
   margin-top: 0;
   color: #1f3264;
 }
-/* line 2310, ../sass/style.scss */
+/* line 2311, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 {
   overflow: hidden;
   *zoom: 1;
@@ -2995,76 +2999,76 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 2315, ../sass/style.scss */
+/* line 2316, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 .views-exposed-widgets {
   margin: 0;
   float: right;
 }
-/* line 2320, ../sass/style.scss */
+/* line 2321, ../sass/style.scss */
 #colorbox .view-id-directorio {
   margin: 0;
   background: white;
   padding: 0;
 }
-/* line 2324, ../sass/style.scss */
+/* line 2325, ../sass/style.scss */
 #colorbox .view-id-directorio .view-filters {
   top: -3.2em;
 }
-/* line 2325, ../sass/style.scss */
+/* line 2326, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row {
   min-height: 0;
   font-size: 75%;
 }
-/* line 2329, ../sass/style.scss */
+/* line 2330, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   margin-top: 0.3em;
 }
-/* line 2330, ../sass/style.scss */
+/* line 2331, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-uid {
   text-indent: -5000px;
 }
-/* line 2332, ../sass/style.scss */
+/* line 2333, ../sass/style.scss */
 #colorbox .view-id-directorio .active {
   opacity: 0.4;
 }
-/* line 2335, ../sass/style.scss */
+/* line 2336, ../sass/style.scss */
 #colorbox .view-id-directorio > .view-content {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 2339, ../sass/style.scss */
+/* line 2340, ../sass/style.scss */
 #colorbox .view-id-directorio .view-footer {
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 2345, ../sass/style.scss */
+/* line 2346, ../sass/style.scss */
 #colorbox .s_submit {
   display: inline-block;
 }
-/* line 2350, ../sass/style.scss */
+/* line 2351, ../sass/style.scss */
 #colorbox .confirmation {
   background: white;
   padding: 1em;
 }
-/* line 2353, ../sass/style.scss */
+/* line 2354, ../sass/style.scss */
 #colorbox .confirmation .form-actions {
   text-align: center;
 }
-/* line 2355, ../sass/style.scss */
+/* line 2356, ../sass/style.scss */
 #colorbox .confirmation .form-actions .form-submit {
   display: inline-block;
   padding: 0.36em 1em;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 2362, ../sass/style.scss */
+/* line 2363, ../sass/style.scss */
 #colorbox .confirmation .form-actions #edit-cancel {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 2371, ../sass/style.scss */
+/* line 2372, ../sass/style.scss */
 #colorbox .view-id-home_publications .jspPane {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3072,38 +3076,38 @@ nav .menu .last {
   padding-right: 1.5em !important;
   width: 100% !important;
 }
-/* line 2377, ../sass/style.scss */
+/* line 2378, ../sass/style.scss */
 #colorbox .node-event {
   padding: 0 1em;
 }
-/* line 2379, ../sass/style.scss */
+/* line 2380, ../sass/style.scss */
 #colorbox .node-event .field {
   margin-bottom: 0.5em;
 }
-/* line 2381, ../sass/style.scss */
+/* line 2382, ../sass/style.scss */
 #colorbox header {
   display: none;
 }
-/* line 2382, ../sass/style.scss */
+/* line 2383, ../sass/style.scss */
 #colorbox #content-wrapper {
   margin: 0 auto;
   float: none;
   position: static;
   padding: 1em 0;
 }
-/* line 2387, ../sass/style.scss */
+/* line 2388, ../sass/style.scss */
 #colorbox #content-wrapper #content {
   width: 100%;
   padding: 0;
   border: none;
 }
-/* line 2393, ../sass/style.scss */
+/* line 2394, ../sass/style.scss */
 #colorbox iframe {
   height: 100%;
   width: 100%;
 }
 
-/* line 2398, ../sass/style.scss */
+/* line 2399, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }
