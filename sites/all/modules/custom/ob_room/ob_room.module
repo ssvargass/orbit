@@ -1,5 +1,16 @@
 <?php
 
+function ob_room_theme($existing, $type, $theme, $path) {  
+  return array(
+    'author' => array(
+      'template' => 'author',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'node' => NULL,
+      ),
+    ),
+  );   
+}
 /**
  * Implements hook_permission().
  */
@@ -76,8 +87,36 @@ function _ob_room_callback_delete($form, $form_state) {
   return array('#type' => 'ajax', '#commands' => $commands);  
 }
 
-function ob_room_node_event_insert($info){
-  dpm($info);
+function ob_room_node_submit($node, $form, &$form_state){
+  if($node->type == 'event'){
+    $_SESSION['custom'] = $node;
+    $creador = $node->uid;
+    $invitados = $node->field_invitados['und'];
+    $creador = user_load($creador);
+    $author = theme('author', array(
+      'node' => $node, 
+    ));
+    ob_room_send_mail($creador->mail, t('Ha creado un evento'), $author);
+  }
+}
+
+function ob_room_send_mail($email, $subject, $body){
+  $module = 'ob_notifications';
+  $key = 'create_event';
+  $language = language_default();
+  $params = array();
+  $from = NULL;
+  $send = FALSE;
+  $message = drupal_mail($module, $key, $email, $language, $params, $from, $send);
+  $message['subject'] = $subject;
+  $message['body'] = array();
+  $message['body'][] = $body;
+  // Retrieve the responsible implementation for this message.
+  $system = drupal_mail_system($module, $key);
+  // Format the message body.
+  $message = $system->format($message);
+  // Send e-mail.
+  $message['result'] = $system->mail($message);
 }
 
 
