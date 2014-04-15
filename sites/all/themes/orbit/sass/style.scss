@@ -1310,8 +1310,9 @@ nav {
 			width: 7em;
 			vertical-align: middle;
 			margin: 0 0.2em;
-			.views-field-nothing .s_user_name {
-				margin-top: 1.5em;
+			.views-field-nothing {
+				font-size: 80%;
+				.s_user_name { margin-top: 1.5em;}
 			}
 		}
 	}
