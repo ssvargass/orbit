@@ -205,6 +205,7 @@ function ob_room_node_submit($node, $form, &$form_state){
   }
 
   if($node->type == 'room_event'){
+    $_SESSION['custom'] = $node;
     /*$creador = $node->uid;
     $creador = user_load($creador);
     /*$invitados = $node->field_invitados['und'];

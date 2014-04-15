@@ -1,4 +1,4 @@
-<strong>La solicitud <?php $node->title ?> se ha creado exitosamente.</strong>
+<strong>La solicitud <?php print $node->title ?> se ha creado exitosamente.</strong>
 <br>
 <br>
 Inicio: <?php print $node->field_fecha['und'][0]['value']; ?>
@@ -10,7 +10,7 @@ Descripción: <?php print $node->field_descripci_n['und'][0]['value']; ?>
 <?php if(count($node->invitados) > 0): ?>
 Invitados:
 <?php foreach ($node->invitados as $key => $value) { 
-  print $value->name;
+  print $value->name . '<br>';
 }?>
 <?php endif; ?>
 <br>
