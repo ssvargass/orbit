@@ -1,4 +1,4 @@
-<strong><?php print $node->name ?> lo ha invitado a la reunion <?php print$node->title ?> ha sido aceptada.</strong>
+<strong><?php print $node->name ?> lo ha invitado a la reunion <?php print$node->title ?>.</strong>
 <br>
 <br>
 Inicio: <?php print $node->field_fecha['und'][0]['value']; ?>
@@ -13,3 +13,4 @@ Invitados:
   print $value->name . '<br>';
 }?>
 <?php endif; ?>
+Esta reunion ya fue aprobada por el web master.
