@@ -2141,12 +2141,28 @@ nav .menu .last {
   background: #1f3264;
   color: white;
 }
+/* line 1604, ../sass/style.scss */
+#content .calendar-calendar tbody {
+  /*.multi-day {
+  	.monthview {
+  		width: auto;
+  		.cutoff { display: none;}
+  		.contents {
+  			width: auto;
+  			a, a:link {
+  				text-indent: -5000px;
+  				display: block;
+  				width: 1.5em;
+  			}
+  		}
+  	}
+  }*/
+}
 /* line 1605, ../sass/style.scss */
 #content .calendar-calendar tbody td {
-  border: 1px solid #dddddd;
   position: relative;
 }
-/* line 1608, ../sass/style.scss */
+/* line 1607, ../sass/style.scss */
 #content .calendar-calendar tbody td .s_ind_content_color {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2159,7 +2175,7 @@ nav .menu .last {
   min-height: 100%;
   text-align: center;
 }
-/* line 1618, ../sass/style.scss */
+/* line 1617, ../sass/style.scss */
 #content .calendar-calendar tbody td .s_ind_content_color .s_ind_color {
   -webkit-border-radius: 5em;
   -moz-border-radius: 5em;
@@ -2169,17 +2185,18 @@ nav .menu .last {
   height: 1em;
   margin: 0.3em;
 }
-/* line 1628, ../sass/style.scss */
+/* line 1642, ../sass/style.scss */
+#content .calendar-calendar tbody .multi-day .inner,
 #content .calendar-calendar tbody .single-day .inner {
   display: none;
   opacity: 0;
   position: absolute;
 }
-/* line 1635, ../sass/style.scss */
+/* line 1649, ../sass/style.scss */
 #content .calendar-calendar .date-box .date-box {
   border-bottom: 1px solid transparent;
 }
-/* line 1641, ../sass/style.scss */
+/* line 1655, ../sass/style.scss */
 #content .calendar-calendar .yearview,
 #content .calendar-calendar .weekview,
 #content .calendar-calendar .dayview,
@@ -2191,7 +2208,7 @@ nav .menu .last {
   background: none;
   padding: 0.5em;
 }
-/* line 1648, ../sass/style.scss */
+/* line 1662, ../sass/style.scss */
 #content .calendar-calendar .yearview .views-field-title a, #content .calendar-calendar .yearview .views-field-title a:link,
 #content .calendar-calendar .weekview .views-field-title a,
 #content .calendar-calendar .weekview .views-field-title a:link,
@@ -2205,7 +2222,7 @@ nav .menu .last {
   font-size: 1.25em;
   text-transform: uppercase;
 }
-/* line 1656, ../sass/style.scss */
+/* line 1670, ../sass/style.scss */
 #content .calendar-calendar .yearview .views-field-field-fecha,
 #content .calendar-calendar .weekview .views-field-field-fecha,
 #content .calendar-calendar .dayview .views-field-field-fecha,
@@ -2214,7 +2231,7 @@ nav .menu .last {
   color: white;
   margin-top: 0.3em;
 }
-/* line 1660, ../sass/style.scss */
+/* line 1674, ../sass/style.scss */
 #content .calendar-calendar .yearview .views-field-field-fecha *,
 #content .calendar-calendar .weekview .views-field-field-fecha *,
 #content .calendar-calendar .dayview .views-field-field-fecha *,
@@ -2222,8 +2239,10 @@ nav .menu .last {
   font-weight: normal;
 }
 
-/* line 1671, ../sass/style.scss */
+/* line 1686, ../sass/style.scss */
+.page-calendar-day #content .calendar-calendar .multi-day .inner,
 .page-calendar-day #content .calendar-calendar .single-day .inner,
+.page-calendar-week #content .calendar-calendar .multi-day .inner,
 .page-calendar-week #content .calendar-calendar .single-day .inner {
   display: block;
   opacity: 1;
@@ -2231,8 +2250,10 @@ nav .menu .last {
   width: 100%;
   margin-left: 0.3em;
 }
-/* line 1677, ../sass/style.scss */
+/* line 1692, ../sass/style.scss */
+.page-calendar-day #content .calendar-calendar .multi-day .inner .weekview,
 .page-calendar-day #content .calendar-calendar .single-day .inner .weekview,
+.page-calendar-week #content .calendar-calendar .multi-day .inner .weekview,
 .page-calendar-week #content .calendar-calendar .single-day .inner .weekview {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2241,50 +2262,50 @@ nav .menu .last {
   height: auto;
 }
 
-/* line 1689, ../sass/style.scss */
+/* line 1704, ../sass/style.scss */
 .page-calendar .block-afb, .page-calendar .block-advpoll {
   border: none;
 }
 
-/* line 1692, ../sass/style.scss */
+/* line 1707, ../sass/style.scss */
 .block-afb, .block-advpoll {
   clear: both;
   text-align: center;
   height: 0;
   overflow: hidden;
 }
-/* line 1697, ../sass/style.scss */
+/* line 1712, ../sass/style.scss */
 .block-afb .content, .block-advpoll .content {
   text-align: left;
 }
-/* line 1698, ../sass/style.scss */
+/* line 1713, ../sass/style.scss */
 .block-afb h2, .block-advpoll h2 {
   top: -1.3em;
 }
-/* line 1702, ../sass/style.scss */
+/* line 1717, ../sass/style.scss */
 .block-afb .node-advpoll, .block-advpoll .node-advpoll {
   text-align: left;
   margin-top: -2em;
 }
-/* line 1706, ../sass/style.scss */
+/* line 1721, ../sass/style.scss */
 .block-afb .form-submit, .block-advpoll .form-submit {
   color: white;
 }
-/* line 1710, ../sass/style.scss */
+/* line 1725, ../sass/style.scss */
 .block-afb.active, .active.block-advpoll {
   overflow: visible;
   margin-top: 2em;
   border-top: 1px solid #dddddd;
 }
 
-/* line 1717, ../sass/style.scss */
+/* line 1732, ../sass/style.scss */
 .s_import_create,
 .s_event_create {
   display: inline-block;
   margin-bottom: 1em;
 }
 
-/* line 1722, ../sass/style.scss */
+/* line 1737, ../sass/style.scss */
 .node-event-form {
   width: 100%;
   text-align: left;
@@ -2293,31 +2314,31 @@ nav .menu .last {
   padding-bottom: 1em;
   border-bottom: 1px solid #dddddd;
 }
-/* line 1730, ../sass/style.scss */
+/* line 1745, ../sass/style.scss */
 .node-event-form .date-float {
   float: right;
   margin-top: -2em;
   padding-left: 1em;
   border-left: 1px solid #dddddd;
 }
-/* line 1735, ../sass/style.scss */
+/* line 1750, ../sass/style.scss */
 .node-event-form .date-float .form-type-checkbox {
   margin: 0.3em 0;
 }
-/* line 1740, ../sass/style.scss */
+/* line 1755, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup,
 .node-event-form .date-no-float .container-inline-date {
   margin: 0 0 2em 0;
   width: 100%;
 }
-/* line 1743, ../sass/style.scss */
+/* line 1758, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding,
 .node-event-form .date-no-float .container-inline-date .date-padding {
   padding: 0;
   float: none;
   width: 100%;
 }
-/* line 1747, ../sass/style.scss */
+/* line 1762, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield,
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield {
   -webkit-box-sizing: border-box;
@@ -2326,31 +2347,31 @@ nav .menu .last {
   width: 50%;
   padding-right: 1em;
 }
-/* line 1751, ../sass/style.scss */
+/* line 1766, ../sass/style.scss */
 .node-event-form .date-no-float .form-type-date-popup .date-padding .form-type-textfield input[type=text],
 .node-event-form .date-no-float .container-inline-date .date-padding .form-type-textfield input[type=text] {
   width: 100%;
 }
-/* line 1761, ../sass/style.scss */
+/* line 1776, ../sass/style.scss */
 .node-event-form #repeat-settings-fieldset .daily .form-type-checkbox,
 .node-event-form #repeat-settings-fieldset .weekly .form-type-checkbox,
 .node-event-form #repeat-settings-fieldset .monthly .form-type-checkbox,
 .node-event-form #repeat-settings-fieldset .yearly .form-type-checkbox {
   width: 5em;
 }
-/* line 1767, ../sass/style.scss */
+/* line 1782, ../sass/style.scss */
 .node-event-form #repeat-settings-fieldset .range-of-repeat .container-inline .form-text {
   margin: 0.5em 0 0 0;
 }
-/* line 1773, ../sass/style.scss */
+/* line 1788, ../sass/style.scss */
 .node-event-form .weekly .form-type-checkbox {
   width: 5em;
 }
-/* line 1775, ../sass/style.scss */
+/* line 1790, ../sass/style.scss */
 .node-event-form .field-name-field-invitados {
   text-align: right;
 }
-/* line 1777, ../sass/style.scss */
+/* line 1792, ../sass/style.scss */
 .node-event-form .field-name-field-invitados .form-submit {
   display: block;
   background: none;
@@ -2358,31 +2379,31 @@ nav .menu .last {
   color: #0071bc;
   padding: 0;
 }
-/* line 1784, ../sass/style.scss */
+/* line 1799, ../sass/style.scss */
 .node-event-form .field-name-field-invitados .tabledrag-toggle-weight-wrapper {
   display: none;
 }
-/* line 1786, ../sass/style.scss */
+/* line 1801, ../sass/style.scss */
 .node-event-form .field-name-field-invitados table .draggable {
   background: none;
 }
-/* line 1788, ../sass/style.scss */
+/* line 1803, ../sass/style.scss */
 .node-event-form .field-name-field-invitados table .draggable .tabledrag-handle {
   padding: 0 0 0 0.7em;
 }
-/* line 1791, ../sass/style.scss */
+/* line 1806, ../sass/style.scss */
 .node-event-form .field-name-field-invitados .form-autocomplete {
   background-position: 100% 10px;
 }
-/* line 1793, ../sass/style.scss */
+/* line 1808, ../sass/style.scss */
 .node-event-form #edit-submit {
   float: right;
 }
-/* line 1797, ../sass/style.scss */
+/* line 1812, ../sass/style.scss */
 .node-event-form input[type="submit"] {
   clear: both;
 }
-/* line 1801, ../sass/style.scss */
+/* line 1816, ../sass/style.scss */
 .node-event-form .vertical-tabs,
 .node-event-form #edit-preview {
   display: none;
@@ -2390,15 +2411,15 @@ nav .menu .last {
 
 /*==end==*/
 /*salas*/
-/* line 1809, ../sass/style.scss */
+/* line 1824, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .item-list {
   clear: both;
 }
-/* line 1814, ../sass/style.scss */
+/* line 1829, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides {
   width: 100% !important;
 }
-/* line 1816, ../sass/style.scss */
+/* line 1831, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .slide-button {
   background-color: rgba(255, 255, 255, 0.5);
   background-position: center center;
@@ -2406,78 +2427,78 @@ nav .menu .last {
   background-height: 2em;
   background-width: 3em;
 }
-/* line 1825, ../sass/style.scss */
+/* line 1840, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .prev-slide {
   background-image: url(../images/arrow-salas-prev.png);
 }
-/* line 1826, ../sass/style.scss */
+/* line 1841, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-slides .next-slide {
   background-image: url(../images/arrow-salas-next.png);
 }
-/* line 1828, ../sass/style.scss */
+/* line 1843, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .galleryformatter .gallery-thumbs {
   display: none;
 }
-/* line 1831, ../sass/style.scss */
+/* line 1846, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-body {
   margin: 1em 0;
 }
-/* line 1832, ../sass/style.scss */
+/* line 1847, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-nid {
   display: none;
 }
-/* line 1834, ../sass/style.scss */
+/* line 1849, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll {
   height: auto;
   text-align: left;
 }
-/* line 1837, ../sass/style.scss */
+/* line 1852, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb h2, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll h2 {
   top: 0;
   padding: 0;
 }
-/* line 1843, ../sass/style.scss */
+/* line 1858, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .fieldset-wrapper > .date-clear, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .fieldset-wrapper > .date-clear {
   display: none;
 }
-/* line 1844, ../sass/style.scss */
+/* line 1859, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float {
   width: 100%;
 }
-/* line 1846, ../sass/style.scss */
+/* line 1861, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .form-item, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .form-item {
   width: 100%;
   margin: 0;
 }
-/* line 1850, ../sass/style.scss */
+/* line 1865, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .form-item .form-type-textfield, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .form-item .form-type-textfield {
   float: left;
   width: 45%;
   margin-left: 1em;
 }
-/* line 1854, ../sass/style.scss */
+/* line 1869, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .form-item .form-type-textfield input, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .form-item .form-type-textfield input {
   margin: 0;
   width: 100%;
 }
-/* line 1860, ../sass/style.scss */
+/* line 1875, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb form .date-no-float .date-padding, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll form .date-no-float .date-padding {
   padding: 0.5em 0;
   float: none;
 }
-/* line 1866, ../sass/style.scss */
+/* line 1881, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-fecha, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-fecha {
   float: left;
   width: 45%;
 }
-/* line 1871, ../sass/style.scss */
+/* line 1886, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-descripci-n,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n {
   float: right;
   width: 50%;
 }
-/* line 1874, ../sass/style.scss */
+/* line 1889, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados .form-submit,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-descripci-n .form-submit,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n .form-submit {
@@ -2486,64 +2507,64 @@ nav .menu .last {
   border: none;
   color: #0071bc;
 }
-/* line 1880, ../sass/style.scss */
+/* line 1895, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-invitados .tabledrag-toggle-weight-wrapper, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-invitados .tabledrag-toggle-weight-wrapper,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .field-name-field-descripci-n .tabledrag-toggle-weight-wrapper,
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .field-name-field-descripci-n .tabledrag-toggle-weight-wrapper {
   display: none;
 }
-/* line 1882, ../sass/style.scss */
+/* line 1897, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-submit, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-submit {
   float: right;
   margin-top: 1em;
   clear: both;
   margin-right: 0;
 }
-/* line 1889, ../sass/style.scss */
+/* line 1904, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .vertical-tabs, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .vertical-tabs {
   display: none;
 }
-/* line 1890, ../sass/style.scss */
+/* line 1905, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb table, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll table {
   width: 98%;
 }
-/* line 1892, ../sass/style.scss */
+/* line 1907, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb table .draggable, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll table .draggable {
   background: none;
 }
-/* line 1894, ../sass/style.scss */
+/* line 1909, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb table .draggable .tabledrag-handle, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll table .draggable .tabledrag-handle {
   padding: 0 0 0 0.7em;
 }
-/* line 1897, ../sass/style.scss */
+/* line 1912, ../sass/style.scss */
 #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-afb .form-autocomplete, #block-quicktabs-salas-de-reuni-n .node-salas-de-reunion .field-name-create-room .block-advpoll .form-autocomplete {
   background-position: 100% 10px;
 }
 
-/* line 1903, ../sass/style.scss */
+/* line 1918, ../sass/style.scss */
 .block-advpoll {
   height: auto;
   overflow: visible;
   margin-top: 0;
 }
-/* line 1908, ../sass/style.scss */
+/* line 1923, ../sass/style.scss */
 .block-advpoll .form-submit {
   float: right;
 }
-/* line 1909, ../sass/style.scss */
+/* line 1924, ../sass/style.scss */
 .block-advpoll .form-type-radio {
   position: relative;
 }
-/* line 1911, ../sass/style.scss */
+/* line 1926, ../sass/style.scss */
 .block-advpoll .form-type-radio .ajax-progress {
   right: 0;
 }
 
-/* line 1915, ../sass/style.scss */
+/* line 1930, ../sass/style.scss */
 .view-id-salas_de_reunion {
   clear: both;
 }
-/* line 1917, ../sass/style.scss */
+/* line 1932, ../sass/style.scss */
 .view-id-salas_de_reunion .views-row {
   overflow: hidden;
   *zoom: 1;
@@ -2551,22 +2572,22 @@ nav .menu .last {
   border: 1px solid #dddddd;
   margin-bottom: 1em;
 }
-/* line 1928, ../sass/style.scss */
+/* line 1943, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-field-departamento {
   color: #f9bd14;
   font-weight: normal;
 }
-/* line 1933, ../sass/style.scss */
+/* line 1948, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-name {
   color: #1f3264;
   font-size: 1.3em;
   font-weight: normal;
 }
-/* line 1939, ../sass/style.scss */
+/* line 1954, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-picture {
   padding-bottom: 1em;
 }
-/* line 1942, ../sass/style.scss */
+/* line 1957, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-picture .field-content {
   -webkit-border-radius: 20em;
   -moz-border-radius: 20em;
@@ -2577,27 +2598,27 @@ nav .menu .last {
   text-align: center;
   margin: 0 auto;
 }
-/* line 1949, ../sass/style.scss */
+/* line 1964, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-picture .field-content img {
   width: 100%;
   height: auto;
 }
-/* line 1955, ../sass/style.scss */
+/* line 1970, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-nothing {
   float: right;
   width: 70%;
 }
-/* line 1958, ../sass/style.scss */
+/* line 1973, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-nothing > div {
   margin-bottom: 0.5em;
 }
-/* line 1959, ../sass/style.scss */
+/* line 1974, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-nothing .s_title {
   font-size: 1.5em;
   font-weight: normal;
   margin-bottom: 1em;
 }
-/* line 1965, ../sass/style.scss */
+/* line 1980, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-field-nid {
   float: right;
   width: 70%;
@@ -2607,63 +2628,63 @@ nav .menu .last {
   margin-top: -3.5em;
   margin-bottom: 0;
 }
-/* line 1973, ../sass/style.scss */
+/* line 1988, ../sass/style.scss */
 .view-id-salas_de_reunion .views-field-field-nid .colorbox-load {
   display: inline-block;
 }
 
 /*colorBox*/
-/* line 1983, ../sass/style.scss */
+/* line 1998, ../sass/style.scss */
 .page-calendar-room #admin-menu, .node-type-event #admin-menu {
   display: none;
 }
-/* line 1984, ../sass/style.scss */
+/* line 1999, ../sass/style.scss */
 .page-calendar-room #content-wrapper, .node-type-event #content-wrapper {
   margin: 0;
   float: none;
   width: 100%;
   top: 0;
 }
-/* line 1989, ../sass/style.scss */
+/* line 2004, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content, .node-type-event #content-wrapper #content {
   border: none;
   float: none;
   width: 100%;
   top: 0;
 }
-/* line 1995, ../sass/style.scss */
+/* line 2010, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content .view-header .date-nav, .node-type-event #content-wrapper #content .view-header .date-nav {
   margin: 0;
   padding: 0;
 }
-/* line 1999, ../sass/style.scss */
+/* line 2014, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content .view-header .pager, .node-type-event #content-wrapper #content .view-header .pager {
   display: none;
 }
-/* line 2001, ../sass/style.scss */
+/* line 2016, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content .view-content, .node-type-event #content-wrapper #content .view-content {
   height: 29em;
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 2005, ../sass/style.scss */
+/* line 2020, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content .view-content #single-day-container, .node-type-event #content-wrapper #content .view-content #single-day-container {
   height: 27.5em;
 }
-/* line 2007, ../sass/style.scss */
+/* line 2022, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content .view-footer, .node-type-event #content-wrapper #content .view-footer {
   clear: both;
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #666666;
 }
-/* line 2021, ../sass/style.scss */
+/* line 2036, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner {
   display: block;
   opacity: 1;
   width: 100%;
 }
-/* line 2025, ../sass/style.scss */
+/* line 2040, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview {
   width: 5% !important;
   padding: 0;
@@ -2671,17 +2692,17 @@ nav .menu .last {
   float: left;
   position: relative;
 }
-/* line 2031, ../sass/style.scss */
+/* line 2046, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview .views-field-field-fecha, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview .views-field-field-fecha {
   opacity: 0;
 }
-/* line 2032, ../sass/style.scss */
+/* line 2047, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview *, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview * {
   margin: 0;
   padding: 0;
   position: static;
 }
-/* line 2037, ../sass/style.scss */
+/* line 2052, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a, .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a:link, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a:link {
   background: #666666;
   text-indent: -5000px;
@@ -2694,105 +2715,105 @@ nav .menu .last {
   cursor: pointer;
   z-index: 999;
 }
-/* line 2048, ../sass/style.scss */
+/* line 2063, ../sass/style.scss */
 .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a:hover, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a:hover, .page-calendar-room #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a:link:hover, .node-type-event #content-wrapper #content #single-day-container .calendar-agenda-items .inner .dayview a:link:hover {
   background: #dddddd;
 }
-/* line 2055, ../sass/style.scss */
+/* line 2070, ../sass/style.scss */
 .page-calendar-room #content-wrapper .date-heading, .node-type-event #content-wrapper .date-heading {
   text-align: left;
 }
-/* line 2057, ../sass/style.scss */
+/* line 2072, ../sass/style.scss */
 .page-calendar-room #cboxContent, .node-type-event #cboxContent {
   -webkit-box-shadow: #333333 2px 2px 10px;
   -moz-box-shadow: #333333 2px 2px 10px;
   box-shadow: #333333 2px 2px 10px;
 }
-/* line 2060, ../sass/style.scss */
+/* line 2075, ../sass/style.scss */
 .page-calendar-room .node-room-event, .node-type-event .node-room-event {
   padding: 1em;
   background: white;
 }
-/* line 2063, ../sass/style.scss */
+/* line 2078, ../sass/style.scss */
 .page-calendar-room .node-room-event .user-picture, .node-type-event .node-room-event .user-picture {
   display: none;
 }
-/* line 2067, ../sass/style.scss */
+/* line 2082, ../sass/style.scss */
 .page-calendar-room header, .node-type-event header,
 .page-calendar-room .s_title_page,
 .node-type-event .s_title_page {
   display: none;
 }
-/* line 2069, ../sass/style.scss */
+/* line 2084, ../sass/style.scss */
 .page-calendar-room .view-id-paneador .view-content, .node-type-event .view-id-paneador .view-content {
   height: 29em;
   overflow: hidden;
   margin-bottom: 1em;
 }
-/* line 2074, ../sass/style.scss */
+/* line 2089, ../sass/style.scss */
 .page-calendar-room .view-id-paneador .view-footer, .node-type-event .view-id-paneador .view-footer {
   text-align: right;
   clear: both;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 2083, ../sass/style.scss */
+/* line 2098, ../sass/style.scss */
 .page-calendar-room #ob-room-denegate, .node-type-event #ob-room-denegate {
   color: #1f3264;
   font-size: 1.3em;
   font-family: "futuraB";
 }
-/* line 2087, ../sass/style.scss */
+/* line 2102, ../sass/style.scss */
 .page-calendar-room #ob-room-denegate .form-type-textarea, .node-type-event #ob-room-denegate .form-type-textarea {
   margin: 0.5em 0;
   color: #666666;
   font-family: "futuraM";
   font-weight: normal;
 }
-/* line 2093, ../sass/style.scss */
+/* line 2108, ../sass/style.scss */
 .page-calendar-room #ob-room-denegate #edit-responce, .node-type-event #ob-room-denegate #edit-responce {
   float: right;
 }
 
-/* line 2103, ../sass/style.scss */
+/* line 2118, ../sass/style.scss */
 .node-type-event #content-wrapper #content {
   padding-top: 0em;
 }
-/* line 2105, ../sass/style.scss */
+/* line 2120, ../sass/style.scss */
 .node-type-event .tabs {
   margin-bottom: 1em;
 }
-/* line 2108, ../sass/style.scss */
+/* line 2123, ../sass/style.scss */
 .node-type-event .tabs li {
   display: none;
 }
-/* line 2110, ../sass/style.scss */
+/* line 2125, ../sass/style.scss */
 .node-type-event .tabs li:first-child,
 .node-type-event .tabs li:nth-child(2) {
   display: inline-block;
 }
-/* line 2112, ../sass/style.scss */
+/* line 2127, ../sass/style.scss */
 .node-type-event .view-mode-full {
   position: relative;
   margin-right: 1.5em;
 }
-/* line 2115, ../sass/style.scss */
+/* line 2130, ../sass/style.scss */
 .node-type-event .view-mode-full .field {
   margin-bottom: 0.5em;
 }
-/* line 2116, ../sass/style.scss */
+/* line 2131, ../sass/style.scss */
 .node-type-event .view-mode-full .field-name-delete {
   position: absolute;
   top: 0;
   right: -1.5em;
 }
-/* line 2120, ../sass/style.scss */
+/* line 2135, ../sass/style.scss */
 .node-type-event .view-mode-full .field-name-delete a, .node-type-event .view-mode-full .field-name-delete a:link {
   padding: 0.5em;
   background: #f9bd14;
   color: black;
 }
-/* line 2127, ../sass/style.scss */
+/* line 2142, ../sass/style.scss */
 .node-type-event .node-event-form {
   margin: 0;
   padding: 0;
@@ -2801,118 +2822,118 @@ nav .menu .last {
   overflow-y: auto;
   border-bottom: none;
 }
-/* line 2136, ../sass/style.scss */
+/* line 2151, ../sass/style.scss */
 .node-type-event .confirmation .form-actions {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 2138, ../sass/style.scss */
+/* line 2153, ../sass/style.scss */
 .node-type-event .confirmation .form-actions input {
   float: left;
 }
-/* line 2142, ../sass/style.scss */
+/* line 2157, ../sass/style.scss */
 .node-type-event .confirmation .form-actions a, .node-type-event .confirmation .form-actions a:link {
   float: right;
 }
 
-/* line 2152, ../sass/style.scss */
+/* line 2167, ../sass/style.scss */
 .node-type-room-event header,
 .node-type-room-event #admin-menu {
   display: none;
 }
-/* line 2153, ../sass/style.scss */
+/* line 2168, ../sass/style.scss */
 .node-type-room-event #content-wrapper {
   position: static;
   top: 0;
   float: none;
   width: 100%;
 }
-/* line 2158, ../sass/style.scss */
+/* line 2173, ../sass/style.scss */
 .node-type-room-event #content-wrapper #content {
   float: none;
   width: 100%;
   padding: 0 1em;
   margin: 0;
 }
-/* line 2163, ../sass/style.scss */
+/* line 2178, ../sass/style.scss */
 .node-type-room-event #content-wrapper #content .s_title_page {
   float: none;
   width: 90%;
 }
-/* line 2168, ../sass/style.scss */
+/* line 2183, ../sass/style.scss */
 .node-type-room-event #content-wrapper #content .node-room-event .user-picture {
   display: none;
 }
-/* line 2169, ../sass/style.scss */
+/* line 2184, ../sass/style.scss */
 .node-type-room-event #content-wrapper #content .node-room-event .submitted {
   clear: both;
 }
 
 /*==end==*/
 /*menu*/
-/* line 2180, ../sass/style.scss */
+/* line 2195, ../sass/style.scss */
 #block-menu-menu-casino-menu {
   clear: both;
   margin-bottom: 1em;
 }
-/* line 2184, ../sass/style.scss */
+/* line 2199, ../sass/style.scss */
 #block-menu-menu-casino-menu .leaf {
   display: inline-block;
   list-style: none;
   margin: 0;
 }
-/* line 2188, ../sass/style.scss */
+/* line 2203, ../sass/style.scss */
 #block-menu-menu-casino-menu .leaf a, #block-menu-menu-casino-menu .leaf a:link {
   background: #dddddd;
 }
-/* line 2193, ../sass/style.scss */
+/* line 2208, ../sass/style.scss */
 #block-menu-menu-casino-menu .active-trail a, #block-menu-menu-casino-menu .active-trail a:link {
   background: white;
 }
 
-/* line 2199, ../sass/style.scss */
+/* line 2214, ../sass/style.scss */
 .view-menu-reuniones .views-row {
   margin-bottom: 1em;
 }
-/* line 2201, ../sass/style.scss */
+/* line 2216, ../sass/style.scss */
 .view-menu-reuniones .views-row .views-field-title {
   font-family: "futuraB";
   margin-bottom: 0.3em;
 }
 
-/* line 2207, ../sass/style.scss */
+/* line 2222, ../sass/style.scss */
 .field-name-field-menu-casino {
   margin-top: 1em;
 }
-/* line 2209, ../sass/style.scss */
+/* line 2224, ../sass/style.scss */
 .field-name-field-menu-casino .field-label {
   margin-bottom: 0.5em;
   font-size: 1.3em;
 }
-/* line 2213, ../sass/style.scss */
+/* line 2228, ../sass/style.scss */
 .field-name-field-menu-casino .field-item {
   clear: both;
   margin-bottom: 0.3em;
 }
-/* line 2216, ../sass/style.scss */
+/* line 2231, ../sass/style.scss */
 .field-name-field-menu-casino .field-item .field-name-field-menu-part {
   display: inline-block;
   margin-right: 0.5em;
   font-family: "futuraB";
 }
-/* line 2221, ../sass/style.scss */
+/* line 2236, ../sass/style.scss */
 .field-name-field-menu-casino .field-item .field-name-field-menu-part-desc {
   display: inline-block;
 }
 
 /*==end==*/
 /*reportes*/
-/* line 2230, ../sass/style.scss */
+/* line 2245, ../sass/style.scss */
 #ob-polls-reports-form {
   clear: both;
   text-align: center;
 }
-/* line 2233, ../sass/style.scss */
+/* line 2248, ../sass/style.scss */
 #ob-polls-reports-form .form-item {
   display: inline-block;
   *display: inline-block;
@@ -2923,17 +2944,17 @@ nav .menu .last {
   margin-right: -5px;
   width: 47%;
 }
-/* line 2242, ../sass/style.scss */
+/* line 2257, ../sass/style.scss */
 #ob-polls-reports-form .form-item select {
   border: 1px solid #dddddd;
 }
-/* line 2244, ../sass/style.scss */
+/* line 2259, ../sass/style.scss */
 #ob-polls-reports-form .form-submit {
   display: inline-block;
   margin-top: 1em;
 }
 
-/* line 2251, ../sass/style.scss */
+/* line 2266, ../sass/style.scss */
 .page-node-305 .region-content {
   clear: both;
   text-align: center;
@@ -2945,11 +2966,11 @@ nav .menu .last {
 
 /*==end==*/
 /*documentos*/
-/* line 2264, ../sass/style.scss */
+/* line 2279, ../sass/style.scss */
 #quicktabs-certificates {
   clear: both;
 }
-/* line 2271, ../sass/style.scss */
+/* line 2286, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form .form-item-years,
 #quicktabs-certificates .quicktabs-tabpage form #s_month,
 #quicktabs-certificates .quicktabs-tabpage form #s_year {
@@ -2957,7 +2978,7 @@ nav .menu .last {
   width: 45%;
   margin-left: 2em;
 }
-/* line 2275, ../sass/style.scss */
+/* line 2290, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form .form-item-years select,
 #quicktabs-certificates .quicktabs-tabpage form #s_month select,
 #quicktabs-certificates .quicktabs-tabpage form #s_year select {
@@ -2965,56 +2986,56 @@ nav .menu .last {
   margin: 0;
   border: 1px solid #dddddd;
 }
-/* line 2281, ../sass/style.scss */
+/* line 2296, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form #s_submit {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
   text-align: center;
 }
-/* line 2285, ../sass/style.scss */
+/* line 2300, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage form #s_submit input {
   display: inline-block;
 }
-/* line 2291, ../sass/style.scss */
+/* line 2306, ../sass/style.scss */
 #quicktabs-certificates .quicktabs-tabpage a, #quicktabs-certificates .quicktabs-tabpage a:link {
   margin-top: 2em;
   display: inline-block;
 }
-/* line 2298, ../sass/style.scss */
+/* line 2313, ../sass/style.scss */
 #quicktabs-certificates #ob-certificates-type-form .form-submit {
   display: inline-block;
 }
-/* line 2303, ../sass/style.scss */
+/* line 2318, ../sass/style.scss */
 #quicktabs-certificates .s_previsual {
   margin: 3em 0 0 0;
 }
-/* line 2305, ../sass/style.scss */
+/* line 2320, ../sass/style.scss */
 #quicktabs-certificates .s_previsual h3 {
   text-align: center;
 }
 
 /*==end==*/
 /*colorBox*/
-/* line 2312, ../sass/style.scss */
+/* line 2327, ../sass/style.scss */
 #colorbox {
   z-index: 100;
 }
-/* line 2314, ../sass/style.scss */
+/* line 2329, ../sass/style.scss */
 #colorbox #page-title {
   display: none;
 }
-/* line 2315, ../sass/style.scss */
+/* line 2330, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 {
   background: white;
   display: block;
   padding: 1em;
 }
-/* line 2319, ../sass/style.scss */
+/* line 2334, ../sass/style.scss */
 #colorbox #block-views-directorio-block-1 h2 {
   margin-top: 0;
   color: #1f3264;
 }
-/* line 2324, ../sass/style.scss */
+/* line 2339, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 {
   overflow: hidden;
   *zoom: 1;
@@ -3022,76 +3043,76 @@ nav .menu .last {
   margin: 0;
   padding: 0;
 }
-/* line 2329, ../sass/style.scss */
+/* line 2344, ../sass/style.scss */
 #colorbox #views-exposed-form-directorio-block-1 .views-exposed-widgets {
   margin: 0;
   float: right;
 }
-/* line 2334, ../sass/style.scss */
+/* line 2349, ../sass/style.scss */
 #colorbox .view-id-directorio {
   margin: 0;
   background: white;
   padding: 0;
 }
-/* line 2338, ../sass/style.scss */
+/* line 2353, ../sass/style.scss */
 #colorbox .view-id-directorio .view-filters {
   top: -3.2em;
 }
-/* line 2339, ../sass/style.scss */
+/* line 2354, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row {
   min-height: 0;
   font-size: 75%;
 }
-/* line 2343, ../sass/style.scss */
+/* line 2358, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-nothing .s_user_name {
   margin-top: 0.3em;
 }
-/* line 2344, ../sass/style.scss */
+/* line 2359, ../sass/style.scss */
 #colorbox .view-id-directorio .views-row .views-field-uid {
   text-indent: -5000px;
 }
-/* line 2346, ../sass/style.scss */
+/* line 2361, ../sass/style.scss */
 #colorbox .view-id-directorio .active {
   opacity: 0.4;
 }
-/* line 2349, ../sass/style.scss */
+/* line 2364, ../sass/style.scss */
 #colorbox .view-id-directorio > .view-content {
   padding-top: 0.5em;
   border-top: 1px solid #dddddd;
 }
-/* line 2353, ../sass/style.scss */
+/* line 2368, ../sass/style.scss */
 #colorbox .view-id-directorio .view-footer {
   text-align: right;
   padding-top: 1em;
   border-top: 1px solid #dddddd;
 }
-/* line 2359, ../sass/style.scss */
+/* line 2374, ../sass/style.scss */
 #colorbox .s_submit {
   display: inline-block;
 }
-/* line 2364, ../sass/style.scss */
+/* line 2379, ../sass/style.scss */
 #colorbox .confirmation {
   background: white;
   padding: 1em;
 }
-/* line 2367, ../sass/style.scss */
+/* line 2382, ../sass/style.scss */
 #colorbox .confirmation .form-actions {
   text-align: center;
 }
-/* line 2369, ../sass/style.scss */
+/* line 2384, ../sass/style.scss */
 #colorbox .confirmation .form-actions .form-submit {
   display: inline-block;
   padding: 0.36em 1em;
   vertical-align: top;
   margin: 0 1em 0 0;
 }
-/* line 2376, ../sass/style.scss */
+/* line 2391, ../sass/style.scss */
 #colorbox .confirmation .form-actions #edit-cancel {
   display: inline-block;
   vertical-align: top;
   margin: 0;
 }
-/* line 2385, ../sass/style.scss */
+/* line 2400, ../sass/style.scss */
 #colorbox .view-id-home_publications .jspPane {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -3099,38 +3120,38 @@ nav .menu .last {
   padding-right: 1.5em !important;
   width: 100% !important;
 }
-/* line 2391, ../sass/style.scss */
+/* line 2406, ../sass/style.scss */
 #colorbox .node-event {
   padding: 0 1em;
 }
-/* line 2393, ../sass/style.scss */
+/* line 2408, ../sass/style.scss */
 #colorbox .node-event .field {
   margin-bottom: 0.5em;
 }
-/* line 2395, ../sass/style.scss */
+/* line 2410, ../sass/style.scss */
 #colorbox header {
   display: none;
 }
-/* line 2396, ../sass/style.scss */
+/* line 2411, ../sass/style.scss */
 #colorbox #content-wrapper {
   margin: 0 auto;
   float: none;
   position: static;
   padding: 1em 0;
 }
-/* line 2401, ../sass/style.scss */
+/* line 2416, ../sass/style.scss */
 #colorbox #content-wrapper #content {
   width: 100%;
   padding: 0;
   border: none;
 }
-/* line 2407, ../sass/style.scss */
+/* line 2422, ../sass/style.scss */
 #colorbox iframe {
   height: 100%;
   width: 100%;
 }
 
-/* line 2412, ../sass/style.scss */
+/* line 2427, ../sass/style.scss */
 #cboxLoadedContent {
   background: white;
 }

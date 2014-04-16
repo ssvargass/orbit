@@ -1603,7 +1603,6 @@ nav {
 		}
 		tbody {
 			td { 
-				border: 1px solid $orbit-gray-light;
 				position: relative;
 				.s_ind_content_color {
 					@include box-sizing(border-box);
@@ -1624,6 +1623,21 @@ nav {
 					}
 				}
 			}
+			/*.multi-day {
+				.monthview {
+					width: auto;
+					.cutoff { display: none;}
+					.contents {
+						width: auto;
+						a, a:link {
+							text-indent: -5000px;
+							display: block;
+							width: 1.5em;
+						}
+					}
+				}
+			}*/
+			.multi-day,
 			.single-day {
 				.inner { 
 					display: none;
@@ -1667,6 +1681,7 @@ nav {
 .page-calendar-day,
 .page-calendar-week {
 	#content .calendar-calendar {
+		.multi-day,
 		.single-day {
 			.inner {
 				display: block;
