@@ -154,7 +154,6 @@
       if($('.view-salas-event').length > 0){
         left = 0;
         $('.calendar-agenda-items').each(function(){
-          
             $('.inner > div',this).each(function(){
               $(this).css('margin-left',left);
               left += 25;
@@ -201,6 +200,11 @@
 
       $('.view-paneador .view-content td.single-day').each(
         function(){
+          $(this).hidde_cal()
+        }
+      );
+       $('.view-paneador .view-content td.multi-day').each(
+        function(){
           $ (this).hidde_cal()
         }
       );
@@ -227,7 +231,7 @@
   $.fn.hidde_cal = function() {
     clases = new Array();
     $('.view-item-paneador',this).each(function(){
-      var clase = $('.views-field-php .s_colortype', this).attr('class');
+      var clase = $('.s_colortype', this).attr('class');
       clase = clase.replace('s_colortype ','');
       clases.push(clase);
     })
