@@ -205,7 +205,7 @@
       );
        $('.view-paneador .view-content td.multi-day').each(
         function(){
-          $ (this).hidde_cal()
+          //$(this).hidde_cal()
         }
       );
       $('.view-home-publications .views-row').each(function(){
