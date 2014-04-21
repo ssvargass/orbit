@@ -545,6 +545,7 @@ fieldset {
 		height: 100%;
 		width: 100%;
 	}
+	.s-color_cierre_nómina,
 	.s-color_cierre_nomina {
 		background: #BD9C69;
 		height: 100%;
@@ -1602,6 +1603,38 @@ nav {
 			color: white
 		}
 		tbody {
+			.multi-day {
+				height: 3.5em;
+				.multi-day {
+					top: -2em;
+					left: 0em;
+					.inner {
+						position: absolute;
+						width: 70%;
+						.cutoff { display: none;}
+						.contents {
+							left: 0;
+							top: 0;
+							width: 100%;
+							a, a:link {
+								color: white;
+								display: block;
+								z-index: 5;
+								padding-left: 0.5em;
+								position: relative;
+								font-weight: normal;
+							}
+							span {display: none;}
+							.s_colortype {
+								position: absolute;
+								top: 0;
+								left: 0;
+								z-index: 1;
+							}
+						}
+					}
+				}
+			}
 			td { 
 				position: relative;
 				.s_ind_content_color {
@@ -1623,27 +1656,12 @@ nav {
 					}
 				}
 			}
-			/*.multi-day {
-				.monthview {
-					width: auto;
-					.cutoff { display: none;}
-					.contents {
-						width: auto;
-						a, a:link {
-							text-indent: -5000px;
-							display: block;
-							width: 1.5em;
-						}
-					}
-				}
-			}*/
-			.multi-day,
 			.single-day {
 				.inner { 
 					display: none;
 					opacity: 0;
 					position: absolute;
-				}
+				}	
 			}
 		}
 		.date-box .date-box {
