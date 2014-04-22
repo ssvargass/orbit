@@ -264,7 +264,7 @@ function ob_room_cron_queue_info() {
   ); 
   return $queues; 
 }
-
+//2014-04-03T14:00:00
 /** * Implementation of hook_cron() */
 function ob_room_cron() { 
   // Put everything in a queue for processing. 
@@ -282,9 +282,25 @@ function ob_room_cron() {
 
 /** * Worker Callback for the runner cron queue. */ 
 function _ob_boletin($item) {
-  ob_room_send_mail($item['mail'], 'prueba', 'funciona');
+  $inicio = date('Y-m-d').'T00:00:00';
+  $fin = date('Y-m-d').'T23:59:59';
+  $nodeQuery = new EntityFieldQuery();
+  $nodes = $nodeQuery->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'event')
+    ->propertyCondition('status', 1)
+    ->propertyCondition('uid', $item['uid'])
+    ->fieldCondition('field_fecha', 'value', array($inicio,$fin),'BETWEEN')
+    ->execute();
+  if(count($nodes) > 0){
+    $output = 'A continuación se listan los eventos del dia de hoy<br>';
+    foreach ($nodes['node'] as $key => $value) {
+      $node = node_load($value->nid);
+      $output .= '<br>'.$node->title.':'.$node->field_fecha['und'][0]['value'] . ' - ' $node->field_fecha['und'][0]['value2'];
+    }
+  } else {
+    $output = 'No se encontraron eventos para el dia, lo invitamos a utilizar el planeador de Orbit, una herramienta pensada para usted.';
+  }
+  ob_room_send_mail($item['mail'], 'Eventos del dia ' . date('Y-m-d'), $output);
 }
-
-
 
 ?>
