@@ -554,6 +554,13 @@ function ob_certificates_print_certificate($type){
   $personal['firma_cargo'] = variable_get('ob_firma_cargo','');
   $personal['firma_addi'] = variable_get('ob_firma_addi','');
 
+  if($personal['SEXO'] == 'M'){
+    $personal['antecede'] = 'El señor';
+    $personal['ident'] = 'identificado';
+  } else {
+    $personal['antecede'] = 'La señora';
+    $personal['ident'] = 'identificada';
+  }
   $html = theme('certificado_'.$type, array(
     'personal' => $personal, 
   ));

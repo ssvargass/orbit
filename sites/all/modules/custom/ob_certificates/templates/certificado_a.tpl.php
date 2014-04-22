@@ -1,7 +1,7 @@
 <h3 class="cer_titulo"><br><br><br><br><?php print $personal['NOMBRE_EMPRESA'] ?></h3>
 <h3 class="cer_titulo2">CERTIFICA QUE</h3>
 <p>
-La señora <?php print $personal['NOMBRES_COMPLETOS'] ?> indentificada con cedula de ciudadanía No. 
+<?php print $personal['antecede'] ?> <?php print $personal['NOMBRES_COMPLETOS'] ?> <?php print $personal['ident'] ?> con cedula de ciudadanía No. 
 <?php print $personal['EMPLEADO'] ?> labora en esta compañía desde el <?php print $personal['dia'] ?> 
 de <?php print $personal['mes'] ?> de  <?php print $personal['ano'] ?> 
 desempeñando en la actualidad el cargo de <?php print trim($personal['NOMBRE_CARGO']) ?>, con
