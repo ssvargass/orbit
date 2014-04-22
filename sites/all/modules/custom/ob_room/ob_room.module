@@ -252,4 +252,39 @@ function ob_room_send_mail($email, $subject, $body){
 }
 
 
+
+
+/** * Implementation of hook_cron_queue_info() */ 
+function ob_room_batch_cron_queue_info() { 
+  $queues['ob_boletin'] = array(
+    'worker callback' => '_ob_boletin', 
+    // This is the callback function for each queue item. 
+    'time' => 60, 
+    // This is the max run time per cron run in seconds. 
+  ); 
+  return $queues; 
+}
+
+/** * Implementation of hook_cron() */
+function ob_room_batch_cron() { 
+  // Put everything in a queue for processing. 
+  $queue = DrupalQueue::get('ob_boletin');
+
+  $result = db_select('users', 'u')
+    ->fields('u')
+    ->condition('status', 1,'=')
+    ->execute();
+  
+  while($record = $result->fetchAssoc()) {
+    $queue->createItem($record);
+  }
+}
+
+/** * Worker Callback for the runner cron queue. */ 
+function _ob_boletin($item) {
+  ob_room_send_mail($item['mail'], 'prueba', 'funciona');
+}
+
+
+
 ?>
