@@ -248,7 +248,7 @@ function ob_room_send_mail($email, $subject, $body){
   // Format the message body.
   $message = $system->format($message);
   // Send e-mail.
-  $system->mail($message);
+  $message['result'] =  $system->mail($message);
 }
 
 
