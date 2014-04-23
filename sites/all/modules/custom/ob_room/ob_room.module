@@ -301,16 +301,20 @@ function _ob_boletin($item) {
     ->execute();
 
 
-  if(count($nodes) > 0 || count($event)){
+  if(count($nodes) > 0 || count($event) > 0){
     $output = 'A continuación se listan los eventos del dia de hoy<br>';
-    foreach ($nodes['node'] as $key => $value) {
-      $node = node_load($value->nid);
-      $output .= '<br>'.$node->title.':'.$node->field_fecha['und'][0]['value'] . ' - ' . $node->field_fecha['und'][0]['value2'];
+    if(count($nodes) > 0){
+      foreach ($nodes['node'] as $key => $value) {
+        $node = node_load($value->nid);
+        $output .= '<br>'.$node->title.':'.$node->field_fecha['und'][0]['value'] . ' - ' . $node->field_fecha['und'][0]['value2'];
+      }
     }
 
-    foreach ($event['node'] as $key => $value) {
-      $node = node_load($value->nid);
-      $output .= '<br>'.$node->title.':'.$node->field_fecha['und'][0]['value'] . ' - ' . $node->field_fecha['und'][0]['value2'];
+    if(count($event) > 0){
+      foreach ($event['node'] as $key => $value) {
+        $node = node_load($value->nid);
+        $output .= '<br>'.$node->title.':'.$node->field_fecha['und'][0]['value'] . ' - ' . $node->field_fecha['und'][0]['value2'];
+      }
     }
   } else {
     $output = 'No se encontraron eventos para el dia, lo invitamos a utilizar el planeador de Orbit, una herramienta pensada para usted.';
