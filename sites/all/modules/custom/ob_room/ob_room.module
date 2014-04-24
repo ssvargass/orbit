@@ -316,11 +316,8 @@ function _ob_boletin($item) {
         $output .= '<br>'.$node->title.':'.$node->field_fecha['und'][0]['value'] . ' - ' . $node->field_fecha['und'][0]['value2'];
       }
     }
-  } else {
-    $output = 'No se encontraron eventos para el dia, lo invitamos a utilizar el planeador de Orbit, una herramienta pensada para usted.';
-  }
-  
-  ob_room_send_mail($item['mail'], 'Eventos del dia ' . date('Y-m-d'), $output);
+    ob_room_send_mail($item['mail'], 'Eventos del dia ' . date('Y-m-d'), $output);
+  } 
 }
 
 ?>
