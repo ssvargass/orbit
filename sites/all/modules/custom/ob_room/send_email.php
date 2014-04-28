@@ -2,8 +2,10 @@
 
 function sendCalEntry($to, $subject, $node){
 
- 	$tsStart = $node->field_fecha['und'][0]['value'];
- 	$tsEnd = $node->field_fecha['und'][0]['value2'];
+ 	//$tsStart = $node->field_fecha['und'][0]['value'];
+ 	//$tsEnd = $node->field_fecha['und'][0]['value2'];
+	$tsStart = '2014-04-11 12:00:00';
+ 	$tsEnd = '2014-04-11 13:00:00';
  	$location = '';
  	$summary = '';
  	$title = $node->title;
