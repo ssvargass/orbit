@@ -204,7 +204,7 @@ function ob_room_node_submit($node, $form, &$form_state){
       'node' => $node, 
     ));*/
 
-    sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
+    sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title);
 
   } else if($node->type == 'room_event'){
     $creador = $node->uid;
