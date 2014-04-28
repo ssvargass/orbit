@@ -340,7 +340,7 @@ function sendCalEntry($to, $subject, $node){
   $todaystamp = gmdate("Ymd\THis\Z");
   $loc = $location;
 
-  /*$vcal = "BEGIN:VCALENDAR\r\n";
+  $vcal = "BEGIN:VCALENDAR\r\n";
   $vcal .= "VERSION:2.0\r\n";
   $vcal .= "PRODID:-//nonstatics.com//OrgCalendarWebTool//EN\r\n";
   $vcal .= "METHOD:REQUEST\r\n";
@@ -359,9 +359,9 @@ function sendCalEntry($to, $subject, $node){
   $vcal .= "DESCRIPTION:Reminder\r\n";
   $vcal .= "END:VALARM\r\n";
   $vcal .= "END:VEVENT\r\n";
-  $vcal .= "END:VCALENDAR\r\n";*/
+  $vcal .= "END:VCALENDAR\r\n";
 
-  $vcal = "BEGIN:VCALENDAR
+  /*$vcal = "BEGIN:VCALENDAR
 PRODID:-//Drupal//iCal file//EN
 VERSION:2.0
 METHOD:PUBLISH
@@ -377,7 +377,7 @@ UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n".
 //"CREATED:"%node-ical-created
 //"LAST-MODIFIED:"%node-ical-last-modified
 "END:VEVENT
-END:VCALENDAR";
+END:VCALENDAR";*/
  
 
   $module = 'notifications';
