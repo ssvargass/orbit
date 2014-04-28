@@ -1,6 +1,6 @@
 <?php
 
-function sendCalEntry($to, $subject){
+function sendCalEntry($to){
  	$tsStart = '2014-04-11 12:00:00';
  	$tsEnd = '2014-04-11 13:00:00';
  	$location = '';
@@ -8,7 +8,7 @@ function sendCalEntry($to, $subject){
  	$title = 'Ejemplo';
  	$resources = '';
  	//$to = 'sergio.svargass@gmail.com';
- 	//$subject = 'ejemplo envio 1';
+ 	$subject = 'ejemplo envio 1';
 
 	$meetingstamp = strtotime($tsStart . " COT");    
 	$meetingstampb = strtotime($tsEnd . " COT");     
