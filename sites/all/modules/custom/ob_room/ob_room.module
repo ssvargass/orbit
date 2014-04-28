@@ -203,7 +203,7 @@ function ob_room_node_submit($node, $form, &$form_state){
     ));*/
 
     //sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
-    sendCalEntry($creador->mail);
+    sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title);
 
   } else if($node->type == 'room_event'){
     $creador = $node->uid;
@@ -324,7 +324,7 @@ function _ob_boletin($item) {
 }
 
 
-function sendCalEntry($to){
+function sendCalEntry($to, $subject){
   $tsStart = '2014-04-11 12:00:00';
   $tsEnd = '2014-04-11 13:00:00';
   $location = '';
@@ -390,8 +390,8 @@ END:VCALENDAR";
 
   $message = drupal_mail($module, $key, $to ,$language, $params, $from, $send);
 
-  /*$message['subject'] = $subject;
-  $message['headers']['Content-Type'] = 'text/calendar';
+  $message['subject'] = $subject;
+  /*$message['headers']['Content-Type'] = 'text/calendar';
   $message['headers']['name'] = 'calendar.ics';
   $message['headers']['method'] = 'REQUEST';
   $message['headers']['charset'] = 'UTF-8';
