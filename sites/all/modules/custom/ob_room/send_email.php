@@ -1,6 +1,6 @@
 <?php
 
-function sendCalEntry($to, $subject, $node){
+function sendCalEntry(){
 
  	//$tsStart = $node->field_fecha['und'][0]['value'];
  	//$tsEnd = $node->field_fecha['und'][0]['value2'];
