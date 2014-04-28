@@ -179,6 +179,10 @@ function _ob_room_callback_delete($form, $form_state) {
 
 function ob_room_node_submit($node, $form, &$form_state){
   if($node->type == 'event'){
+    $path = drupal_get_path('module', 'ob_room') . '/send_email.php';
+    include($path);
+    sendCalEntry();
+
     $creador = $node->uid;
     $creador = user_load($creador);
     $invitados = $node->field_invitados['und'];
@@ -197,13 +201,13 @@ function ob_room_node_submit($node, $form, &$form_state){
       ob_room_send_mail($value->mail, t('Ha sido invitado al evento ') . $node->title, $invitado);
     }
 
-    $author = theme('author', array(
+    /*$author = theme('author', array(
       'node' => $node, 
-    ));
+    ));*/
 
-    ob_room_send_mail($creador->mail, t('Ha creado el evento ') . $node->title, $author);
+    sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
+
   } else if($node->type == 'room_event'){
-    $_SESSION['custom'] = $node;
     $creador = $node->uid;
     $creador = user_load($creador);
     $invitados = $node->field_invitados['und'];
@@ -228,6 +232,7 @@ function ob_room_node_submit($node, $form, &$form_state){
     
     $administrator = variable_get('ob_room_mail');
     ob_room_send_mail($administrator, t('Ha generado la solicitud ') . $node->title, $solicitud);
+
   }
 
 }
