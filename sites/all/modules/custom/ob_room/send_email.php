@@ -39,22 +39,22 @@ function sendCalEntry($to, $subject){
 	$vcal .= "END:VCALENDAR\r\n";*/
 
 	$vcal = "BEGIN:VCALENDAR
-PRODID:-//Drupal//iCal file//EN
-VERSION:2.0
-METHOD:PUBLISH
-BEGIN:VEVENT
-UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n".
-"DTSTAMP:".date('Ymd').'T'.date('His')."\r\n".
-"DTSTART:" . $dtstart ."\r\n".
-"DTEND:". $dtend ."\r\n".
-//%node-ical-rrule
-"SUMMARY:". $summary ."\r\n".
-"DESCRIPTION:Hinweis/Fahrer:$summary - Folgende Resourcen wurden gebucht: $resources \r\n".
-//"URL:"%node-ical-url
-//"CREATED:"%node-ical-created
-//"LAST-MODIFIED:"%node-ical-last-modified
-"END:VEVENT
-END:VCALENDAR";
+	PRODID:-//Drupal//iCal file//EN
+	VERSION:2.0
+	METHOD:PUBLISH
+	BEGIN:VEVENT
+	UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n".
+	"DTSTAMP:".date('Ymd').'T'.date('His')."\r\n".
+	"DTSTART:" . $dtstart ."\r\n".
+	"DTEND:". $dtend ."\r\n".
+	//%node-ical-rrule
+	"SUMMARY:". $summary ."\r\n".
+	"DESCRIPTION:Hinweis/Fahrer:$summary - Folgende Resourcen wurden gebucht: $resources \r\n".
+	//"URL:"%node-ical-url
+	//"CREATED:"%node-ical-created
+	//"LAST-MODIFIED:"%node-ical-last-modified
+	"END:VEVENT
+	END:VCALENDAR";
  
 
 	$module = 'notifications';
