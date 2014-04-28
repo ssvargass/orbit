@@ -10,8 +10,8 @@ function sendCalEntry(){
  	$to = 'sergio.svargass@gmail.com';
  	$subject = 'ejemplo envio 1';
 	
-	$meetingstamp = strtotime($tsStart . " UTC");    
-	$meetingstampb = strtotime($tsEnd . " UTC");     
+	$meetingstamp = strtotime($tsStart . " COT");    
+	$meetingstampb = strtotime($tsEnd . " COT");     
 	$dtstart= gmdate("Ymd\THis\Z",$meetingstamp);
 	$dtend= gmdate("Ymd\THis\Z",$meetingstampb);
 	$todaystamp = gmdate("Ymd\THis\Z");
