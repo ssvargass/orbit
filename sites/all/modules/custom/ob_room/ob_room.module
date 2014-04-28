@@ -202,7 +202,8 @@ function ob_room_node_submit($node, $form, &$form_state){
       'node' => $node, 
     ));*/
 
-    sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
+    //sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
+    sendCalEntry();
 
   } else if($node->type == 'room_event'){
     $creador = $node->uid;
@@ -322,15 +323,15 @@ function _ob_boletin($item) {
   } 
 }
 
-function sendCalEntry($to, $subject, $node){
+function sendCalEntry(){
   $tsStart = '2014-04-11 12:00:00';
   $tsEnd = '2014-04-11 13:00:00';
   $location = '';
   $summary = '';
   $title = 'Ejemplo';
   $resources = '';
-  //$to = 'sergio.svargass@gmail.com';
-  //$subject = 'ejemplo envio 1';
+  $to = 'sergio.svargass@gmail.com';
+  $subject = 'ejemplo envio 1';
 
   $meetingstamp = strtotime($tsStart . " COT");    
   $meetingstampb = strtotime($tsEnd . " COT");     
