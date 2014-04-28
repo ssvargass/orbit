@@ -192,10 +192,10 @@ function ob_room_node_submit($node, $form, &$form_state){
     $node->invitados = user_load_multiple($inv);
 
     foreach ($node->invitados as $key => $value) {
-      $invitado = theme('invitado', array(
+      /*$invitado = theme('invitado', array(
         'node' => $node, 
-      ));
-      ob_room_send_mail($value->mail, t('Ha sido invitado al evento ') . $node->title, $invitado);
+      ));*/
+      sendCalEntry($value->mail, t('Ha sido invitado al evento ') . $node->title, $node);
     }
 
     /*$author = theme('author', array(
@@ -215,20 +215,26 @@ function ob_room_node_submit($node, $form, &$form_state){
 
     $node->invitados = user_load_multiple($inv);
 
-    $author = theme('room_create', array(
+    foreach ($node->invitados as $key => $value) {
+      sendCalEntry($value->mail, t('Ha sido invitado a la reunión ') . $node->title, $node);
+    }
+
+
+   /* $author = theme('room_create', array(
       'node' => $node, 
-    ));
+    ));*/
 
     $node->sala = node_load($node->field_nid['und'][0]['value']);
     
-    ob_room_send_mail($creador->mail, t('Ha creado la solicitud ') . $node->title, $author);
+    sendCalEntry($creador->mail, t('Ha creado la solicitud ') . $node->title, $node);
+
 
     $solicitud = theme('room_administer', array(
       'node' => $node, 
     ));
     
     $administrator = variable_get('ob_room_mail');
-    ob_room_send_mail($administrator, t('Ha generado la solicitud ') . $node->title, $solicitud);
+    sendCalEntry($administrator, t('Ha generado la solicitud ') . $node->title, $node);
 
   }
 
@@ -332,7 +338,6 @@ function sendCalEntry($to, $subject, $node){
   $resources = '';
   //$to = 'sergio.svargass@gmail.com';
   //$subject = 'ejemplo envio 1';
-  dpm($node);
   $meetingstamp = strtotime($tsStart . " COT");    
   $meetingstampb = strtotime($tsEnd . " COT");     
   $dtstart= gmdate("Ymd\THis\Z",$meetingstamp);
