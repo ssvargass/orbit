@@ -179,9 +179,8 @@ function _ob_room_callback_delete($form, $form_state) {
 
 function ob_room_node_submit($node, $form, &$form_state){
   if($node->type == 'event'){
-    /*$path = drupal_get_path('module', 'ob_room') . '/send_email.php';
+    $path = drupal_get_path('module', 'ob_room') . '/send_email.php';
     include($path);
-    sendCalEntry();
 
     $creador = $node->uid;
     $creador = user_load($creador);
@@ -205,7 +204,7 @@ function ob_room_node_submit($node, $form, &$form_state){
       'node' => $node, 
     ));*/
 
-    //sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
+    sendCalEntry($creador->mail, t('Ha creado el evento ') . $node->title, $node);
 
   } else if($node->type == 'room_event'){
     $creador = $node->uid;
