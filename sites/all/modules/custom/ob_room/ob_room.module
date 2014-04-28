@@ -324,8 +324,8 @@ function _ob_boletin($item) {
 
 
 function sendCalEntry($to, $subject, $node){
-  $tsStart = '2014-04-11 12:00:00';
-  $tsEnd = '2014-04-11 13:00:00';
+  $tsStart = $node->field_fecha['und'][0]['value'];
+  $tsEnd = $node->field_fecha['und'][0]['value2']
   $location = '';
   $summary = '';
   $title = 'Ejemplo';
