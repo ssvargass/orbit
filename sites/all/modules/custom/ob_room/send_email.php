@@ -1,13 +1,13 @@
 <?php
 
-function sendCalEntry($to){
+function sendCalEntry(){
  	$tsStart = '2014-04-11 12:00:00';
  	$tsEnd = '2014-04-11 13:00:00';
  	$location = '';
  	$summary = '';
  	$title = 'Ejemplo';
  	$resources = '';
- 	//$to = 'sergio.svargass@gmail.com';
+ 	$to = 'sergio.svargass@gmail.com';
  	$subject = 'ejemplo envio 1';
 
 	$meetingstamp = strtotime($tsStart . " COT");    
@@ -39,22 +39,22 @@ function sendCalEntry($to){
 	$vcal .= "END:VCALENDAR\r\n";*/
 
 	$vcal = "BEGIN:VCALENDAR
-	PRODID:-//Drupal//iCal file//EN
-	VERSION:2.0
-	METHOD:PUBLISH
-	BEGIN:VEVENT
-	UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n".
-	"DTSTAMP:".date('Ymd').'T'.date('His')."\r\n".
-	"DTSTART:" . $dtstart ."\r\n".
-	"DTEND:". $dtend ."\r\n".
-	//%node-ical-rrule
-	"SUMMARY:". $summary ."\r\n".
-	"DESCRIPTION:Hinweis/Fahrer:$summary - Folgende Resourcen wurden gebucht: $resources \r\n".
-	//"URL:"%node-ical-url
-	//"CREATED:"%node-ical-created
-	//"LAST-MODIFIED:"%node-ical-last-modified
-	"END:VEVENT
-	END:VCALENDAR";
+PRODID:-//Drupal//iCal file//EN
+VERSION:2.0
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n".
+"DTSTAMP:".date('Ymd').'T'.date('His')."\r\n".
+"DTSTART:" . $dtstart ."\r\n".
+"DTEND:". $dtend ."\r\n".
+//%node-ical-rrule
+"SUMMARY:". $summary ."\r\n".
+"DESCRIPTION:Hinweis/Fahrer:$summary - Folgende Resourcen wurden gebucht: $resources \r\n".
+//"URL:"%node-ical-url
+//"CREATED:"%node-ical-created
+//"LAST-MODIFIED:"%node-ical-last-modified
+"END:VEVENT
+END:VCALENDAR";
  
 
 	$module = 'notifications';
