@@ -87,11 +87,11 @@ function ob_certificates_menu() {
     'access arguments' => array('access content'),
   );
 
-  $items['certificate/%/download'] = array(
+  $items['certificate/download/%'] = array(
     'title' => 'Download pdf',
     'description' => 'TCPDF usage.',
     'page callback' => 'ob_certificates_pdf',
-    'page arguments' => array(1),
+    'page arguments' => array(2),
     'access arguments' => array('access content'),
   );
 
@@ -175,17 +175,24 @@ function ob_tiket_print(){
 }
 
 function ob_certificates_type_form($form, $form_state){
+
+  $form['to'] = array(
+    '#prefix' => '<div id="s_to">',
+    '#type' => 'textfield',
+    '#title' => t('A quien va dirigido'),
+    '#size' => 60, 
+    '#maxlength' => 128, 
+    '#suffix' => '</div>',
+  );
+
   $options = array(
-    'a' => 'a',
-    'b' => 'b',
-    'c' => 'c',
-    'd' => 'd',
-    'e' => 'e',
+    'si' => 'Si',
+    'no' => 'No',
   );
 
   $form['type'] = array(
     '#type' => 'select',
-    '#title' => 'Seleccione un tipo de certificado',
+    '#title' => 'Su salario es flexible?',
     '#options' => $options,
     '#empty_option' => t('Seleccione un valor'),
     '#ajax' => array(
@@ -208,8 +215,12 @@ function ob_certificates_type_form($form, $form_state){
 
 function ob_cetificates_typecall(&$form, &$form_state){
   unset($form['envia']['#attributes']['disabled']);
+  //$form['to']['#attributes']['disabled'] = 'disabled';
+  //$commands[] = ajax_command_replace('#s_to', render($form['to']));
+  $_SESSION['custom']['to'] = $form_state['values']['to'];
   $commands[] = ajax_command_replace('#s_submit_type', render($form['envia']));
   $type = $form_state['values']['type'];
+  
   $body = '<div id="s_previsual">' . ob_certificates_print_certificate($type) .'</div>';
   $commands[] = ajax_command_replace('#s_previsual', $body);
   return array('#type' => 'ajax', '#commands' => $commands);  
@@ -217,7 +228,8 @@ function ob_cetificates_typecall(&$form, &$form_state){
 
 function ob_certificates_type_form_submit($form, &$form_state){
   $type = $form_state['values']['type'];
-  $form_state['redirect'] = 'certificate/' . $type . '/download';
+  $to = $form_state['values']['to'];
+  $form_state['redirect'] = 'certificate/download/' . $type . $to;
 }
 
 function ob_certificates_form($form, $form_state){
@@ -561,7 +573,24 @@ function ob_certificates_print_certificate($type){
     $personal['antecede'] = 'La señora';
     $personal['ident'] = 'identificada';
   }
-  $html = theme('certificado_'.$type, array(
+
+  if($type == 'si'){
+    if(trim($personal['IND_SALARIO_INTEGRAL']) == 'NO'){
+      if(trim($personal['IND_SALARIO_VARIABLE']) == 'NO') $t_certi = 'a';
+      if(trim($personal['IND_SALARIO_VARIABLE']) == 'SI') $t_certi = 'b';
+    }
+    if(trim($personal['IND_SALARIO_INTEGRAL']) == 'SI'){
+      if(trim($personal['IND_SALARIO_VARIABLE']) == 'NO') $t_certi = 'c';
+    }
+  } else {
+     if(trim($personal['IND_SALARIO_INTEGRAL']) == 'NO'){
+      if(trim($personal['IND_SALARIO_VARIABLE']) == 'NO') $t_certi = 'd';
+      if(trim($personal['IND_SALARIO_VARIABLE']) == 'SI') $t_certi = 'e';
+    }
+  }
+  $personal['to'] = $_SESSION['custom']['to'];
+
+  $html = theme('certificado_'.$t_certi, array(
     'personal' => $personal, 
   ));
 

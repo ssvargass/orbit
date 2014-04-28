@@ -16,9 +16,8 @@ function sendCalEntry(){
 	$dtend= gmdate("Ymd\THis\Z",$meetingstampb);
 	$todaystamp = gmdate("Ymd\THis\Z");
 	$loc = $location;
- 	$vcal = "Se ha enviado una invitacion con la siguiente informacion: ..... 
- 	por favor revise su calendario en outlook para encontrar el evento agendado";
-	$vcal = "BEGIN:VCALENDAR\r\n";
+
+	/*$vcal = "BEGIN:VCALENDAR\r\n";
 	$vcal .= "VERSION:2.0\r\n";
 	$vcal .= "PRODID:-//nonstatics.com//OrgCalendarWebTool//EN\r\n";
 	$vcal .= "METHOD:REQUEST\r\n";
@@ -37,7 +36,25 @@ function sendCalEntry(){
 	$vcal .= "DESCRIPTION:Reminder\r\n";
 	$vcal .= "END:VALARM\r\n";
 	$vcal .= "END:VEVENT\r\n";
-	$vcal .= "END:VCALENDAR\r\n";
+	$vcal .= "END:VCALENDAR\r\n";*/
+
+	$vcal = "BEGIN:VCALENDAR
+PRODID:-//Drupal//iCal file//EN
+VERSION:2.0
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n".
+"DTSTAMP:".date('Ymd').'T'.date('His')."\r\n".
+"DTSTART:" . $dtstart ."\r\n".
+"DTEND:". $dtend ."\r\n".
+//%node-ical-rrule
+"SUMMARY:". $summary ."\r\n".
+"DESCRIPTION:Hinweis/Fahrer:$summary - Folgende Resourcen wurden gebucht: $resources \r\n".
+//"URL:"%node-ical-url
+//"CREATED:"%node-ical-created
+//"LAST-MODIFIED:"%node-ical-last-modified
+"END:VEVENT
+END:VCALENDAR";
  
 
 	$module = 'notifications';
@@ -49,23 +66,47 @@ function sendCalEntry(){
 
 	$message = drupal_mail($module, $key, $to ,$language, $params, $from, $send);
 
-	$message['subject'] = $subject;
+	/*$message['subject'] = $subject;
 	$message['headers']['Content-Type'] = 'text/calendar';
 	$message['headers']['name'] = 'calendar.ics';
 	$message['headers']['method'] = 'REQUEST';
 	$message['headers']['charset'] = 'UTF-8';
 	$message['headers']['Content-Transfer-Encoding'] = '8bit';
-	$message['headers']['X-Mailer'] = 'Microsoft Office Outlook 12.0';
+	$message['headers']['X-Mailer'] = 'Microsoft Office Outlook 12.0';*/
+	$filename = 'calendar.ics';
+
+	$boundary = '------------'. md5(uniqid(time()));
+
+    $message['headers']['Content-Type'] = 'multipart/mixed; boundary="'. $boundary .'"';
+    unset($message['headers']['Content-Transfer-Encoding']);
+
+    $body = "\n--". $boundary ."\n".
+      "Content-Type: text/plain; charset=UTF-8; format=flowed; delsp=yes\n".
+      "Content-Transfer-Encoding: 8bit\n\n";
+      
+    //$body .= is_array($message['body']) ? drupal_wrap_mail(implode("\n\n", $message['body'])) : drupal_wrap_mail($message['body']);
+    $body = 'ejemplo';  
+    $message['body'] = $body;
+    $message['body'] .= "\n\n--". $boundary ."\n";
+    $message['body'] .= "Content-Type: text/calendar; name=\"$filename\"\n";
+    $message['body'] .= "Content-Transfer-Encoding: base64\n";
+    $message['body'] .= "Content-Disposition: attachment; filename=\"$filename\"\n\n";
+    $message['body'] .= chunk_split(base64_encode($vcal));
+    $message['body'] .= "\n\n";
+    $message['body'] .= "--". $boundary ."--";
 
 
-	$message['body'] = array();
 
-	$message['body'][] = $vcal;
+
+
+	//$message['body'] = array();
+
+	//$message['body'][] = $vcal;
 	$system = drupal_mail_system($module, $key);
 
 
 	// Format the message body.
-	$message = $system->format($message);
+	//$message = $system->format($message);
 
 
 	// Send e-mail.
