@@ -1681,7 +1681,8 @@ nav {
 					color: white;
 					padding: 0.3em 0;
 					display: block;
-					font-size: 1.25em;
+					font-size: 1.1em;
+					font-weight: normal;
 					text-transform: uppercase;
 				}
 			}
@@ -1700,6 +1701,12 @@ nav {
 .page-calendar-week {
 	#content .calendar-calendar {
 		.single-day {
+			position: relative;
+			z-index: 1;
+			&:hover {
+				cursor: pointer;
+				z-index: 9 !important;
+			}
 			.inner {
 				display: block;
 				opacity: 1;
@@ -1710,6 +1717,8 @@ nav {
 					@include box-sizing(border-box);
 					width: 100% !important;
 					height: auto;
+					margin: 0;
+					position: relative;
 				}
 			}
 		}
