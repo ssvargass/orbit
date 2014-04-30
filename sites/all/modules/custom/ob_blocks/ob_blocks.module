@@ -61,6 +61,9 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
     $form['ajax-submit']['#value'] = t('Solicitar');
     $form['field_invitados']['und']['add_more']['#value'] = t('Añadir otro invitado');
   } 
+  if($form_id == 'views_exposed_form' && $form['#id'] ==  'views-exposed-form-directorio-page'){
+    $form['#action'] = '/directorio';
+  }
 }
 
 function ob_get_uid(){
