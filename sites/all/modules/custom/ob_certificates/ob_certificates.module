@@ -192,7 +192,7 @@ function ob_certificates_type_form($form, $form_state){
 
   $form['type'] = array(
     '#type' => 'select',
-    '#title' => 'Quiere su certificado con salario flexible?',
+    '#title' => 'Desea su certificado con flexibilización de salario?',
     '#options' => $options,
     '#empty_option' => t('Seleccione un valor'),
     '#ajax' => array(

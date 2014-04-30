@@ -13,7 +13,7 @@ de  <?php print $personal['mes'] ?> de  <?php print $personal['ano'] ?> con un c
 La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?> 
 días del mes de <?php print $personal['act_mes'] ?> de <?php print $personal['act_ano'] ?>
 <?php if(count($personal['to']) > 0): ?>
-	, a peticion de <?php print $personal['to'] ?>
+	, con destino a <?php print $personal['to'] ?>
 <?php endif; ?>.
 </p>
 <p>
