@@ -523,7 +523,6 @@ function ob_certificates_pdf_footer_m(&$tcpdf, $context) {
 
 function ob_certificates_print_certificate($type){
   global $user;
-  dpm('asda');
   $usuario = user_load($user->uid);
   $documento = $usuario->field_documento['und'][0]['value'];
   if (file_exists(variable_get('ob_cetrificates', ''))) {
