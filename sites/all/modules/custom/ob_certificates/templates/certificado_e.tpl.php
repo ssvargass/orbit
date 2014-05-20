@@ -13,7 +13,7 @@ variable de <?php print $personal['var_letr'] ?> (<?php print $personal['var_num
 <p>
 La presente certificación se expide en la ciudad de Bogotá, a los <?php print $personal['act_dia'] ?> 
 días del mes de <?php print $personal['act_mes'] ?> de <?php print $personal['act_ano'] ?>
-<?php if(count($personal['to']) > 1): ?>
+<?php if(strlen($personal['to']) > 1): ?>
 	, con destino a <?php print $personal['to'] ?>
 <?php endif; ?>.
 </p>

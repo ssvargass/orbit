@@ -218,6 +218,7 @@ function ob_cetificates_typecall(&$form, &$form_state){
   //$form['to']['#attributes']['disabled'] = 'disabled';
   //$commands[] = ajax_command_replace('#s_to', render($form['to']));
   $_SESSION['custom']['to'] = $form_state['values']['to'];
+
   $commands[] = ajax_command_replace('#s_submit_type', render($form['envia']));
   $type = $form_state['values']['type'];
   
@@ -522,6 +523,7 @@ function ob_certificates_pdf_footer_m(&$tcpdf, $context) {
 
 function ob_certificates_print_certificate($type){
   global $user;
+  dpm('asda');
   $usuario = user_load($user->uid);
   $documento = $usuario->field_documento['und'][0]['value'];
   if (file_exists(variable_get('ob_cetrificates', ''))) {
@@ -622,6 +624,7 @@ function ob_certificates_print_certificate($type){
     }
   }
   $personal['to'] = $_SESSION['custom']['to'];
+
   $html = theme('certificado_'.$t_certi, array(
     'personal' => $personal, 
   ));
