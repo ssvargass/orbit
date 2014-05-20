@@ -508,7 +508,7 @@ function ob_certificates_pdf_footer(&$tcpdf, $context) {
 function ob_certificates_pdf_header_m(&$tcpdf, $context) {
   // Logo
   $image_file = drupal_get_path('module', 'ob_certificates') . '/LOGO-MMF.jpg';
-  $tcpdf->Image($image_file, -10, 0, 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+  $tcpdf->Image($image_file, 0, 0, 150, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 }
 
 function ob_certificates_pdf_footer_m(&$tcpdf, $context) {
