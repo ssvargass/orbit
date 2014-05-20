@@ -430,21 +430,40 @@ function ob_certificates_pdf($type){
   }
 
   $tcpdf = tcpdf_get_instance();
-  $tcpdf->DrupalInitialize(array(
-    'footer' => array(
-      'callback' => array(
-        'function' => 'ob_certificates_pdf_footer',
-        'context' => array(),
-      ),
+  
+  if(trim($personal['NOMBRE_EMPRESA']) == 'MANUFACTURERA MUNDIAL FARMACEUTICA'){
+    $tcpdf->DrupalInitialize(array(
+      'footer' => array(
+        'callback' => array(
+          'function' => 'ob_certificates_pdf_footer_m',
+          'context' => array(),
+        ),
 
-    ),
-    'header' => array(
-      'callback' => array(
-        'function' => 'ob_certificates_pdf_header',
-        'context' => array(),
       ),
-    ),
-  ));
+      'header' => array(
+        'callback' => array(
+          'function' => 'ob_certificates_pdf_header_m',
+          'context' => array(),
+        ),
+      ),
+    ));
+  } else {
+    $tcpdf->DrupalInitialize(array(
+      'footer' => array(
+        'callback' => array(
+          'function' => 'ob_certificates_pdf_footer',
+          'context' => array(),
+        ),
+
+      ),
+      'header' => array(
+        'callback' => array(
+          'function' => 'ob_certificates_pdf_header',
+          'context' => array(),
+        ),
+      ),
+    ));
+  }
 
   $html = ob_certificates_print_certificate($type);
 
@@ -471,7 +490,7 @@ function ob_certificates_pdf($type){
 
 function ob_certificates_pdf_header(&$tcpdf, $context) {
   // Logo
-  $image_file = drupal_get_path('module', 'ob_polls_reports') . '/header-lasante.jpg';
+  $image_file = drupal_get_path('module', 'ob_certificates') . '/header-lasante.jpg';
   $tcpdf->Image($image_file, -10, 0, 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 }
 
@@ -485,6 +504,20 @@ function ob_certificates_pdf_footer(&$tcpdf, $context) {
   $tcpdf->Cell(0, 15, "Linea de Servicio al Cliente 01 8000 110028 Pagina web: www.lasante.com", 0, false, 'C', 0, '', 0, false, 'M', 'M');
 }
 
+
+function ob_certificates_pdf_header_m(&$tcpdf, $context) {
+  // Logo
+  $image_file = drupal_get_path('module', 'ob_certificates') . '/LOGO-MMF.jpg';
+  $tcpdf->Image($image_file, -10, 0, 250, '', 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+}
+
+function ob_certificates_pdf_footer_m(&$tcpdf, $context) {
+  // Position at 15 mm from bottom
+  $tcpdf->SetY(-15);
+  // Set font
+  $tcpdf->SetFont('helvetica', 'I', 8);
+  $tcpdf->Cell(0, 15, "Cra. 106 No. 15-25 Bodega 92 Manzana 14 Zona Franca Industrial Bogotá Tel: 422 46 66 - Fax 422 46 60", 0, false, 'C', 0, '', 0, false, 'M', 'M');
+}
 
 
 function ob_certificates_print_certificate($type){
