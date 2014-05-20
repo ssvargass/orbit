@@ -589,7 +589,6 @@ function ob_certificates_print_certificate($type){
     }
   }
   $personal['to'] = $_SESSION['custom']['to'];
-
   $html = theme('certificado_'.$t_certi, array(
     'personal' => $personal, 
   ));
