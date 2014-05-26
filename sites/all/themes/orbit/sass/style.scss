@@ -163,6 +163,7 @@ fieldset {
 	z-index: 99;
 }
 
+#page-title,
 #cboxCurrent,
 #cboxPrevious,
 #cboxNext { display: none !important;}
@@ -1550,6 +1551,7 @@ nav {
 	}
 }
 
+
 #content {
 	.view-id-paneador {
 		.date-nav {
@@ -1603,38 +1605,6 @@ nav {
 			color: white
 		}
 		tbody {
-			.multi-day {
-				height: 3.5em;
-				.multi-day {
-					top: -2em;
-					left: 0em;
-					.inner {
-						position: absolute;
-						width: 70%;
-						.cutoff { display: none;}
-						.contents {
-							left: 0;
-							top: 0;
-							width: 100%;
-							a, a:link {
-								color: white;
-								display: block;
-								z-index: 5;
-								padding-left: 0.5em;
-								position: relative;
-								font-weight: normal;
-							}
-							span {display: none;}
-							.s_colortype {
-								position: absolute;
-								top: 0;
-								left: 0;
-								z-index: 1;
-							}
-						}
-					}
-				}
-			}
 			td { 
 				position: relative;
 				.s_ind_content_color {
@@ -1656,12 +1626,28 @@ nav {
 					}
 				}
 			}
-			.single-day {
-				.inner { 
-					display: none;
-					opacity: 0;
-					position: absolute;
-				}	
+			.multi-day {
+				.calendar {
+					position: relative;
+					.contents {
+						left: 0;
+						padding: 0.3em;
+						* {
+							position: relative;
+							z-index: 3;
+							color: white;
+						}
+					}
+					.cutoff { display: none;}
+					.s_colortype {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100px;
+						z-index: 1;
+					}
+				}
 			}
 		}
 		.date-box .date-box {
@@ -1697,8 +1683,8 @@ nav {
 	}
 }
 
-.page-calendar-day,
-.page-calendar-week {
+.page-calendar-days,
+.page-calendar-weeks {
 	#content .calendar-calendar {
 		.single-day {
 			position: relative;
