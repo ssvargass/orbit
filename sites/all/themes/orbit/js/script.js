@@ -200,7 +200,7 @@
 
       $('.view-paneador .view-content td.single-day').each(
         function(){
-          $(this).hidde_cal()
+          //$(this).hidde_cal()
         }
       );
        $('.view-paneador .view-content td.multi-day').each(
