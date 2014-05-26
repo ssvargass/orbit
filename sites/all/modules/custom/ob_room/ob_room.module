@@ -330,7 +330,6 @@ function _ob_boletin($item) {
 
 
 function sendCalEntry($to, $subject, $node){
-  dpm($node);
   $tsStart = $node->field_fecha['und'][0]['value'];
   $tsEnd = $node->field_fecha['und'][0]['value2'];
   $location = '';
@@ -342,21 +341,8 @@ function sendCalEntry($to, $subject, $node){
   $dtend= gmdate("Ymd\THis\Z",$meetingstampb);
   $todaystamp = gmdate("Ymd\THis\Z");
   $loc = $location;
-
-/*$vcal = "BEGIN:VCALENDAR\r\n";
-$vcal .= "VERSION:2.0\r\n";
-$vcal .= "PRODID:-//hacksw/handcal//NONSGML v1.0//EN\r\n";
-$vcal .= "BEGIN:VEVENT\r\n";
-$vcal .= "UID:" . date('Ymd').'T'.date('His')."-".rand()."-nonstatics.com\r\n";
-$vcal .= "DTSTAMP:" . date('Ymd').'T'.date('His')."\r\n";
-$vcal .= "ORGANIZER;CN=\"".'LASANTE'." (".'usuariopreuba'.")"."\":mailto:".'orbit@lasante.com.co'."\r\n";
-$vcal .= "DTSTART:$dtstart\r\n";
-$vcal .= "DTEND:$dtend\r\n";
-$vcal .= "SUMMARY:$summary\r\n";
-$vcal .= "END:VEVENT\r\n";
-$vcal .= "END:VCALENDAR";*/
-
-$uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com\r\n";
+  $creador = user_load($node->uid);
+  $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com\r\n";
 $vcal = 'BEGIN:VCALENDAR
 PRODID:-//Microsoft Corporation//Outlook 14.0 MIMEDIR//EN
 VERSION:2.0
@@ -380,7 +366,7 @@ DTSTAMP:20140325T214733Z
 DTSTART;TZID="SA Pacific Standard Time":'. $dtstart .'
 LAST-MODIFIED:20140325T214733Z
 LOCATION:
-ORGANIZER;CN="JESSIKA COBOS":mailto:jessica.gonzalez@bayport.com.co
+ORGANIZER;CN="'.$creador->name.'":mailto:\n
 PRIORITY:5
 SEQUENCE:2
 SUMMARY;LANGUAGE=es-co:'.$summary.'
