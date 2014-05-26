@@ -330,6 +330,7 @@ function _ob_boletin($item) {
 
 
 function sendCalEntry($to, $subject, $node){
+  dpm($node);
   $tsStart = $node->field_fecha['und'][0]['value'];
   $tsEnd = $node->field_fecha['und'][0]['value2'];
   $location = '';
@@ -355,6 +356,7 @@ $vcal .= "SUMMARY:$summary\r\n";
 $vcal .= "END:VEVENT\r\n";
 $vcal .= "END:VCALENDAR";*/
 
+$uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com\r\n";
 $vcal = 'BEGIN:VCALENDAR
 PRODID:-//Microsoft Corporation//Outlook 14.0 MIMEDIR//EN
 VERSION:2.0
@@ -369,21 +371,21 @@ TZOFFSETTO:-0500
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+ATTENDEE;CN="";RSVP=TRUE:mailto:\n
 CLASS:PUBLIC
 CREATED:20140325T214733Z
 DESCRIPTION:\n
-DTEND;TZID="SA Pacific Standard Time":20140328T150000
+DTEND;TZID="SA Pacific Standard Time":'. $dtend .'
 DTSTAMP:20140325T214733Z
-DTSTART;TZID="SA Pacific Standard Time":20140328T140000
+DTSTART;TZID="SA Pacific Standard Time":'. $dtstart .'
 LAST-MODIFIED:20140325T214733Z
-LOCATION:BAYPORT COLOMBIA CALLE 71
+LOCATION:
 ORGANIZER;CN="JESSIKA COBOS":mailto:jessica.gonzalez@bayport.com.co
 PRIORITY:5
 SEQUENCE:2
-SUMMARY;LANGUAGE=es-co:CONOCIMIENTO DESARROLLO
+SUMMARY;LANGUAGE=es-co:'.$summary.'
 TRANSP:OPAQUE
-UID:040000008200E00074C5B7101A82E00800000000B07DD5C12044CF01000000000000000
-    010000000A8CBF65909526B4BBFFEBBB71F157E6B
+UID:'.$uid.'
 X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
     N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
     rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
