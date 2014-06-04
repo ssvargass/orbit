@@ -657,8 +657,6 @@ fieldset {
 }
 .s_title_page {
 	@extend %titular;
-	width: 50%;
-	float: left;
 	&:after { border-left-color: $orbit-yellow;}
 }
 header {
@@ -2079,6 +2077,14 @@ nav {
 			}
 		}
 		.date-heading { text-align: left;}
+	}
+	#multi-day-container {
+		.multi-day {
+			.dayview { 
+				background: #666;
+				.contents { padding: 0;}
+			}
+		}
 	}
 	#cboxContent {
 		@include box-shadow($orbit-gray-dark 2px 2px 10px);
