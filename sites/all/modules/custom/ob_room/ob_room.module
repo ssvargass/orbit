@@ -337,62 +337,39 @@ function sendCalEntry($to, $subject, $node){
   $resources = '';
   $meetingstamp = strtotime($tsStart . " COT");    
   $meetingstampb = strtotime($tsEnd . " COT");     
-  $dtstart= gmdate("Ymd\THis\Z",$meetingstamp);
-  $dtend= gmdate("Ymd\THis\Z",$meetingstampb);
+  $dtstart = gmdate("Ymd\THis\Z",$meetingstamp);
+  $dtend = gmdate("Ymd\THis\Z",$meetingstampb);
   $todaystamp = gmdate("Ymd\THis\Z");
   $loc = $location;
   $creador = user_load($node->uid);
-  $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com\r\n";
+  $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com";
+
 $vcal = 'BEGIN:VCALENDAR
-PRODID:-//Microsoft Corporation//Outlook 14.0 MIMEDIR//EN
+CALSCALE:GREGORIAN
 VERSION:2.0
+PRODID:-//CALENDARSERVER.ORG//NONSGML Version 1//EN
 METHOD:REQUEST
-X-MS-OLK-FORCEINSPECTOROPEN:TRUE
 BEGIN:VTIMEZONE
-TZID:SA Pacific Standard Time
-BEGIN:STANDARD
-DTSTART:16010101T000000
-TZOFFSETFROM:-0400
-TZOFFSETTO:-0500
-END:STANDARD
+TZID:America/Bogota
+X-LIC-LOCATION:America/Bogota
 END:VTIMEZONE
 BEGIN:VEVENT
 ATTENDEE;CN="";RSVP=TRUE:mailto:\n
-CLASS:PUBLIC
-CREATED:20140325T214733Z
-DESCRIPTION:\n
-DTEND;TZID="SA Pacific Standard Time":'. $dtend .'
-DTSTAMP:20140325T214733Z
-DTSTART;TZID="SA Pacific Standard Time":'. $dtstart .'
-LAST-MODIFIED:20140325T214733Z
-LOCATION:
-ORGANIZER;CN="'.$creador->name.'":mailto:\n
-PRIORITY:5
-SEQUENCE:2
-SUMMARY;LANGUAGE=es-co:'.$summary.'
+CREATED:'.$todaystamp.'
+DTEND;TZID=America/Bogota:'.$dtend.'
+DTSTART;TZID=America/Bogota:'.$dtstart.'
+LAST-MODIFIED:'. $todaystamp .'
+LOCATION:\n
+SEQUENCE:1
+SUMMARY:'. $summary .'
 TRANSP:OPAQUE
 UID:'.$uid.'
-X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
-    N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
-    rsion 14.02.5004.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
-    rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="es-co"></SPAN></P>\n\n</
-    BODY>\n</HTML>
-X-MICROSOFT-CDO-BUSYSTATUS:TENTATIVE
-X-MICROSOFT-CDO-IMPORTANCE:1
-X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
-X-MICROSOFT-DISALLOW-COUNTER:FALSE
-X-MS-OLK-APPTLASTSEQUENCE:1
-X-MS-OLK-APPTSEQTIME:20140325T213025Z
-X-MS-OLK-AUTOSTARTCHECK:FALSE
-X-MS-OLK-CONFTYPE:0
-BEGIN:VALARM
-TRIGGER:-PT15M
-ACTION:DISPLAY
-DESCRIPTION:Reminder
-END:VALARM
+DTSTAMP:'. $todaystamp .'
+ORGANIZER;CN='.$creador->name.';EMAIL='.$creador->mail.':mailto:\n
 END:VEVENT
 END:VCALENDAR
 ';
+
 
   $module = 'notifications';
   $key = 'envio';
