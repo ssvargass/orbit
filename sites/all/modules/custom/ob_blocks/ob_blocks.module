@@ -112,3 +112,8 @@ function ob_get_uid_planner($uid){
   }
   return FALSE;
 }
+
+
+function ob_blocks_user_login(&$edit, $account){
+  dpm($account);
+}
