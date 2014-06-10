@@ -59,6 +59,19 @@ function ob_blocks_form_alter(&$form, &$form_state, $form_id){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Solicitar');
     $form['field_invitados']['und']['add_more']['#value'] = t('Añadir otro invitado');
+    $form['field_fecha']['#prefix'] = l(t('Ver disponibilidad'), 'disponibilidad_sala/nid' , 
+      array(
+        'attributes' => array(
+          'class' => array('colorbox-load', 'colorbox_custom')
+        ),
+        'query' => array(
+          'width' => 500,
+          'height' => 500,
+          'iframe' => TRUE
+        )
+      )
+    );
+    unset($form['ajax-submit']['#ajax']);
   } 
   if($form_id == 'views_exposed_form' && $form['#id'] ==  'views-exposed-form-directorio-page'){
     $form['#action'] = '/directorio';

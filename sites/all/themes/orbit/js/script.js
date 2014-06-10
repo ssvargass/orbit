@@ -6,6 +6,15 @@
       location.reload(true);
     };
     
+    $('#quicktabs-salas_de_reuni_n .quicktabs-tabpage').each(function(){
+        var nid = $('.field-name-nid .field-item', this).html();
+        $('.colorbox_custom', this).once('custom_col', function () {
+            var url = $(this).attr('href');
+            url = url.replace('nid', nid);
+            $(this).attr('href', url);
+        });
+      })
+
     galscrollMouse();
     
     function galscrollMouse(){
@@ -196,6 +205,11 @@
       $('#quicktabs-salas_de_reuni_n .quicktabs-tabpage').each(function(){
         var nid = $('.field-name-nid .field-item', this).html();
         $('.field-name-field-nid input',this).val(nid);
+        $('.colorbox_custom', this).once('custom_col', function () {
+            var url = $(this).attr('href');
+            url = url.replace('nid', nid);
+            $(this).attr('href', url);
+        });
       })
 
       $('.view-paneador .view-content td.single-day').each(
