@@ -115,5 +115,21 @@ function ob_get_uid_planner($uid){
 
 
 function ob_blocks_user_login(&$edit, $account){
-  dpm($account);
+  _ob_blocks_create_event($account);
+}
+
+function _ob_blocks_create_event($user){
+  $node = new stdClass();
+  $node->title = t("Cumpleaños ") . $user->field_nombre_completo['und'][0]['value'];
+  $node->type = "event";
+  node_object_prepare($node);
+  $node->language = LANGUAGE_NONE;
+  $node->uid = $user->uid;
+  $node->status = 1; 
+  $node->promote = 0;
+  $node->comment = 1;
+  $node->field_product_tid[$node->language][]['tid'] = 24;
+  $node->field_cumple_uid[$node->language][]['value'] = $user->uid;
+  $node = node_submit($node);
+  node_save($node);
 }
