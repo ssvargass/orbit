@@ -1855,6 +1855,10 @@ nav {
 		.field-name-body { margin: 1em 0;}
 		.field-name-nid { display: none;}
 		.field-name-create-room {
+			a.colorbox_custom {
+				@extend %btn-blue;
+				float: right;				
+			}
 			.block-afb {
 				height: auto;
 				text-align: left;
@@ -2003,6 +2007,7 @@ nav {
 
 /*colorBox*/
 
+.page-disponibilidad-sala,
 .page-calendar-room {
 	#admin-menu { display: none;}
 	#content-wrapper {
