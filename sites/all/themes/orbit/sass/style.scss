@@ -2025,7 +2025,39 @@ nav {
 					margin: 0;
 					padding: 0;
 				}
-				.pager { display: none;}
+				.pager {
+					li {
+						@include border-radius(0);
+						margin: 0;
+						padding: 0;
+						background: none;
+						a, a:link { 
+							background: $orbit-blue-dark no-repeat center center;
+							color: $orbit-blue-dark;
+							margin: 0;
+							display: block;
+							text-indent: -5000px;
+							text-align: center;
+							width: 4.5em;
+							height: 2.5em;
+							&:hover {
+								background-color: $orbit-yellow;
+								color: $orbit-yellow;
+							}
+						}
+					}
+					.date-next { 
+						margin-top: -1.24em;
+						a, a:link {
+							background-image: url(../images/arrow-plan-right.png);	
+						}
+					}
+					.date-prev {
+						a, a:link {
+							background-image: url(../images/arrow-plan-left.png);
+						}
+					}
+				}
 			}
 			.view-content {
 				height: 29em;
