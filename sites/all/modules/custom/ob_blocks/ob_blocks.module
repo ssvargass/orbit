@@ -114,6 +114,10 @@ function ob_get_uid_planner($uid){
 }
 
 
+/**
+ * Implements hook_user_login()
+ */
+
 function ob_blocks_user_login(&$edit, $account){
   _ob_blocks_create_event($account);
 }
@@ -131,21 +135,24 @@ function _ob_blocks_create_event($user){
   $node->field_tipo_de_evento[$node->language][]['tid'] = 24;
   $node->field_cumple_uid[$node->language][]['value'] = $user->uid;
 
-
+  $cumple = $user->field_cumplea_os['und'][0]['value'];
+  $cum_str = strtotime($cumple);
+  $dia = date('d', $cum_str);
+  $mes = date('m', $cum_str);
   $hoy = date('Y');
-  $manana = $hoy + 4;
+  $manana = $hoy + 5;
+  $fecha = array();
   for ($i=$hoy; $i < $manana ; $i++) { 
-    
+    $fecha[] = array(
+      'value' => $i.'-'.$mes.'-'.$dia.'T05:00:00',
+      'value2' => $i.'-'.$mes.'-'.$dia.'T05:00:00',
+      'rrule' => 'RRULE:FREQ=YEARLY;INTERVAL=1;BYMONTH='.$mes.';BYMONTHDAY='.$dia.';COUNT=5;WKST=SU',
+      'timezone' => 'America/Bogota',
+      'timezone_db' => 'UTC',
+      'date_type' => 'date',
+    );
   }
-
-
-
-
-
-
-
-
-
+  $node->field_fecha[$node->language] = $fecha;
   $node = node_submit($node);
   node_save($node);
 }
