@@ -159,7 +159,7 @@ function _ob_blocks_create_event($user){
   node_save($node);
 }
 
-function c_ob_blocks_create_comp($user){
+function _ob_blocks_create_comp($user){
   $query = new EntityFieldQuery();
   $query->entityCondition('entity_type', 'node')
     ->entityCondition('bundle', 'event')
@@ -167,9 +167,9 @@ function c_ob_blocks_create_comp($user){
     ->fieldCondition('field_cumple_uid', 'value', $user->uid, '=');
   $result = $query->execute();
   if (isset($result['node'])) {
-    return TRUE;
+    return FALSE;
   }
-  return FALSE;
+  return TRUE;
 }
 
 
