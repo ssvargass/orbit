@@ -128,8 +128,37 @@ function _ob_blocks_create_event($user){
   $node->status = 1; 
   $node->promote = 0;
   $node->comment = 1;
-  $node->field_product_tid[$node->language][]['tid'] = 24;
+  $node->field_tipo_de_evento[$node->language][]['tid'] = 24;
   $node->field_cumple_uid[$node->language][]['value'] = $user->uid;
+
+
+  $hoy = date('Y');
+  $manana = $hoy + 4;
+  for ($i=$hoy; $i < $manana ; $i++) { 
+    
+  }
+
+
+
+
+
+
+
+
+
   $node = node_submit($node);
   node_save($node);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
