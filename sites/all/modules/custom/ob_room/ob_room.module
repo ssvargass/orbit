@@ -343,10 +343,11 @@ function sendCalEntry($to, $subject, $node){
   $loc = $location;
   $creador = user_load($node->uid);
   $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com";
+  $cad_inv = '';
 foreach ($node->field_invitados['und'] as $key => $value) {
   $inv_id = $value['target_id'];
-  $inv = user_load($uid);
-  $cad_inv = 'ATTENDEE;CN="'.$inv->name.'";RSVP=TRUE:mailto:'.$inv->mail;
+  $inv = user_load($inv_id);
+  $cad_inv .= 'ATTENDEE;CN="'.$inv->name.'";RSVP=TRUE:mailto:'.$inv->mail;
 }
 $vcal = 'BEGIN:VCALENDAR
 CALSCALE:GREGORIAN
