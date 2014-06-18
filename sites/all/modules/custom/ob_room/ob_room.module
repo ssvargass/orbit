@@ -343,18 +343,18 @@ function sendCalEntry($to, $subject, $node){
   $loc = $location;
   $creador = user_load($node->uid);
   $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com";
-
+dpm($node);
 $vcal = 'BEGIN:VCALENDAR
 CALSCALE:GREGORIAN
 VERSION:2.0
 PRODID:-//CALENDARSERVER.ORG//NONSGML Version 1//EN
-METHOD:REQUEST
+METHOD:ADD
 BEGIN:VTIMEZONE
 TZID:America/Bogota
 X-LIC-LOCATION:America/Bogota
 END:VTIMEZONE
 BEGIN:VEVENT
-ATTENDEE;CN="";RSVP=TRUE:mailto:\n
+ATTENDEE;CN="'.$creador->name.'";RSVP=TRUE:mailto:'.$creador->mail.'
 CREATED:'.$todaystamp.'
 DTEND;TZID=America/Bogota:'.$dtend.'
 DTSTART;TZID=America/Bogota:'.$dtstart.'
