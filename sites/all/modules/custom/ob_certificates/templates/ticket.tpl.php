@@ -79,11 +79,11 @@
     <table width="100%">
       <tr>
           <th width="10%" scope="col">Concepto</th>
-          <th width="17%" scope="col">Descripcion</th>
-          <th width="15%" scope="col">Cant/horas</th>
-          <th width="11%" scope="col">Vlr. Devengado</th>
-          <th width="12%" scope="col">Vlr. Deduccion</th>
-          <th width="35%" scope="col">&nbsp;</th>
+          <th width="30%" scope="col">Descripcion</th>
+          <th width="20%" scope="col">Cant/horas</th>
+          <th width="20%" scope="col">Vlr. Devengado</th>
+          <th width="20%" scope="col">Vlr. Deduccion</th>
+          
       </tr>
       <?php foreach ($detalle as $key => $value) { ?>
         <tr>
@@ -92,7 +92,7 @@
           <td><?php print number_format(trim($value['NMMOV_HORAS'])); ?></td>
           <td style="text-align: right"><?php print number_format(trim($value['DEVENGO']), 2); ?></td>
           <td style="text-align: right"><span style="text-align: right"><?php print number_format(trim($value['DEDUCCION']), 2); ?></span></td>
-          <td>&nbsp;</td>
+          
         </tr>
       <?php }?>
     </table>

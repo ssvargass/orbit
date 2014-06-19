@@ -156,8 +156,24 @@ function ob_cerficiates_admin($form, $form_state){
     '#description' => t('Información adicional como teléfono'),
     //'#required' => TRUE,
   );
-
+  $form['#submit'][] = 'ob_cerficiates_admin_submit';
   return system_settings_form($form);
+}
+
+
+function ob_cerficiates_admin_submit($form, &$form_state){
+  _save_images($form_state['values']['ob_firma_rrhh']);
+}
+
+function _save_images($id){
+ // Load the file via file.fid.
+  $file = file_load($id);
+  // Change status to permanent.
+  $file->status = FILE_STATUS_PERMANENT;
+  $file->display = 1;
+  // Save.
+  file_save($file);
+  return $file;
 }
 
 function ob_certificates_print(){

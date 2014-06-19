@@ -347,7 +347,7 @@ function sendCalEntry($to, $subject, $node){
 foreach ($node->field_invitados['und'] as $key => $value) {
   $inv_id = $value['target_id'];
   $inv = user_load($inv_id);
-  $cad_inv .= 'ATTENDEE;CN="'.$inv->name.'";RSVP=TRUE:mailto:'.$inv->mail;
+  $cad_inv .= 'ATTENDEE;CN="'.$inv->name.'";RSVP=TRUE:mailto:\n';
 }
 $vcal = 'BEGIN:VCALENDAR
 CALSCALE:GREGORIAN
