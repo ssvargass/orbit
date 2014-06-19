@@ -330,6 +330,7 @@ function _ob_boletin($item) {
 
 
 function sendCalEntry($to, $subject, $node){
+  date_default_timezone_set('America/Bogota');
   $tsStart = $node->field_fecha['und'][0]['value'];
   $tsEnd = $node->field_fecha['und'][0]['value2'];
   $location = '';
@@ -337,9 +338,9 @@ function sendCalEntry($to, $subject, $node){
   $resources = '';
   $meetingstamp = strtotime($tsStart . " COT");    
   $meetingstampb = strtotime($tsEnd . " COT");     
-  $dtstart = gmdate("Ymd\THis\Z",$meetingstamp);
-  $dtend = gmdate("Ymd\THis\Z",$meetingstampb);
-  $todaystamp = gmdate("Ymd\THis\Z");
+  $dtstart = date("Ymd\THis\Z",$meetingstamp);
+  $dtend = date("Ymd\THis\Z",$meetingstampb);
+  $todaystamp = date("Ymd\THis\Z");
   $loc = $location;
   $creador = user_load($node->uid);
   $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com";
@@ -347,7 +348,7 @@ function sendCalEntry($to, $subject, $node){
 foreach ($node->field_invitados['und'] as $key => $value) {
   $inv_id = $value['target_id'];
   $inv = user_load($inv_id);
-  $cad_inv .= 'ATTENDEE;CN="'.$inv->name.'";RSVP=TRUE:mailto:\n';
+  $cad_inv .= 'ATTENDEE;CN="'.$inv->name.'";RSVP=TRUE:mailto:'.$inv->mail;
 }
 $vcal = 'BEGIN:VCALENDAR
 CALSCALE:GREGORIAN
