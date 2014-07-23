@@ -340,7 +340,8 @@ function sendCalEntry($to, $subject, $node){
   $meetingstampb = strtotime($tsEnd . " COT");     
   $dtstart = date("Ymd\THis\Z",$meetingstamp);
   $dtend = date("Ymd\THis\Z",$meetingstampb);
-  $todaystamp = date("Ymd\THis\Z");
+  $todaystamp = gmdate("Ymd\THis\Z");
+
   $loc = $location;
   $creador = user_load($node->uid);
   $uid = date('Ymd').'T'.date('His')."-".rand()."-lasante.com";
