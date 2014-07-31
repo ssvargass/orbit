@@ -50,6 +50,15 @@ function ob_blocks_block_view_alter(&$data, $block){
 
 
 function ob_blocks_form_alter(&$form, &$form_state, $form_id){
+  if($form_id == 'user_profile_form'){
+    global $user;
+    if($form['#user']->uid == $user->uid){
+      if(isset($form['#user']->picture)){
+        drupal_set_message(t('No tiene autorización de ingresar.'));
+        drupal_goto('');
+      }
+    }
+  }
   if($form_id == 'event_node_form'){
     $form['field_tipo_de_evento']['und']['#options']['_none']='-- Seleccione un tipo de evento --';
     $form['ajax-submit']['#value'] = t('Crear Evento');

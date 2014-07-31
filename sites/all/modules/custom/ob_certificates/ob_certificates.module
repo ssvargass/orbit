@@ -223,6 +223,9 @@ function ob_certificates_type_form($form, $form_state){
     '#attributes' => array(
       'disabled' => 'disabled',
     ),
+    '#ajax' => array(
+      'callback' => 'ob_certificates_type_form_call_submited',
+    ),
     '#suffix' => '</div>',
   );
 
@@ -231,8 +234,7 @@ function ob_certificates_type_form($form, $form_state){
 
 function ob_cetificates_typecall(&$form, &$form_state){
   unset($form['envia']['#attributes']['disabled']);
-  //$form['to']['#attributes']['disabled'] = 'disabled';
-  //$commands[] = ajax_command_replace('#s_to', render($form['to']));
+
   $_SESSION['custom']['to'] = $form_state['values']['to'];
 
   $commands[] = ajax_command_replace('#s_submit_type', render($form['envia']));
@@ -243,10 +245,11 @@ function ob_cetificates_typecall(&$form, &$form_state){
   return array('#type' => 'ajax', '#commands' => $commands);  
 }
 
-function ob_certificates_type_form_submit($form, &$form_state){
+function ob_certificates_type_form_call_submited($form, &$form_state){
   $type = $form_state['values']['type'];
   $to = $form_state['values']['to'];
-  $form_state['redirect'] = 'certificate/download/' . $type . $to;
+  $commands[] = ajax_command_invoke('', 'certificates_open', array(array('type'=>$type, 'to' => $to)));
+  return array('#type' => 'ajax', '#commands' => $commands); 
 }
 
 function ob_certificates_form($form, $form_state){
@@ -256,8 +259,7 @@ function ob_certificates_form($form, $form_state){
   $years = array();
 
   if (file_exists(variable_get('ob_tiket_detalle', ''))) {
-    $detalle = simplexml_load_file(variable_get('ob_tiket_detalle', '')); 
-    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $detalle = _simplexml_load_file('ob_tiket_detalle'); 
     $personal = array();
     foreach ($detalle['Elemento1'] as $key => $value) {
       $doc = $value['@attributes']['ID_TERC'];
@@ -378,8 +380,7 @@ function ob_certificates_gethtml_tickt($month){
   $personal = array();
 
   if (file_exists(variable_get('ob_tiket_detalle', ''))) {
-    $detalle = simplexml_load_file(variable_get('ob_tiket_detalle', '')); 
-    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $detalle = _simplexml_load_file('ob_tiket_detalle'); 
     $personal = array();
     foreach ($detalle['Elemento1'] as $key => $value) {
       $doc = $value['@attributes']['ID_TERC'];
@@ -392,8 +393,7 @@ function ob_certificates_gethtml_tickt($month){
   }
 
   if (file_exists(variable_get('ob_tiket_cabeza', ''))) {
-    $detalle = simplexml_load_file(variable_get('ob_tiket_cabeza', '')); 
-    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $detalle = _simplexml_load_file('ob_tiket_cabeza'); 
     foreach ($detalle['Elemento1'] as $key => $value) {
       $doc = $value['@attributes']['ID_TERC'];
       if(trim($doc) == $documento){
@@ -436,8 +436,7 @@ function ob_certificates_pdf($type){
   $usuario = user_load($user->uid);
   $documento = $usuario->field_documento['und'][0]['value'];
   if (file_exists(variable_get('ob_cetrificates', ''))) {
-    $detalle = simplexml_load_file(variable_get('ob_cetrificates', '')); 
-    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $detalle = _simplexml_load_file('ob_cetrificates'); 
     foreach ($detalle['Elemento1'] as $key => $value) {
       $doc = $value['@attributes']['EMPLEADO'];
       if(trim($doc) == $documento){
@@ -542,8 +541,7 @@ function ob_certificates_print_certificate($type){
   $usuario = user_load($user->uid);
   $documento = $usuario->field_documento['und'][0]['value'];
   if (file_exists(variable_get('ob_cetrificates', ''))) {
-    $detalle = simplexml_load_file(variable_get('ob_cetrificates', '')); 
-    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    $detalle = _simplexml_load_file('ob_cetrificates'); 
     foreach ($detalle['Elemento1'] as $key => $value) {
       $doc = $value['@attributes']['EMPLEADO'];
       if(trim($doc) == $documento){
@@ -864,6 +862,18 @@ function Parte($x)
     return($Rtn . $t); 
 } 
 
+}
+
+function _simplexml_load_file($type){
+  if(!cache_get($type)){
+    $path = variable_get($type, '');
+    $detalle = simplexml_load_file($path); 
+    $detalle = drupal_json_decode(drupal_json_encode($detalle));
+    cache_set($type, $detalle);
+  } 
+  
+  $return = cache_get($type);
+  return $return->data;
 }
 
 ?>

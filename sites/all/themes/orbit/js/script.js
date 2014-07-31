@@ -5,7 +5,13 @@
       window.parent.location.reload();
       location.reload(true);
     };
-    
+    $.fn.certificates_open = function(options){
+      console.log(options);
+      window.open(
+      '/certificate/download/' + options['type'] + options['to'],
+      '_blank'
+      );
+    }
     $('#quicktabs-salas_de_reuni_n .quicktabs-tabpage').each(function(){
         var nid = $('.field-name-nid .field-item', this).html();
         $('.colorbox_custom', this).once('custom_col', function () {
