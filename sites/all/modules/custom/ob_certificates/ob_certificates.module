@@ -447,23 +447,7 @@ function ob_certificates_pdf($type){
 
   $tcpdf = tcpdf_get_instance();
   
-  if(trim($personal['NOMBRE_EMPRESA']) == 'MANUFACTURERA MUNDIAL FARMACEUTICA'){
-    $tcpdf->DrupalInitialize(array(
-      'footer' => array(
-        'callback' => array(
-          'function' => 'ob_certificates_pdf_footer_m',
-          'context' => array(),
-        ),
-
-      ),
-      'header' => array(
-        'callback' => array(
-          'function' => 'ob_certificates_pdf_header_m',
-          'context' => array(),
-        ),
-      ),
-    ));
-  } else {
+  if(trim($personal['NOMBRE_EMPRESA']) == 'LABORATORIOS LA SANTE S.A.'){
     $tcpdf->DrupalInitialize(array(
       'footer' => array(
         'callback' => array(
@@ -475,6 +459,22 @@ function ob_certificates_pdf($type){
       'header' => array(
         'callback' => array(
           'function' => 'ob_certificates_pdf_header',
+          'context' => array(),
+        ),
+      ),
+    ));
+  } else {
+    $tcpdf->DrupalInitialize(array(
+      'footer' => array(
+        'callback' => array(
+          'function' => 'ob_certificates_pdf_footer_m',
+          'context' => array(),
+        ),
+
+      ),
+      'header' => array(
+        'callback' => array(
+          'function' => 'ob_certificates_pdf_header_m',
           'context' => array(),
         ),
       ),
