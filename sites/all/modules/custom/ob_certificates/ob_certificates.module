@@ -408,9 +408,11 @@ function ob_certificates_gethtml_tickt($month){
   $neto = 0;
 
   foreach ($personal as $key => $value) {
-    $total_horas += $value['NMMOV_HORAS'];
-    $devengo += $value['DEVENGO'];
-    $deduccion += $value['DEDUCCION'];
+    if(strpos($value['DESCRIPCION'],'*') === FALSE){
+      $total_horas += $value['NMMOV_HORAS'];
+      $devengo += $value['DEVENGO'];
+      $deduccion += $value['DEDUCCION'];
+    }
   }
 
   $neto = $devengo - $deduccion;
