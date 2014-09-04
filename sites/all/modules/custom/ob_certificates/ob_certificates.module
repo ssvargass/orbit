@@ -220,35 +220,25 @@ function ob_certificates_type_form($form, $form_state){
   );
 
 
-  if(strcasecmp($personal['IND_SALARIO_FLEXIBLE'],'si') != 0) {
+  if(strcasecmp($personal['IND_SALARIO_FLEXIBLE'],'si') == 0) {
     $options = array(
-      'si' => 'Si',
-      'no' => 'No',
-    );
-    $form['type'] = array(
-      '#type' => 'select',
-      '#title' => 'Desea su certificado con flexibilización de salario?',
-      '#options' => $options,
-      '#empty_option' => t('Seleccione un valor'),
-      '#ajax' => array(
-        'callback' => 'ob_cetificates_typecall',
-      ),
+      'si' => 'PDF',
     );
   } else {
     $options = array(
       'no' => 'PDF',
     );
-    $form['type'] = array(
-      '#type' => 'select',
-      '#title' => 'Por favor seleccione el formato que desea descargar el certificado',
-      '#options' => $options,
-      '#empty_option' => t('Seleccione un valor'),
-      '#ajax' => array(
-        'callback' => 'ob_cetificates_typecall',
-      ),
-    );
-
   }
+
+  $form['type'] = array(
+    '#type' => 'select',
+    '#title' => 'Desea su certificado con flexibilización de salario?',
+    '#options' => $options,
+    '#empty_option' => t('Seleccione un valor'),
+    '#ajax' => array(
+      'callback' => 'ob_cetificates_typecall',
+    ),
+  );
 
   
   $form['envia'] = array(
