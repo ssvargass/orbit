@@ -226,7 +226,7 @@ function ob_certificates_type_form($form, $form_state){
     'no' => 'No',
   );
 
-  if($personal['IND_SALARIO_FLEXIBLE']) {
+  if(strcasecmp($personal['IND_SALARIO_FLEXIBLE'],'si') == 0) {
     unset($options['si']);
   }
 
