@@ -191,6 +191,24 @@ function ob_tiket_print(){
 }
 
 function ob_certificates_type_form($form, $form_state){
+  global $user;
+  $xml = _simplexml_load_file('ob_cetrificates');
+  $usuario = user_load($user->uid);
+  $documento = $usuario->field_documento['und'][0]['value'];
+  $personal = FALSE;
+  if (file_exists(variable_get('ob_cetrificates', ''))) {
+    $detalle = _simplexml_load_file('ob_cetrificates'); 
+    foreach ($detalle['Elemento1'] as $key => $value) {
+      $doc = $value['@attributes']['EMPLEADO'];
+      if(trim($doc) == $documento){
+        $personal = $value['@attributes'];
+      }
+    }
+  }
+  if(!$personal){
+    drupal_set_message('No se encuentra su documento en los archivos, contacte el area de sistemas', 'error');
+    return $form;
+  } 
 
   $form['to'] = array(
     '#prefix' => '<div id="s_to">',
@@ -201,10 +219,16 @@ function ob_certificates_type_form($form, $form_state){
     '#suffix' => '</div>',
   );
 
+
+
   $options = array(
     'si' => 'Si',
     'no' => 'No',
   );
+
+  if($personal['IND_SALARIO_FLEXIBLE']) {
+    unset($options['si']);
+  }
 
   $form['type'] = array(
     '#type' => 'select',
