@@ -50,6 +50,14 @@ function ob_certificates_theme($existing, $type, $theme, $path) {
       ),
     ),
     
+    'certificado_f' => array(
+      'template' => 'certificado_f',
+      'path' => $path . '/templates',
+      'variables' => array(
+        'personal' => NULL,
+      ),
+    ),
+    
   );   
 }
 
@@ -663,7 +671,7 @@ function ob_certificates_print_certificate($type){
       if(trim($personal['IND_SALARIO_VARIABLE']) == 'SI') $t_certi = 'e';
     } 
     if(trim($personal['IND_SALARIO_INTEGRAL']) == 'SI'){
-      if(trim($personal['IND_SALARIO_VARIABLE']) == 'NO') $t_certi = 'c';
+      if(trim($personal['IND_SALARIO_VARIABLE']) == 'NO') $t_certi = 'f';
     }
   }
   $personal['to'] = $_SESSION['custom']['to'];
